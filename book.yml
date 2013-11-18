@@ -1,0 +1,11 @@
+---
+title: softcover_book
+slug: softcover_book
+filename: softcover_book
+subtitle: Change-me
+cover: images/cover.png
+description: Change me.
+copyright: 2013
+uuid: b2bfdd92-e5f1-4dc6-b7ce-4999e3870a12
+pdf_preview_page_range: 1..30
+epub_mobi_preview_chapter_range: 0..1
