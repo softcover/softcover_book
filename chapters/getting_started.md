@@ -1,7 +1,9 @@
 # Getting started
 \label{cha:getting_started}
 
-This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors. Softcover consists of two parts: an [open-source typesetting system](https://github.com/softcover/softcover) for producing high-quality ebooks, and a [website](http://softcover.io/) for publishing (and optionally selling) ebooks and other digital goods.
+This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a digital publishing platform for technical authors. Softcover consists of two parts: an [open-source typesetting system](https://github.com/softcover/softcover) for producing high-quality multi-format ebooks, and a [website](http://softcover.io/) for publishing (and optionally selling) ebooks and other digital goods.
+
+
 
 an open-source
 ebook typesetting system for technical authors.[^1] Its *raison d'\^{e}tre* is producing
@@ -27,7 +29,7 @@ range of features useful for writing technical books, including
 mathematical typesetting (Eq. )[^3] and syntax-highlighted source code
 listings (Listing~\ref{code:eval}).  is also well-suited to writing
 non-technical books, with support for chapters, sections,
-cross-references, footnotes, lists, figures, tables, etc.—the only
+cross-references, footnotes, lists, figures, tables, etc.---the only
 requirement is that the *author* be technical. (If you know how to use a
 command line and have a favorite text editor, you are technical enough
 to use .)
