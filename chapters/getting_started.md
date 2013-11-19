@@ -1,24 +1,21 @@
 # Getting started
-\label{cha:getting_started}
+\label{cha:getting-started}
 
-This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a digital publishing platform for technical authors. Softcover consists of two parts: an [open-source typesetting system](https://github.com/softcover/softcover) for producing high-quality multi-format ebooks, and a [website](http://softcover.io/) for publishing (and optionally selling) ebooks and other digital goods.
+This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a digital publishing platform for technical authors. It is designed to help authors make the transition from "writing a book" to "building a product empire," using the techniques from the article [How I made $700,000 writing a free Rails tutorial](http://example.com/). Softcover consists of two parts: an [open-source typesetting system](https://github.com/softcover/softcover) for producing high-quality multi-format ebooks (Section~\ref{sec:softcover-system}), and a [website](http://softcover.io/) for publishing (and optionally selling) ebooks and other digital goods (Section~\ref{sec:softcover-website}).
+
+## The typesetting system
+\label{sec:softcover-system}
+
+In this section, we'll cover the basics of `softcover`, an open-source ebook typesetting system for technical authors. Its [*raison d'\^{e}tre*](http://www.merriam-webster.com/dictionary/raison%20d'etre) is producing professional-grade multi-format ebooks from a common set of source files. In particular, `softcover` accepts input in *Markdown* (Chapter~\ref{cha:markdown}), a lightweight markup language, or *\PolyTeX* (Chapter~\ref{cha:polytex}), an easy-to-learn subset of the powerful \LaTeX typesetting language, and outputs ebooks as HTML, EPUB, MOBI, and PDF. The `softcover` system also comes with a local server that automatically rebuilds a book’s HTML output when the source files change, so that your favorite text editor and web browser combine to form a real-time development environment for writing ebooks.[^2] Finally, authors can use  to upload ebooks and other media files to the [Softcover website](http://www.softcover.io/) with a single command, thereby dramatically lowering the barrier to publishing, updating, and selling digital information products.
 
 
+The Softcover platform also comes with integrated information-product marketing to help authors make the transition from "writing a book" to "building a mini product empire".
 
-an open-source
-ebook typesetting system for technical authors.[^1] Its *raison d'\^{e}tre* is producing
-professional-grade multi-format ebooks from a common set of source
-files. In particular,  accepts input in *Markdown*, a lightweight markup
-language, or *\PolyTeX*, an easy-to-learn subset of the powerful
-\LaTeX typesetting language, and outputs ebooks as HTML, EPUB, MOBI, and
-PDF.  also comes with a local server that automatically rebuilds a
-book’s HTML output when the source files change, so that your favorite
-text editor and web browser combine to form a real-time development
-environment for writing ebooks.[^2] Finally, authors can use  to upload
-ebooks and other media files to the [Softcover publishing
-platform](http://softcover.io/) with a single command, thereby
-dramatically lowering the barrier to publishing, updating, and selling
-digital information products.
+This chapter...
+
+Section~\ref{sec:softcover_system} gets you started with the `softcover` publishing system
+
+
 
 Originally developed by [Michael Hartl](http://www.michaelhartl.com/) to
 write the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book) and [*The Tau
@@ -113,7 +110,7 @@ referring to the corresponding place in the source.
     fundamental equations of electrodynamics, in a system called
     *rationalized [MKS
     units](http://en.wikipedia.org/wiki/MKS_system_of_units)*, which set
-    $\mu_0=\epsilon_0=1$. In my view, these are the units in which
+    \( \mu_0=\epsilon_0=1 \). In my view, these are the units in which
     Maxwell’s equations are the most beautiful. Moreover, since the
-    speed of light is $1/\sqrt{\mu_0\epsilon_0}$, this choice of units
-    gives us $c=1$ for free.
+    speed of light is \( 1/\sqrt{\mu_0\epsilon_0} \), this choice of units
+    gives us $\( c=1 \) for free.
