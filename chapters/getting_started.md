@@ -1,9 +1,18 @@
 # Getting started
 \label{cha:getting_started}
 
-This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a digital publishing platform for technical authors.[^online_version] Based on the technology and business model used in the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/), Softcover is designed to help authors make the transition from "writing a book" to "building a product empire".
+This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a digital publishing platform for technical authors.[^online_version] Softcover consists of two principal parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}).
 
-Softcover consists of two principal parts: an [open-source typesetting system](https://github.com/softcover/softcover) for producing high-quality multi-format ebooks (Section~\ref{sec:softcover_system}), and a [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}).
+
+ Based on the technology and business model used in the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/), Softcover is designed to help authors make the transition from "writing a book" to "building a product empire".
+
+Broad outline:
+
+1. Make ebooks, screencasts, etc.
+2. Upload to Softcover and assemble into different product bundles
+3. Profit!!1!
+
+\noindent Steps 2--3 are not strictly necessary, though, and even by itself the `softcover` typesetting system is very useful.
 
 **Note:** Softcover is currently in private beta. Visit [Softcover.io](http://www.softcover.io/) to request an invitation.
 
@@ -83,11 +92,54 @@ The `softcover` system is distributed as a Ruby gem under the permissive [MIT Li
 $ gem install softcover
 ```
 
-\noindent This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). Let's get started by creating a new book project.
+\noindent This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). (You can also use `sc` for short.)
+
+Get help
+
+```console
+$ softcover help
+```
+
+\noindent or
+
+```console
+$ sc help
+```
+
+Result is
+
+```console
+softcover build, build:all           # Build all formats
+softcover build:epub                 # Build EPUB
+softcover build:html                 # Build HTML
+softcover build:mobi                 # Build MOBI
+softcover build:pdf                  # Build PDF
+softcover build:preview              # Build book preview in all formats
+softcover config                     # View local config
+softcover config:add key=value       # Add to your local config vars
+softcover config:remove key          # Remove key from local config vars
+softcover deploy                     # Build & publish book
+softcover epub:validate, epub:check  # Validate EPUB with epubcheck
+softcover help [COMMAND]             # Describe available commands...
+softcover login                      # Log into Softcover account
+softcover logout                     # Log out of Softcover account
+softcover new <name>                 # Generate new book directory structure
+softcover open                       # Open book on Softcover website (OS X)
+softcover publish                    # Publish your book on Softcover
+softcover publish:screencasts        # Publish screencasts
+softcover server                     # Run local server
+softcover unpublish                  # Remove book from Softcover
+softcover version                    # Return the version number
+```
+
+
+
+Let's get started by creating a new book project.
+
 
 ### Creating a Softcover book
 
-The `softcover new` command gets you started writing a new book by generating a template with example markup:
+The way to create a new book with Softcover is to use the command `softcover new <book name>`, which generates a book template with example markup:
 
 ```console
 $ softcover new example_book
@@ -102,6 +154,14 @@ Creating html/jquery/1.10.2
 Creating html/stylesheets
 Creating images
 Creating images/figures
+Creating .softcover-deploy
+Creating example_book.tex
+Creating Book.txt
+Creating book.yml
+Creating chapters/a_chapter.md
+Creating chapters/another_chapter.md
+Creating chapters/preface.md
+Creating chapters/yet_another_chapter.md.
 .
 .
 .
@@ -111,6 +171,152 @@ Creating upquote.sty
 Done. Please update book.yml
 ```
 
+```yaml
+---
+title: softcover_book
+slug: softcover_book
+filename: softcover_book
+subtitle: Change-me
+cover: images/cover.png
+description: Change me.
+copyright: 2013
+uuid: b2bfdd92-e5f1-4dc6-b7ce-4999e3870a12
+pdf_preview_page_range: 1..30
+epub_mobi_preview_chapter_range: 0..1
+```
+
+```yaml
+---
+title: The Softcover Book
+slug: softcover_book
+filename: softcover_book
+subtitle: The manual for Softcover.io
+cover: images/cover.png
+description: Covers the softcover CLI and the Softcover.io website
+copyright: 2013
+uuid: b2bfdd92-e5f1-4dc6-b7ce-4999e3870a12
+pdf_preview_page_range: 1..30
+epub_mobi_preview_chapter_range: 0..1
+```
+
+
+
+The default book format generated by `softcover new` is *Markdown*---or, rather, a superset of Markdown that includes extensions to make Markdown more suitable for writing long documents. This includes the [kramdown](https://github.com/gettalong/kramdown) extensions (footnotes, tables, etc.)\ and GitHub-style code fencing. Authors who want more fine-grained control over their documents (or who already know \LaTeX) can use `softcover new -p` to generate a \PolyTeX\ template instead; see Chapter~\ref{cha:polytex} for details.
+
+
+### Softcover server
+
+```console
+$ softcover server
+```
+
+for short:
+
+```console
+$ sc s
+```
+
+Insert figure showing two terminal windows/tabs
+
+
+### Building ebooks
+
+Requires some dependencies. You will be prompted.
+
+#### PDF
+
+Nicest-looking. Requires \LaTeX.
+
+```console
+$ softcover build:pdf
+```
+
+Uses `xelatex`, dumps a lot to the screen, option to make it quiet. Also runs twice to ensure all cross-references are defined, so option to make it only run once. Lots of options.
+
+```console
+$ softcover help build:pdf
+Usage:
+  softcover build:pdf
+
+Options:
+  -d, [--debug]          # Run raw xelatex for debugging purposes
+  -o, [--once]           # Run PDF generator once (no xref update)
+  -f, [--find-overfull]  # Find overfull hboxes
+  -q, [--quiet]          # Quiet output
+  -s, [--silent]         # Silent output
+
+Build PDF
+```
+
+Be quiet:
+
+```console
+$ softcover build:pdf --quiet
+```
+
+or silent
+
+```console
+$ softcover build:pdf --silent
+```
+
+Run only once. Especially useful when there's something hanging. General tip: type `x`.
+
+```console
+$ softcover build:pdf -o
+```
+
+Debug option mainly useful for \PolyTeX\ books (Chapter~\ref{cha:polytex}).
+
+```console
+$ softcover build:pdf --debug
+```
+
+#### EPUB
+
+EPUB is basically zipped HTML.
+
+```console
+$ softcover build:epub
+```
+
+If you install EpubCheck, you can validate according to the EPUB3 standard with
+
+
+```console
+$ softcover epub:validate
+```
+
+#### MOBI
+
+MOBI is the native format for Kindle. Can use `kindlegen`, but violates ToS to sell it. Alternate is `ebook-convert`, part of the Calibre command-line tools.
+
+```console
+$ softcover build:mobi
+```
+
+#### All formats
+
+once you've installed all the dependencies, you can build all formats at once:
+
+```console
+$ softcover build:all
+```
+
+#### Previews
+
+Can build previews
+
+```yaml
+---
+.
+.
+.
+pdf_preview_page_range: 1..30
+epub_mobi_preview_chapter_range: 0..1
+```
+
+## Publishing to the Softcover website
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -118,6 +324,79 @@ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+### Publishing ebooks
+
+Create account
+
+Log in
+
+```console
+$ softcover login
+```
+
+Publish to the live site
+
+```console
+$ softcover build:all
+$ softcover build:prevew
+$ softcover publish
+```
+
+Open it (OS X)
+
+```console
+$ softcover open
+```
+
+Do everything at once:
+
+```console
+$ softcover deploy
+```
+
+Equivalent to
+
+```console
+$ softcover build:all
+$ softcover build:prevew
+$ softcover publish
+```
+
+but can override by editing config file `.softcover-deploy` in your home directory (Listing~\ref{code:deploy_config}).
+
+\begin{codelisting}
+\label{code:deploy_config}
+\codecaption{The Softcover deployment configuration file. \\ \filepath{\verb+~+/.softcover-deploy}}
+```text
+# Edit this file to customize your deployment steps with custom command options
+# or additional commands.
+#
+# softcover build:all
+# softcover build:preview
+# softcover publish
+```
+\end{codelisting}
+
+
+Skip preview
+
+```text
+softcover build:all
+softcover publish
+```
+
+
+
+
+
+
+
+
+### Markdown basics
+
+Basic Markdown syntax, with embedded \LaTeX.
+
 
 [^online_version]: This document is available online at <http://manual.softcover.io/book>.
 
