@@ -1,0 +1,11 @@
+---
+title: example_book
+slug: example_book
+filename: example_book
+subtitle: Change-me
+cover: images/cover.png
+description: Change me.
+copyright: 2013
+uuid: d00e375e-1095-47b5-8672-3bf86cd89f95
+pdf_preview_page_range: 1..30
+epub_mobi_preview_chapter_range: 0..1
