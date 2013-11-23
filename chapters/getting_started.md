@@ -5,6 +5,8 @@ This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for
 
 Details on the typesetting system, including CLI, and website integration.
 
+This chapter goes through the default steps to generate a book, build ebooks, and upload them to the Softcover website. More details in subsequent chapters.
+
 Box on uses (Box~\ref{aside:softcover_uses}).
 
 
@@ -151,11 +153,13 @@ softcover version                    # Return the version number
 $ sc -v
 ```
 
-
 ### Creating a Softcover book
 
-The way to create a new book with Softcover is to use the command `softcover new <book name>`, which generates a book template with example markup:
+We see from Listing~\ref{code:softcover_help} that the way to generate a new Softcover book is with `softcover new <name>`. Let's try it out and see what happens (Listing~\ref{code:new_example_book}). (Authors who prefer \LaTeX\ to Markdown should generate a \PolyTeX\ book instead; see Chapter~\ref{cha:polytex} to learn how.)
 
+\begin{codelisting}
+\label{code:new_example_book}
+\codecaption{Generating an example book with \kode{softcover new}.}
 ```console
 $ softcover new example_book
 Generating directory: example_book
@@ -185,6 +189,36 @@ Creating softcover.sty
 Creating upquote.sty
 Done. Please update book.yml
 ```
+\end{codelisting}
+
+We see from Listing~\ref{code:new_example_book} that `softcover new` generates a bunch of files, but the heart of it is the `chapters/` directory, which contains the Markdown source for the template book:
+
+```console
+$ cd example_book
+$ ls chapters/
+a_chapter.md           preface.md
+another_chapter.md     yet_another_chapter.md
+```
+
+\noindent The order of these chapters is set by the file `Book.txt` (Listing~\ref{code:book_txt}).
+
+\begin{codelisting}
+\label{code:book_txt}
+\codecaption{The default contents of \kode{Book.txt}.}
+<<(example_book/Book.txt, lang: text)
+\end{codelisting}
+
+\noindent
+
+
+Softcover books also come with a `book.yml` file containing some book metadata (Listing~\ref{code:book_yml}).
+
+\begin{codelisting}
+\label{code:book_yml}
+\codecaption{The default contents of \kode{book.yml}.}
+<<(example_book/book.yml, lang: yaml)
+\end{codelisting}
+
 
 ```yaml
 ---
