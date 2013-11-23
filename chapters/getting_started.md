@@ -3,8 +3,26 @@
 
 This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a digital publishing platform for technical authors.[^online_version] Softcover consists of two principal parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}).
 
+Details on the typesetting system, including CLI, and website integration.
 
- Based on the technology and business model used in the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/), Softcover is designed to help authors make the transition from "writing a book" to "building a product empire".
+Box on uses (Box~\ref{aside:softcover_uses}).
+
+
+\begin{aside}
+\label{aside:softcover_uses}
+\heading{How to use Softcover}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\end{aside}
+
+
+Based on the technology and business model used in the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/), Softcover can be used for many different purposes, but it is mainly designed to help authors make the transition from "writing a book" to "building a product empire".
 
 Broad outline:
 
@@ -12,16 +30,16 @@ Broad outline:
 2. Upload to Softcover and assemble into different product bundles
 3. Profit!!1!
 
-\noindent Steps 2--3 are not strictly necessary, though, and even by itself the `softcover` typesetting system is very useful.
+\noindent Steps 2--3 are not strictly necessary, though, and even by itself the \softcover\  typesetting system is very useful.
 
 **Note:** Softcover is currently in private beta. Visit [Softcover.io](http://www.softcover.io/) to request an invitation.
 
-## The `softcover` typesetting system
+## The \softcover\ typesetting system
 \label{sec:softcover_system}
 
-In this section, we'll cover the basics of `softcover`, an open-source ebook typesetting system for technical authors. Its [*raison d'\^{e}tre*](http://www.merriam-webster.com/dictionary/raison%20d'etre) is producing professional-grade multi-format ebooks from a common set of source files. In particular, `softcover` accepts input in *Markdown*, a lightweight markup language, or *\PolyTeX*, an easy-to-learn subset of the powerful \LaTeX\ typesetting language, and outputs ebooks as HTML, EPUB, MOBI, and PDF. The `softcover` system also comes with a local server that automatically rebuilds a book's HTML output when the source files change, so that your favorite text editor and web browser combine to form a real-time development environment for writing ebooks.[^ipad_trick] Finally, authors can use  to upload ebooks and other media files to the [Softcover website](http://www.softcover.io/) with a single command, thereby dramatically lowering the barrier to publishing, updating, and selling digital information products.
+In this section, we'll cover the basics of \softcover, an open-source ebook typesetting system for technical authors. Its [*raison d'\^{e}tre*](http://www.merriam-webster.com/dictionary/raison%20d'etre) is producing professional-grade multi-format ebooks from a common set of source files. In particular, \softcover\  accepts input in *Markdown*, a lightweight markup language, or *\PolyTeX*, an easy-to-learn subset of the powerful \LaTeX\ typesetting language, and outputs ebooks as HTML, EPUB, MOBI, and PDF. The \softcover\  system also comes with a local server that automatically rebuilds a book's HTML output when the source files change, so that your favorite text editor and web browser combine to form a real-time development environment for writing ebooks.[^ipad_trick] Finally, authors can use \softcover\ to upload ebooks and other media files to the [Softcover website](http://www.softcover.io/) with a single command, thereby dramatically lowering the barrier to publishing, updating, and selling digital information products.
 
-Originally developed under the name *\PolyTeXnic*[^poly_pronunciation] to write the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book) and [*The Tau Manifesto*](http://tauday.com/tau-manifesto), `softcover` has been rewritten and expanded as part of developing the [Softcover publishing platform](http://www.softcover.io/). True to its origins, `softcover` supports a wide range of features useful for writing technical books, including mathematical typesetting (Eq.~\eqref{eq:maxwell})[^maxwell] and syntax-highlighted source code listings (Listing~\ref{code:eval}). It is also well-suited to writing non-technical books, with support for chapters, sections, cross-references, footnotes, lists, figures, tables, etc.---the only requirement is that the *author* be technical. (If you know how to use a command line and have a favorite text editor, you are technical enough to use `softcover`.)
+Originally developed under the name *\PolyTeXnic*[^poly_pronunciation] to write the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book) and [*The Tau Manifesto*](http://tauday.com/tau-manifesto), \softcover\  has been rewritten and expanded as part of developing the [Softcover publishing platform](http://www.softcover.io/). True to its origins, \softcover\  supports a wide range of features useful for writing technical books, including mathematical typesetting (Eq.~\eqref{eq:maxwell})[^maxwell] and syntax-highlighted source code listings (Listing~\ref{code:eval}). It is also well-suited to writing non-technical books, with support for chapters, sections, cross-references, footnotes, lists, figures, tables, etc.---the only requirement is that the *author* be technical. (If you know how to use a command line and have a favorite text editor, you are technical enough to use \softcover.)
 
 \begin{equation}
 \label{eq:maxwell}
@@ -82,33 +100,25 @@ Originally developed under the name *\PolyTeXnic*[^poly_pronunciation] to write 
 ```
 \end{codelisting}
 
-Naturally, *The Softcover Book* itself is written using `softcover`. Indeed, you can consider this manual the *de facto* [spec](http://en.wikipedia.org/wiki/Specification_(technical_standard)) for the system: essentially everything that `softcover` can do, this document does. Because the [source code](http://github.com/softcover/softcover_book) of *The Softcover Book* is available online, you can learn how to typeset anything you see in this manual simply by referring to the corresponding place in the source.
+Naturally, *The Softcover Book* itself is written using \softcover. Indeed, you can consider this manual the *de facto* [spec](http://en.wikipedia.org/wiki/Specification_(technical_standard)) for the system: essentially everything that \softcover\  can do, this document does. Because the [source code](http://github.com/softcover/softcover_book) of *The Softcover Book* is available online, you can learn how to typeset anything you see in this manual simply by referring to the corresponding place in the source.
 
-### Installing `softcover`
+### Installing \softcover
 
-The `softcover` system is distributed as a Ruby gem under the permissive [MIT License](http://opensource.org/licenses/MIT). Installing `softcover` is simple once you have installed Ruby and RubyGems:
+The \softcover\ system is distributed as a Ruby gem under the permissive [MIT License](http://opensource.org/licenses/MIT). To get started with \softcover, first [install Ruby](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_ruby) and [install RubyGems](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_rubygems) if you don't have them already. Getting \softcover\ is then a simple `gem install`:
 
 ```console
 $ gem install softcover
 ```
 
-\noindent This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). (You can also use `sc` for short.)
+\noindent This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/).
 
-Get help
+To see the commands supported by `softcover`, run `softcover help` at the command line (Listing~\ref{code:softcover_help}).
 
+\begin{codelisting}
+\label{code:softcover_help}
+\codecaption{Viewing available \texttt{softcover} commands with \kode{softcover help}.}
 ```console
 $ softcover help
-```
-
-\noindent or
-
-```console
-$ sc help
-```
-
-Result is
-
-```console
 softcover build, build:all           # Build all formats
 softcover build:epub                 # Build EPUB
 softcover build:html                 # Build HTML
@@ -131,10 +141,15 @@ softcover server                     # Run local server
 softcover unpublish                  # Remove book from Softcover
 softcover version                    # Return the version number
 ```
+\end{codelisting}
 
 
 
-Let's get started by creating a new book project.
+\noindent For convenience, \softcover\ also installs a shorter alias, `sc`, so you can get, e.g, the version number by typing
+
+```console
+$ sc -v
+```
 
 
 ### Creating a Softcover book
@@ -365,9 +380,10 @@ $ softcover publish
 
 but can override by editing config file `.softcover-deploy` in your home directory (Listing~\ref{code:deploy_config}).
 
+
 \begin{codelisting}
 \label{code:deploy_config}
-\codecaption{The Softcover deployment configuration file. \\ \filepath{\verb+~+/.softcover-deploy}}
+\codecaption{The Softcover deployment configuration file. \\ \filepath{\$HOME/.softcover-deploy}}
 ```text
 # Edit this file to customize your deployment steps with custom command options
 # or additional commands.
@@ -400,7 +416,7 @@ Basic Markdown syntax, with embedded \LaTeX.
 
 [^online_version]: This document is available online at <http://manual.softcover.io/book>.
 
-[^ipad_trick]: My favorite trick is to connect an iPad to the `softcover` server's address on the local network, effectively using the iPad as an external monitor. Then, when I save a source file, the iPad's browser magically refreshes with the updated content.
+[^ipad_trick]: My favorite trick is to connect an iPad to the \softcover\  server's address on the local network, effectively using the iPad as an external monitor. Then, when I save a source file, the iPad's browser magically refreshes with the updated content.
 
 [^poly_pronunciation]: \PolyTeXnic\ is pronounced exactly like the English word *polytechnic*.
 

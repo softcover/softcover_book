@@ -1,10 +1,10 @@
 ---
-title: softcover_book
+title: The Softcover Book
 slug: softcover_book
 filename: softcover_book
-subtitle: Change-me
+subtitle: Publishing made frictionless
 cover: images/cover.png
-description: Change me.
+description: The manual for the Softcover typesetting and publishing system
 copyright: 2013
 uuid: b2bfdd92-e5f1-4dc6-b7ce-4999e3870a12
 pdf_preview_page_range: 1..30

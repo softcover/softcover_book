@@ -31,3 +31,4 @@ screencasts/
 # Other miscellaneous files
 log/
 .DS_Store
+.ruby-*
