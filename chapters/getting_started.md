@@ -155,7 +155,7 @@ $ sc -v
 
 ### Creating a Softcover book
 
-We see from Listing~\ref{code:softcover_help} that the way to generate a new Softcover book is with `softcover new <name>`. Let's try it out and see what happens (Listing~\ref{code:new_example_book}). (Authors who prefer \LaTeX\ to Markdown should generate a \PolyTeX\ book instead; see Chapter~\ref{cha:polytex} to learn how.)
+We see from Listing~\ref{code:softcover_help} that the way to generate a new Softcover book is with `softcover new <name>`. Let's try it out and see what happens (Listing~\ref{code:new_example_book}). (Authors who prefer \LaTeX\ to Markdown should generate a \PolyTeX\ book instead; see Chapter~\ref{cha:polytex_documents} to learn how.)
 
 \begin{codelisting}
 \label{code:new_example_book}
