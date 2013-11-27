@@ -9,12 +9,11 @@ This chapter goes through the default steps to generate a book, build ebooks, an
 
 Box on uses (Box~\ref{aside:softcover_uses}).
 
-
 \begin{aside}
 \label{aside:softcover_uses}
 \heading{How to use Softcover}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+\noindent Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -22,7 +21,6 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 \end{aside}
-
 
 Based on the technology and business model used in the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/), Softcover can be used for many different purposes, but it is mainly designed to help authors make the transition from "writing a book" to "building a product empire".
 
@@ -106,15 +104,15 @@ Naturally, *The Softcover Book* itself is written using \softcover. Indeed, you
 
 ### Installing \softcover
 
-The \softcover\ system is distributed as a Ruby gem under the permissive [MIT License](http://opensource.org/licenses/MIT). To get started with \softcover, first [install Ruby](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_ruby) and [install RubyGems](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_rubygems) if you don't have them already. Getting \softcover\ is then a simple `gem install`:
+The \softcover\ system is open-source software, distributed as a Ruby gem under the permissive [MIT License](http://opensource.org/licenses/MIT). To get started with \softcover, first [install Ruby](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_ruby) and [install RubyGems](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_rubygems) if you don't have them already. Once you've done so, getting \softcover\ is then a simple `gem install`:
 
 ```console
 $ gem install softcover
 ```
 
-\noindent This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/).
+\noindent This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). To build the full set of output formats, \softcover\ requires some external dependencies, which you will be prompted to install at the appropriate time (e.g., when you try to build a PDF, you'll be prompted to install \LaTeX). These dependencies are also covered in the sections below, and Section~\ref{sec:all_dependencies} lists all the dependencies in one place in case you want to install them all at the same time.
 
-To see the commands supported by `softcover`, run `softcover help` at the command line (Listing~\ref{code:softcover_help}).
+To see the commands supported by `softcover`, run `softcover help` at the command line, as shown in Listing~\ref{code:softcover_help}.
 
 \begin{codelisting}
 \label{code:softcover_help}
@@ -141,21 +139,22 @@ softcover publish                    # Publish your book on Softcover
 softcover publish:screencasts        # Publish screencasts
 softcover server                     # Run local server
 softcover unpublish                  # Remove book from Softcover
-softcover version                    # Return the version number
+softcover version                    # Return the version number (-v for short)
 ```
 \end{codelisting}
 
-
-
-\noindent For convenience, \softcover\ also installs a shorter alias, `sc`, so you can get, e.g, the version number by typing
+\noindent For convenience, \softcover\ also installs a shorter alias, `sc`, so you can get, e.g, the current version number by typing any of the following:
 
 ```console
+$ softcover version
+$ softcover -v
+$ sc version
 $ sc -v
 ```
 
 ### Creating a Softcover book
 
-We see from Listing~\ref{code:softcover_help} that the way to generate a new Softcover book is with `softcover new <name>`. Let's try it out and see what happens (Listing~\ref{code:new_example_book}). (Authors who prefer \LaTeX\ to Markdown should generate a \PolyTeX\ book instead; see Chapter~\ref{cha:polytex_documents} to learn how.)
+We see from Listing~\ref{code:softcover_help} that the way to generate a new Softcover book is with `softcover new <name>`. Let's try it out and see what happens; the results are shown in Listing~\ref{code:new_example_book}.
 
 \begin{codelisting}
 \label{code:new_example_book}
@@ -190,6 +189,8 @@ Creating upquote.sty
 Done. Please update book.yml
 ```
 \end{codelisting}
+
+(Authors who prefer \LaTeX\ to Markdown should generate a \PolyTeX\ book using `softcover new -p <name>`. See Chapter~\ref{cha:polytex_documents} for details.)
 
 We see from Listing~\ref{code:new_example_book} that `softcover new` generates a bunch of files, but the heart of it is the `chapters/` directory, which contains the Markdown source for the template book:
 
@@ -388,7 +389,7 @@ Publish to the live site
 
 ```console
 $ softcover build:all
-$ softcover build:prevew
+$ softcover build:preview
 $ softcover publish
 ```
 
@@ -408,7 +409,7 @@ Equivalent to
 
 ```console
 $ softcover build:all
-$ softcover build:prevew
+$ softcover build:preview
 $ softcover publish
 ```
 
@@ -436,16 +437,7 @@ softcover build:all
 softcover publish
 ```
 
-
-
-
-
-
-
-
-### Markdown basics
-
-Basic Markdown syntax, with embedded \LaTeX.
+### Debugging help
 
 
 [^online_version]: This document is available online at <http://manual.softcover.io/book>.

@@ -5,4 +5,6 @@ tableofcontents
 preface.md
 mainmatter:
 getting_started.md
+markdown_documents.md
 polytex_documents.tex
+detailed_refinements.tex
