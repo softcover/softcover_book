@@ -38,7 +38,7 @@ Broad outline:
 ## The \softcover\ typesetting system
 \label{sec:softcover_system}
 
-In this section, we'll cover the basics of \softcover, an open-source ebook typesetting system for technical authors. Its [*raison d'\^{e}tre*](http://www.merriam-webster.com/dictionary/raison%20d'etre) is producing professional-grade multi-format ebooks from a common set of source files. In particular, \softcover\ accepts input in *Markdown*, a lightweight markup language, or *\PolyTeX*, an easy-to-learn subset of the powerful \LaTeX\ typesetting language, and outputs ebooks as HTML, EPUB, MOBI, and PDF. The \softcover\  system also comes with a local server that automatically rebuilds a book's HTML output when the source files change, so that your favorite text editor and web browser combine to form a real-time development environment for writing ebooks.[^ipad_trick] Finally, authors can use \softcover\ to upload ebooks and other media files to the [Softcover website](http://www.softcover.io/) with a single command, thereby dramatically lowering the barrier to publishing, updating, and selling digital information products.
+In this section, we'll cover the basics of \softcover, an open-source ebook typesetting system for technical authors. Its [*raison d'\^{e}tre*](http://www.merriam-webster.com/dictionary/raison%20d'etre) is producing professional-grade multi-format ebooks from a common set of source files. In particular, \softcover\ accepts input in *Markdown*, a lightweight markup language, or *\PolyTeX*, an easy-to-learn subset of the powerful \LaTeX\ typesetting language, and outputs ebooks as HTML, EPUB, MOBI, and PDF. The \softcover\  system also comes with a local server that automatically rebuilds a book's HTML output when the source files change, so that your favorite text editor and web browser combine to form a real-time development environment for writing ebooks. Finally, authors can use \softcover\ to upload ebooks and other media files to the [Softcover website](http://www.softcover.io/) with a single command, thereby dramatically lowering the barrier to publishing, updating, and selling digital information products.
 
 Originally developed under the name *\PolyTeXnic*[^poly_pronunciation] to write the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book) and [*The Tau Manifesto*](http://tauday.com/tau-manifesto), \softcover\  has been rewritten and expanded as part of developing the [Softcover publishing platform](http://www.softcover.io/). True to its origins, \softcover\ supports a wide range of features useful for writing technical books, including mathematical typesetting (Eq.~\eqref{eq:maxwell})[^maxwell] and syntax-highlighted source code listings (Listing~\ref{code:eval}). It is also well-suited to writing non-technical books, with support for chapters, sections, cross-references, footnotes, lists, figures, tables, etc.---the only requirement is that the *author* be technical. (If you know how to use a command line and have a favorite text editor, you are technical enough to use \softcover.)
 
@@ -251,9 +251,27 @@ epub_mobi_preview_chapter_range: 0..1
 -->
 
 
-### Softcover server
+### HTML and the Softcover server
+\label{sec:html_softcover_server}
 
-To get started writing the book, let's open up a new terminal tab (Figure~\ref{fig:softcover_server}), navigate to the book directory, and fire up the local Softcover server:
+To get started writing the book, we'll first build and HTML version of the template book:
+
+```console
+$ softcover build:html
+```
+
+\noindent The result is a separate HTML file for each chapter in the `html/` directory. Let's take a look at the HTML for the first chapter, `html/a_chapter.html` by opening it in a browser. On most systems, this can be accomplished by using a filesystem viewer to navigate to the `html/` directory and double-clicking on `a_chapter.html`. On Macintosh OS X, we can accomplish the same thing at the command line using the `open` command, which opens the given file using the default application for that file type:
+
+```console
+$ open html/a_chapter.html
+```
+
+\noindent On my system, the default application for `.html` files is Chrome, so I get the result shown in Figure~\ref{fig:chrome_html}.
+
+![Viewing the HTML file for the first chapter.\label{fig:chrome_html}](images/figures/chrome_html.png)
+
+While inspecting HTML files is sometimes useful for debugging purposes, the best way to develop Softcover books is using the local Softcover server, which
+detects when the source files have changed and automatically refreshes the browser.[^multiple_browsers] Let's open up a new terminal tab (Figure~\ref{fig:softcover_server}), navigate to the book directory, and fire up `softcover server`:[^sc_s]
 
 ```console
 $ softcover server
@@ -266,15 +284,74 @@ Maximum connections set to 1024
 Listening on 0.0.0.0:4000, CTRL+C to stop
 ```
 
+\noindent Opening a browser and navigating to <http://localhost:4000> then gives us a view of the HTML version of the first chapter of the book (Figure~\ref{fig:localhost_4000}).
+
 ![Running the Softcover server in a separate tab.\label{fig:softcover_server}](images/figures/softcover_server.png)
 
-foo
-Insert figure showing two terminal windows/tabs
+![Viewing the book on http://localhost:4000.\label{fig:localhost_4000}](images/figures/localhost_4000.png)
 
+Writing books works just fine with a text editor and browser placed side-by-side (Figure~\ref{fig:editor_browser}), but my favorite trick is to connect an iPad to the Softcover server's address on the local network, effectively using the iPad as an external monitor. Then, when I save a source file, the iPad's browser magically refreshes with the updated content. This setup is especially nice for people (like me) who work remotely and prefer for their full production setup to be mobile (Figure~\ref{fig:ipad_monitor}).
+
+*Note*: You can find the local network address by examining the results of `ifconfig`; in my experience the relevant address usually begins with `192` (when on the local wireless network) or `172` (when attached directly to a computer), so you can probably extract the right local address using the following command:
+
+```console
+$ ifconfig | egrep '(172|192)'
+```
+
+For now, I suggest playing around with the server a little to get the hang of it, then but then quickly move on to building the various ebook formats (Section~\ref{sec:building_ebooks}). We'll have more to say about writing a book using the Softcover server in Chapter~\ref{cha:markdown_tutorial} and Chapter~\ref{cha:polytex_tutorial}.
+
+![Writing with the editor and browser side-by-side.\label{fig:editor_browser}](images/figures/editor_browser.png)
+
+![Using an iPad as an external monitor.\label{fig:ipad_monitor}](images/figures/ipad_monitor.png)
 
 ### Building ebooks
+\label{sec:building_ebooks}
 
-Requires some dependencies. You will be prompted.
+As noted in Section~\ref{sec:softcover_system}, the \softcover\ system outputs HTML, EPUB, MOBI, and PDF. We saw in Section~\ref{sec:html_softcover_server} that HTML generation comes bundled with the `softcover` gem; since EPUB is basically zipped HTML, EPUB generation comes for free as well. On the other hand, generating MOBI and PDF books requires installing some external dependencies. The `softcover` command will automatically prompt you to install the relevant software when the time comes; for example, if you try to build a PDF on a system without \LaTeX, you'll get this prompt with a link to the \LaTeX\ installation page:
+
+```console
+$ softcover build:pdf
+Building PDF...
+Install LaTeX (http://latex-project.org/ftp.html)
+```
+
+#### EPUB
+
+EPUB books are essentially HTML combined with CSS and various configuration files, all zipped together in one package. (The easiest way to see this is to change an EPUB file's extension from `.epub` to `.zip` and double-click it.) Getting all the details just right is a real pain, though, and luckily Softcover does is for you:
+
+```console
+$ softcover build:epub
+```
+
+\noindent By default the output is verbose, but you can pass command-line options to make it quiet (`-q`) or silent (`-s`).
+
+The generated EPUB book is located in the `ebooks` directory:
+
+```console
+$ ls ebooks/
+example_book.epub
+```
+
+\noindent If you don't already have an EPUB viewer installed on your computer, I suggest [Adobe Digital Editions](http://www.adobe.com/products/digital-editions.html). On my system, this program is associated with `.epub` files, so I can open the example book EPUB like this:
+
+```console
+$ open ebooks/example_book.epub
+```
+
+\noindent The result appears in Figure~\ref{fig:example_epub}.
+
+![The template book EPUB.\label{fig:example_epub}](images/figures/example_epub.png)
+
+
+#### MOBI
+
+Once you've produced an EPUB book, producing MOBI (the native format for Amazon.com's Kindle) is easy, as there are two standard programs to convert EPUB to MOBI. The first and most popular is `kindlegen`, supplied by Amazon.com itself, but as you can see on the [\texttt{kindlegen} download page](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) selling the resulting MOBI anywhere other than Amazon.com violates the terms of service. To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk. Luckily, there is an open-source alternative, and I recommend you [install Calibre](http://calibre-ebook.com/) and then follow the instructions to [enable Calibre command line tools](http://manual.calibre-ebook.com/cli/cli-index.html). This gets you the `ebook-convert` command, and this is what \softcover\ uses by default to build MOBI files:
+
+```console
+$ softcover build:mobi
+```
+
+\noindent The result appears in Figure~\ref{fig:example_mobi}
 
 #### PDF
 
@@ -325,28 +402,6 @@ Debug option mainly useful for \PolyTeX\ books (Chapter~\ref{cha:polytex}).
 $ softcover build:pdf --debug
 ```
 
-#### EPUB
-
-EPUB is basically zipped HTML.
-
-```console
-$ softcover build:epub
-```
-
-If you install EpubCheck, you can validate according to the EPUB3 standard with
-
-
-```console
-$ softcover epub:validate
-```
-
-#### MOBI
-
-MOBI is the native format for Kindle. Can use `kindlegen`, but violates ToS to sell it. Alternate is `ebook-convert`, part of the Calibre command-line tools.
-
-```console
-$ softcover build:mobi
-```
 
 #### All formats
 
@@ -440,13 +495,15 @@ softcover build:all
 softcover publish
 ```
 
-### Debugging help
-
 
 [^online_version]: This document is available online at <http://manual.softcover.io/book>.
-
-[^ipad_trick]: My favorite trick is to connect an iPad to the \softcover\  server's address on the local network, effectively using the iPad as an external monitor. Then, when I save a source file, the iPad's browser magically refreshes with the updated content.
 
 [^poly_pronunciation]: \PolyTeXnic\ is pronounced exactly like the English word *polytechnic*.
 
 [^maxwell]: If already know [Maxwell's equations](http://en.wikipedia.org/wiki/Maxwell's_equations), the fundamental equations of electrodynamics, Eq.~\eqref{eq:maxwell} may look a little unfamiliar. This is because it writes the equations in a system called *rationalized [MKS units](http://en.wikipedia.org/wiki/MKS_system_of_units)*, which set \( \mu_0=\epsilon_0=1 \). In my view, these are the units in which Maxwell's equations are the most beautiful. Moreover, since the speed of light is \( 1/\sqrt{\mu_0\epsilon_0} \), this choice of units gives us \( c = 1 \) for free.
+
+[^multiple_browsers]: Take care to attach only one browser to localhost:4000 at a time; otherwise, the Softcover server won't know which one to refresh.
+
+[^sc_s]: For brevity, you can use `s` in place of `server`, as in `softcover s`. Since `sc` is an alias for `softcover`, you can even write `sc s` to start the local server. This is a little cryptic, so in the text I write `softcover server`, but in real life I nearly always just type `sc s`.
+
+[^epubcheck_3_0_1]: Note that EpubCheck 3.0.1 is buggy, so it is important to use EpubCheck 3.0.
