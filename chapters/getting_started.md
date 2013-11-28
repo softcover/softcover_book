@@ -345,7 +345,7 @@ $ open ebooks/example_book.epub
 
 #### MOBI
 
-Once you've produced an EPUB book, producing MOBI (the native format for Amazon.com's Kindle) is easy, as there are two standard programs to convert EPUB to MOBI. The first and most popular is `kindlegen`, supplied by Amazon.com itself, but as you can see on the [\texttt{kindlegen} download page](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) selling the resulting MOBI anywhere other than Amazon.com violates the terms of service. To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk. Luckily, there is an open-source alternative, and I recommend you [install Calibre](http://calibre-ebook.com/) and then follow the instructions to [enable Calibre command line tools](http://manual.calibre-ebook.com/cli/cli-index.html). This gets you the `ebook-convert` command, and this is what \softcover\ uses by default to build MOBI files:
+Once you've built an EPUB book, making a MOBI (the native format for Amazon.com's Kindle) is easy. The first and most popular way is `kindlegen`, supplied by Amazon.com itself, but as you can see on the [\texttt{kindlegen} download page](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) selling the resulting MOBI anywhere other than Amazon.com violates the `kindlegen` terms of service. To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk. Luckily, there is an open-source alternative, and I recommend you [install Calibre](http://calibre-ebook.com/) and then follow the instructions to [enable Calibre command line tools](http://manual.calibre-ebook.com/cli/cli-index.html). This gets you the `ebook-convert` command, and this is what \softcover\ uses by default to build MOBI files:
 
 ```console
 $ softcover build:mobi
@@ -362,16 +362,15 @@ If you're not planning to sell your book's MOBI file, or if you're willing to ri
 $ softcover build:mobi --kindlegen
 ```
 
-
 #### PDF
 
-Although the EPUB and MOBI ebooks formats are popular, my preferred format (especially for technical books) is PDF. Building PDF books requires [installing LaTeX](http://latex-project.org/ftp.html) (specifically, the `xelatex` executable, which is a Unicode-friendly PDF builder). \LaTex\ is a large download, but it's easy to install, and in fact you may already have it:
+Although the EPUB and MOBI ebooks formats are increasingly popular, my preferred ebook format (especially for technical books) is PDF. Building PDF books requires [installing LaTeX](http://latex-project.org/ftp.html) (specifically, the `xelatex` executable, which is a Unicode-friendly PDF builder). \LaTeX\ is a large download, but it's easy to install, and in fact you may already have it:
 
 ```console
 $ which xelatex
 ```
 
-\noindent In any case, once \LaTeX\ is installed building a PDF is easy:
+\noindent If that command returns the path to `xelatex`, you can skip the installation step. In any case, building a PDF is easy once \LaTeX\ is installed:
 
 ```console
 $ softcover build:pdf
@@ -381,7 +380,7 @@ $ softcover build:pdf
 
 ![The example book PDF.\label{fig:example_pdf}](images/figures/example_pdf.png)
 
-The `xelatex` command dumps a lot to the screen, and as with EPUB and MOBI you can use command-line options to make the MOBI builder quiet (`-q`) or silent (`-s`), but I strongly recommend using the default verbose option unless you're *sure* the file will build without error. The problem is that `xelatex` will hang on syntax errors, and you need to be able to type `x` to exit.
+The `softcover build:pdf` command dumps a lot to the screen, and as with EPUB and MOBI you can use command-line options to make the PDF builder quiet (`-q`) or silent (`-s`), but I strongly recommend using the default verbose option unless you're *sure* the file will build without error. The problem is that `xelatex` will hang on syntax errors, and you need to be able to type `x` to exit. (Remember that: type `x` to exit when the PDF builder hangs. I guarantee you will need to use this information at some point.)
 
 By default, the PDF builder runs twice to ensure all cross-references are updated, but if the cross-references haven't changed you can pass an option to make it run only once:
 
