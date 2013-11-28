@@ -340,7 +340,7 @@ $ open ebooks/example_book.epub
 
 \noindent The result appears in Figure~\ref{fig:example_epub}.
 
-![The template book EPUB.\label{fig:example_epub}](images/figures/example_epub.png)
+![The example book EPUB.\label{fig:example_epub}](images/figures/example_epub.png)
 
 
 #### MOBI
@@ -351,70 +351,73 @@ Once you've produced an EPUB book, producing MOBI (the native format for Amazon.
 $ softcover build:mobi
 ```
 
-\noindent The result appears in Figure~\ref{fig:example_mobi}
+\noindent The result appears in Figure~\ref{fig:example_mobi}. As with EPUB, you can use command-line options to make the MOBI builder quiet (`-q`) or silent (`-s`).
+
+
+![The example book MOBI.\label{fig:example_mobi}](images/figures/example_mobi.png)
+
+If you're not planning to sell your book's MOBI file, or if you're willing to risk violating Amazon's terms of service, you can optionally use `softcover` with `kindlegen` instead:
+
+```console
+$ softcover build:mobi --kindlegen
+```
+
 
 #### PDF
 
-Nicest-looking. Requires \LaTeX.
+Although the EPUB and MOBI ebooks formats are popular, my preferred format (especially for technical books) is PDF. Building PDF books requires [installing LaTeX](http://latex-project.org/ftp.html) (specifically, the `xelatex` executable, which is a Unicode-friendly PDF builder). \LaTex\ is a large download, but it's easy to install, and in fact you may already have it:
+
+```console
+$ which xelatex
+```
+
+\noindent In any case, once \LaTeX\ is installed building a PDF is easy:
 
 ```console
 $ softcover build:pdf
 ```
 
-Uses `xelatex`, dumps a lot to the screen, option to make it quiet. Also runs twice to ensure all cross-references are defined, so option to make it only run once. Lots of options.
+\noindent The result appears in Figure~\ref{fig:example_pdf}.
+
+![The example book PDF.\label{fig:example_pdf}](images/figures/example_pdf.png)
+
+The `xelatex` command dumps a lot to the screen, and as with EPUB and MOBI you can use command-line options to make the MOBI builder quiet (`-q`) or silent (`-s`), but I strongly recommend using the default verbose option unless you're *sure* the file will build without error. The problem is that `xelatex` will hang on syntax errors, and you need to be able to type `x` to exit.
+
+By default, the PDF builder runs twice to ensure all cross-references are updated, but if the cross-references haven't changed you can pass an option to make it run only once:
 
 ```console
-$ softcover help build:pdf
-Usage:
-  softcover build:pdf
-
-Options:
-  -d, [--debug]          # Run raw xelatex for debugging purposes
-  -o, [--once]           # Run PDF generator once (no xref update)
-  -f, [--find-overfull]  # Find overfull hboxes
-  -q, [--quiet]          # Quiet output
-  -s, [--silent]         # Silent output
-
-Build PDF
+$ softcover build:pdf --once
 ```
 
-Be quiet:
-
-```console
-$ softcover build:pdf --quiet
-```
-
-or silent
-
-```console
-$ softcover build:pdf --silent
-```
-
-Run only once. Especially useful when there's something hanging. General tip: type `x`.
-
-```console
-$ softcover build:pdf -o
-```
-
-Debug option mainly useful for \PolyTeX\ books (Chapter~\ref{cha:polytex}).
-
-```console
-$ softcover build:pdf --debug
-```
+\noindent This not only saves valuable time when building a longer book, but it is also useful when you're debugging a \LaTeX\ syntax error and you don't want to keep pressing `x` twice every time you run the command.
 
 
 #### All formats
 
-once you've installed all the dependencies, you can build all formats at once:
+Once you've installed all the dependencies as above, you can build all formats at once:
 
 ```console
 $ softcover build:all
 ```
 
+\noindent On my system (an older MacBook Air), \softcover\ builds the template book's HTML, EPUB, MOBI, and PDF in under 15 seconds:
+
+```console
+$ time softcover build:all --silent
+
+real    0m14.159s
+user    0m12.086s
+sys 0m1.185s
+```
+
+
 #### Previews
 
-Can build previews
+Finally, Softcover can optionally build book *previews*, which is a useful feature for prospective readers when selling your ebook (either on your own website or at Softcover.io). Because of the different ways the PDF and EPUB/MOBI formats work, there are two separate ways to specify the preview range. (You have to keep them roughly in sync by hand, but it's rarely important for the preview ranges to be exact, so this isn't a big problem in practice.) The configuration for PDF is a *page* range, while for EPUB & MOBI it's a *chapter* range (with Chapter 0 being frontmatter like the table of contents, preface, etc.), both of which are specified in `book.yml` (Listing~\ref{code:preview_ranges}).
 
+\begin{codelisting}
+\label{code:preview_ranges}
+\codecaption{Specifying the preview ranges in \texttt{book.yml}.}
 ```yaml
 ---
 .
@@ -423,8 +426,19 @@ Can build previews
 pdf_preview_page_range: 1..30
 epub_mobi_preview_chapter_range: 0..1
 ```
+\end{codelisting}
+
+The previews themselves are built as follows:
+
+```console
+$ softcover build:preview
+```
+
+The full Softcover publishing platform automatically uploads all the ebook files, including previews, and makes it simple to distribute them to your readers. We'll learn how to do this in the next section (Section~\ref{sec:softcover_website}).
+
 
 ## Publishing to the Softcover website
+\label{sec:softcover_website}
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
