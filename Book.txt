@@ -7,4 +7,3 @@ mainmatter:
 getting_started.md
 markdown_tutorial.md
 polytex_tutorial.tex
-detailed_refinements.tex

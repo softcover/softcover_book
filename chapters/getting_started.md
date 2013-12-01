@@ -290,7 +290,7 @@ Listening on 0.0.0.0:4000, CTRL+C to stop
 
 ![Viewing the book on http://localhost:4000.\label{fig:localhost_4000}](images/figures/localhost_4000.png)
 
-Writing books works just fine with a text editor and browser placed side-by-side (Figure~\ref{fig:editor_browser}), but my favorite trick is to connect an iPad to the Softcover server's address on the local network, effectively using the iPad as an external monitor. Then, when I save a source file, the iPad's browser magically refreshes with the updated content. This setup is especially nice for people (like me) who work remotely and prefer for their full production setup to be mobile (Figure~\ref{fig:ipad_monitor}).
+Writing books works just fine with a text editor and browser placed side-by-side (Figure~\ref{fig:editor_browser}), but my favorite trick is to connect an iPad to the Softcover server's address on the local network, effectively using the iPad as an external monitor. Then, when I save a source file, the iPad's browser magically refreshes with the updated content. This setup is especially nice for people (like me) who work remotely and prefer for their full production setup to be mobile.
 
 *Note*: You can find the local network address by examining the results of `ifconfig`; in my experience the relevant address usually begins with `192` (when on the local wireless network) or `172` (when attached directly to a computer), so you can probably extract the right local address using the following command:
 
@@ -301,8 +301,6 @@ $ ifconfig | egrep '(172|192)'
 For now, I suggest playing around with the server a little to get the hang of it, then but then quickly move on to building the various ebook formats (Section~\ref{sec:building_ebooks}). We'll have more to say about writing a book using the Softcover server in Chapter~\ref{cha:markdown_tutorial} and Chapter~\ref{cha:polytex_tutorial}.
 
 ![Writing with the editor and browser side-by-side.\label{fig:editor_browser}](images/figures/editor_browser.png)
-
-![Using an iPad as an external monitor.\label{fig:ipad_monitor}](images/figures/ipad_monitor.png)
 
 ### Building ebooks
 \label{sec:building_ebooks}
@@ -439,24 +437,17 @@ The full Softcover publishing platform automatically uploads all the ebook files
 ## Publishing to the Softcover website
 \label{sec:softcover_website}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The \softcover\ command-line client includes commands for interacting with the [Softcover.io](http://softcover.io) website, making it easy to publish the book (in all its formats) to the live web.
 
 ### Publishing ebooks
 
-Create account
-
-Log in
+To get started with [Softcover.io](http://softcover.io), first [create an account]([Softcover.io](http://softcover.io). (At this point, you will also have to use your invitation token to get access to the website.) Once you have an account, log in using the CLI as follows:
 
 ```console
 $ softcover login
 ```
 
-Publish to the live site
+\noindent At this point, you're ready to publish to the live site:
 
 ```console
 $ softcover build:all
@@ -464,19 +455,25 @@ $ softcover build:preview
 $ softcover publish
 ```
 
-Open it (OS X)
+\noindent You can now navigate to your book using your web browser, but in OS X you can open the book at the command line as well:
 
 ```console
 $ softcover open
 ```
 
-Do everything at once:
+\noindent The result appears in Figure~\ref{fig:softcover_live_book}.
+
+![The HTML book on the live website\label{fig:softcover_live_book}](images/figures/softcover_live_book.png)
+
+#### One command to rule them all
+
+For convenience, \softcover\ comes with a `deploy` command to build everything and deploy result:
 
 ```console
 $ softcover deploy
 ```
 
-Equivalent to
+\noindent By default, this is equivalent to the following three steps:
 
 ```console
 $ softcover build:all
@@ -484,12 +481,12 @@ $ softcover build:preview
 $ softcover publish
 ```
 
-but can override by editing config file `.softcover-deploy` in your home directory (Listing~\ref{code:deploy_config}).
-
+\noindent You can customize the behavior of `softcover deploy` by editing the
+file `.softcover-deploy` in the project's root directory (Listing~\ref{code:deploy_config}). For example, to skip building the preview, you could change `.softcover-deploy` as in Listing~\ref{code:deploy_no_preview}.
 
 \begin{codelisting}
 \label{code:deploy_config}
-\codecaption{The Softcover deployment configuration file. \\ \filepath{\$HOME/.softcover-deploy}}
+\codecaption{The Softcover deployment configuration file. \\ \filepath{.softcover-deploy}}
 ```text
 # Edit this file to customize your deployment steps with custom command options
 # or additional commands.
@@ -500,13 +497,18 @@ but can override by editing config file `.softcover-deploy` in your home directo
 ```
 \end{codelisting}
 
-
-Skip preview
-
+\begin{codelisting}
+\label{code:deploy_no_preview}
+\codecaption{Configuring the deployment to skip building a preview. \\ \filepath{.softcover-deploy}}
 ```text
+# Edit this file to customize your deployment steps with custom command options
+# or additional commands.
+#
 softcover build:all
 softcover publish
 ```
+\end{codelisting}
+
 
 
 [^online_version]: This document is available online at <http://manual.softcover.io/book>.
@@ -518,5 +520,3 @@ softcover publish
 [^multiple_browsers]: Take care to attach only one browser to localhost:4000 at a time; otherwise, the Softcover server won't know which one to refresh.
 
 [^sc_s]: For brevity, you can use `s` in place of `server`, as in `softcover s`. Since `sc` is an alias for `softcover`, you can even write `sc s` to start the local server. This is a little cryptic, so in the text I write `softcover server`, but in real life I nearly always just type `sc s`.
-
-[^epubcheck_3_0_1]: Note that EpubCheck 3.0.1 is buggy, so it is important to use EpubCheck 3.0.
