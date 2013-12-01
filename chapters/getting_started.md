@@ -441,7 +441,7 @@ The \softcover\ command-line client includes commands for interacting with the [
 
 ### Publishing ebooks
 
-To get started with [Softcover.io](http://softcover.io), first [create an account]([Softcover.io](http://softcover.io). (At this point, you will also have to use your invitation token to get access to the website.) Once you have an account, log in using the CLI as follows:
+To get started with [Softcover.io](http://softcover.io), first [create an account](http://softcover.io). (At this point, you will also have to use your invitation token to get access to the website.) Once you have an account, log in using the CLI as follows:
 
 ```console
 $ softcover login
