@@ -467,7 +467,7 @@ $ softcover open
 
 #### One command to rule them all
 
-For convenience, \softcover\ comes with a `deploy` command to build everything and deploy result:
+For convenience, \softcover\ comes with a `deploy` command to build everything and deploy the result:
 
 ```console
 $ softcover deploy

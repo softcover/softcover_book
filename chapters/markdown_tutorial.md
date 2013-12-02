@@ -1,4 +1,4 @@
-# Markdown documents
+# Markdown tutorial
 \label{cha:markdown_tutorial}
 
 **Note**: This Markdown tutorial is currently in development. Until it's finished, please consult the following resources:
