@@ -1,7 +1,7 @@
 # Getting started
 \label{cha:getting_started}
 
-This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a digital publishing platform for technical authors.[^online_version] Softcover consists of two principal parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}).
+This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors.[^online_version] Softcover consists of two principal parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}).
 
 
 Details on the typesetting system, including CLI, and website integration.
@@ -14,12 +14,15 @@ Box on uses (Box~\ref{aside:softcover_uses}).
 \label{aside:softcover_uses}
 \heading{How to use Softcover}
 
-\noindent Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\noindent Softcover is designed as a flexible tool, so it has many potential uses. Because of its profit potential, the first use represents Softcover's principal design goal, but the others are valid possibilities as well:
+
+
+* **Bundling `softcover` ebooks with other digital goods and selling them from the [Softcover.io](http://softcover.io/) online storefront**
+* Producing ebooks with `softcover` and giving them away
+* Producing ebooks with `softcover` and selling them from your own website
+* Producing ebooks with `softcover` and selling them using the [Softcover.io](http://softcover.io/) online storefront
+* Using `softcover` to make ebooks out of technical documentation and hosting them on an internal website
+* **(planned)** Selling any ebooks, not just those made with `softcover`
 
 \end{aside}
 
