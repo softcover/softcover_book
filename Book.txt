@@ -5,4 +5,5 @@ tableofcontents
 preface.md
 mainmatter:
 getting_started.md
-polytex.md
+markdown_tutorial.md
+polytex_tutorial.tex

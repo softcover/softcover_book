@@ -32,3 +32,4 @@ screencasts/
 log/
 .DS_Store
 .ruby-*
+*.bak

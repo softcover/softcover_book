@@ -1,0 +1,50 @@
+\chapter{Detailed refinements} % (fold)
+\label{cha:detailed_refinements}
+
+Cover the \href{http://www.thefreedictionary.com/niggling}{niggling} details of ebook-making. Ref \LaTeX\ gotchas, overfull hboxes (hyphenation and linebreaks), noindents, spell correction
+
+ties
+
+include raw graphics, image boxes
+
+\section{Preparing for publication} % (fold)
+\label{sec:preparing_for_publication}
+
+Also cover things like the cover, \kode{book.yml} contents, etc.
+
+Validation
+
+As an optional step, if you install \href{https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip}{EpubCheck 3.0}\footnote{Note that EpubCheck 3.0.1 is buggy, so it is important to use EpubCheck 3.0.} you can validate your book according to the EPUB3 standard with
+
+% ```console
+% $ softcover epub:validate
+% ```
+
+% ```console
+% $ softcover help build:pdf
+% Usage:
+%   softcover build:pdf
+
+% Options:
+%   -d, [--debug]          # Run raw xelatex for debugging purposes
+%   -o, [--once]           # Run PDF generator once (no xref update)
+%   -f, [--find-overfull]  # Find overfull hboxes
+%   -q, [--quiet]          # Quiet output
+%   -s, [--silent]         # Silent output
+
+% Build PDF
+% ```
+
+% Debug option mainly useful for \PolyTeX\ books (Chapter~\ref{cha:polytex}).
+
+% ```console
+% $ softcover build:pdf --debug
+% ```
+
+
+\noindent This isn't particularly useful when you're in the middle of writing your book, as many things (such as undefined cross-references) will render your book invalid.
+
+% section preparing_for_publication (end)
+
+
+% chapter detailed_refinements (end)
