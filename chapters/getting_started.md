@@ -1,47 +1,39 @@
 # Getting started
 \label{cha:getting_started}
 
-This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors.[^online_version] Softcover consists of two principal parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}).
+<!-- **Note:** Softcover is currently in private beta. Visit [Softcover.io](http://www.softcover.io/) to request an invitation. -->
 
+This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors.[^online_version] Softcover consists of two principal parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}). Based on the technology and business model used by the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/), Softcover is designed to help authors make the transition from "writing a book" to "building a product empire" using the following [three-step plan](http://www.youtube.com/watch?v=tO5sxLapAts):
 
-Details on the typesetting system, including CLI, and website integration.
+1. Make ebooks, screencasts, etc.
+2. Release a free HTML book at Softcover while selling ebooks and multiple product bundles
+3. Profit!!1!
 
-This chapter goes through the default steps to generate a book, build ebooks, and upload them to the Softcover website. More details in subsequent chapters.
-
-Box on uses (Box~\ref{aside:softcover_uses}).
+Following the Three Step Plan\texttrademark\ is not strictly necessary, and Softcover can be used for many different purposes (Box~\ref{aside:softcover_uses}). In particular, note that following the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book)'s practice of releasing a free HTML version is *not* required. Authors are encouraged to make the HTML versions of their books free---both as a marketing tool and because it's [awesome](http://breadpig.com/products/awesomesauce)---but Softcover allows the HTML to be placed behind login- or paywalls as well.
 
 \begin{aside}
 \label{aside:softcover_uses}
 \heading{How to use Softcover}
 
-\noindent Softcover is designed as a flexible tool, so it has many potential uses. Because of its profit potential, the first use represents Softcover's principal design goal, but the others are valid possibilities as well:
+\noindent Softcover is designed as a flexible tool, so it has many potential uses. Because of its ability to combine sharing information with making a profit, the first use represents Softcover's principal design goal, but the others are valid possibilities as well:
 
 
-* **Bundling `softcover` ebooks with other digital goods and selling them from the [Softcover.io](http://softcover.io/) online storefront**
-* Producing ebooks with `softcover` and giving them away
-* Producing ebooks with `softcover` and selling them from your own website
-* Producing ebooks with `softcover` and selling them using the [Softcover.io](http://softcover.io/) online storefront
-* Using `softcover` to make ebooks out of technical documentation and hosting them on an internal website
-* **(planned)** Selling any ebooks, not just those made with `softcover`
+* **Make a free HTML book, bundle ebooks with other digital goods, and sell them from the [Softcover.io](http://softcover.io/) online storefront**
+* Charge for all products (including the HTML book) at Softcover.io
+* Produce ebooks with \softcover\ and give them away
+* Produce ebooks with \softcover\ and sell them from your own website
+* Produce ebooks with \softcover\ and sell them using the [Softcover.io](http://softcover.io/) online storefront
+* Use `softcover` to make ebooks out of technical documentation and host them on an internal website
+* **(planned)** Sell any ebooks, not just those made with `softcover`
 
 \end{aside}
 
-Based on the technology and business model used in the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/), Softcover can be used for many different purposes, but it is mainly designed to help authors make the transition from "writing a book" to "building a product empire".
-
-Broad outline:
-
-1. Make ebooks, screencasts, etc.
-2. Upload to Softcover and assemble into different product bundles
-3. Profit!!1!
-
-\noindent Steps 2--3 are not strictly necessary, though, and even by itself the \softcover\  typesetting system is very useful.
-
-**Note:** Softcover is currently in private beta. Visit [Softcover.io](http://www.softcover.io/) to request an invitation.
+In rest of this chapter, we'll cover the steps needed to install and use the \softcover\ typesetting system, which includes a command-line interface for building and publishing ebooks. Subsequent chapters cover Markdown, the default input format for \softcover\ (Chapter~\ref{cha:markdown_tutorial}), and \PolyTeX, a more complicated but more powerful input format based on the \LaTeX\ typesetting language (Chapter~\ref{cha:polytex_tutorial}). Additional chapters are in preparation as well.
 
 ## The \softcover\ typesetting system
 \label{sec:softcover_system}
 
-In this section, we'll cover the basics of \softcover, an open-source ebook typesetting system for technical authors. Its [*raison d'\^{e}tre*](http://www.merriam-webster.com/dictionary/raison%20d'etre) is producing professional-grade multi-format ebooks from a common set of source files. In particular, \softcover\ accepts input in *Markdown*, a lightweight markup language, or *\PolyTeX*, an easy-to-learn subset of the powerful \LaTeX\ typesetting language, and outputs ebooks as HTML, EPUB, MOBI, and PDF. The \softcover\  system also comes with a local server that automatically rebuilds a book's HTML output when the source files change, so that your favorite text editor and web browser combine to form a real-time development environment for writing ebooks. Finally, authors can use \softcover\ to upload ebooks and other media files to the [Softcover website](http://www.softcover.io/) with a single command, thereby dramatically lowering the barrier to publishing, updating, and selling digital information products.
+In this section, we'll cover the basics of \softcover, an open-source ebook typesetting system for technical authors. Its [*raison d'\^{e}tre*](http://www.merriam-webster.com/dictionary/raison%20d'etre) is producing professional-grade multi-format ebooks from a common set of source files. In particular, \softcover\ accepts input in *Markdown*, a lightweight markup language, or *\PolyTeX*, a subset of the powerful \LaTeX\ typesetting language, and outputs ebooks as HTML, EPUB, MOBI, and PDF. The \softcover\  system also comes with a local server that automatically rebuilds a book's HTML output when the source files change, so that your favorite text editor and web browser combine to form a real-time development environment for writing ebooks. Finally, authors can use \softcover\ to upload ebooks and other media files to the [Softcover website](http://www.softcover.io/) with a single command (Section~\ref{sec:softcover_website}), thereby dramatically lowering the barrier to publishing, updating, and selling digital information products.
 
 Originally developed under the name *\PolyTeXnic*[^poly_pronunciation] to write the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book) and [*The Tau Manifesto*](http://tauday.com/tau-manifesto), \softcover\  has been rewritten and expanded as part of developing the [Softcover publishing platform](http://www.softcover.io/). True to its origins, \softcover\ supports a wide range of features useful for writing technical books, including mathematical typesetting (Eq.~\eqref{eq:maxwell})[^maxwell] and syntax-highlighted source code listings (Listing~\ref{code:eval}). It is also well-suited to writing non-technical books, with support for chapters, sections, cross-references, footnotes, lists, figures, tables, etc.---the only requirement is that the *author* be technical. (If you know how to use a command line and have a favorite text editor, you are technical enough to use \softcover.)
 
@@ -108,7 +100,7 @@ Naturally, *The Softcover Book* itself is written using \softcover. Indeed, you 
 
 ### Installing \softcover
 
-The \softcover\ system is open-source software, distributed as a Ruby gem under the permissive [MIT License](http://opensource.org/licenses/MIT). To get started with \softcover, first [install Ruby](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_ruby) and [install RubyGems](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_rubygems) if you don't have them already. Once you've done so, getting \softcover\ is then a simple `gem install`:
+The \softcover\ system is open-source software, distributed as a Ruby gem under the permissive [MIT License](http://opensource.org/licenses/MIT). To get started with \softcover, first [install Ruby](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_ruby) and [install RubyGems](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_rubygems) if you don't have them already. Once you've done so, getting \softcover\ is a simple `gem install`:
 
 ```console
 $ gem install softcover
@@ -318,13 +310,13 @@ Install LaTeX (http://latex-project.org/ftp.html)
 
 #### EPUB
 
-EPUB books are essentially HTML combined with CSS and various configuration files, all zipped together in one package. (The easiest way to see this is to change an EPUB file's extension from `.epub` to `.zip` and double-click it.) Getting all the details just right is a real pain, though, and luckily Softcover does is for you:
+EPUB books are essentially HTML combined with CSS and various configuration files, all zipped together in one package. (The easiest way to see this is to change an EPUB file's extension from `.epub` to `.zip` and double-click it.) Getting all the details just right is a real pain, though, and luckily Softcover does it for you with `build:epub`. Its dependencies are [PhantomJS](http://phantomjs.org/) and [Inkscape](http://inkscape.org/), but these are only needed to support mathematical typesetting. If you don't plan to use any math, you can remove the math from the generated book and build the EPUB without them. In either case, building the EPUB is simple:
 
 ```console
 $ softcover build:epub
 ```
 
-\noindent By default the output is verbose, but you can pass command-line options to make it quiet (`-q`) or silent (`-s`).
+\noindent By default, the output of `build:epub` is verbose, but you can pass command-line options to make it quiet (`-q`) or silent (`-s`).
 
 The generated EPUB book is located in the `ebooks` directory:
 
@@ -346,18 +338,19 @@ $ open ebooks/example_book.epub
 
 #### MOBI
 
-Once you've built an EPUB book, making a MOBI (the native format for Amazon.com's Kindle) is easy. The first and most popular way is `kindlegen`, supplied by Amazon.com itself, but as you can see on the [\texttt{kindlegen} download page](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) selling the resulting MOBI anywhere other than Amazon.com violates the `kindlegen` terms of service. To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk. Luckily, there is an open-source alternative, and I recommend you [install Calibre](http://calibre-ebook.com/) and then follow the instructions to [enable Calibre command line tools](http://manual.calibre-ebook.com/cli/cli-index.html). This gets you the `ebook-convert` command, and this is what \softcover\ uses by default to build MOBI files:
+Once you've built an EPUB book, making a MOBI (the native format for Amazon.com's Kindle) is easy. One way is [kindlegen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211), supplied by Amazon.com itself, but selling the resulting MOBI anywhere other than Amazon.com violates (!) the [kindlegen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251). To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk. Luckily, there is an open-source alternative called *Calibre*, so I recommend you [install Calibre](http://calibre-ebook.com/) and then follow the instructions to [enable Calibre command line tools](http://manual.calibre-ebook.com/cli/cli-index.html). This gets you the `ebook-convert` command, and this is what \softcover\ uses by default to build MOBI files:
 
 ```console
 $ softcover build:mobi
 ```
 
-\noindent The result appears in Figure~\ref{fig:example_mobi}. As with EPUB, you can use command-line options to make the MOBI builder quiet (`-q`) or silent (`-s`).
+\noindent As with EPUB, you can use command-line options to make the MOBI builder quiet (`-q`) or silent (`-s`).
 
+To view the MOBI on your computer, I recommend installing the [Kindle reader](http://www.amazon.com/gp/feature.html?docId=1000493771). The result appears in Figure~\ref{fig:example_mobi}.
 
 ![The example book MOBI.\label{fig:example_mobi}](images/figures/example_mobi.png)
 
-If you're not planning to sell your book's MOBI file, or if you're willing to risk violating Amazon's terms of service, you can optionally use `softcover` with `kindlegen` instead:
+If you're not planning to sell your book's MOBI file, or if you're willing to risk violating Amazon's terms of use, you can optionally use `softcover` with `kindlegen` instead:
 
 ```console
 $ softcover build:mobi --kindlegen
@@ -381,7 +374,7 @@ $ softcover build:pdf
 
 ![The example book PDF.\label{fig:example_pdf}](images/figures/example_pdf.png)
 
-The `softcover build:pdf` command dumps a lot to the screen, and as with EPUB and MOBI you can use command-line options to make the PDF builder quiet (`-q`) or silent (`-s`), but I strongly recommend using the default verbose option unless you're *sure* the file will build without error. The problem is that `xelatex` will hang on syntax errors, and you need to be able to type `x` to exit. (Remember that: type `x` to exit when the PDF builder hangs. I guarantee you will need to use this information at some point.)
+The `softcover build:pdf` command dumps a lot of output to the screen, and as with EPUB and MOBI you can use command-line options to make the PDF builder quiet (`-q`) or silent (`-s`), but I strongly recommend using the default verbose option unless you're *sure* the file will build without error. The issue is that `xelatex` will hang on syntax errors, and you need to be able to type `x` to exit. (**Remember this**: type `x` to exit when the PDF builder hangs. I guarantee you will need to use this information at some point.)
 
 By default, the PDF builder runs twice to ensure all cross-references are updated, but if the cross-references haven't changed you can pass an option to make it run only once:
 
@@ -410,10 +403,9 @@ user    0m12.086s
 sys 0m1.185s
 ```
 
-
 #### Previews
 
-Finally, Softcover can optionally build book *previews*, which is a useful feature for prospective readers when selling your ebook (either on your own website or at Softcover.io). Because of the different ways the PDF and EPUB/MOBI formats work, there are two separate ways to specify the preview range. (You have to keep them roughly in sync by hand, but it's rarely important for the preview ranges to be exact, so this isn't a big problem in practice.) The configuration for PDF is a *page* range, while for EPUB & MOBI it's a *chapter* range (with Chapter 0 being frontmatter like the table of contents, preface, etc.), both of which are specified in `book.yml` (Listing~\ref{code:preview_ranges}).
+Finally, Softcover can optionally build book *previews*, which is a useful feature for prospective readers when selling your ebook (either on your own website or at [Softcover](http://softcover.io)). Because of the different ways the PDF and EPUB/MOBI formats work, there are two separate ways to specify the preview range. (You have to keep them roughly in sync by hand, but it's rarely important for the preview ranges to be exact, so this isn't a big problem in practice.) The configuration for PDF is a *page* range, while for EPUB & MOBI it's a *chapter* range (with Chapter 0 being frontmatter like the table of contents, preface, etc.), both of which are specified in `book.yml` (Listing~\ref{code:preview_ranges}).
 
 \begin{codelisting}
 \label{code:preview_ranges}
@@ -435,6 +427,22 @@ $ softcover build:preview
 ```
 
 The full Softcover publishing platform automatically uploads all the ebook files, including previews, and makes it simple to distribute them to your readers. We'll learn how to do this in the next section (Section~\ref{sec:softcover_website}).
+
+### All dependencies
+\label{sec:all_dependencies}
+
+For reference, here are all the current dependencies for the Softcover system:
+
+* PDF
+    - [LaTeX](http://latex-project.org/ftp.html)
+* EPUB/MOBI with math
+    - [PhantomJS](http://phantomjs.org/)
+    - [Inkscape](http://inkscape.org/)
+* MOBI
+    - [Calibre](http://calibre-ebook.com/) with [command-line tools](http://manual.calibre-ebook.com/cli/cli-index.html), or [kindlegen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (but beware the [terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251))
+* EPUB validation
+    - [Java](http://www.java.com/en/download/help/index_installing.xml)
+    - [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip)
 
 
 ## Publishing to the Softcover website
@@ -512,11 +520,15 @@ softcover publish
 ```
 \end{codelisting}
 
+### Selling ebooks and other digital goods
 
+*This section is in preparation in concert with development of the Softcover website.*
+
+<!-- footnotes  -->
 
 [^online_version]: This document is available online at <http://manual.softcover.io/book>.
 
-[^poly_pronunciation]: \PolyTeXnic\ is pronounced exactly like the English word *polytechnic*.
+[^poly_pronunciation]: \PolyTeXnic\ is pronounced exactly like the English word [*polytechnic*](http://www.thefreedictionary.com/polytechnic).
 
 [^maxwell]: If already know [Maxwell's equations](http://en.wikipedia.org/wiki/Maxwell's_equations), the fundamental equations of electrodynamics, Eq.~\eqref{eq:maxwell} may look a little unfamiliar. This is because it writes the equations in a system called *rationalized [MKS units](http://en.wikipedia.org/wiki/MKS_system_of_units)*, which set \( \mu_0=\epsilon_0=1 \). In my view, these are the units in which Maxwell's equations are the most beautiful. Moreover, since the speed of light is \( 1/\sqrt{\mu_0\epsilon_0} \), this choice of units gives us \( c = 1 \) for free.
 
