@@ -511,14 +511,7 @@ file `.softcover-deploy` in the project's root directory (Listing~\ref{code:depl
 \begin{codelisting}
 \label{code:deploy_no_preview}
 \codecaption{Disabling previews and adding a \texttt{git push}. \\ \filepath{.softcover-deploy}}
-```text
-# Edit this file to customize your deployment steps with custom command options
-# or additional commands.
-#
-softcover build:all
-softcover publish
-git push origin
-```
+<<(.softcover-deploy)
 \end{codelisting}
 
 ### Selling ebooks and other digital goods
