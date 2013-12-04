@@ -493,7 +493,7 @@ $ softcover publish
 ```
 
 \noindent You can customize the behavior of `softcover deploy` by editing the
-file `.softcover-deploy` in the project's root directory (Listing~\ref{code:deploy_config}). For example, to skip building the preview, you could change `.softcover-deploy` as in Listing~\ref{code:deploy_no_preview}.
+file `.softcover-deploy` in the project's root directory (Listing~\ref{code:deploy_config}). For example, to skip building the preview while adding a `git push` to push the book's source up to a remote repository, you could change `.softcover-deploy` as in Listing~\ref{code:deploy_no_preview}. (Because *The Softcover Book* is available for free, there's no need to build previews, and in fact Listing~\ref{code:deploy_no_preview} is the [\texttt{.softcover-deploy} file used for this project](https://github.com/softcover/softcover_book/blob/master/.softcover-deploy).)
 
 \begin{codelisting}
 \label{code:deploy_config}
@@ -510,13 +510,14 @@ file `.softcover-deploy` in the project's root directory (Listing~\ref{code:depl
 
 \begin{codelisting}
 \label{code:deploy_no_preview}
-\codecaption{Configuring the deployment to skip building a preview. \\ \filepath{.softcover-deploy}}
+\codecaption{Disabling previews and adding a \texttt{git push}. \\ \filepath{.softcover-deploy}}
 ```text
 # Edit this file to customize your deployment steps with custom command options
 # or additional commands.
 #
 softcover build:all
 softcover publish
+git push origin
 ```
 \end{codelisting}
 

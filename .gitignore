@@ -33,3 +33,4 @@ log/
 .DS_Store
 .ruby-*
 *.bak
+.project_id
