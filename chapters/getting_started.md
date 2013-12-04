@@ -3,32 +3,34 @@
 
 <!-- **Note:** Softcover is currently in private beta. Visit [Softcover.io](http://www.softcover.io/) to request an invitation. -->
 
-This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors.[^online_version] Softcover consists of two principal parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}). Based on the technology and business model used by the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/), Softcover is designed to help authors make the transition from "writing a book" to "building a product empire" using the following [three-step plan](http://www.youtube.com/watch?v=tO5sxLapAts):
+This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors. Softcover consists of two principal parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}).
+
+Based on the technology and business model used by the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/), Softcover is designed to help authors make the transition from "writing a book" to "building a product empire," using the following [three-step plan](http://www.youtube.com/watch?v=tO5sxLapAts):
 
 1. Make ebooks, screencasts, etc.
-2. Release a free HTML book at Softcover while selling ebooks and multiple product bundles
+2. Release a free HTML book (*optional*) while selling ebooks and multiple product bundles
 3. Profit!!1!
 
-Following the Three Step Plan\texttrademark\ is not strictly necessary, and Softcover can be used for many different purposes (Box~\ref{aside:softcover_uses}). In particular, note that following the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book)'s practice of releasing a free HTML version is *not* required. Authors are encouraged to make the HTML versions of their books free---both as a marketing tool and because it's [awesome](http://breadpig.com/products/awesomesauce)---but Softcover allows the HTML to be placed behind login- or paywalls as well.
+\noindent Of course, it's not necessary to the Three Step Plan\texttrademark\ in every detail, and Softcover can be used for many different purposes (Box~\ref{aside:softcover_uses}). In particular, as indicated by the "optional" note in Step 2, adopting the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book)'s practice of releasing a free HTML version is not required. Softcover authors are certainly encouraged to make the HTML versions of their books free---both as a marketing tool and because it's [awesome](http://breadpig.com/products/awesomesauce)---but Softcover allows the HTML to be placed behind login- or paywalls as well.
 
 \begin{aside}
 \label{aside:softcover_uses}
 \heading{How to use Softcover}
 
-\noindent Softcover is designed as a flexible tool, so it has many potential uses. Because of its ability to combine sharing information with making a profit, the first use represents Softcover's principal design goal, but the others are valid possibilities as well:
+\noindent Softcover is designed as a flexible tool, so it has many potential uses. The first use represents Softcover's principal design goal, but the others are valid possibilities as well:
 
 
 * **Make a free HTML book, bundle ebooks with other digital goods, and sell them from the [Softcover.io](http://softcover.io/) online storefront**
 * Charge for all products (including the HTML book) at Softcover.io
-* Produce ebooks with \softcover\ and give them away
-* Produce ebooks with \softcover\ and sell them from your own website
+* Produce ebooks with the \softcover\ typesetting system and give them away
 * Produce ebooks with \softcover\ and sell them using the [Softcover.io](http://softcover.io/) online storefront
-* Use `softcover` to make ebooks out of technical documentation and host them on an internal website
-* **(planned)** Sell any ebooks, not just those made with `softcover`
+* Produce ebooks with \softcover\ and sell them from your own website
+* Use \softcover\ to make ebooks out of technical documentation and host them on an internal website
+* **(planned)** Sell *any* digital goods, not just ebooks made with \softcover
 
 \end{aside}
 
-In rest of this chapter, we'll cover the steps needed to install and use the \softcover\ typesetting system, which includes a command-line interface for building and publishing ebooks. Subsequent chapters cover Markdown, the default input format for \softcover\ (Chapter~\ref{cha:markdown_tutorial}), and \PolyTeX, a more complicated but more powerful input format based on the \LaTeX\ typesetting language (Chapter~\ref{cha:polytex_tutorial}). Additional chapters are in preparation as well.
+In rest of this chapter, we'll cover the steps needed to install and use the \softcover\ typesetting system, which includes a command-line interface for building and publishing ebooks. Subsequent chapters cover Markdown, the default input format for \softcover\ (Chapter~\ref{cha:markdown_tutorial}), and \PolyTeX, a more complicated but more powerful input format based on the \LaTeX\ typesetting language (Chapter~\ref{cha:polytex_tutorial}). (Additional chapters are in preparation as well.)
 
 ## The \softcover\ typesetting system
 \label{sec:softcover_system}
@@ -139,7 +141,7 @@ softcover version                    # Return the version number (-v for short)
 ```
 \end{codelisting}
 
-\noindent For convenience, \softcover\ also installs a shorter alias, `sc`, so you can get, e.g, the current version number by typing any of the following:
+\noindent For convenience, \softcover\ also installs a shorter alias, `sc`, so you can, e.g., get the current version number by typing any of the following:
 
 ```console
 $ softcover version
@@ -150,11 +152,11 @@ $ sc -v
 
 ### Creating a Softcover book
 
-We see from Listing~\ref{code:softcover_help} that the way to generate a new Softcover book is with `softcover new <name>`. Let's try it out and see what happens; the results are shown in Listing~\ref{code:new_example_book}.
+We see from Listing~\ref{code:softcover_help} that the way to generate a new Softcover book is with `softcover new <name>`. Let's try it out and see what happens---the results are shown in Listing~\ref{code:new_example_book}.
 
 \begin{codelisting}
 \label{code:new_example_book}
-\codecaption{Generating an example book with \texttt{softcover new <name>}.}
+\codecaption{Generating an example book with \texttt{softcover new example\_book}.}
 ```console
 $ softcover new example_book
 Generating directory: example_book
@@ -186,7 +188,7 @@ Done. Please update book.yml
 ```
 \end{codelisting}
 
-The default book format generated by `softcover new` is *Markdown*---or, rather, a superset of Markdown that includes extensions to make it more suitable for writing longer documents. This includes the [kramdown](https://github.com/gettalong/kramdown) extensions (numbered footnotes, tables, etc.),  GitHub-style code fencing, and embedded \LaTeX  (Chapter~\ref{cha:markdown_documents}). Authors who want more fine-grained control over their documents (or who already know \LaTeX) can use `softcover new -p <name>` to generate a \PolyTeX\ template instead; see Chapter~\ref{cha:polytex_documents} for details.
+The default book format generated by `softcover new` is *Markdown*---or, rather, a superset of Markdown that includes extensions to make it more suitable for writing longer documents. This includes the [kramdown](https://github.com/gettalong/kramdown) extensions (numbered footnotes, tables, etc.),  GitHub-style code fencing, and embedded \LaTeX\  (Chapter~\ref{cha:markdown_tutorial}). Authors who want more fine-grained control over their documents (or who already know \LaTeX) can use `softcover new -p <name>` to generate a \PolyTeX\ template instead; see Chapter~\ref{cha:polytex_tutorial} for details.
 
 We see from Listing~\ref{code:new_example_book} that `softcover new` generates a bunch of files, but the heart of it is the `chapters/` directory, which contains the Markdown source for the template book:
 
@@ -197,7 +199,7 @@ a_chapter.md           preface.md
 another_chapter.md     yet_another_chapter.md
 ```
 
-\noindent The names of the template form a progression ("A chapter", "Another chapter", "Yet *another* chapters"), but their order is set by the file `Book.txt` (Listing~\ref{code:book_txt}).
+\noindent The names of the template form a progression ("A chapter", "Another chapter", "Yet *another* chapter"), but their order not set by this progression. Rather, it is specified in the file `Book.txt` (Listing~\ref{code:book_txt}).
 
 \begin{codelisting}
 \label{code:book_txt}
@@ -205,9 +207,9 @@ another_chapter.md     yet_another_chapter.md
 <<(example_book/Book.txt, lang: text)
 \end{codelisting}
 
-\noindent Authors are encouraged to use the template files as a model but to change their names to that they are better tailored to the book's content. For the purposes of this overview, though, we'll stick with the defaults.
+\noindent Authors are encouraged to use the template files as a model but to change their names to that they are better tailored to each book's content. For the purposes of this overview, though, we'll stick with the defaults.
 
-Softcover books also come with a `book.yml` configuration file containing some book metadata (Listing~\ref{code:book_yml}). Authors should generally change the title, subtitle (if any), and description before publishing the book to Softcover (Section~\ref{sec:softcover_website}). The [slug](https://en.wikipedia.org/wiki/Clean_URL#Slug) represents the last part the book's URL at Softcover.io and should rarely need editing. See Section~\ref{sec:preparing_for_publication} to learn how to put the finishing touches on before publication.
+Softcover books also come with a `book.yml` configuration file containing some book metadata (Listing~\ref{code:book_yml}). You should generally change the title, author, subtitle (if any), and description before publishing the book to Softcover (Section~\ref{sec:softcover_website}). The [slug](https://en.wikipedia.org/wiki/Clean_URL#Slug) represents the last part the book's URL at Softcover.io and should rarely need editing. See Section~\ref{sec:preparing_for_publication}[^undefined_xref] to learn how to put the finishing touches on before publication.
 
 \begin{codelisting}
 \label{code:book_yml}
@@ -249,13 +251,15 @@ epub_mobi_preview_chapter_range: 0..1
 ### HTML and the Softcover server
 \label{sec:html_softcover_server}
 
-To get started writing the book, we'll first build and HTML version of the template book:
+To get started writing the example book, we'll first build an HTML version:
 
 ```console
 $ softcover build:html
 ```
 
-\noindent The result is a separate HTML file for each chapter in the `html/` directory. Let's take a look at the HTML for the first chapter, `html/a_chapter.html` by opening it in a browser. On most systems, this can be accomplished by using a filesystem viewer to navigate to the `html/` directory and double-clicking on `a_chapter.html`. On Macintosh OS X, we can accomplish the same thing at the command line using the `open` command, which opens the given file using the default application for that file type:
+\noindent The result is a separate HTML file for each chapter in the `html/` directory.
+
+Let's take a look at the HTML for the first chapter, `html/a_chapter.html`, by opening it in a browser. On most systems, this can be accomplished by using a filesystem viewer to navigate to the `html/` directory and double-clicking on `a_chapter.html`. On Macintosh OS X, we can accomplish the same thing at the command line using the `open` command, which opens the given file using the default application for that file type:
 
 ```console
 $ open html/a_chapter.html
@@ -265,7 +269,7 @@ $ open html/a_chapter.html
 
 ![Viewing the HTML file for the first chapter.\label{fig:chrome_html}](images/figures/chrome_html.png)
 
-While inspecting HTML files is sometimes useful for debugging purposes, the best way to develop Softcover books is using the local Softcover server, which
+Although inspecting HTML files is sometimes useful for debugging purposes, the best way to develop Softcover books is to use the local Softcover server, which
 detects when the source files have changed and automatically refreshes the browser.[^multiple_browsers] Let's open up a new terminal tab (Figure~\ref{fig:softcover_server}), navigate to the book directory, and fire up `softcover server`:[^sc_s]
 
 ```console
@@ -285,22 +289,16 @@ Listening on 0.0.0.0:4000, CTRL+C to stop
 
 ![Viewing the book on http://localhost:4000.\label{fig:localhost_4000}](images/figures/localhost_4000.png)
 
-Writing books works just fine with a text editor and browser placed side-by-side (Figure~\ref{fig:editor_browser}), but my favorite trick is to connect an iPad to the Softcover server's address on the local network, effectively using the iPad as an external monitor. Then, when I save a source file, the iPad's browser magically refreshes with the updated content. This setup is especially nice for people (like me) who work remotely and prefer for their full production setup to be mobile.
+Writing books works just fine with a text editor and browser placed side-by-side (Figure~\ref{fig:editor_browser}), but my favorite trick is to connect an iPad to the Softcover server's address on the local network, effectively using the iPad as an external monitor. Then, when I save a source file, the iPad's browser magically refreshes with the updated content. This setup is especially nice for people (like me) who often work remotely and prefer for their production setup to be fully portable.[^ipad_address]
 
-*Note*: You can find the local network address by examining the results of `ifconfig`; in my experience the relevant address usually begins with `192` (when on the local wireless network) or `172` (when attached directly to a computer), so you can probably extract the right local address using the following command:
-
-```console
-$ ifconfig | egrep '(172|192)'
-```
-
-For now, I suggest playing around with the server a little to get the hang of it, then but then quickly move on to building the various ebook formats (Section~\ref{sec:building_ebooks}). We'll have more to say about writing a book using the Softcover server in Chapter~\ref{cha:markdown_tutorial} and Chapter~\ref{cha:polytex_tutorial}.
+For now, I suggest playing around with the server a little to get the hang of it, and then quickly move on to building the various ebook formats (Section~\ref{sec:building_ebooks}). We'll have more to say about writing a book using the Softcover server in Chapter~\ref{cha:markdown_tutorial} and Chapter~\ref{cha:polytex_tutorial}.
 
 ![Writing with the editor and browser side-by-side.\label{fig:editor_browser}](images/figures/editor_browser.png)
 
 ### Building ebooks
 \label{sec:building_ebooks}
 
-As noted in Section~\ref{sec:softcover_system}, the \softcover\ system outputs HTML, EPUB, MOBI, and PDF. We saw in Section~\ref{sec:html_softcover_server} that HTML generation comes bundled with the `softcover` gem; since EPUB is basically zipped HTML, EPUB generation comes for free as well. On the other hand, generating MOBI and PDF books requires installing some external dependencies. The `softcover` command will automatically prompt you to install the relevant software when the time comes; for example, if you try to build a PDF on a system without \LaTeX, you'll get this prompt with a link to the \LaTeX\ installation page:
+As noted in Section~\ref{sec:softcover_system}, the \softcover\ system outputs HTML, EPUB, MOBI, and PDF. We saw in Section~\ref{sec:html_softcover_server} that HTML generation comes bundled with the \softcover\ gem; since EPUB is basically zipped HTML, EPUB generation comes for free as well. On the other hand, generating MOBI and PDF books requires installing some external dependencies, as does generating EPUB books if they contain mathematics. The `softcover` command will automatically prompt you to install the relevant software when the time comes; for example, if you try to build a PDF on a system without \LaTeX, you'll get this prompt with a link to the \LaTeX\ installation page:
 
 ```console
 $ softcover build:pdf
@@ -310,7 +308,9 @@ Install LaTeX (http://latex-project.org/ftp.html)
 
 #### EPUB
 
-EPUB books are essentially HTML combined with CSS and various configuration files, all zipped together in one package. (The easiest way to see this is to change an EPUB file's extension from `.epub` to `.zip` and double-click it.) Getting all the details just right is a real pain, though, and luckily Softcover does it for you with `build:epub`. Its dependencies are [PhantomJS](http://phantomjs.org/) and [Inkscape](http://inkscape.org/), but these are only needed to support mathematical typesetting. If you don't plan to use any math, you can remove the math from the generated book and build the EPUB without them. In either case, building the EPUB is simple:
+EPUB books are essentially HTML combined with CSS and various configuration files, all zipped together in one package. (The easiest way to see this is to change an EPUB file's extension from `.epub` to `.zip` and double-click it.) Getting all the details just right is a real pain, though, and luckily Softcover does it for you.
+
+There are no dependencies for building EPUB books unless the source contains mathematics, so if you want you can remove the math from the generated book and build the EPUB immediately. Otherwise, you'll need to install [PhantomJS](http://phantomjs.org/) and [Inkscape](http://inkscape.org/). Building the EPUB is easy once any necessary dependencies are installed:
 
 ```console
 $ softcover build:epub
@@ -338,7 +338,7 @@ $ open ebooks/example_book.epub
 
 #### MOBI
 
-Once you've built an EPUB book, making a MOBI (the native format for Amazon.com's Kindle) is easy. One way is [kindlegen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211), supplied by Amazon.com itself, but selling the resulting MOBI anywhere other than Amazon.com violates (!) the [kindlegen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251). To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk. Luckily, there is an open-source alternative called *Calibre*, so I recommend you [install Calibre](http://calibre-ebook.com/) and then follow the instructions to [enable Calibre command line tools](http://manual.calibre-ebook.com/cli/cli-index.html). This gets you the `ebook-convert` command, and this is what \softcover\ uses by default to build MOBI files:
+Once you've built an EPUB book, making a MOBI (the native format for Amazon.com's Kindle) is easy. One method is to use [kindlegen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211), supplied by Amazon.com itself, but selling the resulting MOBI anywhere other than Amazon.com violates (!) the [kindlegen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251). To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk. Luckily, there is an open-source alternative called *Calibre*, so I recommend you [install Calibre](http://calibre-ebook.com/) and then follow the instructions to [enable Calibre command line tools](http://manual.calibre-ebook.com/cli/cli-index.html). This gets you the `ebook-convert` command, and this is what \softcover\ uses by default to build MOBI files:
 
 ```console
 $ softcover build:mobi
@@ -346,7 +346,7 @@ $ softcover build:mobi
 
 \noindent As with EPUB, you can use command-line options to make the MOBI builder quiet (`-q`) or silent (`-s`).
 
-To view the MOBI on your computer, I recommend installing the [Kindle reader](http://www.amazon.com/gp/feature.html?docId=1000493771). The result appears in Figure~\ref{fig:example_mobi}.
+To view the MOBI on your computer, I recommend installing [Kindle reader](http://www.amazon.com/gp/feature.html?docId=1000493771). The result appears in Figure~\ref{fig:example_mobi}.
 
 ![The example book MOBI.\label{fig:example_mobi}](images/figures/example_mobi.png)
 
@@ -374,9 +374,9 @@ $ softcover build:pdf
 
 ![The example book PDF.\label{fig:example_pdf}](images/figures/example_pdf.png)
 
-The `softcover build:pdf` command dumps a lot of output to the screen, and as with EPUB and MOBI you can use command-line options to make the PDF builder quiet (`-q`) or silent (`-s`), but I strongly recommend using the default verbose option unless you're *sure* the file will build without error. The issue is that `xelatex` will hang on syntax errors, and you need to be able to type `x` to exit. (**Remember this**: type `x` to exit when the PDF builder hangs. I guarantee you will need to use this information at some point.)
+The `softcover build:pdf` command dumps a lot of output to the screen, and as with EPUB and MOBI you can use command-line options to make the PDF builder quiet (`-q`) or silent (`-s`), but I strongly recommend using the default verbose option unless you're *sure* the file will build without error. The issue is that `xelatex` will hang on \LaTeX\ syntax errors, and you need to be able to type `x` to exit. (**Remember this**: type `x` to exit when the PDF builder hangs.
 
-By default, the PDF builder runs twice to ensure all cross-references are updated, but if the cross-references haven't changed you can pass an option to make it run only once:
+By default, the PDF builder runs twice to ensure all cross-references are updated, but if the cross-references haven't changed (or if your book doesn't have any) you can pass an option to make it run only once:
 
 ```console
 $ softcover build:pdf --once
@@ -405,7 +405,7 @@ sys 0m1.185s
 
 #### Previews
 
-Finally, Softcover can optionally build book *previews*, which is a useful feature for prospective readers when selling your ebook (either on your own website or at [Softcover](http://softcover.io)). Because of the different ways the PDF and EPUB/MOBI formats work, there are two separate ways to specify the preview range. (You have to keep them roughly in sync by hand, but it's rarely important for the preview ranges to be exact, so this isn't a big problem in practice.) The configuration for PDF is a *page* range, while for EPUB & MOBI it's a *chapter* range (with Chapter 0 being frontmatter like the table of contents, preface, etc.), both of which are specified in `book.yml` (Listing~\ref{code:preview_ranges}).
+Finally, Softcover can optionally build book *previews*, which is a useful feature when selling your ebook (either on your own website or at [Softcover](http://softcover.io)). Because of the different ways the PDF and EPUB/MOBI formats work, there are two separate ways to specify the preview range. (You have to keep them roughly in sync by hand, but it's rarely important for the preview ranges to be exact, so this isn't a big problem in practice.) The configuration for PDF is a *page* range, while for EPUB & MOBI it's a *chapter* range (with Chapter 0 being frontmatter like the table of contents, preface, etc.). Both ranges are specified in `book.yml` (Listing~\ref{code:preview_ranges}).
 
 \begin{codelisting}
 \label{code:preview_ranges}
@@ -440,7 +440,7 @@ For reference, here are all the current dependencies for the Softcover system:
     - [Inkscape](http://inkscape.org/)
 * MOBI
     - [Calibre](http://calibre-ebook.com/) with [command-line tools](http://manual.calibre-ebook.com/cli/cli-index.html), or [kindlegen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (but beware the [terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251))
-* EPUB validation
+* EPUB validation (`softcover epub:validate`)
     - [Java](http://www.java.com/en/download/help/index_installing.xml)
     - [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip)
 
@@ -452,7 +452,7 @@ The \softcover\ command-line client includes commands for interacting with the [
 
 ### Publishing ebooks
 
-To get started with [Softcover.io](http://softcover.io), first [create an account](http://softcover.io). (At this point, you will also have to use your invitation token to get access to the website.) Once you have an account, log in using the CLI as follows:
+To get started with [Softcover.io](http://softcover.io), first [create an account](http://softcover.io). Once you have an account, log in using the CLI as follows:
 
 ```console
 $ softcover login
@@ -466,7 +466,7 @@ $ softcover build:preview
 $ softcover publish
 ```
 
-\noindent You can now navigate to your book using your web browser, but in OS X you can open the book at the command line as well:
+\noindent You can now navigate to your book using your web browser, and in OS X you can open the book at the command line as well:
 
 ```console
 $ softcover open
@@ -474,7 +474,7 @@ $ softcover open
 
 \noindent The result appears in Figure~\ref{fig:softcover_live_book}.
 
-![The HTML book on the live website\label{fig:softcover_live_book}](images/figures/softcover_live_book.png)
+![The HTML book on the live website.\label{fig:softcover_live_book}](images/figures/softcover_live_book.png)
 
 #### One command to rule them all
 
@@ -526,12 +526,14 @@ softcover publish
 
 <!-- footnotes  -->
 
-[^online_version]: This document is available online at <http://manual.softcover.io/book>.
+[^undefined_xref]: This is what an undefined cross-reference looks like. It will be filled in as soon as the corresponding section is properly defined and labeled.
 
 [^poly_pronunciation]: \PolyTeXnic\ is pronounced exactly like the English word [*polytechnic*](http://www.thefreedictionary.com/polytechnic).
 
 [^maxwell]: If already know [Maxwell's equations](http://en.wikipedia.org/wiki/Maxwell's_equations), the fundamental equations of electrodynamics, Eq.~\eqref{eq:maxwell} may look a little unfamiliar. This is because it writes the equations in a system called *rationalized [MKS units](http://en.wikipedia.org/wiki/MKS_system_of_units)*, which set \( \mu_0=\epsilon_0=1 \). In my view, these are the units in which Maxwell's equations are the most beautiful. Moreover, since the speed of light is \( 1/\sqrt{\mu_0\epsilon_0} \), this choice of units gives us \( c = 1 \) for free.
 
-[^multiple_browsers]: Take care to attach only one browser to localhost:4000 at a time; otherwise, the Softcover server won't know which one to refresh.
+[^multiple_browsers]: Take care to attach only one browser at a time; otherwise, the Softcover server won't know which browser to refresh.
 
 [^sc_s]: For brevity, you can use `s` in place of `server`, as in `softcover s`. Since `sc` is an alias for `softcover`, you can even write `sc s` to start the local server. This is a little cryptic, so in the text I write `softcover server`, but in real life I nearly always just type `sc s`.
+
+[^ipad_address]: You can find the iPad's local network address by examining the results of `ifconfig`; in my experience the relevant address usually begins with `192` (when on the local wireless network) or `172` (when attached directly to a computer), so you can probably extract the right local address using the command `ifconfig | egrep '(172|192)'`.

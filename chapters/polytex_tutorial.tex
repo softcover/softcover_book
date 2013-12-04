@@ -1,7 +1,9 @@
 \chapter{\PolyTeX\ tutorial} % (fold)
 \label{cha:polytex_tutorial}
 
-\textbf{Note:} This \PolyTeX\ tutorial is currently in development. Until it's finished, you can get started with \PolyTeX\ as follows:
+\noindent \textbf{Note:} This \PolyTeX\ tutorial is currently in development.
+
+You can get started with \PolyTeX\ as follows:
 
 %= lang:console
 \begin{code}
@@ -13,7 +15,7 @@ $ softcover new --polytex example_polytex_book
 \begin{itemize}
 \item The generated example book
 \item The \href{https://github.com/softcover/softcover_book}{source of this book} (this chapter is written in \PolyTeX)
-\item The \href{http://en.wikibooks.org/wiki/LaTeX}{Wikibooks \LaTeX\ reference}
+\item The \href{http://en.wikibooks.org/wiki/LaTeX}{Wikibooks LaTeX reference}
 \end{itemize}
 
 \PolyTeX\ is a strict subset of the \LaTeX\ typesetting language. This means that not all of \LaTeX\ is supported by Softcover, so to learn \PolyTeX\ I recommend running a local server and trying out commands to see if they work:\footnote{Here we use the \kode{-p} flag to run the server on port 4001 in case another book is already running on port 4000 (the default).}
@@ -25,21 +27,5 @@ $ softcover server -p 4001
 \end{code}
 
 \noindent Visit \href{http://localhost:4001}{http://localhost:4001} to see the result.
-
-\begin{itemize}
-\item foo
-
-
-\begin{itemize}
-\item bar
-\item baz
-\end{itemize}
-\item quux
-
-
-\begin{itemize}
-\item dude
-\end{itemize}
-\end{itemize}
 
 % chapter polytex_documents (end)

@@ -1,11 +1,12 @@
 ---
-title: example_book
 slug: example_book
 filename: example_book
-subtitle: Change-me
-cover: images/cover.png
+title: Title of the Book
+subtitle: Change me
 description: Change me.
+author: Author Name
 copyright: 2013
-uuid: d00e375e-1095-47b5-8672-3bf86cd89f95
+uuid: 8b1116e4-b300-43e6-b1e6-56c33f1a2dc0
+cover: images/cover.png
 pdf_preview_page_range: 1..30
 epub_mobi_preview_chapter_range: 0..1

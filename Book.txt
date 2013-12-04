@@ -2,7 +2,6 @@ cover
 frontmatter:
 maketitle
 tableofcontents
-preface.md
 mainmatter:
 getting_started.md
 markdown_tutorial.md
