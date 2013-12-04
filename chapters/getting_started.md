@@ -497,7 +497,7 @@ file `.softcover-deploy` in the project's root directory (Listing~\ref{code:depl
 
 \begin{codelisting}
 \label{code:deploy_config}
-\codecaption{The Softcover deployment configuration file. \\ \filepath{.softcover-deploy}}
+\codecaption{The default deployment configuration file. \\ \filepath{.softcover-deploy}}
 ```text
 # Edit this file to customize your deployment steps with custom command options
 # or additional commands.
@@ -510,7 +510,7 @@ file `.softcover-deploy` in the project's root directory (Listing~\ref{code:depl
 
 \begin{codelisting}
 \label{code:deploy_no_preview}
-\codecaption{Disabling previews and adding a \texttt{git push}. \\ \filepath{.softcover-deploy}}
+\codecaption{Removing previews and adding a \texttt{git push}. \\ \filepath{.softcover-deploy}}
 <<(.softcover-deploy)
 \end{codelisting}
 
