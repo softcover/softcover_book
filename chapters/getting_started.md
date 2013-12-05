@@ -338,7 +338,7 @@ $ open ebooks/example_book.epub
 
 #### MOBI
 
-Once you've built an EPUB book, making a MOBI (the native format for Amazon.com's Kindle) is easy. One method is to use [kindlegen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211), supplied by Amazon.com itself, but selling the resulting MOBI anywhere other than Amazon.com violates (!) the [kindlegen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251). To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk. Luckily, there is an open-source alternative called *Calibre*, so I recommend you [install Calibre](http://calibre-ebook.com/) and then follow the instructions to [enable Calibre command line tools](http://manual.calibre-ebook.com/cli/cli-index.html). This gets you the `ebook-convert` command, and this is what \softcover\ uses by default to build MOBI files:
+Once you've built an EPUB book, making a MOBI (the native format for Amazon.com's Kindle) is easy. One method is to use [kindlegen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211), supplied by Amazon.com itself, but selling the resulting MOBI anywhere other than Amazon.com violates (!)\ the [kindlegen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251). To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk. Luckily, there is an open-source alternative called *Calibre*, so I recommend you [install Calibre](http://calibre-ebook.com/) and then follow the instructions to [enable Calibre command line tools](http://manual.calibre-ebook.com/cli/cli-index.html). This gets you the `ebook-convert` command, and this is what \softcover\ uses by default to build MOBI files:
 
 ```console
 $ softcover build:mobi
@@ -493,7 +493,7 @@ $ softcover publish
 ```
 
 \noindent You can customize the behavior of `softcover deploy` by editing the
-file `.softcover-deploy` in the project's root directory (Listing~\ref{code:deploy_config}). For example, to skip building the preview while adding a `git push` to push the book's source up to a remote repository, you could change `.softcover-deploy` as in Listing~\ref{code:deploy_no_preview}. (Because *The Softcover Book* is available for free, there's no need to build previews, and in fact Listing~\ref{code:deploy_no_preview} is the [\texttt{.softcover-deploy} file used for this project](https://github.com/softcover/softcover_book/blob/master/.softcover-deploy).)
+file `.softcover-deploy` in the project's root directory (Listing~\ref{code:deploy_config}). For example,  Listing~\ref{code:deploy_no_preview} drops the `softcover build:preview` command while adding `git push origin`. (Because *The Softcover Book* is available for free, there's no need to build previews, and in fact Listing~\ref{code:deploy_no_preview} is the \linebreak [\texttt{.softcover-deploy} file used for this project](https://github.com/softcover/softcover_book/blob/master/.softcover-deploy).)
 
 \begin{codelisting}
 \label{code:deploy_config}
@@ -510,7 +510,7 @@ file `.softcover-deploy` in the project's root directory (Listing~\ref{code:depl
 
 \begin{codelisting}
 \label{code:deploy_no_preview}
-\codecaption{Removing previews and adding a \texttt{git push}. \\ \filepath{.softcover-deploy}}
+\codecaption{Removing previews and adding a \texttt{git push origin}. \\ \filepath{.softcover-deploy}}
 <<(.softcover-deploy)
 \end{codelisting}
 
