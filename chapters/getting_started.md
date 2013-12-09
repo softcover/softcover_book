@@ -259,7 +259,7 @@ $ softcover build:html
 
 \noindent The result is a separate HTML file for each chapter in the `html/` directory.
 
-Let's take a look at the HTML for the first chapter, `html/a_chapter.html`, by opening it in a browser. On most systems, this can be accomplished by using a filesystem viewer to navigate to the `html/` directory and double-clicking on `a_chapter.html`. On Macintosh OS X, we can accomplish the same thing at the command line using the `open` command, which opens the given file using the default application for that file type:
+Let's take a look at the HTML for the first chapter (located in the file `html/a_chapter.html`) by opening it in a browser. On most systems, this can be accomplished by using a filesystem viewer to navigate to the `html/` directory and double-clicking on `a_chapter.html`. On Macintosh OS X, we can accomplish the same thing at the command line using the `open` command, which opens the given file using the default application for that file type:
 
 ```console
 $ open html/a_chapter.html
@@ -298,7 +298,7 @@ For now, I suggest playing around with the server a little to get the hang of it
 ### Building ebooks
 \label{sec:building_ebooks}
 
-As noted in Section~\ref{sec:softcover_system}, the \softcover\ system outputs HTML, EPUB, MOBI, and PDF. We saw in Section~\ref{sec:html_softcover_server} that HTML generation comes bundled with the \softcover\ gem; since EPUB is basically zipped HTML, EPUB generation comes for free as well. On the other hand, generating MOBI and PDF books requires installing some external dependencies, as does generating EPUB books if they contain mathematics. The `softcover` command will automatically prompt you to install the relevant software when the time comes; for example, if you try to build a PDF on a system without \LaTeX, you'll get this prompt with a link to the \LaTeX\ installation page:
+As noted in Section~\ref{sec:softcover_system}, the \softcover\ system outputs HTML, EPUB, MO\-BI, and PDF. We saw in Section~\ref{sec:html_softcover_server} that HTML generation comes bundled with the \softcover\ gem; since EPUB is basically zipped HTML, EPUB generation comes for free as well. On the other hand, generating MOBI and PDF books requires installing some external dependencies, as does generating EPUB books if they contain mathematics. The `softcover` command will automatically prompt you to install the relevant software when the time comes; for example, if you try to build a PDF on a system without \LaTeX, you'll get this prompt with a link to the \LaTeX\ installation page:
 
 ```console
 $ softcover build:pdf
@@ -346,7 +346,7 @@ $ softcover build:mobi
 
 \noindent As with EPUB, you can use command-line options to make the MOBI builder quiet (`-q`) or silent (`-s`).
 
-To view the MOBI on your computer, I recommend installing [Kindle reader](http://www.amazon.com/gp/feature.html?docId=1000493771). The result appears in Figure~\ref{fig:example_mobi}.
+To view the MOBI file on your computer, I recommend installing [Kindle reader](http://www.amazon.com/gp/feature.html?docId=1000493771). The result appears in Figure~\ref{fig:example_mobi}.
 
 ![The example book MOBI.\label{fig:example_mobi}](images/figures/example_mobi.png)
 
@@ -439,7 +439,7 @@ For reference, here are all the current dependencies for the Softcover system:
     - [PhantomJS](http://phantomjs.org/)
     - [Inkscape](http://inkscape.org/)
 * MOBI
-    - [Calibre](http://calibre-ebook.com/) with [command-line tools](http://manual.calibre-ebook.com/cli/cli-index.html), or [kindlegen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (but beware the [terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251))
+    - [Calibre](http://calibre-ebook.com/) with [command-line tools](http://manual.calibre-ebook.com/cli/cli-index.html), or [kindlegen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (but beware the \linebreak [terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251))
 * EPUB validation (`softcover epub:validate`)
     - [Java](http://www.java.com/en/download/help/index_installing.xml)
     - [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip)
@@ -493,7 +493,7 @@ $ softcover publish
 ```
 
 \noindent You can customize the behavior of `softcover deploy` by editing the
-file `.softcover-deploy` in the project's root directory (Listing~\ref{code:deploy_config}). For example,  Listing~\ref{code:deploy_no_preview} drops the `softcover build:preview` command while adding `git push origin`. (Because *The Softcover Book* is available for free, there's no need to build previews, and in fact Listing~\ref{code:deploy_no_preview} is the \linebreak [\texttt{.softcover-deploy} file used for this project](https://github.com/softcover/softcover_book/blob/master/.softcover-deploy).)
+file `.softcover-deploy` in the project's root directory (Listing~\ref{code:deploy_config}). For example,  Listing~\ref{code:deploy_no_preview} removes the `softcover build:preview` command while adding `git push origin`. (Because *The Softcover Book* is available for free, there's no need to build previews, and in fact Listing~\ref{code:deploy_no_preview} is the \linebreak [\texttt{.softcover-deploy} file used for this project](https://github.com/softcover/softcover_book/blob/master/.softcover-deploy).)
 
 \begin{codelisting}
 \label{code:deploy_config}
