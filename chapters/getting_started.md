@@ -331,7 +331,7 @@ example_book.epub
 $ open ebooks/example_book.epub
 ```
 
-\noindent The result appears in Figure~\ref{fig:example_epub}. (*Note*: As of OS X Mavericks, you can use also use iBooks to open EPUB files.)
+\noindent The result appears in Figure~\ref{fig:example_epub}. (*Note*: As of OS X Mavericks, you can also use iBooks to open EPUB files.)
 
 ![The example book EPUB.\label{fig:example_epub}](images/figures/example_epub.png)
 
