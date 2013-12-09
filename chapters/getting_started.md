@@ -325,13 +325,13 @@ $ ls ebooks/
 example_book.epub
 ```
 
-\noindent If you don't already have an EPUB viewer installed on your computer, I suggest [Adobe Digital Editions](http://www.adobe.com/products/digital-editions.html). On my system, this program is associated with `.epub` files, so I can open the example book EPUB like this:
+\noindent If you don't already have an EPUB viewer installed on your computer, I suggest [Adobe Digital Editions](http://www.adobe.com/products/digital-editions.html). On OS X, if Adobe Digital Editions is associated with `.epub` files, you can open the example book EPUB like this:
 
 ```console
 $ open ebooks/example_book.epub
 ```
 
-\noindent The result appears in Figure~\ref{fig:example_epub}.
+\noindent The result appears in Figure~\ref{fig:example_epub}. (*Note*: As of OS X Mavericks, you can use also use iBooks to open EPUB files.)
 
 ![The example book EPUB.\label{fig:example_epub}](images/figures/example_epub.png)
 
