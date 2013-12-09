@@ -4,5 +4,5 @@ maketitle
 tableofcontents
 mainmatter:
 getting_started.md
-markdown_tutorial.md
+# markdown_tutorial.md
 polytex_tutorial.tex

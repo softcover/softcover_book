@@ -56,8 +56,8 @@ Originally developed under the name *\PolyTeXnic*[^poly_pronunciation] to write 
 \codecaption{``\href{http://www.michaelnielsen.org/ddi/lisp-as-the-maxwells-equations-of-software/}{Maxwell's equations of software}'' in \href{https://en.wikipedia.org/wiki/Scheme_(programming_language)}{Scheme}.}
 ```scheme
 ;; Implements Lisp in Lisp.
-;; Alan Kay called this feat "Maxwell's equations of software", because just
-;; as Maxwell's equations contain all of electrodynamics, `eval` and `apply`
+;; Alan Kay called this feat "Maxwell's equations of software", because just as
+;; Maxwell's equations contain all of electrodynamics, `eval` and `apply`
 ;; contain all of computing.
 
 ;; Evaluates an arbitrary Scheme S-expression.
