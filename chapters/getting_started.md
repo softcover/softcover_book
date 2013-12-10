@@ -3,9 +3,16 @@
 
 <!-- **Note:** Softcover is currently in private beta. Visit [Softcover.io](http://www.softcover.io/) to request an invitation. -->
 
-This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors. Softcover consists of two principal parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}).
+This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors. Softcover consists of two principal parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}). Based on the technology and business model used by the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/), Softcover is animated by the philosophy of *full author ownership*---own your content, own your production toolchain, own your traffic, own your customer list:
 
-Based on the technology and business model used by the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/), Softcover is designed to help authors make the transition from "writing a book" to "building a product empire," using the following [three-step plan](http://www.youtube.com/watch?v=tO5sxLapAts):
+* **Own your content**: Authors retain copyright on all materials.
+* **Own your production toolchain**: The Softcover typesetting system is 100% open-source, so you aren't locked into a proprietary toolchain.
+* **Own your traffic**: Softcover supports custom domains.
+* **Own your customer list**: Authors get all relevant contact information and never have to use an intermediary to communicate with their customers.
+
+\noindent In short, Softcover is a publishing platform I would be willing to use even if I weren't one of the founders of the company.
+
+A principal design goal ofSoftcover to help authors make the transition from "writing a book" to "building a product empire," using the following [three-step plan](http://www.youtube.com/watch?v=tO5sxLapAts):
 
 1. Make ebooks, screencasts, etc.
 2. Release a free HTML book (*optional*) while selling ebooks and multiple product bundles
@@ -108,7 +115,10 @@ The \softcover\ system is open-source software, distributed as a Ruby gem under 
 $ gem install softcover
 ```
 
-\noindent This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). To build the full set of output formats, \softcover\ requires some external dependencies, which you will be prompted to install at the appropriate time (e.g., when you try to build a PDF, you'll be prompted to install \LaTeX). These dependencies are also covered in the sections below, and Section~\ref{sec:all_dependencies} lists all the dependencies in one place in case you want to install them all at the same time.
+\noindent This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). *Note*: The `softcover` gem currently only works with OS X, but we're looking for people to help us adapt it to other OSes. Join the [Softcover Google Group](https://groups.google.com/forum/#!forum/softcover-publishing) to be part of that effort.
+
+
+To build the full set of output formats, \softcover\ requires some external dependencies, which you will be prompted to install at the appropriate time. For example, when you try to build a PDF, you'll be prompted to install \LaTeX. (That said, I recommend [starting to download LaTeX](http://latex-project.org/ftp.html) now, as the download is rather large. Type `which xelatex` at the command line to see if you already have \LaTeX\ installed.) These dependencies are also covered in the sections below, and Section~\ref{sec:all_dependencies} lists all the dependencies in one place in case you want to install them all at the same time.
 
 To see the commands supported by `softcover`, run `softcover help` at the command line, as shown in Listing~\ref{code:softcover_help}.
 
@@ -517,6 +527,17 @@ file `.softcover-deploy` in the project's root directory (Listing~\ref{code:depl
 ### Selling ebooks and other digital goods
 
 *This section is in preparation in concert with development of the Softcover website.*
+
+Softcover will support the following:
+
+* **Own your content**: Authors retain copyright on all materials.
+* **Own your production toolchain**: The \softcover\ typesetting is 100% open-source, so you aren't locked into a proprietary toolchain.
+* **Own your traffic**: Softcover offers custom domains.
+* **Own your customer list**: Authors never have to use an intermediary to communicate with their customers
+
+
+* Full ownership of
+* Sales of general digital products with multiple product bundles
 
 <!-- footnotes  -->
 
