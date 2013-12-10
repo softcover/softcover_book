@@ -3,7 +3,7 @@
 
 <!-- **Note:** Softcover is currently in private beta. Visit [Softcover.io](http://www.softcover.io/) to request an invitation. -->
 
-This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors. Softcover consists of two principal parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}). Based on the technology and business model used by the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/), Softcover is animated by the philosophy of *full author ownership*---own your content, own your production toolchain, own your traffic, own your customer list:
+This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors. Softcover consists of two main parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}). Based on the technology and business model used by the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/), Softcover is animated by the philosophy of *full author ownership*---own your content, own your production toolchain, own your traffic, own your customer list:
 
 * **Own your content**: Authors retain copyright on all materials.
 * **Own your production toolchain**: The Softcover typesetting system is 100% open-source, so you aren't locked into a proprietary toolchain.
@@ -12,7 +12,7 @@ This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for
 
 \noindent In short, Softcover is a publishing platform I would be willing to use even if I weren't one of the founders of the company. (As Softcover moves forward with its private beta, we'll determine the details of author compensation, but our plan is to pay royalties in the 90% range.)
 
-A principal design goal ofSoftcover to help authors make the transition from "writing a book" to "building a product empire," using the following [three-step plan](http://www.youtube.com/watch?v=tO5sxLapAts):
+A principal design goal of Softcover to help authors make the transition from "writing a book" to "building a product empire," using the following [three-step plan](http://www.youtube.com/watch?v=tO5sxLapAts):
 
 1. Make ebooks, screencasts, etc.
 2. Release a free HTML book (*optional*) while selling ebooks and multiple product bundles
