@@ -10,7 +10,7 @@ This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for
 * **Own your traffic**: Softcover supports custom domains.
 * **Own your customer list**: Authors get all relevant contact information and never have to use an intermediary to communicate with their customers.
 
-\noindent In short, Softcover is a publishing platform I would be willing to use even if I weren't one of the founders of the company.
+\noindent In short, Softcover is a publishing platform I would be willing to use even if I weren't one of the founders of the company. (As Softcover moves forward with its private beta, we'll determine the details of author compensation, but our plan is to pay royalties in the 90% range.)
 
 A principal design goal ofSoftcover to help authors make the transition from "writing a book" to "building a product empire," using the following [three-step plan](http://www.youtube.com/watch?v=tO5sxLapAts):
 
@@ -527,17 +527,6 @@ file `.softcover-deploy` in the project's root directory (Listing~\ref{code:depl
 ### Selling ebooks and other digital goods
 
 *This section is in preparation in concert with development of the Softcover website.*
-
-Softcover will support the following:
-
-* **Own your content**: Authors retain copyright on all materials.
-* **Own your production toolchain**: The \softcover\ typesetting is 100% open-source, so you aren't locked into a proprietary toolchain.
-* **Own your traffic**: Softcover offers custom domains.
-* **Own your customer list**: Authors never have to use an intermediary to communicate with their customers
-
-
-* Full ownership of
-* Sales of general digital products with multiple product bundles
 
 <!-- footnotes  -->
 
