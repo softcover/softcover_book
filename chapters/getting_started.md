@@ -11,7 +11,7 @@ Based on the technology and business model used by the [Ruby on Rails Tutorial](
 2. Release a free HTML book (*optional*) while selling ebooks and multiple product bundles
 3. Profit!!1!
 
-\noindent Of course, it's not necessary follow the Three Step Plan\texttrademark\ exactly, and Softcover can be used for many different purposes (Box~\ref{aside:softcover_uses}). In particular, as indicated by the "optional" note in Step 2, adopting the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book)'s practice of releasing a free HTML version is not required. Softcover authors are certainly encouraged to make the HTML versions of their books free---both as a marketing tool and because it's [awesome](http://breadpig.com/products/awesomesauce)---but Softcover allows the HTML to be placed behind login- or paywalls as well.
+\noindent Of course, it's not necessary to follow the Three Step Plan\texttrademark\ exactly, and Softcover can be used for many different purposes (Box~\ref{aside:softcover_uses}). In particular, as indicated by the "optional" note in Step 2, adopting the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book)'s practice of releasing a free HTML version is not required. Softcover authors are certainly encouraged to make the HTML versions of their books free---both as a marketing tool and because it's [awesome](http://breadpig.com/products/awesomesauce)---but Softcover allows the HTML to be placed behind login- or paywalls as well.
 
 \begin{aside}
 \label{aside:softcover_uses}
@@ -98,7 +98,7 @@ Originally developed under the name *\PolyTeXnic*[^poly_pronunciation] to write 
 ```
 \end{codelisting}
 
-Naturally, *The Softcover Book* itself is written using \softcover. Indeed, you can consider this manual the *de facto* [spec](http://en.wikipedia.org/wiki/Specification_(technical_standard)) for the system: essentially everything that \softcover\ can do, this document does. Because the [source code](http://github.com/softcover/softcover_book) of *The Softcover Book* is available online, you can learn how to typeset anything you see in this manual simply by referring to the corresponding place in the source.
+Naturally, *The Softcover Book* itself is written using \softcover. Indeed, you can consider this manual the *de facto* [spec](http://en.wikipedia.org/wiki/Specification_(technical_standard)) for the system: essentially everything that \softcover\ can do, this document does. Because the [source code of *The Softcover Book*](http://github.com/softcover/softcover_book) is available online, you can learn how to typeset anything you see in this manual simply by referring to the corresponding place in the source.
 
 ### Installing \softcover
 
