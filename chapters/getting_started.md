@@ -10,7 +10,7 @@ This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for
 * **Own your traffic**: Softcover supports custom domains.
 * **Own your customer list**: Authors get all relevant contact information and never have to use an intermediary to communicate with their customers.
 
-\noindent In short, Softcover is a publishing platform I would be willing to use even if I weren't one of the founders of the company. (As Softcover moves forward with its private beta, we'll determine the details of author compensation, but our plan is to pay royalties in the 90% range.)
+\noindent In short, Softcover is a publishing platform I would be happy to use even if I weren't one of the founders of the company. (As Softcover moves forward with its private beta, we'll determine the details of author compensation, but our plan is to pay royalties in the 90% range.)
 
 A principal design goal of Softcover to help authors make the transition from "writing a book" to "building a product empire," using the following [three-step plan](http://www.youtube.com/watch?v=tO5sxLapAts):
 
