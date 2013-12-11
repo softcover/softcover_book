@@ -109,14 +109,15 @@ Naturally, *The Softcover Book* itself is written using \softcover. Indeed, you 
 
 ### Installing \softcover
 
-The \softcover\ system is open-source software, distributed as a Ruby gem under the permissive [MIT License](http://opensource.org/licenses/MIT). To get started with \softcover, first [install Ruby](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_ruby) and [install RubyGems](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_rubygems) if you don't have them already. Once you've done so, getting \softcover\ is a simple `gem install`:
+The \softcover\ system is open-source software, distributed as a Ruby gem under the permissive [MIT License](http://opensource.org/licenses/MIT). The `softcover` gem currently works with OS X and Linux, and we're looking for people to help us adapt it to other OSes. Join the [Softcover Google Group](https://groups.google.com/forum/#!forum/softcover-publishing) to be part of that effort.
+
+To get started with \softcover, first [install Ruby](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_ruby) (1.9.3 or later) and [install RubyGems](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_rubygems) if you don't have them already. Once you've done so, getting \softcover\ is a simple `gem install`:
 
 ```console
 $ gem install softcover
 ```
 
-\noindent This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). *Note*: The `softcover` gem currently only works with OS X, but we're looking for people to help us adapt it to other OSes. Join the [Softcover Google Group](https://groups.google.com/forum/#!forum/softcover-publishing) to be part of that effort.
-
+\noindent This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the `nokogiri` gem to install.
 
 To build the full set of output formats, \softcover\ requires some external dependencies, which you will be prompted to install at the appropriate time. For example, when you try to build a PDF, you'll be prompted to install \LaTeX. (That said, I recommend [starting to download LaTeX](http://latex-project.org/ftp.html) now, as the download is rather large. Type `which xelatex` at the command line to see if you already have \LaTeX\ installed.) These dependencies are also covered in the sections below, and Section~\ref{sec:all_dependencies} lists all the dependencies in one place in case you want to install them all at the same time.
 
@@ -293,7 +294,7 @@ Maximum connections set to 1024
 Listening on 0.0.0.0:4000, CTRL+C to stop
 ```
 
-\noindent Opening a browser and navigating to <http://localhost:4000> then gives us a view of the HTML version of the first chapter of the book (Figure~\ref{fig:localhost_4000}).
+\noindent (You may have to install a [JavaScript runtime](https://github.com/sstephenson/execjs) if you don't have one installed already; I recommend [Node.js](http://nodejs.org/).) Opening a browser and navigating to <http://localhost:4000> then gives us a view of the HTML version of the first chapter of the book (Figure~\ref{fig:localhost_4000}).
 
 ![Running the Softcover server in a separate tab.\label{fig:softcover_server}](images/figures/softcover_server.png)
 
