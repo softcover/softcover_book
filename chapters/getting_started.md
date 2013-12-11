@@ -117,7 +117,7 @@ To get started with \softcover, first [install Ruby](http://ruby.railstutorial.o
 $ gem install softcover
 ```
 
-\noindent This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the `nokogiri` gem to install.
+\noindent (On some systems, you may need to run `sudo gem install softcover` instead.) This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the `nokogiri` gem to install.
 
 To build the full set of output formats, \softcover\ requires some external dependencies, which you will be prompted to install at the appropriate time. For example, when you try to build a PDF, you'll be prompted to install \LaTeX. (That said, I recommend [starting to download LaTeX](http://latex-project.org/ftp.html) now, as the download is rather large. Type `which xelatex` at the command line to see if you already have \LaTeX\ installed.) These dependencies are also covered in the sections below, and Section~\ref{sec:all_dependencies} lists all the dependencies in one place in case you want to install them all at the same time.
 
