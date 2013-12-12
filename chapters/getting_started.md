@@ -276,7 +276,7 @@ Let's take a look at the HTML for the first chapter (located in the file `html/a
 $ open html/a_chapter.html
 ```
 
-\noindent On my system, the default application for `.html` files is Chrome, so I get the result shown in Figure~\ref{fig:chrome_html}.
+\noindent (Linux users can get the same result with using `xdg-open` instead.) On my system, the default application for `.html` files is Chrome, so I get the result shown in Figure~\ref{fig:chrome_html}.
 
 ![Viewing the HTML file for the first chapter.\label{fig:chrome_html}](images/figures/chrome_html.png)
 
@@ -477,7 +477,7 @@ $ softcover build:preview
 $ softcover publish
 ```
 
-\noindent You can now navigate to your book using your web browser, and in OS X you can open the book at the command line as well:
+\noindent You can now navigate to your book using your web browser, and in OS X and Linux you can open the book at the command line as well:
 
 ```console
 $ softcover open
