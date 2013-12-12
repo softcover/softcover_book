@@ -9,7 +9,7 @@ Softcover supports a superset of John Gruber's original Markdown, including the 
 
 * The [source of this book](https://github.com/softcover/softcover_book), which is written mostly in Markdown
 
-* The original [Markdown syntax reference](daringfireball.net/projects/markdown/syntax)
+* The original [Markdown syntax reference](http://daringfireball.net/projects/markdown/syntax)
 
 * The [kramdown documentation](http://kramdown.gettalong.org/syntax.html)
 
