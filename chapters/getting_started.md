@@ -1,7 +1,10 @@
 # Getting started
 \label{cha:getting_started}
 
-<!-- **Note:** Softcover is currently in private beta. Visit [Softcover.io](http://www.softcover.io/) to request an invitation. -->
+
+<!--
+    **Note:** Softcover is currently in private beta. Visit [Softcover.io](http://www.softcover.io/) to request an invitation.
+-->
 
 This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors. Softcover consists of two main parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}). Based on the technology and business model used by the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/), Softcover is animated by the philosophy of *full author ownership*---own your content, own your production toolchain, own your traffic, own your customer list:
 
@@ -16,7 +19,7 @@ A principal design goal of Softcover to help authors make the transition from "w
 
 1. Make ebooks, screencasts, etc.
 2. Release a free HTML book (*optional*) while selling ebooks and multiple product bundles
-3. Profit!!1!
+3. Profit!!1!one
 
 \noindent Of course, it's not necessary to follow the Three Step Plan\texttrademark\ exactly, and Softcover can be used for many different purposes (Box~\ref{aside:softcover_uses}). In particular, as indicated by the "optional" note in Step 2, adopting the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book)'s practice of releasing a free HTML version is not required. Softcover authors are certainly encouraged to make the HTML versions of their books free---both as a marketing tool and because it's [awesome](http://breadpig.com/products/awesomesauce)---but Softcover allows the HTML to be placed behind login- or paywalls as well.
 
@@ -162,6 +165,7 @@ $ sc -v
 ```
 
 ### Creating a Softcover book
+\label{sec:softcover_new}
 
 We see from Listing~\ref{code:softcover_help} that the way to generate a new Softcover book is with `softcover new <name>`. Let's try it out and see what happens---the results are shown in Listing~\ref{code:new_example_book}.
 

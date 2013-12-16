@@ -13,3 +13,11 @@ Softcover supports a superset of John Gruber's original Markdown, including the 
 
 * The [kramdown documentation](http://kramdown.gettalong.org/syntax.html)
 
+Authors can also switch to the more complicated but more powerful \PolyTeX\ input format at any time:
+
+```console
+$ mv generated_polytex/*.tex chapters/
+$ rm -f chapters/*.md
+```
+
+See Chapter~\ref{cha:polytex_tutorial} for details.
