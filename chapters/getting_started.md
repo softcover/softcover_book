@@ -15,7 +15,7 @@ This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for
 
 \noindent In short, Softcover is a publishing platform I would be happy to use even if I weren't one of the founders of the company. (As Softcover moves forward with its private beta, we'll determine the details of author compensation, but our plan is to pay royalties in the 90% range.)
 
-A principal design goal of Softcover to help authors make the transition from "writing a book" to "building a product empire," using the following [three-step plan](http://www.youtube.com/watch?v=tO5sxLapAts):
+A principal design goal of Softcover is to help authors make the transition from "writing a book" to "building a product empire," using the following [three-step plan](http://www.youtube.com/watch?v=tO5sxLapAts):
 
 1. Make ebooks, screencasts, etc.
 2. Release a free HTML book (*optional*) while selling ebooks and multiple product bundles
@@ -40,12 +40,12 @@ A principal design goal of Softcover to help authors make the transition from "w
 
 \end{aside}
 
-In rest of this chapter, we'll cover the steps needed to install and use the \softcover\ typesetting system, which includes a command-line interface for building and publishing ebooks. Subsequent chapters cover Markdown, the default input format for \softcover\ (Chapter~\ref{cha:markdown_tutorial}), and \PolyTeX, a more complicated but more powerful input format based on the \LaTeX\ typesetting language (Chapter~\ref{cha:polytex_tutorial}). (Additional chapters are in preparation as well.)
+In the rest of this chapter, we'll cover the steps needed to install and use the \softcover\ typesetting system, which includes a command-line interface for building and publishing ebooks. Subsequent chapters cover Markdown, the default input format for \softcover\ (Chapter~\ref{cha:markdown_tutorial}), and \PolyTeX, a more complicated but more powerful input format based on the \LaTeX\ typesetting language (Chapter~\ref{cha:polytex_tutorial}). (Additional chapters are in preparation as well.)
 
 ## The \softcover\ typesetting system
 \label{sec:softcover_system}
 
-In this section, we'll cover the basics of \softcover, an open-source ebook typesetting system for technical authors. Its [*raison d'\^{e}tre*](http://www.merriam-webster.com/dictionary/raison%20d'etre) is producing profes\-sional-grade multi-format ebooks from a common set of source files. In particular, \softcover\ accepts input in *Markdown*, a lightweight markup language, or *\PolyTeX*, a subset of the powerful \LaTeX\ typesetting language, and outputs ebooks as HTML, EPUB, MOBI, and PDF. The \softcover\  system also comes with a local server that automatically rebuilds a book's HTML output when the source files change, so that your favorite text editor and web browser combine to form a real-time development environment for writing ebooks. Finally, authors can use \softcover\ to upload ebooks and other media files to the [Softcover website](http://www.softcover.io/) with a single command (Section~\ref{sec:softcover_website}), thereby dramatically lowering the barrier to publishing, updating, and selling digital information products.
+In this section, we'll cover the basics of \softcover, an open-source ebook typesetting system for technical authors. Its [*raison d'\^{e}tre*](http://www.merriam-webster.com/dictionary/raison d'etre) is producing profes\-sional-grade multi-format ebooks from a common set of source files. In particular, \softcover\ accepts input in *Markdown*, a lightweight markup language, or *\PolyTeX*, a subset of the powerful \LaTeX\ typesetting language, and outputs ebooks as HTML, EPUB, MOBI, and PDF. The \softcover\  system also comes with a local server that automatically rebuilds a book's HTML output when the source files change, so that your favorite text editor and web browser combine to form a real-time development environment for writing ebooks. Finally, authors can use \softcover\ to upload ebooks and other media files to the [Softcover website](http://www.softcover.io/) with a single command (Section~\ref{sec:softcover_website}), thereby dramatically lowering the barrier to publishing, updating, and selling digital information products.
 
 Originally developed under the name *\PolyTeXnic*[^poly_pronunciation] to write the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book) and [*The Tau Manifesto*](http://tauday.com/tau-manifesto), \softcover\  has been rewritten and expanded as part of developing the [Softcover publishing platform](http://www.softcover.io/). True to its origins, \softcover\ supports a wide range of features useful for writing technical books, including mathematical typesetting (Eq.~\eqref{eq:maxwell})[^maxwell] and syntax-highlighted source code listings (Listing~\ref{code:eval}). It is also well-suited to writing non-technical books, with support for chapters, sections, cross-references, footnotes, lists, figures, tables, etc.---the only requirement is that the *author* be technical. (If you know how to use a command line and have a favorite text editor, you are technical enough to use \softcover.)
 
@@ -214,7 +214,7 @@ a_chapter.md           preface.md
 another_chapter.md     yet_another_chapter.md
 ```
 
-\noindent The names of the template form a progression ("A chapter", "Another chapter", "Yet *another* chapter"), but their order not set by this progression. Rather, it is specified in the file `Book.txt` (Listing~\ref{code:book_txt}).
+\noindent The names of the template form a progression ("A chapter", "Another chapter", "Yet *another* chapter"), but their order is not set by this progression. Rather, it is specified in the file `Book.txt` (Listing~\ref{code:book_txt}).
 
 \begin{codelisting}
 \label{code:book_txt}
@@ -222,7 +222,7 @@ another_chapter.md     yet_another_chapter.md
 <<(example_book/Book.txt, lang: text)
 \end{codelisting}
 
-\noindent Authors are encouraged to use the template files as a model but to change their names to that they are better tailored to each book's content. For the purposes of this overview, though, we'll stick with the defaults.
+\noindent Authors are encouraged to use the template files as a model but to change their names so that they are better tailored to each book's content. For the purposes of this overview, though, we'll stick with the defaults.
 
 Softcover books also come with a `book.yml` configuration file containing some book metadata (Listing~\ref{code:book_yml}). You should generally change the title, author, subtitle (if any), and description before publishing the book to Softcover (Section~\ref{sec:softcover_website}). The [slug](https://en.wikipedia.org/wiki/Clean_URL#Slug) represents the last part the book's URL at Softcover.io and should rarely need editing. See Section~\ref{sec:preparing_for_publication}[^undefined_xref] to learn how to put the finishing touches on before publication.
 
