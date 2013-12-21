@@ -318,6 +318,7 @@ As noted in Section~\ref{sec:softcover_system}, the \softcover\ system outputs H
 ```console
 $ softcover build:pdf
 Building PDF...
+Document not built due to missing dependency
 Install LaTeX (http://latex-project.org/ftp.html)
 ```
 
@@ -508,7 +509,7 @@ $ softcover publish
 ```
 
 \noindent You can customize the behavior of `softcover deploy` by editing the
-file `.softcover-deploy` in the project's root directory (Listing~\ref{code:deploy_config}). For example,  Listing~\ref{code:deploy_no_preview} removes the `softcover build:preview` command while adding `git push origin`. (Because *The Softcover Book* is available for free, there's no need to build previews, and in fact Listing~\ref{code:deploy_no_preview} is the \linebreak [\texttt{.softcover-deploy} file used for this project](https://github.com/softcover/softcover_book/blob/master/.softcover-deploy).)
+file `.softcover-deploy` in the project's root directory (Listing~\ref{code:deploy_config}). For example,  Listing~\ref{code:deploy_no_preview} removes the `softcover build:preview` command while adding `git push origin`.
 
 \begin{codelisting}
 \label{code:deploy_config}
@@ -526,7 +527,14 @@ file `.softcover-deploy` in the project's root directory (Listing~\ref{code:depl
 \begin{codelisting}
 \label{code:deploy_no_preview}
 \codecaption{Removing previews and adding a \texttt{git push origin}. \\ \filepath{.softcover-deploy}}
-<<(.softcover-deploy)
+```text
+# Edit this file to customize your deployment steps with custom command options
+# or additional commands.
+#
+softcover build:all
+softcover publish
+git push origin
+```
 \end{codelisting}
 
 ### Selling ebooks and other digital goods
