@@ -2,6 +2,6 @@
 # or additional commands.
 #
 login mhartl
-softcover build:all
+softcover build:all --quiet
 softcover publish
 git push origin
