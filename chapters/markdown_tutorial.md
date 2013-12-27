@@ -1,7 +1,38 @@
 # Markdown tutorial
 \label{cha:markdown_tutorial}
 
-\noindent **Note**: This Markdown tutorial is currently in development.
+*Markdown* is a beautifully lightweight markup language designed to be human-friendly and easily convertible to HTML.[^markdown_origins] Softcover supports a superset of the original "vanilla" Markdown, adding the [*kramdown*](http://kramdown.gettalong.org/) extensions, GitHub-style [*fenced code blocks*](https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks), and embedded \LaTeX\@. Although these extensions complicate the underlying input language, they are necessary because Markdown is a little *too* lightweight for professional-quality typesetting. (For example, vanilla Markdown is unable to produce numbered footnotes.[^footnote_example]) The dialect of Markdown supported by Softcover is, to our knowledge, the most powerful dialect available, with full support for figures, tables, code listings, and mathematical equations---all with numbered, linked cross-references (especially useful for longer documents).
+
+Softcover-flavored Markdown derives much of its power by converting Markdown first to the \PolyTeX\ markup language, a strict subset of the \LaTeX\ typesetting language (Section~\ref{sec:softcover_system}), and then from \PolyTeX\ to HTML, EPUB, MOBI, and PDF\@. The resulting language is an [abstraction layer](https://en.wikipedia.org/wiki/Abstraction_layer) over the underlying \LaTeX;[^latex_polytex] by allowing embedded \LaTeX\ as well, Softcover allows power users to pierce the abstraction layer and typeset things impossible for vanilla Markdown---for example, "Hackers in Hawai`i write \kode{'Aloha, world!'}". Users who want even *more* power are invited to try raw \PolyTeX\ (Chapter~\ref{cha:polytex_tutorial}),
+
+
+The rest of this chapter includes a thorough Markdown tutorial, including coverage of the many Softcover extensions. Due to Markdown's enormous popularity, many readers will no doubt have subttantial prior knowledge, and experienced users can skip directly to Section~\ref{sec:markdown_extensions} to learn about the additions Softcover makes to vanilla Markdown.
+
+
+\begin{aside}
+\label{aside:polytex_markdown}
+\heading{\PolyTeX, Markdown, and Hartl's Tenth Rule of Typesetting}
+
+
+Markdown succeeds spectacularly well in achieving its goals, and I have been an enthusiastic user of Markdown since shortly after it debuted. Indeed, in a sense it has succeeded a little *too* well, to the point where people use it even when it's not the best tool for the job.
+
+In the spirit of [Greenspun's Tenth Rule of Programming](https://en.wikipedia.org/wiki/Greenspun's_tenth_rule), I offer the following rule:
+
+> **Hartl's Tenth Rule of Typesetting**\\
+> *Any sufficiently complicated typesetting system contains an ad hoc,
+> informally specified, bug-ridden, slow implementation of half of \LaTeX.*
+
+\LaTeX\ is really two things: a typesetting language and a system for converting that language into print-quality documents (PostScript, PDF, etc.) Of course, even \PolyTeXnic\ can't fully escape Hartl's Tenth Rule, since using  \LaTeX\ input to produce HTML output requires writing just such an implementation of half of \LaTeX. (Well, we do our best to make it fast and avoid bugs\ldots) But by using \PolyTeX\ we at least avoid creating an ad hoc, informally specified \emph{input} language as well. Indeed, looking at the ever-expanding definition of ``Markdown''---as kramdown, Leanpub, GitHub, etc., add non-Markdown features to a Markdown base---we see the familiar pattern of Hartl's Tenth Rule emerge.
+
+\PolyTeXnic\ authors are, of course, welcome to use Markdown++, but anyone who knows Markdown or HTML can learn enough \PolyTeX\ to be productive in only a few minutes. And given that Markdown+ extends vanilla Markdown in dozens of ways, you're going to have to learn something new no matter which way you go. My view is that you might as well learn a real typesetting language that has, e.g., a \href{http://tex.stackexchange.com/}{real Stack Exchange community} associated with it, but I'm perfectly prepared for the possibility that some variant of Markdown will eventually win. Since it's easy to support both, \PolyTeXnic\ does.
+
+It's true that the \LaTeX\ commands for typesetting mathematics can be complicated and a little scary---but if you want to typeset mathematics, you need to learn \LaTeX\ anyway.
+\[ \left(-\frac{\hbar^2}{2m}\nabla^2 + V\right)\psi = E\psi \]
+\[
+\left(\frac{p}{q}\right) \left(\frac{q}{p}\right) = (-1)^{[(p-1)/2][(q-1)/2]} \quad\text{($p$, $q$ distinct odd primes)}
+\]
+
+\end{aside}
 
 Softcover supports a superset of John Gruber's original Markdown, including the [*kramdown*](http://kramdown.gettalong.org/) extensions, [fenced code blocks](https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks), and embedded \LaTeX. Until this chapter is finished, please consult the following resources:
 
@@ -21,6 +52,7 @@ $ rm -f chapters/*.md
 ```
 
 See Chapter~\ref{cha:polytex_tutorial} for details.
+
 
 
 Getting the Gist of Markdown's Formatting Syntax
@@ -318,3 +350,13 @@ Output:
         &lt;p&gt;For example.&lt;/p&gt;
     &lt;/blockquote&gt;
     </code></pre>
+
+
+
+<!-- footnotes  -->
+
+[^markdown_origins]: <http://daringfireball.net/2004/03/dive_into_markdown>
+
+[^footnote_example]: Like this.
+
+[^latex_polytex]: This manual uses "\PolyTeX" when the distinction with "\LaTeX" is important and "\LaTeX" otherwise.
