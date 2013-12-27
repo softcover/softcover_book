@@ -2,6 +2,7 @@
 # or additional commands.
 #
 login mhartl
+commented_out_warning
 softcover build:all --quiet
 softcover publish
 git push origin
