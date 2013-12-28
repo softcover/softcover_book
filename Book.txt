@@ -5,4 +5,5 @@ tableofcontents
 mainmatter:
 getting_started.md
 markdown_tutorial.md
+softcover_markdown.md
 polytex_tutorial.tex
