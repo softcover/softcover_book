@@ -1,5 +1,5 @@
 # Introduction to Markdown
-\label{cha:markdown_tutorial}
+\label{cha:introduction_to_markdown}
 
 *Markdown* is a lightweight markup language designed to be human-friendly and easily convertible to HTML.[^markdown_origins] Unfortunately, by itself Markdown is a little *too* lightweight, and the original "vanilla" Markdown is generally inadequate for producing professionally typeset documents. (For example, vanilla Markdown is unable to produce numbered footnotes.[^footnote_example]) Softcover therefore supports a *superset* of vanilla Markdown, including the [*kramdown*](http://kramdown.gettalong.org/) extensions, GitHub-style [*fenced code blocks*](https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks), and embedded \LaTeX\@. The Softcover dialect of Markdown is, to our knowledge, the most powerful one available, with support for figures, tables, code listings, and mathematical equations (all with numbered, linked cross-references).
 
@@ -22,16 +22,143 @@ $ mv generated_polytex/*.tex chapters/
 $ rm -f chapters/*.md
 ```
 
-See Chapter~\ref{cha:polytex_tutorial} for details.
+## Foo bar
 
-## Vanilla Markdown
+Being productive in Markdown requires only a subset of the full language, and the following material is an opinionated survet of Mardown's most useful features. For a comprehensive treatment of Markdown syntax, see the [syntax page](http://daringfireball.net/projects/markdown/syntax) by John Gruber (Markdown's principal creator).
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+### Headings
+
+At the highest level, Markdown documents are structured like HTML, with a convenient syntax for defining the equivalent of HTML headings (`h1`, `h2`, etc.). There are actually several equivalent syntaxes, but my favorite is simply to use the octothorpe character `#`:
+
+```text
+# Top-level heading (h1)
+
+Lorem ipsum
+
+## Second-level heading (h2)
+
+Dolor sit amet
+
+### Third level (h3)
+
+Consectetur
+
+#### Fourth (h4)
+
+dipisicing elit
+
+```
+
+\noindent Softcover currently supports down to `####` (correpsonding to a "subsubsection" in \LaTeX).
+
+### Text formatting
+
+Markdown supports *italicized* text using two _different_ formats (asterisks or underscores):
+
+```text
+Markdown supports *italicized* text using two _different_ formats
+```
+
+\noindent It also supports **boldface** via two asterisks:
+
+```text
+It also supports **boldface** via two asterisks
+```
+
+\noindent The two formats can be nested using a combination of asterisks and underscores, yielding _**boldface italic**_:
+
+```text
+yielding _**boldface italic**_
+```
+
+#### Blockquotes
+
+*Blockquotes* are supported using right angle brackets, which is inspired by the format of quoted replies in plain-text email clients:
+
+> Il semble que la perfection soit atteinte non
+> quand il n'y a plus rien à ajouter,
+> mais quand il n'y a plus rien à retrancher.
+> -Antoine de Saint-Exupéry, *Terre des hommes*
+
+\noindent This quote[^quote_translation] is produced by the code
+
+```text
+> Il semble que la perfection soit atteinte non
+> quand il n'y a plus rien à ajouter,
+> mais quand il n'y a plus rien à retrancher.
+> -Antoine de Saint-Exupéry, *Terre des hommes*
+```
+
+\noindent Incidentally, I would ordinarily set the attribution as
+
+```text
+---Antoine de Saint-Exupéry, *Terre des hommes*
+```
+
+\noindent with a three dashes indicating an [em dash](http://en.wikipedia.org/wiki/Dash#Em_dash): ---. This is *not* supported by vanilla Markdown, but is supported by Softcover (Section~\ref{sec:softcover_markdown_text_formatting}).
+
+I generally find Markdown's style of blockquote syntax OK when an email program automatically puts in the `>` brackets, but it's cumbersome to put them in by hand. Good text editors can make constructing blockquotes easier, but it still involves more friction than I'd like. I think \LaTeX's syntax is nicer (Section~\ref{sec:polytex_text_formatting}, especially since it can more easily be produced by a text-editor macro or tab trigger.
+
+#### Source code
+
+Markdown can also format literal text like source code. Backticks indicate inline code, as in the `def` keyword:
+
+```text
+as in the `def` keyword
+```
+
+\noindent Code blocks can be set using four spaces of indentation, with
+
+
+    def hello
+      puts "hello, world!"
+    end
+
+\noindent being produced by
+
+```text
+    def hello
+      puts "hello, world!"
+    end
+```
+
+\noindent Note that this is *not* my preferred method for including source code, and I strongly encourage using GitHub-style fenced code instead (Section~\ref{sec:code_formatting}).
+
+
+### Links and images
+
+Markdown supports links through a convenient format inspired by common usage in email, where you might write
+
+```text
+Check out the Ruby on Rails Tutorial (http://railstutorial.org/)
+```
+
+\noindent Markdown adds one piece of syntax to resolve the ambiguity of exactly which text corresponds to the link, thus letting you check out the [Ruby on Rails Tutorial](http://railstutorial.org/):
+
+```text
+check out the [Ruby on Rails Tutorial](http://railstutorial.org/)
+```
+
+Images follow a similar syntax, with the text being preceded by an exclamation point. This allows you to embed images like so:
+
+![Michael Hartl](/images/2011_michael_hartl.png)
+
+```text
+This allows you to embed images like so:
+
+![Michael Hartl](/images/2011_michael_hartl.png)
+```
+
+\noindent Due to the details of how Softcover processes Markdown, unfortunately the bracketed text does *not* get used as the image alt text; instead, the filename (minus extension) is the alt text:[^latex_images]
+
+```html
+![Michael Hartl](/images/2011_michael_hartl.png) ->
+  <img alt="2011_michael_hartl" src="2011_michael_hartl.png" />
+```
+
+\noindent As a result, it's a good idea to use meaningful filenames for images.
+
+Images in vanilla Markdown are limited to embedding as above, but Softcover extends Markdown to provide a wide variety of other behavior, including captioned images, numbered figures, and numbered figures with captions (Section~\ref{sec:softcover_markdown_images}).
 
 <!--
 
@@ -341,4 +468,6 @@ Output:
 
 [^latex_polytex]: This manual uses "\PolyTeX" when the distinction with "\LaTeX" is important and "\LaTeX" otherwise.
 
-[^greenspuns_tenth]:
+[^quote_translation]: Usually translated as "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away."
+
+[^latex_images]: The issue is that \LaTeX\ images have no notion of "alt text", so that information is lost in translation. (This is a slight disadvantage of converting Markdown to \LaTeX\ before converting to HTML, though the advantages more than compensate for it.)
