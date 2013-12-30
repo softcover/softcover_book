@@ -141,19 +141,19 @@ check out the [Ruby on Rails Tutorial](http://railstutorial.org/)
 
 Images follow a similar syntax, with the text being preceded by an exclamation point. This allows you to embed images like so:
 
-![Michael Hartl](/images/2011_michael_hartl.png)
+![Michael Hartl](images/2011_michael_hartl.png)
 
 ```text
 This allows you to embed images like so:
 
-![Michael Hartl](/images/2011_michael_hartl.png)
+![Michael Hartl](images/2011_michael_hartl.png)
 ```
 
 \noindent Due to the details of how Softcover processes Markdown, unfortunately the bracketed text does *not* get used as the image alt text; instead, the filename (minus extension) is the alt text:[^latex_images]
 
 ```html
-![Michael Hartl](/images/2011_michael_hartl.png) ->
-  <img alt="2011_michael_hartl" src="2011_michael_hartl.png" />
+![Michael Hartl](images/2011_michael_hartl.png) ->
+  <img alt="2011_michael_hartl" src="images/2011_michael_hartl.png" />
 ```
 
 \noindent As a result, it's a good idea to use meaningful filenames for images.
