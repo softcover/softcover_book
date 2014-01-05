@@ -90,13 +90,13 @@ yielding _**boldface italic**_
 > —Antoine de Saint-Exupéry, *Terre des hommes*
 ```
 
-\noindent Note in particular the use of the Unicode [em dash](http://en.wikipedia.org/wiki/Dash#Em_dash) '—'; Softcover (but not vanilla Markdown) also supports \LaTeX-style triple dashes, with \verb+---+ being set as '---' (Section~\ref{sec:softcover_markdown_text_formatting}).
+\noindent Note the use of the Unicode [em dash](http://en.wikipedia.org/wiki/Dash#Em_dash) '—'; Softcover (but not vanilla Markdown) also supports \LaTeX-style triple dashes, with \verb+---+ being set as '---' (Section~\ref{sec:softcover_markdown_text_formatting}).
 
 I generally find Markdown's style of blockquote syntax fine when an email program automatically puts in the `>` brackets, but it's cumbersome to put them in by hand. Good text editors can make constructing blockquotes easier, but it still involves more friction than I'd like. I think \LaTeX's syntax is nicer (Section~\ref{sec:polytex_text_formatting}), especially since it can more easily be produced by a text-editor macro or tab trigger.
 
 #### Source code
 
-Markdown can also formats ource code and other verbatim text. Backticks indicate inline code, as in the `def` keyword:
+Markdown can also formats source code and other verbatim text. Backticks indicate inline code, as in the `def` keyword:
 
 ```text
 as in the `def` keyword
@@ -154,6 +154,135 @@ This allows you to embed images like so:
 \noindent As a result, it's a good idea to use meaningful filenames for images.
 
 Images in vanilla Markdown are limited to embedding as above, but Softcover extends Markdown to provide a wide variety of other behavior, including captioned images, numbered figures, and numbered figures with captions (Section~\ref{sec:softcover_markdown_images}).
+
+### Lists
+
+Markdown supports both numbered and unnumbered lists.
+
+#### Numbered lists
+
+Numbered lists are simple:
+
+1. Foo
+2. Baz
+3. Quux
+
+```text
+Numbered lists are simple:
+
+1. Foo
+2. Baz
+3. Quux
+```
+
+\noindent One counterintuitive aspect of numbered lists is that the numbering need not be sequential; instead, the numbering is handled automatically by the HTML `<ol>` tag. This means that the following list is rendered as above:
+
+3. Foo
+1. Baz
+2. Quux
+
+```text
+This means that the following list is rendered as above:
+
+3. Foo
+1. Bar
+2. Quux
+```
+ \noindent Though potentially confusing, this behavior is nice when you need to insert an element but you don't want to have to renumber them all by hand:
+
+ 1. Foo
+ 2. Bar
+ 2. Baz
+ 3. Quux
+
+```text
+you don't want to have to renumber them all by hand:
+
+ 1. Foo
+ 2. Bar
+ 2. Baz
+ 3. Quux
+```
+
+#### Unnumbered lists
+
+Unnumbered lists are even easier:
+
+* Foo
+* Bar
+* Baz
+
+```text
+Unnumbered lists are even easier:
+
+* Foo
+* Bar
+* Baz
+```
+
+\noindent You can alternately uses minuses (or even pluses):
+
+- One fish
+- Two fish
+- Red fish
+- Blue fish
+
+```text
+You can alternately uses minuses (or even pluses):
+
+- One fish
+- Two fish
+- Red fish
+- Blue fish
+```
+
+#### Paragraphs in lists
+
+*   A list item.
+
+    With multiple paragraphs.
+
+*   Another item in the list.
+
+
+In the case of both numbered and unnumbered lists, you can put a paragraph in a list element by indenting the desired paragraphs four spaces, like so:
+
+1. Foo
+
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat.
+
+1. Baz
+
+1. Bar
+
+    Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+```text
+you can put a paragraph in a list element by indenting the desired paragraphs
+four spaces, like so:
+
+1. Foo
+
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat.
+
+1. Baz
+
+1. Bar
+
+    Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```
+
+
 
 <!--
 
@@ -316,11 +445,11 @@ If you put blank lines between items, you'll get `<p>` tags for the
 list item text. You can create multi-paragraph list items by indenting
 the paragraphs by 4 spaces or 1 tab:
 
-    *   A list item.
+*   A list item.
 
-        With multiple paragraphs.
+    With multiple paragraphs.
 
-    *   Another item in the list.
+*   Another item in the list.
 
 Output:
 
