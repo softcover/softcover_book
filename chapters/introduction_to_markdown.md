@@ -78,7 +78,8 @@ yielding _**boldface italic**_
 > Il semble que la perfection soit atteinte non
 > quand il n'y a plus rien à ajouter,
 > mais quand il n'y a plus rien à retrancher.
-> -Antoine de Saint-Exupéry, *Terre des hommes*
+>
+> —Antoine de Saint-Exupéry, *Terre des hommes*
 
 \noindent This quote[^quote_translation] is produced by the code
 
@@ -86,22 +87,16 @@ yielding _**boldface italic**_
 > Il semble que la perfection soit atteinte non
 > quand il n'y a plus rien à ajouter,
 > mais quand il n'y a plus rien à retrancher.
-> -Antoine de Saint-Exupéry, *Terre des hommes*
+> —Antoine de Saint-Exupéry, *Terre des hommes*
 ```
 
-\noindent Incidentally, I would ordinarily set the attribution as
+\noindent Note in particular the use of the Unicode [em dash](http://en.wikipedia.org/wiki/Dash#Em_dash) '—'; Softcover (but not vanilla Markdown) also supports \LaTeX-style triple dashes, with \verb+---+ being set as '---' (Section~\ref{sec:softcover_markdown_text_formatting}).
 
-```text
----Antoine de Saint-Exupéry, *Terre des hommes*
-```
-
-\noindent with a three dashes indicating an [em dash](http://en.wikipedia.org/wiki/Dash#Em_dash): ---. This is *not* supported by vanilla Markdown, but is supported by Softcover (Section~\ref{sec:softcover_markdown_text_formatting}).
-
-I generally find Markdown's style of blockquote syntax OK when an email program automatically puts in the `>` brackets, but it's cumbersome to put them in by hand. Good text editors can make constructing blockquotes easier, but it still involves more friction than I'd like. I think \LaTeX's syntax is nicer (Section~\ref{sec:polytex_text_formatting}, especially since it can more easily be produced by a text-editor macro or tab trigger.
+I generally find Markdown's style of blockquote syntax fine when an email program automatically puts in the `>` brackets, but it's cumbersome to put them in by hand. Good text editors can make constructing blockquotes easier, but it still involves more friction than I'd like. I think \LaTeX's syntax is nicer (Section~\ref{sec:polytex_text_formatting}), especially since it can more easily be produced by a text-editor macro or tab trigger.
 
 #### Source code
 
-Markdown can also format literal text like source code. Backticks indicate inline code, as in the `def` keyword:
+Markdown can also formats ource code and other verbatim text. Backticks indicate inline code, as in the `def` keyword:
 
 ```text
 as in the `def` keyword
@@ -122,21 +117,21 @@ as in the `def` keyword
     end
 ```
 
-\noindent Note that this is *not* my preferred method for including source code, and I strongly encourage using GitHub-style fenced code instead (Section~\ref{sec:code_formatting}).
+\noindent Note that this is *not* my preferred method for including source code, and I strongly encourage using GitHub-style code fencing (Section~\ref{sec:code_formatting}) or \LaTeX\ code environments (Section~\ref{sec:latex_code_formatting}) instead.
 
 
 ### Links and images
 
-Markdown supports links through a convenient format inspired by common usage in email, where you might write
+Markdown supports links through a convenient format inspired by common usage in email, where you might write something like this as:
 
 ```text
 Check out the Ruby on Rails Tutorial (http://railstutorial.org/)
 ```
 
-\noindent Markdown adds one piece of syntax to resolve the ambiguity of exactly which text corresponds to the link, thus letting you check out the [Ruby on Rails Tutorial](http://railstutorial.org/):
+\noindent Markdown adds one piece of syntax to resolve the ambiguity of exactly which text corresponds to the link, thus letting you check out the [Ruby on Rails Tutorial](http://railstutorial.org/) as follows:
 
 ```text
-check out the [Ruby on Rails Tutorial](http://railstutorial.org/)
+check out the [Ruby on Rails Tutorial](http://railstutorial.org/) as follows
 ```
 
 Images follow a similar syntax, with the text being preceded by an exclamation point. This allows you to embed images like so:
