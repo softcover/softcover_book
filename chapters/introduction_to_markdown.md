@@ -96,7 +96,7 @@ I generally find Markdown's style of blockquote syntax fine when an email progra
 
 #### Source code
 
-Markdown can also formats source code and other verbatim text. Backticks indicate inline code, as in the `def` keyword:
+Markdown can also format source code and other verbatim text. Backticks indicate inline code, as in the `def` keyword:
 
 ```text
 as in the `def` keyword
@@ -122,16 +122,16 @@ as in the `def` keyword
 
 ### Links and images
 
-Markdown supports links through a convenient format inspired by common usage in email, where you might write something like this as:
+Markdown supports hypertext links through a convenient format inspired by common usage in email, where you might write something like this as:
 
 ```text
 Check out the Ruby on Rails Tutorial (http://railstutorial.org/)
 ```
 
-\noindent Markdown adds one piece of syntax to resolve the ambiguity of exactly which text corresponds to the link, thus letting you check out the [Ruby on Rails Tutorial](http://railstutorial.org/) as follows:
+\noindent Markdown adds one piece of syntax to resolve the ambiguity of exactly which text corresponds to the link, thus letting you check out the [Ruby on Rails Tutorial](http://railstutorial.org/):
 
 ```text
-check out the [Ruby on Rails Tutorial](http://railstutorial.org/) as follows
+check out the [Ruby on Rails Tutorial](http://railstutorial.org/)
 ```
 
 Images follow a similar syntax, with the text being preceded by an exclamation point. This allows you to embed images like so:
@@ -175,20 +175,20 @@ Numbered lists are simple:
 3. Quux
 ```
 
-\noindent One counterintuitive aspect of numbered lists is that the numbering need not be sequential; instead, the numbering is handled automatically by the HTML `<ol>` tag. This means that the following list is rendered as above:
+\noindent One counterintuitive aspect of numbered lists is that the numbering need not be sequential; instead, the numbering is handled automatically by the HTML `<ol>` tag. This means that the following list is effectively the same as the one above:
 
 3. Foo
 1. Baz
 2. Quux
 
 ```text
-This means that the following list is rendered as above:
+This means that the following list is effectively the same as the one above:
 
 3. Foo
 1. Bar
 2. Quux
 ```
- \noindent Though potentially confusing, this behavior is nice when you need to insert an element but you don't want to have to renumber them all by hand:
+ \noindent Though potentially confusing, this behavior is nice when you need to insert an element into the list but you don't want to have to renumber all the other elements by hand:
 
  1. Foo
  2. Bar
@@ -196,31 +196,31 @@ This means that the following list is rendered as above:
  3. Quux
 
 ```text
-you don't want to have to renumber them all by hand:
+you don't want to have to renumber all the other elements by hand:
 
- 1. Foo
- 2. Bar
- 2. Baz
- 3. Quux
+1. Foo
+2. Bar
+2. Baz
+3. Quux
 ```
 
 #### Unnumbered lists
 
-Unnumbered lists are even easier:
+Unnumbered lists are even easier than numbered lists:
 
 * Foo
 * Bar
 * Baz
 
 ```text
-Unnumbered lists are even easier:
+Unnumbered lists are even easier than numbered lists:
 
 * Foo
 * Bar
 * Baz
 ```
 
-\noindent You can alternately uses minuses (or even pluses):
+\noindent You can alternately uses minuses (or even pluses) instead of asterisks:
 
 - One fish
 - Two fish
@@ -234,6 +234,22 @@ You can alternately uses minuses (or even pluses):
 - Two fish
 - Red fish
 - Blue fish
+```
+
+Mixing different bullet-point styles is particularly nice when making nested lists:
+
+* Foo
+    - Bar
+    - Baz
+* Quux
+
+```text
+nice when making nested lists:
+
+* Foo
+    - Bar
+    - Baz
+* Quux
 ```
 
 #### Paragraphs in lists
