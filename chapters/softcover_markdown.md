@@ -28,7 +28,7 @@ In the spirit of [Greenspun's Tenth Rule of Programming](https://en.wikipedia.or
 
 \PolyTeXnic\ authors are, of course, welcome to use Markdown++, but anyone who knows Markdown or HTML can learn enough \PolyTeX\ to be productive in only a few minutes. And given that Markdown+ extends vanilla Markdown in dozens of ways, you're going to have to learn something new no matter which way you go. My view is that you might as well learn a real typesetting language that has, e.g., a \href{http://tex.stackexchange.com/}{real Stack Exchange community} associated with it, but I'm perfectly prepared for the possibility that some variant of Markdown will eventually win. Since it's easy to support both, \PolyTeXnic\ does.
 
-It's true that the \LaTeX\ commands for typesetting mathematics can be complicated and a little scary---but if you want to typeset mathematics, you need to learn \LaTeX\ anyway.
+It's true that the \LaTeX\ commands for typesetting mathematics can be complicated and even a little scary---but if you want to typeset mathematics, you need to learn \LaTeX\ anyway:
 \[ \left(-\frac{\hbar^2}{2m}\nabla^2 + V\right)\psi = E\psi \]
 \[
 \left(\frac{p}{q}\right) \left(\frac{q}{p}\right) = (-1)^{[(p-1)/2][(q-1)/2]} \quad\text{($p$, $q$ distinct odd primes)}
@@ -38,9 +38,102 @@ It's true that the \LaTeX\ commands for typesetting mathematics can be complicat
 
 ![\label{fig:xkcd_extensions}](images/figures/file_extensions.png)
 
-## Code fencing and kramdown
+## Advanced enhancements
 \label{sec:code_fencing_kramdown}
+
+### GitHub-flavored fenced code blocks
+
+Softcover borrows one key feature from [Github-flavored Markdown](#), namely, "fenced code blocks", or "code fencing" for short. This syntax involves placing code samples inside "fences" composed of three backticks (\verb+```+):
+
+```
+# "Hello, world!" in Ruby
+def hello
+  puts "hello, world!"
+end
+```
+
+\noindent In Markdown, this is produced by the following code:
+
+    ```
+    # "Hello, world!" in Ruby
+    def hello
+      puts "hello, world!"
+    end
+    ```
+
+Following GitHub's example, Softcover supports an optional string after the opening of the fence indicating the language of the sample, yielding language-specific syntax highlighting:
+
+```ruby
+# "Hello, world!" in Ruby
+def hello
+  puts "hello, world!"
+end
+```
+
+\noindent This is produced by the following Markdown:
+
+    ```ruby
+    # "Hello, world!" in Ruby
+    def hello
+      puts "hello, world!"
+    end
+    ```
+
+\noindent The language designation (e.g., `ruby`) can be any language supported by the [available Pygments lexers](http://pygments.org/docs/lexers/).
+
+As a final enhancement, Softcover adds a hook directly into the [Pygments formatter options](http://pygments.org/docs/formatters/), allowing, for example, turning on line numbering and highlighting specific lines:
+
+```ruby, options: "linenos": true, "hl_lines": [1, 3]
+# "Hello, world!" in Ruby
+def hello
+  puts "hello, world!"
+end
+```
+
+\noindent This is produced by the following Markdown:
+
+    ```ruby, options: "linenos": true, "hl_lines": [1, 3]
+    # "Hello, world!" in Ruby
+    def hello
+      puts "hello, world!"
+    end
+    ```
+
+\noindent Here the hash
+
+```
+options: "linenos": true, "hl_lines": [1, 3]
+```
+
+\noindent gets passed directly to Pygments, so any option listed on the [Pygments formatter options page](http://pygments.org/docs/formatters/) is automatically supported by Softcover.
+
+### Code inclusion
+
+Can include code
+
+### The kramdown extensions
+
+Includes kramdown: footnotes, tables, etc.
+
 
 ## Embedded \LaTeX
 \label{sec:embedded_latex}
+
+Most advanced option: select \LaTeX\ embedding. Leads to gotchas
+
+### Labels and cross-references
+
+Can define labels and cross-references
+
+### Code listings
+
+Can make code listings
+
+### Aside boxes
+
+Can make aside boxes
+
+### Miscellaneous formatting
+
+Can use verbatim, typewriter text, etc.
 
