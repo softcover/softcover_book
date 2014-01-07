@@ -5,8 +5,6 @@ Softcover therefore supports a *superset* of vanilla Markdown, including the [*k
 
 The Softcover dialect of Markdown is, to our knowledge, the most powerful one available, with support for figures, tables, code listings, and mathematical equations (all with numbered, linked cross-references).
 
-
-
 Softcover-flavored Markdown derives much of its power by converting Markdown first to \PolyTeX, a strict subset of the \LaTeX\ typesetting language (Section~\ref{sec:softcover_system}), and then from \PolyTeX\ to HTML, EPUB, MOBI, and PDF\@. The result is an [abstraction layer](https://en.wikipedia.org/wiki/Abstraction_layer) over the underlying \LaTeX;[^latex_polytex] by allowing *embedded* \LaTeX\ as well, Softcover lets users pierce this abstraction layer and typeset things impossible for vanilla Markdown---for example, "Hackers in Hawai`i write \kode{'Aloha, world!'}".
 
 The resulting hybrid input language, though powerful, can get a bit messy, and
@@ -16,23 +14,19 @@ adding features to Markdown as described above is a prime example of how weak sy
 \label{aside:polytex_markdown}
 \heading{\PolyTeX, Markdown, and Hartl's Tenth Rule of Typesetting}
 
-Markdown succeeds spectacularly well in achieving its goals, and I have been an enthusiastic user of Markdown since shortly after it debuted. Indeed, in a sense it has succeeded a little *too* well, to the point where people use it even when it's not the best tool for the job.
+I've been a fan of Markdown since it first appeared in 2004, and its high adoption rates since then show how well it fits its intended role of being a friendly skin on raw HTML. Indeed, in a sense it has succeeded a little *too* well, to the point where people use it even when it may not be the best tool for the job. The result is that virtually every system out there using "Markdown" in reality uses some augemented version of the original markup language---an implicit acknowledgment that vanilla Markdown is insufficient for industrial-strength typesetting.
 
-In the spirit of [Greenspun's Tenth Rule of Programming](https://en.wikipedia.org/wiki/Greenspun's_tenth_rule), I offer the following rule:
+On the other end of the spectrum from Markdown is \LaTeX, an industrial-strength typesetting system if ever there was one. \LaTeX, like Lisp in its domain, can essentially "do anything", so in the spirit of [Greenspun's Tenth Rule of Programming](https://en.wikipedia.org/wiki/Greenspun's_tenth_rule) I offer the following maxim:
 
 > **Hartl's Tenth Rule of Typesetting**\\
 > *Any sufficiently complicated typesetting system contains an ad hoc,
 > informally specified, bug-ridden, slow implementation of half of \LaTeX.*
 
-\LaTeX\ is really two things: a typesetting language and a system for converting that language into print-quality documents (PostScript, PDF, etc.) Of course, even \PolyTeXnic\ can't fully escape Hartl's Tenth Rule, since using  \LaTeX\ input to produce HTML output requires writing just such an implementation of half of \LaTeX. (Well, we do our best to make it fast and avoid bugs\ldots) But by using \PolyTeX\ we at least avoid creating an ad hoc, informally specified \emph{input} language as well. Indeed, looking at the ever-expanding definition of ``Markdown''---as kramdown, Leanpub, GitHub, etc., add non-Markdown features to a Markdown base---we see the familiar pattern of Hartl's Tenth Rule emerge.
+This suggests at least the possibility of *actually using \LaTeX* instead of using "Markdown on steroids". We do have to make concessions when making multi-format ebooks, especially since the popular EPUB & MOBI formats are based on HTML---there's simply no general mapping from \LaTeX\ to HTML. But what we *can* do is support a *subset* of \LaTeX\ that maps nicely to HTML (and thence to EPUB & MOBI). The result is a version of \LaTeX\ that supports polymorphic output---thus, *\PolyTeX*.
 
-\PolyTeXnic\ authors are, of course, welcome to use Markdown++, but anyone who knows Markdown or HTML can learn enough \PolyTeX\ to be productive in only a few minutes. And given that Markdown+ extends vanilla Markdown in dozens of ways, you're going to have to learn something new no matter which way you go. My view is that you might as well learn a real typesetting language that has, e.g., a \href{http://tex.stackexchange.com/}{real Stack Exchange community} associated with it, but I'm perfectly prepared for the possibility that some variant of Markdown will eventually win. Since it's easy to support both, \PolyTeXnic\ does.
+Of course, even \PolyTeX\ can't fully escape Hartl's Tenth Rule, since producing HTML output from \LaTeX\ requires writing just such an implementation of half of \LaTeX. (Well, we do our best to make it fast and avoid bugs\ldots) But by using \PolyTeX\ we at least avoid creating an ad hoc, informally specified *input* language as well. Indeed, looking at the ever-expanding definition of "Markdown"---from GitHub to Leanpub to Softcover itself---we see the familiar pattern of Hartl's Tenth Rule emerge.
 
-It's true that the \LaTeX\ commands for typesetting mathematics can be complicated and even a little scary---but if you want to typeset mathematics, you need to learn \LaTeX\ anyway:
-\[ \left(-\frac{\hbar^2}{2m}\nabla^2 + V\right)\psi = E\psi \]
-\[
-\left(\frac{p}{q}\right) \left(\frac{q}{p}\right) = (-1)^{[(p-1)/2][(q-1)/2]} \quad\text{($p$, $q$ distinct odd primes)}
-\]
+Authors who hunger for more power and flexibility in their typesetting system are thus invited to try \PolyTeX. Anyone who knows Markdown or HTML can learn enough \PolyTeX\ to be productive in only a few minutes, and the ceiling on what you can acheive is much higher. If your curiosity is piqued, Chapter~\ref{cha:polytex_tutorial} will help get you started.
 
 \end{aside}
 
