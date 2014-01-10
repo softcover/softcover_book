@@ -14,24 +14,26 @@ adding features to Markdown as described above is a prime example of how weak sy
 \label{aside:polytex_markdown}
 \heading{Markdown, \PolyTeX, and Hartl's Tenth Rule of Typesetting}
 
-I've been a fan of Markdown since it first appeared in 2004, and in my view Markdown deserves the enormous popularity it has achieved. Indeed, in a sense it has succeeded a little *too* well, to the point where people use it even when it may not be the best tool for the job. In particular, because it is essentially a thin layer on top of HTML, the original "vanilla" Markdown is ill-suited to producing longer or more structured documents. Indeed, virtually every system using "Markdown" in reality uses some augmented version of the original markup language---an implicit acknowledgment that vanilla Markdown is insufficient for industrial-strength typesetting.
+\noindent I've been a fan of Markdown since it first appeared in 2004, and in my view Markdown deserves the enormous popularity it has achieved. Indeed, in a sense it has succeeded a little *too* well, to the point where people use it even when it may not be the best tool for the job. In particular, because it is essentially a thin layer on top of HTML, the original "vanilla" Markdown is ill-suited to producing longer or more structured documents. Indeed, virtually every system using "Markdown" in reality uses some augmented version of the original markup language---an implicit acknowledgment that vanilla Markdown is insufficient for industrial-strength typesetting.
 
-On the other end of the spectrum from Markdown is \LaTeX, an industrial-strength typesetting system if ever there was one. \LaTeX, like the Lisp programming language in its domain, can essentially "do anything"; thus, in the spirit of [Greenspun's Tenth Rule of Programming](https://en.wikipedia.org/wiki/Greenspun's_tenth_rule) on Lisp, I hereby offer the following maxim on \LaTeX:[^tenth_rule]
+On the other end of the spectrum from Markdown is \LaTeX, an industrial-strength typesetting system if ever there was one. \LaTeX, like the Lisp programming language in its domain, can essentially "do anything"; thus, in the spirit of [Greenspun's Tenth Rule of Programming](https://en.wikipedia.org/wiki/Greenspun's_tenth_rule) on Lisp, I hereby offer the following maxim on \LaTeX:
 
 > **Hartl's Tenth Rule of Typesetting**\\
 > *Any sufficiently complicated typesetting system contains an ad hoc,
 > informally specified, bug-ridden, slow implementation of half of \LaTeX.*
 
-\noindent Looking at the ever-expanding definition of "Markdown"---from [GFM](http://github.github.com/github-flavored-markdown/) to [kramdown](http://kramdown.gettalong.org/) to Softcover-flavored Markdown itself---we see the pattern of Hartl's Tenth Rule emerge.
+\noindent Looking at the ever-expanding definition of "Markdown"---from [GFM](http://github.github.com/github-flavored-markdown/) to [kramdown](http://kramdown.gettalong.org/) to Softcover-flavored Markdown itself---we see the pattern of Hartl's Tenth Rule emerge. (As with Greenspun's Tenth Rule of Programming, there are no rules 1--9 preceding Hartl's Tenth Rule of Typesetting; calling it the "tenth rule" (without any predecessors) is part of the joke.)
 
-Of course, there's no law saying that we *have* to use Markdown, and Hartl's Tenth Rule suggests a second possibility: *actually using \LaTeX*. Because \LaTeX\ is designed to make print-friendly formats like PostScript and PDF, we do have to make some concessions when outputting multi-format ebooks, mainly because the popular EPUB and MOBI formats are based on HTML,[^mobi_html] and there's simply no general mapping from \LaTeX\ to HTML. But what we *can* do is support a *subset* of \LaTeX\ that maps nicely to HTML (and thence to EPUB and MOBI). The result is a version of \LaTeX\ that supports polymorphic output---i.e., *\PolyTeX*.[^polytex_tenth_rule] As noted in [XKCD 1301](http://www.xkcd.com/1301/), the resulting \texttt{.tex} files have the highest level of trustworthiness of any format (Figure~\ref{fig:xkcd_extensions}).
+Of course, there's no law saying that we *have* to use Markdown, and Hartl's Tenth Rule suggests a second possibility: *actually using \LaTeX*. Since \LaTeX\ is designed to make print-friendly formats like PostScript and PDF, we do have to make some concessions when outputting multi-format ebooks, mainly because the popular EPUB and MOBI formats ultimately are based on HTML, and there's simply no general mapping from \LaTeX\ to HTML. But what we *can* do is support a *subset* of \LaTeX\ that maps nicely to HTML (and thence to EPUB and MOBI). The result is a version of \LaTeX\ that supports polymorphic output---i.e., *\PolyTeX*. (Unfortunately, even \PolyTeX\ can't fully escape Hartl's Tenth Rule, since producing HTML output from \LaTeX\ requires writing just such an implementation of half of \LaTeX. (Well, we do our best to make it fast and avoid bugs\ldots) But by using \PolyTeX\ we at least avoid creating an ad hoc, informally specified *syntax* as well.)
 
-\PolyTeX, at the cost of some complexity, gives authors considerably more power, flexibility, and extensibility than any variant of Markdown. As a result, \PolyTeX\ is (despite a fondness for Markdown) my preferred Softcover input format. If you already know HTML or Markdown, \PolyTeX\ is not hard to learn, and the only really scary syntax is for math input---but if you want to typeset mathematics, you need to learn \LaTeX\ anyway:[^equation_explanation]
+\PolyTeX, at the cost of some complexity, gives authors considerably more power, flexibility, and extensibility than any variant of Markdown. If you already know HTML or Markdown, \PolyTeX\ is not hard to learn, with the only really scary syntax being for math input---but if you want to typeset mathematics, you need to learn \LaTeX\ anyway:
 \[ \left(-\frac{\hbar^2}{2m}\nabla^2 + V\right)\psi = E\psi \]
 \[
 \left(\frac{p}{q}\right) \left(\frac{q}{p}\right) = (-1)^{[(p-1)/2][(q-1)/2]} \quad\text{($p$, $q$ distinct odd primes)}
 \]
-If your curiosity about \PolyTeX\ is piqued, Chapter~\ref{cha:polytex_tutorial} will get you started.
+(These are the [time-independent Schr\"{o}dinger equation](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation#Time-independent_equation) and the [law of quadratic reciprocity](https://en.wikipedia.org/wiki/Quadratic_reciprocity), respectively.)
+
+Despite a fondness for Markdown, \PolyTeX's superior power makes it my preferred Softcover input format. And as a bonus, the resulting \texttt{.tex} files have the highest level of trustworthiness of any format (Figure~\ref{fig:xkcd_extensions}). If your curiosity about \PolyTeX\ has been piqued, Chapter~\ref{cha:polytex_tutorial} will get you started.
 
 \end{aside}
 
@@ -135,13 +137,3 @@ Can make aside boxes
 ### Miscellaneous formatting
 
 Can use verbatim, typewriter text, etc.
-
-
-[^tenth_rule]: As with Greenspun's Tenth Rule of Programming, there are no rules 1--9 preceding Hartl's Tenth Rule of Typesetting. Calling it the "tenth rule" (without any predecessors) is part of the joke.
-
-[^mobi_html]: I'm actually not sure about the internals of the proprietary MOBI format, but EPUB files are literally just zipped HTML (with ancillary XML, CSS, and image files thrown in for good measure), and the canonical way to produce MOBI is to pass EPUB input to a program like kindlegen. Thus, both EPUB and MOBI are ultimately based on HTML.
-
-[^polytex_tenth_rule]: Unfortunately, even \PolyTeX\ can't fully escape Hartl's Tenth Rule, since producing HTML output from \LaTeX\ requires writing just such an implementation of half of \LaTeX. (Well, we do our best to make it fast and avoid bugs\ldots) But by using \PolyTeX\ we at least avoid creating an ad hoc, informally specified *syntax* as well.
-
-[^equation_explanation]: These equations are the time-independent [Schr\"{o}dinger equation](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation) and the [law of quadratic reciprocity](https://en.wikipedia.org/wiki/Quadratic_reciprocity), respectively.
-
