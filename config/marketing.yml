@@ -46,6 +46,15 @@ prices:
     price: 12500
     regular_price: 19900
 
+authors:
+  -
+    name: "The Author"
+    image: /images/testimonial_1.png
+    contact_email: "info@softcover.io"
+    bio:
+      |
+        Author bio [link](https://www.softcover.io)
+
 faq:
   -
     question: "Question 1 text"
@@ -69,3 +78,6 @@ testimonials:
     text: "Testimonial 2 text"
 
 marketing_content: ''
+
+contact_email: ''
+hide_custom_domain_footer: false
