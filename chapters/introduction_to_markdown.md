@@ -304,8 +304,6 @@ four spaces, like so:
 
 [^footnote_example]: Like this.
 
-[^latex_polytex]: This manual uses "\PolyTeX" when the distinction with "\LaTeX" is important and "\LaTeX" otherwise.
-
 [^quote_translation]: Usually translated as "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away."
 
 [^latex_images]: The issue is that \LaTeX\ images have no notion of "alt text", so that information is lost in translation. (This is a slight disadvantage of converting Markdown to \LaTeX\ before converting to HTML, though the advantages more than compensate for it.)
