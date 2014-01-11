@@ -256,10 +256,26 @@ Softcover supports code inclusion directly from local files, such as this valedi
 <<(example_book/config/book.yml, lang: yaml)
 ```
 
-
-
 ### Embedded math
 
+Softcover supports embedded math, such as {$$}\phi^2 - \phi - 1 = 0{/$$}, and centered math, such as
+
+{$$}
+\phi = \frac{1+\sqrt{5}}{2}.
+{/$$}
+
+\noindent This uses the \verb+{$$}...{\$$}+ syntax supported by Leanpub's proprietary Markdown variant:
+
+```
+Softcover supports embedded math, such as {$$}\phi^2 - \phi - 1 = 0{/$$}, and
+centered math, such as
+
+{$$}
+\phi = \frac{1+\sqrt{5}}{2}.
+{/$$}
+```
+
+\noindent This syntax is odd and is included only for compatibility with other systems; \softcover\ also supports the proper \LaTeX\ syntax (Section~\ref{sec:latex_math}), which is strongly preferred.
 
 
 ## Embedded \LaTeX
