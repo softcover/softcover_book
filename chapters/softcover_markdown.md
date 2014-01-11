@@ -152,6 +152,8 @@ such as \*, you can do so with a backslash
 `         back tick
 <<        left guillemet
 >>        right guillemet
+$         dollar sign
+{}        braces
 ```
 
 Finally, in kramdown snake_case_words appear with underscores (perhaps familiar from GitHub-flavored Markdown, which has the same feature). This is convenient because vanilla Markdown would intepret the underscores as emphasis, yielding "snake*case*words", which probably isn't what you wanted.
@@ -264,7 +266,7 @@ Softcover supports embedded math, such as {$$}\phi^2 - \phi - 1 = 0{/$$}, and ce
 \phi = \frac{1+\sqrt{5}}{2}.
 {/$$}
 
-\noindent This uses the \verb+{$$}...{\$$}+ syntax supported by Leanpub's proprietary Markdown variant:
+\noindent This uses the syntax `{\$\$\}...\{/\$\$\}` for both inline and centered math, with the only difference being the absence or presence of newlines:
 
 ```
 Softcover supports embedded math, such as {$$}\phi^2 - \phi - 1 = 0{/$$}, and
@@ -275,7 +277,7 @@ centered math, such as
 {/$$}
 ```
 
-\noindent This syntax is odd and is included only for compatibility with other systems; \softcover\ also supports the proper \LaTeX\ syntax (Section~\ref{sec:latex_math}), which is strongly preferred.
+\noindent This syntax is odd and is included only for compatibility with other systems (particularly Leanpub's proprietary Markdown variant); \softcover\ also supports the proper \LaTeX\ syntax (Section~\ref{sec:latex_math}), which is strongly preferred.
 
 
 ## Embedded \LaTeX
