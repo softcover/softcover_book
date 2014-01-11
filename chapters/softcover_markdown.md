@@ -45,7 +45,7 @@ Despite a fondness for Markdown, \PolyTeX's superior power makes it my preferred
 
 The [kramdown](http://kramdown.gettalong.org/) [[sic](https://en.wikipedia.org/wiki/Sic)] project is a pure-Ruby library that supports a superset of Markdown inspired by [Markuku](http://maruku.rubyforge.org/) and [PHP Markdown Extra](http://michelf.ca/projects/php-markdown/extra/). From the perspective of the Softcover platform, the most important additions are support for numbered footnotes and for embedded tables.
 
-The \texttt{softcover} system piggybacks on kramdown's internals, which include a Markdown-to-\LaTeX\ converter to support PDF output. As a result, \texttt{softcover} doesn't support any kramdown syntax (such as embedded `div` tags) that have no natural conversion to \LaTeX. This means that \texttt{softcover} is intentionally less flexible in this regard in order to avoid the supporting HTML output that doesn't also work in PDFs.
+The \softcover\ system piggybacks on kramdown's internals, which include a Markdown-to-\LaTeX\ converter to support PDF output. As a result, \softcover\ doesn't support any kramdown syntax (such as embedded `div` tags) that have no natural conversion to \LaTeX. This means that \softcover\ is intentionally less flexible in this regard in order to avoid the supporting HTML output that doesn't also work in PDFs.
 
 
 ### Tables
@@ -162,6 +162,7 @@ Finally, in kramdown snake_case_words appear with underscores (perhaps familiar 
 Softcover-flavored Markdown includes some additional advanced enhancements over vanilla Markdown and kramdown.
 
 ### GitHub-flavored fenced code blocks
+\label{sec:code_fencing}
 
 Softcover borrows one key feature from [Github-flavored Markdown](https://help.github.com/articles/github-flavored-markdown), namely, [*fenced code blocks*](https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks), or "code fencing" for short. This syntax involves placing code samples inside "fences" composed of three backticks (\verb+```+):
 
@@ -235,11 +236,27 @@ options: "linenos": true, "hl_lines": [1, 3]
 
 ### Code inclusion
 
-Softcover supports code inclusion directly from local files, such as this valedictory program
+Softcover supports code inclusion directly from local files, such as this valedictory program:
 
 <<(source/goodnight.rb)
 
-For example, this is the `book.yml` file for a newly generate example book:
+\noindent The corresponding file is in `source/goodnight.rb`, so the markup
+
+```text
+<<(source/goodnight.rb)
+```
+
+\noindent includes the source of the file in the current document. Because Pygments asociates the `.rb` filename extension with Ruby, syntax highlighting comes for free. For extensions that Pygments doesn't understand, you can add additional information as in Section~\ref{sec:code_fencing}. For example, this is the `book.yml` file for a newly generated example book (last seen in Listing~\ref{code:book_yml}):
+
+<<(example_book/config/book.yml, lang: yaml)
+
+\noindent This is produced by passing the `lang: yaml` option to tell \softcover\ to highlight the code as YAML:
+
+```text
+<<(example_book/config/book.yml, lang: yaml)
+```
+
+
 
 ### Embedded math
 

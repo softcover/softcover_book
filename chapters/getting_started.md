@@ -128,7 +128,7 @@ To see the commands supported by `softcover`, run `softcover help` at the comman
 
 \begin{codelisting}
 \label{code:softcover_help}
-\codecaption{Viewing available \texttt{softcover} commands with \kode{softcover help}.}
+\codecaption{Viewing available \softcover\ commands with \kode{softcover help}.}
 ```console
 $ softcover help
 softcover build, build:all           # Build all formats
@@ -176,6 +176,7 @@ We see from Listing~\ref{code:softcover_help} that the way to generate a new Sof
 $ softcover new example_book
 Generating directory: example_book
 Creating chapters
+Creating config
 Creating epub
 Creating epub/OEBPS
 Creating epub/OEBPS/styles
@@ -185,21 +186,27 @@ Creating html/jquery/1.10.2
 Creating html/stylesheets
 Creating images
 Creating images/figures
+Creating latex_styles
+Creating screencasts
 Creating .softcover-deploy
-Creating example_book.tex
 Creating Book.txt
-Creating book.yml
 Creating chapters/a_chapter.md
 Creating chapters/another_chapter.md
 Creating chapters/preface.md
-Creating chapters/yet_another_chapter.md.
+Creating chapters/yet_another_chapter.md
+Creating config/book.yml
+Creating config/marketing.yml
 .
 .
 .
+Creating latex_styles/custom.sty
+Creating latex_styles/custom_pdf.sty
+Creating latex_styles/framed.sty
+Creating latex_styles/softcover.sty
+Creating latex_styles/upquote.sty
 Creating README.md
-Creating softcover.sty
-Creating upquote.sty
-Done. Please update book.yml
+Creating screencasts/.gitkeep
+Done. Please update config/book.yml
 ```
 \end{codelisting}
 
@@ -229,7 +236,7 @@ Softcover books also come with a `book.yml` configuration file containing some b
 \begin{codelisting}
 \label{code:book_yml}
 \codecaption{The default contents of \texttt{book.yml}.}
-<<(example_book/book.yml, lang: yaml)
+<<(example_book/config/book.yml, lang: yaml)
 \end{codelisting}
 
 <!--
