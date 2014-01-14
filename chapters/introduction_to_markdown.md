@@ -90,7 +90,7 @@ yielding _**boldface italic**_
 > —Antoine de Saint-Exupéry, *Terre des hommes*
 ```
 
-\noindent Note the use of the Unicode [em dash](http://en.wikipedia.org/wiki/Dash#Em_dash) '—'; Softcover (but not vanilla Markdown) also supports \LaTeX-style triple dashes, with \verb+---+ being set as '---' (Section~\ref{sec:softcover_markdown_text_formatting}).
+\noindent Note the use of the Unicode [em dash](http://en.wikipedia.org/wiki/Dash#Em_dash) '—'; Softcover (but not vanilla Markdown) also supports \LaTeX-style triple dashes, with \verb+---+ being set as '---' (Section~\ref{sec:embedded_latex}).
 
 I generally find Markdown's style of blockquote syntax fine when an email program automatically puts in the `>` brackets, but it's cumbersome to put them in by hand. Good text editors can make constructing blockquotes easier, but it still involves more friction than I'd like. I think \LaTeX's syntax is nicer (Section~\ref{sec:polytex_text_formatting}), especially since it can more easily be produced by a text-editor macro or tab trigger.
 

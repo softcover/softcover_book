@@ -5,7 +5,7 @@ Softcover therefore supports a *superset* of vanilla Markdown, including the [*k
 
 The Softcover dialect of Markdown is, to our knowledge, the most powerful one available, with support for figures, tables, code listings, and mathematical equations (all with numbered, linked cross-references).
 
-Softcover-flavored Markdown derives much of its power by converting Markdown first to \PolyTeX, a strict subset of the \LaTeX\ typesetting language (Section~\ref{sec:softcover_system}), and then from \PolyTeX\ to HTML, EPUB, MOBI, and PDF\@. The result is an [abstraction layer](https://en.wikipedia.org/wiki/Abstraction_layer) over the underlying \LaTeX;[^latex_polytex] by allowing *embedded* \LaTeX\ as well, Softcover lets users pierce this abstraction layer and typeset things impossible for vanilla Markdown---for example, "\textsc{Hackers in Hawai`i write} `'Aloha, world!'`"
+Softcover-flavored Markdown derives much of its power by converting Markdown first to \PolyTeX, a strict subset of the \LaTeX\ typesetting language (Section~\ref{sec:softcover_system}), and then from \PolyTeX\ to HTML, EPUB, MOBI, and PDF\@. The result is an [abstraction layer](https://en.wikipedia.org/wiki/Abstraction_layer) over the underlying \LaTeX;[^latex_polytex] by allowing *embedded* \LaTeX\ as well, Softcover lets users pierce this abstraction layer and typeset things impossible for vanilla Markdown---for example, "\texttt{typewriter text} \textsc{is different from} `code`" (see Section~\ref{sec:embedded_latex} to learn how to do it).
 
 The resulting hybrid input language, though powerful, can get a bit messy, and
 adding features to Markdown as described above is a prime example of how weak systems tend to evolve toward strong ones in an [*ad hoc*](http://en.wikipedia.org/wiki/Ad_hoc) way (Box~\ref{aside:polytex_markdown}). Users who want a consistent input syntax with maximum control can dispense with the abstraction layer and write in raw \PolyTeX\ instead (Chapter~\ref{cha:polytex_tutorial}). Indeed, because the Markdown conversion runs through the \PolyTeX\ pipeline, it's possible to start with Markdown and change over to \PolyTeX\ at any time (Section~\ref{sec:markdown_to_polytex}).
@@ -236,6 +236,10 @@ options: "linenos": true, "hl_lines": [1, 3]
 
 \noindent gets passed directly to Pygments, so any option listed on the [Pygments formatter options page](http://pygments.org/docs/formatters/) is automatically supported by Softcover.
 
+### Leanpub-style (???)
+
+***Maybe it's just kramdown?***
+
 ### Code inclusion
 
 Softcover supports code inclusion directly from local files, such as this valedictory program:
@@ -248,7 +252,7 @@ Softcover supports code inclusion directly from local files, such as this valedi
 <<(source/goodnight.rb)
 ```
 
-\noindent includes the source of the file in the current document. Because Pygments asociates the `.rb` filename extension with Ruby, syntax highlighting comes for free. For extensions that Pygments doesn't understand, you can add additional information as in Section~\ref{sec:code_fencing}. For example, this is the `book.yml` file for a newly generated example book (last seen in Listing~\ref{code:book_yml}):
+\noindent includes the source of the file in the current document. Because Pygments associates the `.rb` filename extension with Ruby, syntax highlighting comes for free. For extensions that Pygments doesn't understand, you can add additional information as in Section~\ref{sec:code_fencing}. For example, this is the `book.yml` file for a newly generated example book (last seen in Listing~\ref{code:book_yml}):
 
 <<(example_book/config/book.yml, lang: yaml)
 
@@ -285,13 +289,106 @@ centered math, such as
 
 Most advanced option: select \LaTeX\ embedding. Leads to gotchas
 
+As noted in the introduction, this allows us to typeset things like "\texttt{typewriter text} \textsc{is different from} `code`", which in embedded \LaTeX\ appears as follows:
+
+```latex
+"\texttt{typewriter text} is different from `code`"
+```
+
+\noindent This uses \verb+\texttt+ to set \texttt{typewriter text} and \verb+\textsc+ to set \textsc{small caps}.
+
+
+\LaTeX\ commands start with a backslash `\` and typically take 1--3 arguments.
+
+
+Can use verbatim, typewriter text, etc. kode
+
+Caveat: nesting doesn't work
+
+Also supports \LaTeX\ dashes, as in 1999--2003 and --- and ties~
+
+noindent
+
+
 ### Labels and cross-references
 
-Can define labels and cross-references
+One of the biggest advantages of using embedded \LaTeX\ is being able to use *cross-references* to tie together the structure of the document. Cross-references consist of pairing a *label* with a *reference*.
+
+For example, at the beginning of this chapter is a label appearing immediately after the chapter indicator:
+
+```latex
+# Softcover-flavored Markdown
+\label{cha:softcover_markdown}
+```
+
+\noindent This allows the definition of a cross-reference using the \verb+\ref+ command, whose argument is the label name. Thus,
+
+```latex
+Chapter~\ref{cha:introduction_to_markdown}
+```
+
+\noindent produces "Chapter~\ref{cha:introduction_to_markdown}". Similarly, the beginning of this section has
+
+```latex
+## Embedded \LaTeX
+\label{sec:embedded_latex}
+```
+
+\noindent so that
+
+```latex
+Section~\ref{sec:embedded_latex}
+```
+
+\noindent produces "Section~\ref{sec:embedded_latex}". These cross-references are clickable links across all output formats (HTML, EPUB, MOBI, and PDF).
+
+In addition to working with chapters and sections, Softcover cross-references also work with code listings, aside boxes, figures, tables, and centered equations. The label names can be virtually anything, but I follow the common convention of [namespacing](https://en.wikipedia.org/wiki/Namespace) them by type, so that chapter labels are prefixed with `cha:`, sections with `sec:`, codelistings with `code:`, etc.
+
+The advantage of using named labels instead of hard-coded numbers can hardly be over-stated: it means that if you add a new chapter to the beginning of your book, all the subsequent cross-references will automatically be renumbered. There is simply no way an author could keep track of more than a few cross-references by hand, but with Softcover you can use as many as you want.
+
+I am a strong advocate of extensive cross-referencing, and not only because of their obvious benefits to readers. Cross-references are extraordinarily useful for *authors* as well: they let you immediately orient yourself when picking up after leaving off or going back later to edit. They are also useful when deferring material to the future, as undefined cross-references are helpful reminders to fill in the material later. I like to say that *cross-references are the connective tissue in the body of a book*.
 
 ### Code listings
 
-Can make code listings
+In addition to syntax-highlighted source code, \softcover\ also supports code *listings*, which are numbered with optional captions. For example,
+
+```latex
+\begin{codelisting}
+\label{code:palindrome}
+\codecaption{Adding a \kode{palindrome?} method to strings.}
+```ruby
+class String
+  def palindrome?
+    self == self.reverse
+  end
+end
+```
+\end{codelisting}
+```
+
+\noindent produces Listing~\ref{code:palindrome}. The cross-reference itself is set using the code in Listing~\ref{code:palindrome_reference}.
+
+\begin{codelisting}
+\label{code:palindrome}
+\codecaption{Adding a \kode{palindrome?} method to strings.}
+```ruby
+class String
+  def palindrome?
+    self == self.reverse
+  end
+end
+```
+\end{codelisting}
+
+
+\begin{codelisting}
+\label{code:palindrome_reference}
+\codecaption{A reference to the palindrome code listing.}
+```latex
+Listing~\ref{code:palindrome}
+```
+\end{codelisting}
+
 
 ### Aside boxes
 
@@ -299,9 +396,15 @@ Can make aside boxes
 
 ### Tabular and tables
 
-### Miscellaneous formatting
+### Figures
 
-Can use verbatim, typewriter text, etc.
+### Math and numbered equations
+
+
+
+## Switching to \PolyTeX
+
+
 
 <!-- footnotes  -->
 
