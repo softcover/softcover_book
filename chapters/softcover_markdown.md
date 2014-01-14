@@ -298,6 +298,8 @@ As noted in the introduction, this allows us to typeset things like "\texttt{typ
 \noindent This uses \verb+\texttt+ to set \texttt{typewriter text} and \verb+\textsc+ to set \textsc{small caps}.
 
 
+### \LaTeX\ commands
+
 \LaTeX\ commands start with a backslash `\` and typically take 1--3 arguments.
 
 
@@ -307,7 +309,7 @@ Caveat: nesting doesn't work
 
 Also supports \LaTeX\ dashes, as in 1999--2003 and --- and ties~
 
-noindent
+noindent backslash space
 
 
 ### Labels and cross-references
@@ -348,14 +350,22 @@ The advantage of using named labels instead of hard-coded numbers can hardly be 
 
 I am a strong advocate of extensive cross-referencing, and not only because of their obvious benefits to readers. Cross-references are extraordinarily useful for *authors* as well: they let you immediately orient yourself when picking up after leaving off or going back later to edit. They are also useful when deferring material to the future, as undefined cross-references are helpful reminders to fill in the material later. I like to say that *cross-references are the connective tissue in the body of a book*.
 
+### Tabular and tables
+
+We've seen examples of tables, but there's more to it.
+
+### Figures
+
+We've seen figures. Several different possibilities.
+
 ### Code listings
 
-In addition to syntax-highlighted source code, \softcover\ also supports code *listings*, which are numbered with optional captions. For example,
+In addition to syntax-highlighted source code, \softcover\ also supports code *listings*, which are numbered code blocks with optional captions. For example,
 
 ```latex
 \begin{codelisting}
 \label{code:palindrome}
-\codecaption{Adding a \kode{palindrome?} method to strings.}
+\codecaption{Adding a \texttt{palindrome?} method to strings.}
 ```ruby
 class String
   def palindrome?
@@ -370,7 +380,7 @@ end
 
 \begin{codelisting}
 \label{code:palindrome}
-\codecaption{Adding a \kode{palindrome?} method to strings.}
+\codecaption{Adding a \texttt{palindrome?} method to strings.}
 ```ruby
 class String
   def palindrome?
@@ -390,17 +400,158 @@ Listing~\ref{code:palindrome}
 \end{codelisting}
 
 
+To get a code listing with only a number, simply leave the \verb+\codecaption+ empty. For example, the code in Listing~\ref{code:no_caption_code} produces Listing~\ref{code:palindrome_no_caption}.
+
+\begin{codelisting}
+\label{code:no_caption_code}
+\codecaption{}
+```latex
+\begin{codelisting}
+\label{code:palindrome_no_caption}
+\codecaption{}
+```ruby
+class String
+  def palindrome?
+    self == self.reverse
+  end
+end
+```
+\end{codelisting}
+```
+\end{codelisting}
+
+\begin{codelisting}
+\label{code:palindrome_no_caption}
+\codecaption{}
+```ruby
+class String
+  def palindrome?
+    self == self.reverse
+  end
+end
+```
+\end{codelisting}
+
+__obviously lots of typing, so use macros. I plan to release mine for sublime text__
+
 ### Aside boxes
 
-Can make aside boxes
+In the course of writing a narrative document like a book, you may find that you want to make an *aside*, i.e., a digression that covers some ancillary topic in more depth. In order to prevent breaking up the narrative, Softcover supports an *aside box environment* suitable for cross-referencing. We've seen several examples so far in this manual, most recently in Box~\ref{aside:polytex_markdown}. The code to produce that aside appears in Listing~\ref{code:polytex_markdown_aside_code}, and the code to produce the reference appears in Listing~\ref{code:polytex_markdown_ref_code}.
 
-### Tabular and tables
+\begin{codelisting}
+\label{code:polytex_markdown_aside_code}
+\codecaption{The code to produce Box~\ref{aside:polytex_markdown}.}
+```latex, options: "hl_lines": [1, 2, 3, 12]
+\begin{aside}
+\label{aside:polytex_markdown}
+\heading{Markdown, \PolyTeX, and Hartl's Tenth Rule of Typesetting}
 
-### Figures
+\noindent I've been a fan of Markdown since it first appeared in 2004,
+.
+.
+.
+If your curiosity about \PolyTeX\ has been piqued,
+Chapter~\ref{cha:polytex_tutorial} will get you started.
+
+\end{aside}
+```
+\end{codelisting}
+
+\begin{codelisting}
+\label{code:polytex_markdown_ref_code}
+\codecaption{The code to make a reference to Box~\ref{aside:polytex_markdown}.}
+```latex, options: "hl_lines": [2]
+We've seen several examples so far in this manual, most recently in
+Box~\ref{aside:polytex_markdown}.
+```
+\end{codelisting}
+
+As with previous environments, the aside code in Listing~\ref{code:polytex_markdown_aside_code} uses a prefix for the label---in this case, `aside:`. We also see that aside box captions are created using the \verb+\heading+ command, whose argument is optional; the code
+
+```latex
+\heading{}
+```
+
+\noindent produces a box with a number but no text.
+
 
 ### Math and numbered equations
 
+We've seen math using the ugly `{\$\$\}...\{/\$\$\}` syntax, but also can use proper \LaTeX\ syntax, as in \( \phi^2 - \phi - 1 = 0 \), which is set using \LaTeX's native "backslash parenthesis" notation:
 
+```latex
+\( \phi^2 - \phi - 1 = 0 \)
+```
+
+\noindent The pithier \TeX-style dollar-sign notation is not supported by Markdown input in order to avoid confusion with (very common) ordinary dollar signs, but it is supported by \PolyTeX. Power users who want to be able to write
+
+```latex
+$x$
+```
+
+\noindent instead of
+
+```latex
+\( x \)
+```
+
+\noindent should thus use raw \PolyTeX.
+
+
+\noindent Softcover also supports centered math, as follows:
+
+\[ \phi^2 - \phi - 1 = 0. \]
+
+\noindent This equation is set using \LaTeX's native "backslash square bracket" notation:
+
+
+```latex
+\[ \phi^2 - \phi - 1 = 0. \]
+```
+
+\noindent The \TeX-style double-dollar-sign notation is not supported by Markdown input in order to avoid confusion with (very common) ordinary dollar signs, but it is supported by \PolyTeX. Power users who want to be able to write
+
+```latex
+$$ \phi^2 - \phi - 1 = 0. $$
+```
+
+\noindent instead of
+
+```latex
+\[ \phi^2 - \phi - 1 = 0. \]
+```
+
+\noindent should thus use raw \PolyTeX. (I actually prefer \TeX-style dollar signs for inline math but \LaTeX-style backslash--square brackets for centered math---one of the many reasons I prefer \PolyTeX\ to Markdown for serious typesetting.)
+
+Finally, Softcover supports numbered, cross-referenced equations using the `equation` environment, as shown in Eq.~\eqref{eq:golden_ratio}. The code to produce this equation is shown in Listing~\ref{code:golden_ratio_code}. To my knowledge, Softcover is the only typesetting system capable of producing numbered, cross-referenced equations in all output formats.[^eq_epub_mobi]
+
+\begin{equation}
+\label{eq:golden_ratio}
+\phi = \frac{1+\sqrt{5}}{2}\approx 1.618 \qquad{\text{The Golden Ratio}}
+\end{equation}
+
+\begin{codelisting}
+\label{code:golden_ratio_code}
+\codecaption{The \LaTeX\ code to produce Eq.~\eqref{eq:golden_ratio}.}
+```latex, options: "hl_lines": [1, 2, 4]
+\begin{equation}
+\label{eq:golden_ratio}
+\phi = \frac{1+\sqrt{5}}{2}\approx 1.618 \qquad{\text{The Golden Ratio}}
+\end{equation}
+```
+\end{codelisting}
+
+Softcover supports both common \LaTeX\ methods for referencing equations: normal references using \verb+\ref+, as in Eq.~\ref{eq:golden_ratio}, and the preferred \verb+\eqref+, which automatically adds parentheses, as in Eq.~\eqref{eq:golden_ratio}. The latter is especially useful when omitting the "Eq." part, allowing compact equation references like \eqref{eq:golden_ratio}. Listing~\ref{code:eq_refs} compares the methods.
+
+\begin{codelisting}
+\label{code:eq_refs}
+\codecaption{Comparing the equation reference methods.}
+```latex
+Eq.~\ref{eq:golden_ratio}      % produces "Eq. 3.1"
+Eq.~\eqref{eq:golden_ratio}    % produces "Eq. (3.1)"
+\eqref{eq:golden_ratio}        % produces "(3.1)"
+```
+\end{codelisting}
 
 ## Switching to \PolyTeX
 
@@ -408,6 +559,8 @@ Can make aside boxes
 
 <!-- footnotes  -->
 
-[^latex_polytex]: This manual uses "\PolyTeX" when the distinction with "\LaTeX" is important and "\LaTeX" otherwise.
+[^latex_polytex]: This manual uses "\PolyTeX" when the distinction with \LaTeX\ is important and "\LaTeX" otherwise.
 
 [^example_footnote]: This is an example footnote.
+
+[^eq_epub_mobi]: The real challenge is producing EPUB and MOBI output. The trick is to (1) create a self-contained HTML page with embedded math, (2) include the amazing [MathJax](http://www.mathjax.org/) JavaScript library, configured to render math as [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) images, (3) hit the page with the headless [PhantomJS](http://phantomjs.org/) browser to force MathJax to render the math (including any equation numbers), (4) extract self-contained SVGs from the rendered pages, and (5) use [Inkscape](http://www.inkscape.org/) to convert the SVGs to PNGs for inclusion in EPUB and MOBI books. Easy, right? No, in fact, it was excruciating and possibly required excessive amounts of profanity to achieve. But it's done, so ha.
