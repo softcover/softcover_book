@@ -396,15 +396,15 @@ We saw in Section~\ref{sec:kramdown_tables} that Softcover supports tables via a
 
 Let's examine the anatomy of the table in Listing~\ref{code:tabular}:
 
-- **Line 1** shows that `begin` in the `tabular` environment takes *two* arguments. The first argument simply identifies it as a `tabular` environment, while the second defines the total number of columns (three), their alignment (`r` for "right", `l` for "left", and `c` for "center"), and the presence or absence of vertical borders between the columns (borders everywhere except between the second and third columns).
+- **Line 1** shows that `begin` in the `tabular` environment takes *two* arguments. The first argument simply identifies it as a `tabular` environment, while the second, `|l|rc|` defines the alignment of each column (`r` for "right", `l` for "left", and `c` for "center") and the presence or absence of vertical borders between them (borders everywhere except between the second and third columns).
 
 - **Lines 2, 6, 8, and 10** use the \verb+\hline+ command a horizontal line between rows using the.
 
 - **Lines 3--5 and line 7** include three entries each, one for each column, separated by the ampersand character `&` and ended with a double-backslash \verb+\\+.
 
-- **Line 9** shows a \verb+\multicolumn+ command to create a row that spans three columns. It takes three arguments: the number of columns (3), the alignment and vertical borders (centered with borders on either side) and the contents ([AYBABTU](https://en.wikipedia.org/wiki/All_your_base_are_belong_to_us)).
+- **Line 9** shows a \verb+\multicolumn+ command to create a row that spans three columns. It takes three arguments: the number of columns (3), the alignment and vertical borders (`|c|`, or centered with borders on either side) and the contents ([AYBABTU](https://en.wikipedia.org/wiki/All_your_base_are_belong_to_us)).
 
-In addition to the `tabular` environment, Softcover also supports the somewhat confusingly named `table` environment, which turns a `tabular` environment into a "float", which in a print or PDF document will be placed automatically by \TeX's float-placement algorithms. A `table` environment is typically used with a caption and a label (which should be placed *inside* the caption), which yields numbered, cross-referenced tables, as seen Table~\ref{table:answer}. The code to produce Table~\ref{table:answer} appears in Listing~\ref{code:answer_table}. Note that because of how tables are processed, it is important that the `caption` contents appear in a single line of text; it's fine if the line wraps in your text editor, but it should contain no newlines.
+In addition to the `tabular` environment, Softcover also supports the somewhat confusingly named `table` environment, which turns a `tabular` environment into a "float", which in a print or PDF document will be placed automatically by \TeX's float-placement algorithms. A `table` environment is typically used with a caption and a label (which should be placed *inside* the caption), which yields numbered, cross-referenced tables, as seen in Table~\ref{table:answer}. The code to produce Table~\ref{table:answer} appears in Listing~\ref{code:answer_table}. Note that because of how tables are processed, it is important that the `caption` contents appear in a single line of text; it's fine if the line wraps in your text editor, but it should contain no newlines.
 
 \begin{table}
 \caption{An important answer in several bases.\label{table:answer}}
@@ -590,7 +590,7 @@ We've seen math using the ugly `{\$\$\}...\{/\$\$\}` syntax, but also can use pr
 as in \( \phi^2 - \phi - 1 = 0 \), which is set
 ```
 
-\noindent The pithier \TeX-style dollar-sign notation is not supported by Markdown input in order to avoid confusion with (very common) ordinary dollar signs, but it is supported by \PolyTeX. Power users who want to be able to write
+\noindent Some authors may be aware of the pithier \TeX-style dollar-sign notation, which sets inline math using notation like `$x$`. This is not supported by Markdown input in order to avoid confusion with ordinary dollar signs, but it is supported by \PolyTeX, so power users who want to be able to write
 
 ```latex
 $x$
@@ -602,7 +602,7 @@ $x$
 \( x \)
 ```
 
-\noindent should thus use raw \PolyTeX.
+\noindent should use raw \PolyTeX\ instead.
 
 
 \noindent Softcover also supports centered math, as follows:
@@ -614,7 +614,7 @@ This equation is set using \LaTeX's native "backslash square bracket" notation:
 \[ \phi^2 - \phi - 1 = 0. \]
 ```
 
-\noindent The \TeX-style double-dollar-sign notation is not supported by Markdown input in order to avoid confusion with (very common) ordinary dollar signs, but it is supported by \PolyTeX. Power users who want to be able to write
+\noindent As with inline math, \TeX provides an alternate dollar-sign syntax, in this case using `$$...$$` for centered math. This notation is not supported Markdown input in order to avoid confusion with ordinary dollar signs, so ower users who want to be able to write
 
 ```latex
 $$ \phi^2 - \phi - 1 = 0. $$
@@ -626,7 +626,7 @@ $$ \phi^2 - \phi - 1 = 0. $$
 \[ \phi^2 - \phi - 1 = 0. \]
 ```
 
-\noindent should thus use raw \PolyTeX. (I actually prefer \TeX-style dollar signs for inline math but \LaTeX-style backslash square brackets for centered math---one of the many reasons I prefer \PolyTeX\ to Markdown for serious typesetting.)
+\noindent should use raw \PolyTeX\ instead. (I actually prefer \TeX-style dollar signs for inline math but \LaTeX-style backslash square brackets for centered math.)
 
 Finally, Softcover supports numbered, cross-referenced equations using the `equation` environment, as shown in Eq.~\eqref{eq:golden_ratio}. The code to produce this equation is shown in Listing~\ref{code:golden_ratio_code}. To my knowledge, Softcover is the only typesetting system capable of producing numbered, linked, cross-referenced equations in all output formats (HTML, EPUB, MOBI, and PDF).[^eq_epub_mobi]
 
@@ -670,4 +670,4 @@ Just move the generated \PolyTeX\ file from the `generated_polytex` directory in
 
 [^example_footnote]: This is an example footnote.
 
-[^eq_epub_mobi]: The real challenge is producing EPUB and MOBI output. The trick is to (1) create a self-contained HTML page with embedded math, (2) include the amazing [MathJax](http://www.mathjax.org/) JavaScript library, configured to render math as [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) images, (3) hit the page with the headless [PhantomJS](http://phantomjs.org/) browser to force MathJax to render the math (including any equation numbers), (4) extract self-contained SVGs from the rendered pages, and (5) use [Inkscape](http://www.inkscape.org/) to convert the SVGs to PNGs for inclusion in EPUB and MOBI books. Easy, right? No, in fact, it was excruciating and possibly required excessive amounts of profanity to achieve. But it's done, so ha.
+[^eq_epub_mobi]: The real challenge is producing EPUB and MOBI output. The trick is to (1) create a self-contained HTML page with embedded math, (2) include the amazing [MathJax](http://www.mathjax.org/) JavaScript library, configured to render math as [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) images, (3) hit the page with the headless [PhantomJS](http://phantomjs.org/) browser to force MathJax to render the math (including any equation numbers) as SVGs, (4) extract self-contained SVGs from the rendered pages, and (5) use [Inkscape](http://www.inkscape.org/) to convert the SVGs to PNGs for inclusion in EPUB and MOBI books. Easy, right? No, in fact, it was excruciating and required excessive amounts of profanity to achieve. But it's done, so ha.
