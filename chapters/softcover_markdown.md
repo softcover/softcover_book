@@ -444,7 +444,26 @@ In addition to the `tabular` environment, Softcover also supports the somewhat c
 
 ### Figures
 
-We've seen figures. Several different possibilities.
+We've seen figures. Several different possibilities. Plain figure, as seen before in Section~\ref{sec:links_and_images}:
+
+![Some dude.](images/2011_michael_hartl.png)
+
+Can also make numbered figures with captions by including a label, as shown in Figure~\ref{fig:michael_hartl}. Using a bare label yields a figure with just a number (Figure~\ref{fig:road_to_hana}). The code to generated the two captioned figures is shown in Listing~\ref{code:captioned_figures}. As usual, the labels are namespaced, in this case with `fig:`.
+
+![Some dude.\label{fig:michael_hartl}](images/2011_michael_hartl.png)
+
+![\label{fig:road_to_hana}](images/2011_michael_hartl.png)
+
+\begin{codelisting}
+\label{code:captioned_figures}
+\codecaption{Code for Figure~\ref{fig:michael_hartl} and Figure~\ref{fig:road_to_hana}.}
+```latex
+![Some dude.\label{fig:michael_hartl}](images/2011_michael_hartl.png)
+
+![\label{fig:road_to_hana}](images/2011_michael_hartl.png)
+```
+\end{codelisting}
+
 
 ### Code listings
 
@@ -641,7 +660,9 @@ Eq.~\eqref{eq:golden_ratio}    % produces "Eq. (3.1)"
 
 ## Switching from Markdown to \PolyTeX
 
+It's possible to switch over at any time, can be done on a chapter-by-chapter basis.
 
+Just move the generated \PolyTeX\ file from the `generated_polytex` directory into the `chapters/` directory and edit the `Book.txt` file. Once you're confident you really want to make the switch, remove the original Markdown file. (If you're using Git for version control, which I *strongly* recommend, you can use `git rm` to remove the file. It will then be available in your history should you ever get cold feet and want to go back to Markdown.)
 
 <!-- footnotes  -->
 

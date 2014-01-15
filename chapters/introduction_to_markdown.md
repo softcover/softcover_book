@@ -121,6 +121,7 @@ as in the `def` keyword
 
 
 ### Links and images
+\label{sec:links_and_images}
 
 Markdown supports hypertext links through a convenient format inspired by common usage in email, where you might write something like this as:
 
