@@ -49,6 +49,7 @@ The \softcover\ system piggybacks on kramdown's internals, which include a Markd
 
 
 ### Tables
+\label{sec:kramdown_tables}
 
 The kramdown converter includes a lightweight syntax for making tables using pipes (`|`), dashes (`-`), and equals signs (`=`). Pipes define cells as follows:
 
@@ -352,7 +353,94 @@ I am a strong advocate of extensive cross-referencing, and not only because of t
 
 ### Tabular and tables
 
-We've seen examples of tables, but there's more to it.
+We saw in Section~\ref{sec:kramdown_tables} that Softcover supports tables via a literal-minded kramdown syntax, as in
+
+```
+| A simple | table |
+| with multiple | lines|
+```
+
+\noindent Softcover also supports more powerful \LaTeX\ tables via the `tabular` environment:
+
+\begin{tabular}{|r|lc|}
+  \hline
+  2A & hexadecimal & (base 16) \\
+  52 & octal & (base 8) \\
+  101010 & binary & (base 2) \\
+  \hline
+  42 & decimal & (base 10) \\
+  \hline
+  \multicolumn{3}{|c|}{\textsc{All your base are belong to us.}} \\
+  \hline
+\end{tabular}
+
+\noindent This is produced by the code in Listing~\ref{code:tabular}.
+
+\begin{codelisting}
+\label{code:tabular}
+\codecaption{Code to produce a \texttt{tabular} environment.}
+```latex, options: "linenos": true
+\begin{tabular}{|r|lc|}
+  \hline
+  2A & hexadecimal & (base 16) \\
+  52 & octal & (base 8) \\
+  101010 & binary & (base 2) \\
+  \hline
+  42 & decimal & (base 10) \\
+  \hline
+  \multicolumn{3}{|c|}{\textsc{All your base are belong to us.}} \\
+  \hline
+\end{tabular}
+```
+\end{codelisting}
+
+Let's examine the anatomy of the table in Listing~\ref{code:tabular}:
+
+- **Line 1** shows that `begin` in the `tabular` environment takes *two* arguments. The first argument simply identifies it as a `tabular` environment, while the second defines the total number of columns (three), their alignment (`r` for "right", `l` for "left", and `c` for "center"), and the presence or absence of vertical borders between the columns (borders everywhere except between the second and third columns).
+
+- **Lines 2, 6, 8, and 10** use the \verb+\hline+ command a horizontal line between rows using the.
+
+- **Lines 3--5 and line 7** include three entries each, one for each column, separated by the ampersand character `&` and ended with a double-backslash \verb+\\+.
+
+- **Line 9** shows a \verb+\multicolumn+ command to create a row that spans three columns. It takes three arguments: the number of columns (3), the alignment and vertical borders (centered with borders on either side) and the contents ([AYBABTU](https://en.wikipedia.org/wiki/All_your_base_are_belong_to_us)).
+
+In addition to the `tabular` environment, Softcover also supports the somewhat confusingly named `table` environment, which turns a `tabular` environment into a "float", which in a print or PDF document will be placed automatically by \TeX's float-placement algorithms. A `table` environment is typically used with a caption and a label (which should be placed *inside* the caption), which yields numbered, cross-referenced tables, as seen Table~\ref{table:answer}. The code to produce Table~\ref{table:answer} appears in Listing~\ref{code:answer_table}. Note that because of how tables are processed, it is important that the `caption` contents appear in a single line of text; it's fine if the line wraps in your text editor, but it should contain no newlines.
+
+\begin{table}
+\caption{An important answer in several bases.\label{table:answer}}
+\begin{tabular}{|r|lc|}
+  \hline
+  2A & hexadecimal & (base 16) \\
+  52 & octal & (base 8) \\
+  101010 & binary & (base 2) \\
+  \hline
+  42 & decimal & (base 10) \\
+  \hline
+  \multicolumn{3}{|c|}{\textsc{All your base are belong to us.}} \\
+  \hline
+\end{tabular}
+\end{table}
+
+\begin{codelisting}
+\label{code:answer_table}
+\codecaption{The code to produce Table~\ref{table:answer}}
+```latex, options: "hl_lines": [1, 2, 14]
+\begin{table}
+\caption{An important answer in several bases.\label{table:answer}}
+\begin{tabular}{|r|lc|}
+  \hline
+  2A & hexadecimal & (base 16) \\
+  52 & octal & (base 8) \\
+  101010 & binary & (base 2) \\
+  \hline
+  42 & decimal & (base 10) \\
+  \hline
+  \multicolumn{3}{|c|}{\textsc{All your base are belong to us.}} \\
+  \hline
+\end{tabular}
+\end{table}
+```
+\end{codelisting}
 
 ### Figures
 
@@ -480,7 +568,7 @@ As with previous environments, the aside code in Listing~\ref{code:polytex_markd
 We've seen math using the ugly `{\$\$\}...\{/\$\$\}` syntax, but also can use proper \LaTeX\ syntax, as in \( \phi^2 - \phi - 1 = 0 \), which is set using \LaTeX's native "backslash parenthesis" notation:
 
 ```latex
-\( \phi^2 - \phi - 1 = 0 \)
+as in \( \phi^2 - \phi - 1 = 0 \), which is set
 ```
 
 \noindent The pithier \TeX-style dollar-sign notation is not supported by Markdown input in order to avoid confusion with (very common) ordinary dollar signs, but it is supported by \PolyTeX. Power users who want to be able to write
@@ -499,10 +587,8 @@ $x$
 
 
 \noindent Softcover also supports centered math, as follows:
-
 \[ \phi^2 - \phi - 1 = 0. \]
-
-\noindent This equation is set using \LaTeX's native "backslash square bracket" notation:
+This equation is set using \LaTeX's native "backslash square bracket" notation:
 
 
 ```latex
@@ -521,9 +607,9 @@ $$ \phi^2 - \phi - 1 = 0. $$
 \[ \phi^2 - \phi - 1 = 0. \]
 ```
 
-\noindent should thus use raw \PolyTeX. (I actually prefer \TeX-style dollar signs for inline math but \LaTeX-style backslash--square brackets for centered math---one of the many reasons I prefer \PolyTeX\ to Markdown for serious typesetting.)
+\noindent should thus use raw \PolyTeX. (I actually prefer \TeX-style dollar signs for inline math but \LaTeX-style backslash square brackets for centered math---one of the many reasons I prefer \PolyTeX\ to Markdown for serious typesetting.)
 
-Finally, Softcover supports numbered, cross-referenced equations using the `equation` environment, as shown in Eq.~\eqref{eq:golden_ratio}. The code to produce this equation is shown in Listing~\ref{code:golden_ratio_code}. To my knowledge, Softcover is the only typesetting system capable of producing numbered, cross-referenced equations in all output formats.[^eq_epub_mobi]
+Finally, Softcover supports numbered, cross-referenced equations using the `equation` environment, as shown in Eq.~\eqref{eq:golden_ratio}. The code to produce this equation is shown in Listing~\ref{code:golden_ratio_code}. To my knowledge, Softcover is the only typesetting system capable of producing numbered, linked, cross-referenced equations in all output formats (HTML, EPUB, MOBI, and PDF).[^eq_epub_mobi]
 
 \begin{equation}
 \label{eq:golden_ratio}
@@ -541,7 +627,7 @@ Finally, Softcover supports numbered, cross-referenced equations using the `equa
 ```
 \end{codelisting}
 
-Softcover supports both common \LaTeX\ methods for referencing equations: normal references using \verb+\ref+, as in Eq.~\ref{eq:golden_ratio}, and the preferred \verb+\eqref+, which automatically adds parentheses, as in Eq.~\eqref{eq:golden_ratio}. The latter is especially useful when omitting the "Eq." part, allowing compact equation references like \eqref{eq:golden_ratio}. Listing~\ref{code:eq_refs} compares the methods.
+Softcover supports both common \LaTeX\ methods for referencing equations: normal references using \verb+\ref+, as in Eq.~\ref{eq:golden_ratio}, and the preferred \verb+\eqref+, which automatically adds parentheses around the equation number, as in Eq.~\eqref{eq:golden_ratio}. The latter is especially useful when omitting the "Eq." part, allowing compact equation references like \eqref{eq:golden_ratio}. Listing~\ref{code:eq_refs} compares the methods.
 
 \begin{codelisting}
 \label{code:eq_refs}
@@ -553,7 +639,7 @@ Eq.~\eqref{eq:golden_ratio}    % produces "Eq. (3.1)"
 ```
 \end{codelisting}
 
-## Switching to \PolyTeX
+## Switching from Markdown to \PolyTeX
 
 
 
