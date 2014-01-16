@@ -1,9 +1,7 @@
 # Softcover-flavored Markdown
 \label{cha:softcover_markdown}
 
-Softcover therefore supports a *superset* of vanilla Markdown, including the [*kramdown*](http://kramdown.gettalong.org/) extensions (Section~\ref{sec:kramdown}), advanced enhancements such as GitHub-style fenced code blocks (Section~\ref{sec:advanced_enhancements}), and embedded \LaTeX\ (Section~\ref{sec:embedded_latex}).
-
-The Softcover dialect of Markdown is, to our knowledge, the most powerful one available, with support for figures, tables, code listings, and mathematical equations (all with numbered, linked cross-references).
+As noted in Chapter~\ref{cha:introduction_to_markdown}, the classic implementation of Markdown is beautifully simply but is not adequate for serious typesetting. Softcover therefore supports a *superset* of vanilla Markdown called *Softcovered-flavored Markdown* (SFM), which includes select [*kramdown*](http://kramdown.gettalong.org/) extensions (Section~\ref{sec:kramdown}), advanced enhancements such as GitHub-style fenced code blocks (Section~\ref{sec:advanced_enhancements}), and embedded \LaTeX\ (Section~\ref{sec:embedded_latex}). The Softcover dialect of Markdown is, to our knowledge, the most powerful one available, with support for figures, tables, code listings, and mathematical equations---all with numbered, linked cross-references.
 
 Softcover-flavored Markdown derives much of its power by converting Markdown first to \PolyTeX, a strict subset of the \LaTeX\ typesetting language (Section~\ref{sec:softcover_system}), and then from \PolyTeX\ to HTML, EPUB, MOBI, and PDF\@. The result is an [abstraction layer](https://en.wikipedia.org/wiki/Abstraction_layer) over the underlying \LaTeX;[^latex_polytex] by allowing *embedded* \LaTeX\ as well, Softcover lets users pierce this abstraction layer and typeset things impossible for vanilla Markdown---for example, "\texttt{typewriter text} \textsc{is different from} `code`" (see Section~\ref{sec:embedded_latex} to learn how to do it).
 
@@ -33,7 +31,7 @@ Of course, there's no law saying that we *have* to use Markdown, and Hartl's Ten
 \]
 (These are the [time-independent Schr\"{o}dinger equation](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation#Time-independent_equation) and the [law of quadratic reciprocity](https://en.wikipedia.org/wiki/Quadratic_reciprocity), respectively.)
 
-Despite a fondness for Markdown, \PolyTeX's superior power makes it my preferred Softcover input format. And as a bonus, the resulting \texttt{.tex} files have the highest level of trustworthiness of any file extension (Figure~\ref{fig:xkcd_extensions}). If your curiosity about \PolyTeX\ has been piqued, Chapter~\ref{cha:polytex_tutorial} will get you started.
+Despite a fondness for Markdown, \PolyTeX's superior power makes it my preferred Softcover input format. And as a bonus, the resulting \texttt{.tex} files have the highest level of trustworthiness of any file extension (Figure~\ref{fig:xkcd_extensions}). If your curiosity about \PolyTeX\ has been piqued, Chapter~\ref{cha:polytex_tutorial} will help get you started.
 
 \end{aside}
 
