@@ -336,59 +336,60 @@ centered math, such as
 ## Embedded \LaTeX
 \label{sec:embedded_latex}
 
-Most advanced option: select \LaTeX\ embedding. Leads to gotchas
-
-As noted in the introduction, this allows us to typeset things like "\texttt{typewriter text} \textsc{is different from} `code`", which in embedded \LaTeX\ appears as follows:
+Short of using raw \PolyTeX\ (Chapter~\ref{cha:polytex_tutorial}), the most advanced typesetting options supported by Softcover involve embedding \LaTeX\ code directly in Markdown. As noted in the introduction to this chapter, this allows us to typeset things like "\texttt{typewriter text} \textsc{is different from} `code`", which in embedded \LaTeX\ appears as follows:
 
 ```latex
 "\texttt{typewriter text} is different from `code`"
 ```
 
-\noindent This uses \verb+\texttt+ to set \texttt{typewriter text} and \verb+\textsc+ to set \textsc{small caps}.
+\noindent This uses \verb+\texttt+ ("text-tee-tee") to set \texttt{typewriter text} and \verb+\textsc+ to set \textsc{small caps}.
+
+Not all of \LaTeX\ is supported, of course. The embeddable subset consists of single commands such as \verb+\texttt+ and \verb+\label+ (Section~\ref{sec:embedded_latex_commands} and Section~\ref{sec:embedded_labels_and_cross_references}), tables (Section~\ref{sec:embedded_tabular_and_tables}), figures (Section~\ref{sec:embedded_figures}), code listings (Section~\ref{sec:embedded_code_listings}), aside boxes (Section~\ref{sec:embedded_asides}), and mathematics (Section~\ref{sec:embedded_math})
 
 
 ### \LaTeX\ commands
-\label{sec:latex_commands}
+\label{sec:embedded_latex_commands}
 
-\LaTeX\ commands start with a backslash `\` and typically take 1--3 arguments.
+\LaTeX\ commands start with a backslash `\` and typically take 0--2 arguments.
 
 
 Can use verbatim, typewriter text, etc. kode, verb
 
 Caveat: nesting doesn't work
 
-Also supports \LaTeX\ dashes, as in 1999--2003 and --- and ties~
+Also supports \LaTeX\ dashes, as in 1999--2003 and --- and ties~foo
 
 noindent backslash space
 
 
 ### Labels and cross-references
+\label{sec:embedded_labels_and_cross_references}
 
-One of the biggest advantages of using embedded \LaTeX\ is being able to use *cross-references* to tie together the structure of the document. Cross-references consist of pairing a *label* with a *reference*.
+One of the biggest advantages of using embedded \LaTeX\ is being able to use *cross-references* to tie together the structure of the document. Cross-references consist of pairing a *label* (\verb+\label+) with a *reference* (\verb+\ref+).
 
 For example, at the beginning of this chapter is a label appearing immediately after the chapter indicator:
 
-```latex
+```latex, options: "hl_lines": [2]
 # Softcover-flavored Markdown
 \label{cha:softcover_markdown}
 ```
 
 \noindent This allows the definition of a cross-reference using the \verb+\ref+ command, whose argument is the label name. Thus,
 
-```latex
+```latex, options: "hl_lines": [1]
 Chapter~\ref{cha:introduction_to_markdown}
 ```
 
 \noindent produces "Chapter~\ref{cha:introduction_to_markdown}". Similarly, the beginning of this section has
 
-```latex
+```latex, options: "hl_lines": [2]
 ## Embedded \LaTeX
 \label{sec:embedded_latex}
 ```
 
 \noindent so that
 
-```latex
+```latex, options: "hl_lines": [1]
 Section~\ref{sec:embedded_latex}
 ```
 
@@ -401,6 +402,7 @@ The advantage of using named labels instead of hard-coded numbers can hardly be 
 I am a strong advocate of extensive cross-referencing, and not only because of their obvious benefits to readers. Cross-references are extraordinarily useful for *authors* as well: they let you immediately orient yourself when picking up after leaving off or going back later to edit. They are also useful when deferring material to the future, as undefined cross-references are helpful reminders to fill in the material later. I like to say that *cross-references are the connective tissue in the body of a book*.
 
 ### Tabular and tables
+\label{sec:embedded_tabular_and_tables}
 
 We saw in Section~\ref{sec:kramdown_tables} that Softcover supports tables via a literal-minded kramdown syntax, as in
 
@@ -492,6 +494,7 @@ In addition to the `tabular` environment, Softcover also supports the somewhat c
 \end{codelisting}
 
 ### Figures
+\label{sec:embedded_figures}
 
 We've seen figures. Several different possibilities. Plain figure, as seen before in Section~\ref{sec:links_and_images}:
 
@@ -515,6 +518,7 @@ Can also make numbered figures with captions by including a label, as shown in F
 
 
 ### Code listings
+\label{sec:embedded_code_listings}
 
 In addition to syntax-highlighted source code, Softcover also supports code *listings*, which are numbered code blocks with optional captions. For example,
 
@@ -591,6 +595,7 @@ end
 __obviously lots of typing, so use macros. I plan to release mine for sublime text__
 
 ### Aside boxes
+\label{sec:embedded_asides}
 
 In the course of writing a narrative document like a book, you may find that you want to make an *aside*, i.e., a digression that covers some ancillary topic in more depth. In order to prevent breaking up the narrative, Softcover supports an *aside box environment* suitable for cross-referencing. We've seen several examples so far in this manual, most recently in Box~\ref{aside:polytex_markdown}. The code to produce that aside appears in Listing~\ref{code:polytex_markdown_aside_code}, and the code to produce the reference appears in Listing~\ref{code:polytex_markdown_ref_code}.
 
@@ -632,7 +637,7 @@ As with previous environments, the aside code in Listing~\ref{code:polytex_markd
 
 
 ### Math and numbered equations
-\label{sec:latex_math}
+\label{sec:embedded_math}
 
 We've seen math using the ugly `{\$\$\}...\{/\$\$\}` syntax, but also can use proper \LaTeX\ syntax, as in \( \phi^2 - \phi - 1 = 0 \), which is set using \LaTeX's native "backslash parenthesis" notation:
 
