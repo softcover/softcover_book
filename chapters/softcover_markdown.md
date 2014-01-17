@@ -143,6 +143,7 @@ In addition to tables and footnotes, kramdown includes other miscellaneous featu
 you can demonstrate Markdown's double-asterisk boldface syntax
 {::nomarkdown}**like this**{:/}
 ```
+(I personally find this syntax ugly and hard to remember, and prefer to typeset inline verbatim text using \LaTeX's \verb+\verb+ syntax; see Section~\ref{sec:latex_commands} for details.)
 
 If you just want to escape individual characters, such as \*, you can do so with a backslash:
 ```
@@ -180,14 +181,13 @@ end
 
 \noindent In Markdown, this is produced by the following code:
 
+{lang="text"}
     ```
     # "Hello, world!" in Ruby
     def hello
       puts "hello, world!"
     end
     ```
-
-\noindent (Here we indicate code using indentation rather than a shaded code blocks, because plain code fences can't talk about themselves: there's no way for the parser to know if the first inner \verb+```+ is the end of a fenced block or the beginning of example code.)
 
 Following GitHub's example, Softcover supports an optional string after the opening of the fence indicating the language of the sample, yielding language-specific syntax highlighting:
 
@@ -239,14 +239,59 @@ options: "linenos": true, "hl_lines": [1, 3]
 
 \noindent gets passed directly to Pygments, so any option listed on the [Pygments formatter options page](http://pygments.org/docs/formatters/) is automatically supported by Softcover.
 
-### Leanpub-style (???)
+### Leanpub-style language blocks
 
-***Maybe it's just kramdown?***
+SFM supports indented code blocks with an explicit language designation, which is based on [Leanpub](http://leanpub.com/)'s' proprietary Markdown variant. This is mainly useful when using SFM to talk about SFM. In particular, plain code fences can't talk about themselves because there's no way for the parser to know if the first inner \verb+```+ is the end of a fenced block or the beginning of example code. Thus, a code block like
+{lang="text"}
+    ```
+    # "Hello, world!" in Ruby
+    def hello
+      puts "hello, world!"
+    end
+    ```
+\noindent can't be set by nesting one fenced block inside another. Instead, we use
+```
+{lang="text"}
+    ```
+    # "Hello, world!" in Ruby
+    def hello
+      puts "hello, world!"
+    end
+    ```
+```
+\noindent where the line
+```
+{lang="text"}
+```
+\noindent specifies the language explicitly (in this case, `text`, because, as noted in Section~\ref{sec:code_fencing}, Pygments lacks a Markdown lexer).
+
+Although this syntax can be used to typeset highlighted code like
+{lang="ruby"}
+    # Prints a greeting.
+    def hello
+      puts "hello, world!"
+    end
+\noindent using
+```
+{lang="ruby"}
+    # Prints a greeting.
+    def hello
+      puts "hello, world!"
+    end
+```
+\noindent I virtually always prefer to use code fencing instead, i.e.,
+{lang="text"}
+    ```ruby
+    # Prints a greeting.
+    def hello
+      puts "hello, world!"
+    end
+    ````
 
 ### Code inclusion
 \label{sec:code_inclusion}
 
-Softcover supports code inclusion directly from local files, such as this valedictory program:
+Softcover supports code inclusion directly from local files, such as this program to wish "goodnight" to the Moon:
 
 <<(source/goodnight.rb)
 
@@ -256,11 +301,11 @@ Softcover supports code inclusion directly from local files, such as this valedi
 <<(source/goodnight.rb)
 ```
 
-\noindent includes the source of the file in the current document. Because Pygments associates the `.rb` filename extension with Ruby, syntax highlighting comes for free. For extensions that Pygments doesn't understand, you can add additional information as in Section~\ref{sec:code_fencing}. For example, this is the `book.yml` file for a newly generated example book (last seen in Listing~\ref{code:book_yml}):
+\noindent includes the source of the file into the current document. Because Softcover automatically associates the `.rb` filename extension with the code block, syntax highlighting comes for free via Pygments. For extensions that Pygments doesn't understand, you can add additional information as in Section~\ref{sec:code_fencing}. For example, this is the `book.yml` file for a newly generated example book (last seen in Listing~\ref{code:book_yml}):
 
 <<(example_book/config/book.yml, lang: yaml)
 
-\noindent This is produced by passing the `lang: yaml` option to tell Softcover to highlight the code as YAML:
+\noindent Because Pygments (for some odd reason) doesn't understand `.yml` but *does* understand `.yaml`, we can arrange for the proper highlighting by passing the `lang: yaml` option, which tells Pygments to highlight the code as [YAML](https://en.wikipedia.org/wiki/YAML):
 
 ```text
 <<(example_book/config/book.yml, lang: yaml)
@@ -274,7 +319,7 @@ Softcover supports embedded math, such as {$$}\phi^2 - \phi - 1 = 0{/$$}, and ce
 \phi = \frac{1+\sqrt{5}}{2}.
 {/$$}
 
-\noindent This uses the syntax `{\$\$\}...\{/\$\$\}` for both inline and centered math, with the only difference being the absence or presence of newlines:
+\noindent via the terrible syntax `{\$\$\}...\{/\$\$\}`. This works for both inline and centered math, with the only difference being the absence or presence of newlines:
 
 ```
 Softcover supports embedded math, such as {$$}\phi^2 - \phi - 1 = 0{/$$}, and
@@ -285,7 +330,7 @@ centered math, such as
 {/$$}
 ```
 
-\noindent This syntax is odd and is included only for compatibility with other systems (particularly Leanpub's proprietary Markdown variant); Softcover also supports the proper \LaTeX\ syntax (Section~\ref{sec:latex_math}), which is strongly preferred.
+\noindent This syntax is included only for compatibility with other systems (particularly Leanpub Markdown), but Softcover also supports the proper \LaTeX\ syntax (Section~\ref{sec:latex_math}), which is strongly preferred.
 
 
 ## Embedded \LaTeX
@@ -303,6 +348,7 @@ As noted in the introduction, this allows us to typeset things like "\texttt{typ
 
 
 ### \LaTeX\ commands
+\label{sec:latex_commands}
 
 \LaTeX\ commands start with a backslash `\` and typically take 1--3 arguments.
 
@@ -586,6 +632,7 @@ As with previous environments, the aside code in Listing~\ref{code:polytex_markd
 
 
 ### Math and numbered equations
+\label{sec:latex_math}
 
 We've seen math using the ugly `{\$\$\}...\{/\$\$\}` syntax, but also can use proper \LaTeX\ syntax, as in \( \phi^2 - \phi - 1 = 0 \), which is set using \LaTeX's native "backslash parenthesis" notation:
 
