@@ -48,16 +48,17 @@ prices:
 
 authors:
   -
-    name: "The Author"
-    image: /images/testimonial_1.png
-    contact_email: "info@softcover.io"
+    name: "Michael Hartl"
+    image: /images/2011_michael_hartl.png
     bio:
       |
-        Author bio [link](https://www.softcover.io)
+        Michael Hartl is the author of the
+        [Ruby on Rails Tutorial](http://railstutorial.org)
+        and is a cofounder of [Softcover](http://softcover.io).
 
 faq:
   -
-    question: "Question 1 text"
+    question: "Question 1 text foo"
     answer: "Answer 1 text"
 
   -
@@ -79,5 +80,5 @@ testimonials:
 
 marketing_content: ''
 
-contact_email: ''
+contact_email: 'michael@softcover.io'
 hide_custom_domain_footer: false
