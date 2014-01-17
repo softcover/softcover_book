@@ -553,8 +553,6 @@ git push origin
 
 *This section is in preparation in concert with development of the Softcover website.*
 
-__add stuff on covers, marketing.yml, etc.__
-
 <!-- footnotes  -->
 
 [^undefined_xref]: This is what an undefined cross-reference looks like. It will be filled in as soon as the corresponding section is properly defined and labeled.
