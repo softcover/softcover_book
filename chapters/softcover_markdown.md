@@ -189,6 +189,8 @@ end
     end
     ```
 
+\noindent
+
 Following GitHub's example, Softcover supports an optional string after the opening of the fence indicating the language of the sample, yielding language-specific syntax highlighting:
 
 ```ruby
@@ -238,6 +240,22 @@ options: "linenos": true, "hl_lines": [1, 3]
 ```
 
 \noindent gets passed directly to Pygments, so any option listed on the [Pygments formatter options page](http://pygments.org/docs/formatters/) is automatically supported by Softcover.
+
+Because of how Softcover processes code blocks, any text immediately after code will be treated as a new paragraph. This isn't a problem in HTML, EPUB, or MOBI, but in PDFs new paragraphs are indented by default. If this isn't what you want---i.e., if the code block should be considered part of the middle of a paragraph---it is necessary to prepend the \LaTeX\ command \verb+\noindent+ before the first line after the block, as follows:
+
+```text
+```ruby
+# Prints a greeting.
+def hello
+  puts "hello, world!"
+end
+```
+
+\noindent This is produced by the following Markdown
+```
+
+\noindent See Section~\ref{sec:embedded_latex_commands} for more details.
+
 
 ### Leanpub-style language blocks
 
@@ -313,24 +331,24 @@ Softcover supports code inclusion directly from local files, such as this progra
 
 ### Embedded math
 
-Softcover supports embedded math, such as {$$}\phi^2 - \phi - 1 = 0{/$$}, and centered math, such as
+Softcover supports embedded math via the terrible syntax `{\$\$\}...\{/\$\$\}`, as in {$$}\phi^2 - \phi - 1 = 0{/$$}, and centered math, as in
 
 {$$}
 \phi = \frac{1+\sqrt{5}}{2}.
 {/$$}
 
-\noindent via the terrible syntax `{\$\$\}...\{/\$\$\}`. This works for both inline and centered math, with the only difference being the absence or presence of newlines:
+\noindent This works for both inline and centered math, with the only difference being the absence or presence of newlines:
 
 ```
-Softcover supports embedded math, such as {$$}\phi^2 - \phi - 1 = 0{/$$}, and
-centered math, such as
+Softcover supports embedded math via the terrible syntax `{\$\$\}...\{/\$\$\}`,
+as in {$$}\phi^2 - \phi - 1 = 0{/$$}, and centered math, as in
 
 {$$}
 \phi = \frac{1+\sqrt{5}}{2}.
 {/$$}
 ```
 
-\noindent This syntax is included only for compatibility with other systems (particularly Leanpub Markdown), but Softcover also supports the proper \LaTeX\ syntax (Section~\ref{sec:latex_math}), which is strongly preferred.
+\noindent This syntax is included only for compatibility with other systems (particularly Leanpub Markdown); Softcover also supports the proper \LaTeX\ syntax (Section~\ref{sec:embedded_math}), which is strongly preferred.
 
 
 ## Embedded \LaTeX
@@ -342,25 +360,64 @@ Short of using raw \PolyTeX\ (Chapter~\ref{cha:polytex_tutorial}), the most adva
 "\texttt{typewriter text} is different from `code`"
 ```
 
-\noindent This uses \verb+\texttt+ ("text-tee-tee") to set \texttt{typewriter text} and \verb+\textsc+ to set \textsc{small caps}.
+\noindent This uses \verb+\texttt+ (read "text-tee-tee") to set \texttt{typewriter text} and \verb+\textsc+ to set \textsc{small caps}.
 
-Not all of \LaTeX\ is supported, of course. The embeddable subset consists of single commands such as \verb+\texttt+ and \verb+\label+ (Section~\ref{sec:embedded_latex_commands} and Section~\ref{sec:embedded_labels_and_cross_references}), tables (Section~\ref{sec:embedded_tabular_and_tables}), figures (Section~\ref{sec:embedded_figures}), code listings (Section~\ref{sec:embedded_code_listings}), aside boxes (Section~\ref{sec:embedded_asides}), and mathematics (Section~\ref{sec:embedded_math})
+Not all of \LaTeX\ is supported, of course. The embeddable subset consists of single commands such as \verb+\texttt+ and \verb+\label+ (Section~\ref{sec:embedded_latex_commands} and Section~\ref{sec:embedded_labels_and_cross_references}), tables (Section~\ref{sec:embedded_tabular_and_tables}), figures (Section~\ref{sec:embedded_figures}), code listings (Section~\ref{sec:embedded_code_listings}), aside boxes (Section~\ref{sec:embedded_asides}), and mathematics (Section~\ref{sec:embedded_math}). That's still a lot, though, and experienced Markdown users new to \LaTeX\ will be amazed at all things it can do.
 
+Incidentally, in addition to the commands mentioned above, Softcover also supports \LaTeX's syntax for en-dashes (using two dashes, \verb+--+), as in "1740--1780", and em-dashes---like this---using three dashes (\verb+---+):
+
+```latex
+as in "1740--1780", and em-dashes---like this---using
+```
 
 ### \LaTeX\ commands
 \label{sec:embedded_latex_commands}
 
-\LaTeX\ commands start with a backslash `\` and typically take 0--2 arguments.
+In order to use embedded \LaTeX, we need a crash course on \LaTeX\ syntax. Luckily, the basics are not complicated. All \LaTeX\ commands start with a backslash `\`, and typically take 0 or 1 arguments inside curly braces. For example, we saw above how to typeset \texttt{typewriter text}:
+```latex
+we saw above how to typeset \texttt{typewriter text}
+```
+\noindent Here \verb+\texttt+ is the command and `typewriter text` is the argument.[^nesting_caveat]
+
+The \LaTeX\ command itself is an example of a command taking no arguments:
+```latex
+The \LaTeX\ command itself
+```
+\noindent Because of how \LaTeX\ processes text, any space *after* a command gets "eaten", so here we've used the special "backslash space" command `\ ` to insert a space after the \verb+\LaTeX+ command. We mentioned \verb+\noindent+, another command with zero arguments, back at the end of Section~\ref{sec:code_fencing}; when producing PDFs, it prevents indenting lines after things like code blocks:
+```text
+The \LaTeX\ command itself is an example of a command taking no arguments:
+```latex
+The \LaTeX\ command itself
+```
+\noindent Because of how \LaTeX\ processes text
+```
 
 
-Can use verbatim, typewriter text, etc. kode, verb
+\LaTeX\ also supports various *environments*, which are defined by the special `begin` and `end` commands. For example, we'll see in Section~\ref{sec:embedded_tabular_and_tables} that tables are set using the `tabular` environment as follows:
+```latex
+\begin{tabular}
+.
+.
+.
+\end{tabular}
+```
+\noindent Similarly, in Section~\ref{sec:embedded_math} we'll see how to typeset numbered equations using the `equation` environment:
+```latex
+\begin{equation}
+<math>
+\end{equation}
+```
 
-Caveat: nesting doesn't work
+Finally, here's one weird trick for including literal commands inside a line using the \verb+\verb+ command:
+```latex
+the \verb+\verb+ command
+```
+The \verb+\verb+ command is unusual in that it doesn't formally take any arguments, but rather is followed by literal text surround by any two identical characters. The usual convention is to use plus signs, as in \verb+\texttt+, but other characters like exclamation points also work, as in \verb!\textsc!:
 
-Also supports \LaTeX\ dashes, as in 1999--2003 and --- and ties~foo
-
-noindent backslash space
-
+```latex
+The usual convention is to use plus signs, as in \verb+\texttt+, but other
+characters like exclamation points also work, as in \verb!\textsc!
+```
 
 ### Labels and cross-references
 \label{sec:embedded_labels_and_cross_references}
@@ -393,7 +450,7 @@ Chapter~\ref{cha:introduction_to_markdown}
 Section~\ref{sec:embedded_latex}
 ```
 
-\noindent produces "Section~\ref{sec:embedded_latex}". These cross-references are clickable links across all output formats (HTML, EPUB, MOBI, and PDF).
+\noindent produces "Section~\ref{sec:embedded_latex}". These cross-references are clickable links across all output formats (HTML, EPUB, MOBI, and PDF). __note about tilde__
 
 In addition to working with chapters and sections, Softcover cross-references also work with code listings, aside boxes, figures, tables, and centered equations. The label names can be virtually anything, but I follow the common convention of [namespacing](https://en.wikipedia.org/wiki/Namespace) them by type, so that chapter labels are prefixed with `cha:`, sections with `sec:`, codelistings with `code:`, etc.
 
@@ -720,6 +777,8 @@ It's possible to switch over at any time, can be done on a chapter-by-chapter ba
 
 Just move the generated \PolyTeX\ file from the `generated_polytex` directory into the `chapters/` directory and edit the `Book.txt` file. Once you're confident you really want to make the switch, remove the original Markdown file. (If you're using Git for version control, which I *strongly* recommend, you can use `git rm` to remove the file. It will then be available in your history should you ever get cold feet and want to go back to Markdown.)
 
+__put in the actual commands__
+
 <!-- footnotes  -->
 
 [^latex_polytex]: This manual uses "\PolyTeX" when the distinction with \LaTeX\ is important and "\LaTeX" otherwise.
@@ -727,3 +786,5 @@ Just move the generated \PolyTeX\ file from the `generated_polytex` directory in
 [^example_footnote]: This is an example footnote.
 
 [^eq_epub_mobi]: The real challenge is producing EPUB and MOBI output. The trick is to (1) create a self-contained HTML page with embedded math, (2) include the amazing [MathJax](http://www.mathjax.org/) JavaScript library, configured to render math as [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) images, (3) hit the page with the headless [PhantomJS](http://phantomjs.org/) browser to force MathJax to render the math (including any equation numbers) as SVGs, (4) extract self-contained SVGs from the rendered pages, and (5) use [Inkscape](http://www.inkscape.org/) to convert the SVGs to PNGs for inclusion in EPUB and MOBI books. Easy, right? No, in fact, it was excruciating and required excessive amounts of profanity to achieve. But it's done, so ha.
+
+[^nesting_caveat]: Because of the way Softcover processes text, *nested* commands won't work in Markdown, but they *will* work in raw \PolyTeX.
