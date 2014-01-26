@@ -525,7 +525,7 @@ file `.softcover-deploy` in the project's root directory (Listing~\ref{code:depl
 
 \begin{codelisting}
 \label{code:deploy_config}
-\codecaption{The default deployment configuration file. \\ \filepath{.softcover-deploy}}
+\codecaption{The default deployment configuration file. \\ \filepath{file: .softcover-deploy}}
 ```text
 # Edit this file to customize your deployment steps with custom command options
 # or additional commands.
@@ -551,7 +551,7 @@ git push origin
 
 ### Selling ebooks and other digital goods
 
-*This section is in preparation in concert with development of the Softcover website.*
+Working on this now...
 
 <!-- footnotes  -->
 
