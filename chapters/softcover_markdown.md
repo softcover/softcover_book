@@ -777,7 +777,6 @@ It's possible to switch over at any time, can be done on a chapter-by-chapter ba
 
 Just move the generated \PolyTeX\ file from the `generated_polytex` directory into the `chapters/` directory and edit the `Book.txt` file. Once you're confident you really want to make the switch, remove the original Markdown file. (If you're using Git for version control, which I *strongly* recommend, you can use `git rm` to remove the file. It will then be available in your history should you ever get cold feet and want to go back to Markdown.)
 
-__put in the actual commands__
 
 <!-- footnotes  -->
 
