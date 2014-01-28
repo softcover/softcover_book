@@ -7,3 +7,4 @@ getting_started.md
 introduction_to_markdown.md
 softcover_markdown.md
 polytex_tutorial.tex
+marketing.md
