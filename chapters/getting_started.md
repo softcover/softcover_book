@@ -6,7 +6,7 @@
     **Note:** Softcover is currently in private beta. Visit [Softcover.io](http://www.softcover.io/) to request an invitation.
 -->
 
-This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors. Softcover consists of two main parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}). Based on the technology and business model used by the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/), __change to frictionless__
+This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors. Softcover consists of two main parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}). Based on the technology and business model used by the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/), ***change to frictionless
 
  Softcover is dedicated by the philosophy of *full author ownership*---own your content, own your production toolchain, own your traffic, own your customer list:
 
@@ -127,7 +127,7 @@ $ gem install softcover
 To build the full set of output formats, Softcover requires some external dependencies, which you will be prompted to install at the appropriate time.
 
 
-__add a note about installing all the dependencies now__
+***add a note about installing all the dependencies now
 
 For example, when you try to build a PDF, you'll be prompted to install \LaTeX. (That said, I recommend [starting to download LaTeX](http://latex-project.org/ftp.html) now, as the download is rather large. Type `which xelatex` at the command line to see if you already have \LaTeX\ installed.) These dependencies are also covered in the sections below, and Section~\ref{sec:all_dependencies} lists all the dependencies in one place in case you want to install them all at the same time.
 
@@ -460,7 +460,16 @@ The full Softcover publishing platform automatically uploads all the ebook files
 
 ### Cover images
 
-Softcover uses cover images
+Softcover comes with default cover images, which you should change before distributing any of the formats or deploying the the Softcover website (Section~\ref{sec:softcover_website}). The files appear as follows:
+
+```text
+$ ls images/cover*
+images/cover-web.png images/cover.pdf     images/cover.png
+```
+
+\noindent The file `cover.png` is used for EPUB and MOBI, while `cover.pdf` is used for the PDF.
+
+***resize web server-side
 
 ### All dependencies
 \label{sec:all_dependencies}
@@ -565,10 +574,78 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
-## Marketing page
+### Marketing page
 \label{sec:marketing_page}
 
-<!-- footnotes  -->
+The Softcover website comes with a marketing page. Set its contents using `marketing.yml` in the `config` directory. Can use limited Markdown.
+
+#### Authors
+
+\begin{codelisting}
+\label{code:marketing_authors}
+\codecaption{Author(s) information. \\ \filepath{config/marketing.yml}}
+```yaml
+authors:
+  -
+    name: "The Author"
+    image: /images/testimonial_1.png
+    contact_email: "info@softcover.io"
+    bio:
+      |
+        Author bio [link](https://www.softcover.io)
+
+```
+\end{codelisting}
+
+#### Testimonials
+
+\begin{codelisting}
+\label{code:marketing_testimonials}
+\codecaption{Testimonials. \\ \filepath{config/marketing.yml}}
+```yaml
+testimonials:
+  -
+    name: "Person 1"
+    title: "Person 1 Title"
+    image: /images/testimonial_1.png
+    text: "Testimonial 1 text"
+
+  -
+    name: "Person 2"
+    title: "Person 2 Title"
+    gravatar_email: "info@softcover.io"
+    text: "Testimonial 2 text"
+
+```
+\end{codelisting}
+
+#### Frequently Asked Questions
+
+\begin{codelisting}
+\label{code:marketing_faq}
+\codecaption{Frequently Asked Questions. \\ \filepath{config/marketing.yml}}
+```yaml
+faq:
+  -
+    question: "Question 1 text"
+    answer: "Answer 1 text"
+
+  -
+    question: "Question 2 text"
+    answer: "Answer 2 text"
+```
+\end{codelisting}
+
+#### Additional information
+
+\begin{codelisting}
+\label{code:marketing_additional}
+\codecaption{Additional marketing information. \\ \filepath{config/marketing.yml}}
+```yaml
+contact_email: ''
+hide_custom_domain_footer: false
+```
+\end{codelisting}
 
 [^undefined_xref]: This is what an undefined cross-reference looks like. It will be filled in as soon as the corresponding section is properly defined and labeled.
 
