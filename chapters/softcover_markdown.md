@@ -394,7 +394,6 @@ The \LaTeX\ command itself
 \noindent Because of how \LaTeX\ processes text
 ```
 
-
 \LaTeX\ also supports various *environments*, which are defined by the special `begin` and `end` commands. For example, we'll see in Section~\ref{sec:embedded_tabular_and_tables} that tables are set using the `tabular` environment as follows:
 ```latex
 \begin{tabular}
@@ -594,22 +593,38 @@ In addition to the `tabular` environment, Softcover also supports the somewhat c
 ### Figures
 \label{sec:embedded_figures}
 
-We've seen figures. Several different possibilities. Plain figure, as seen before in Section~\ref{sec:links_and_images}:
+We saw in Section~\ref{sec:links_and_images} how to include raw images into Softcover books:
 
 ![Some dude.](images/2011_michael_hartl.png)
 
-Can also make numbered figures with captions by including a label, as shown in Figure~\ref{fig:michael_hartl}. Using a bare label yields a figure with just a number (Figure~\ref{fig:road_to_hana}). The code to generated the two captioned figures is shown in Listing~\ref{code:captioned_figures}. As usual, the labels are namespaced, in this case with `fig:`.
+As a reminder, this is produced using the following code:
+```text
+![Some dude.](images/2011_michael_hartl.png)
+```
+
+Softcover also allows authors to make *numbered figures*, including captions, by including a label in the image's bracketed text. Figure~\ref{fig:michael_hartl} shows the result, which is produced by Listing~\ref{code:figure_with_caption}.
 
 ![Some dude.\label{fig:michael_hartl}](images/2011_michael_hartl.png)
+
+\begin{codelisting}
+\label{code:figure_with_caption}
+\codecaption{The code to produce Figure~\ref{fig:michael_hartl}.}
+```latex
+![Some dude.\label{fig:michael_hartl}](images/2011_michael_hartl.png)
+```
+\end{codelisting}
+
+
+Using a bare label with no caption text yields a figure with just a number (Figure~\ref{fig:road_to_hana} and Listing~\ref{code:figure_only_number}). Note that in both cases the labels are namespaced with `fig:`.
+
 
 ![\label{fig:road_to_hana}](images/2011_michael_hartl.png)
 
-\begin{codelisting}
-\label{code:captioned_figures}
-\codecaption{Code for Figure~\ref{fig:michael_hartl} and Figure~\ref{fig:road_to_hana}.}
-```latex
-![Some dude.\label{fig:michael_hartl}](images/2011_michael_hartl.png)
 
+\begin{codelisting}
+\label{code:figure_only_number}
+\codecaption{The code to produce Figure~\ref{fig:road_to_hana}.}
+```latex
 ![\label{fig:road_to_hana}](images/2011_michael_hartl.png)
 ```
 \end{codelisting}
