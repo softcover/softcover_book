@@ -70,13 +70,81 @@ testimonials:
     name: "Person 1"
     title: "Person 1 Title"
     image: /images/testimonial_1.png
-    text: "Testimonial 1 text"
+    text: ---
+prices:
+  -
+    code: ebooks
+    name: "HTML & Ebook"
+    description:
+      |
+        Optimized for Kindle* and iPad
+        Almost 9000 pages of content
+        Includes a free copy of 1st Edition PDF
+    media:
+      - html
+      - pdf
+      - epub
+      - mobi
+    price: 3500
 
   -
-    name: "Person 2"
-    title: "Person 2 Title"
-    gravatar_email: "info@softcover.io"
-    text: "Testimonial 2 text"
+    code: screencasts
+    name: "HTML & Screencasts"
+    description:
+      |
+        Full updated for the 2nd edition
+        100% DRM-free digital downloads
+        (QuickTime and Ogg Vorbis)
+        Includes first edition screencasts
+    media:
+      - html
+      - screencasts
+    price: 12500
+
+  -
+    code: all
+    name: "HTML, Ebook, and Screencasts"
+    description:
+      |
+        Includes all 50 screencasts
+        eBook formats for Kindle, Nook, and PDF
+        Read online.
+    media:
+      - html
+      - pdf
+      - epub
+      - mobi
+      - screencasts
+    price: 12500
+    regular_price: 19900
+
+authors:
+  -
+    name: "Michael Hartl"
+    image: /images/2011_michael_hartl.png
+    bio:
+      |
+        Michael Hartl is the author of the
+        [Ruby on Rails Tutorial](http://railstutorial.org)
+        and is a cofounder of [Softcover](http://softcover.io).
+
+faq:
+  -
+    question: "Question 1 text foo"
+    answer: "Answer 1 text"
+
+  -
+    question: "Question 2 text"
+    answer: "Answer 2 text"
+
+testimonials:
+  -
+    name: Mark Bates
+    title: Author, Conquering the Command Line
+    image: /images/mark_bates.jpg
+    text: I have never used tools as good as these for writing a book before.
+          The Softcover platform just got out of my way and let me focus on writing.
+
 
 marketing_content: ''
 
