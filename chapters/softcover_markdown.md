@@ -1,7 +1,7 @@
 # Softcover-flavored Markdown
-\label{cha:softcover_markdown}
+\label{cha:softcover_flavored_markdown}
 
-As noted in Chapter~\ref{cha:introduction_to_markdown}, the classic implementation of Markdown is beautifully simple but is not adequate for serious typesetting. Softcover therefore supports a *superset* of vanilla Markdown called *Softcovered-flavored Markdown* (SFM), which includes select [*kramdown*](http://kramdown.gettalong.org/) extensions (Section~\ref{sec:kramdown}), advanced enhancements such as GitHub-style fenced code blocks (Section~\ref{sec:advanced_enhancements}), and *über*-advanced additions via embedded \LaTeX\ (Section~\ref{sec:embedded_latex}). The Softcover dialect of Markdown is, to our knowledge, the most powerful one available, with support for figures, tables, code listings, and mathematical equations---all with numbered, linked cross-references.
+As noted in Chapter~\ref{cha:introduction_to_markdown}, the classic implementation of Markdown is beautifully simple but is not adequate for serious typesetting. Softcover therefore supports a *superset* of vanilla Markdown called *Softcovered-flavored Markdown* (SFM), which includes select [*kramdown*](http://kramdown.gettalong.org/) extensions (Section~\ref{sec:kramdown}), advanced enhancements such as GitHub-style fenced code blocks (Section~\ref{sec:advanced_enhancements}), and *super*-advanced additions via embedded \LaTeX\ (Section~\ref{sec:embedded_latex}). As noted in Chapter~\ref{cha:introduction_to_markdown}, the Softcover dialect of Markdown is, to our knowledge, the most powerful one available.
 
 Softcover-flavored Markdown derives much of its power by converting Markdown first to \PolyTeX, a strict subset of the \LaTeX\ typesetting language (Section~\ref{sec:softcover_system}), and then from \PolyTeX\ to HTML, EPUB, MOBI, and PDF\@. The result is an [abstraction layer](https://en.wikipedia.org/wiki/Abstraction_layer) over the underlying \LaTeX;[^latex_polytex] by allowing *embedded* \LaTeX\ as well, Softcover lets users pierce this abstraction layer to typeset things impossible for vanilla Markdown---for example, "\texttt{typewriter text} \textsc{is different from} `code`". (See Section~\ref{sec:embedded_latex} to learn how to typeset this.)
 
@@ -12,7 +12,7 @@ adding features to Markdown as described above is a prime example of how weak sy
 \label{aside:polytex_markdown}
 \heading{Markdown, \PolyTeX, and Hartl's Tenth Rule of Typesetting}
 
-\noindent I've been a fan of Markdown since it first appeared in 2004, and in my view Markdown deserves the enormous popularity it has achieved. Indeed, in a sense it has succeeded a little *too* well, to the point where people use it even when it may not be the best tool for the job. In particular, because it is essentially a thin layer on top of HTML, the original "vanilla" Markdown is ill-suited to producing longer or more structured documents. As a result, virtually every system using "Markdown" for ebook publishing in reality uses some augmented version of the original markup language---an implicit acknowledgment that vanilla Markdown is insufficient for industrial-strength typesetting.
+\noindent I've been a fan of Markdown since it first appeared in 2004; it's my first choice for things like [README files](https://github.com/softcover/softcover/blob/master/README.md) and [short news announcements](http://news.railstutorial.org/), and in my view Markdown deserves the enormous popularity it has achieved. Indeed, in a sense it has succeeded a little *too* well, to the point where people use it even when it may not be the best tool for the job. In particular, because it is essentially a thin layer on top of HTML, the original "vanilla" Markdown is ill-suited to producing longer or more structured documents. As a result, virtually every system using "Markdown" for ebook publishing in reality uses some augmented version of the original markup language---an implicit acknowledgment that vanilla Markdown is insufficient for industrial-strength typesetting.
 
 On the other end of the spectrum from Markdown is \LaTeX, an industrial-strength typesetting system if ever there was one. \LaTeX, like the Lisp programming language in its domain, can essentially "do anything"; thus, in the spirit of [Greenspun's Tenth Rule of Programming](https://en.wikipedia.org/wiki/Greenspun's_tenth_rule) on Lisp, I hereby offer the following maxim on \LaTeX:
 
@@ -20,9 +20,9 @@ On the other end of the spectrum from Markdown is \LaTeX, an industrial-strength
 > *Any sufficiently complicated typesetting system contains an ad hoc,
 > informally specified, bug-ridden, slow implementation of half of \LaTeX.*
 
-\noindent Looking at the ever-expanding definition of "Markdown"---from [GitHub-flafored Markdown](http://github.github.com/github-flavored-markdown/) to [kramdown](http://kramdown.gettalong.org/) to Softcover-flavored Markdown itself---we see the pattern of Hartl's Tenth Rule emerge. (As with Greenspun's Tenth Rule of Programming, there are no rules 1--9 preceding Hartl's Tenth Rule of Typesetting; calling it the "tenth rule" is part of the joke.)
+\noindent Looking at the ever-expanding definition of "Markdown"---from [GitHub-flavored Markdown](http://github.github.com/github-flavored-markdown/) to [kramdown](http://kramdown.gettalong.org/) to Softcover-flavored Markdown itself---we see the pattern of Hartl's Tenth Rule emerge. (As with Greenspun's Tenth Rule of Programming, there are no rules 1--9 preceding Hartl's Tenth Rule of Typesetting; calling it the "tenth rule" is part of the joke.)
 
-Of course, there's no law saying that we *have* to use Markdown, augmented or otherwise, and Hartl's Tenth Rule suggests a second possibility: *actually using \LaTeX*. Since \LaTeX\ is designed to make print-quality formats like PostScript and PDF, we do have to make some concessions when outputting multi-format ebooks, mainly because the popular EPUB and MOBI formats ultimately are based on HTML, and there's simply no general mapping from \LaTeX\ to HTML. But what we *can* do is support a *subset* of \LaTeX\ that maps nicely to HTML (and thence to EPUB and MOBI). The result is a version of \LaTeX\ that supports *polymorphic output*---i.e., *\PolyTeX*. (Unfortunately, even \PolyTeX\ can't fully escape Hartl's Tenth Rule, since producing HTML output from \LaTeX\ requires writing just such an implementation of half of \LaTeX. (Well, we do our best to make it fast and avoid bugs\ldots) But by using \PolyTeX\ we at least avoid creating an ad hoc, informally specified *syntax* as well.)
+Of course, there's no law saying that we *have* to use Markdown, augmented or otherwise, and Hartl's Tenth Rule suggests a second possibility: *actually using \LaTeX*. Since \LaTeX\ is designed to make print-quality formats like PostScript and PDF, we do have to make some concessions when outputting multi-format ebooks, mainly because the popular EPUB and MOBI formats ultimately are based on HTML, and there's simply no general mapping from \LaTeX\ to HTML\@. But what we *can* do is support a *subset* of \LaTeX\ that maps nicely to HTML (and thence to EPUB and MOBI). The result is a version of \LaTeX\ that supports *polymorphic output*---i.e., *\PolyTeX*. (Unfortunately, even \PolyTeX\ can't fully escape Hartl's Tenth Rule, since producing HTML output from \LaTeX\ requires writing just such an implementation of half of \LaTeX. But by using \PolyTeX\ we at least avoid creating an *ad hoc*, informally specified *syntax* as well.)
 
 \PolyTeX, at the cost of some complexity, gives authors considerably more power, flexibility, and extensibility than any variant of Markdown, Softcover-flavored Markdown included. If you already know HTML or Markdown, \PolyTeX\ is not hard to learn, with the only really scary syntax being for math input---but if you want to typeset mathematics, you need to learn \LaTeX\ anyway:
 \[ \left(-\frac{\hbar^2}{2m}\nabla^2 + V\right)\psi = E\psi \]
@@ -408,9 +408,38 @@ The \LaTeX\ command itself
 \end{equation}
 ```
 
-Finally, here's one weird trick for including literal commands inside a line using the \verb+\verb+ command:
+SFM also natively supports any command that doesn't require special formatting between \verb+\begin+ and \verb+\end+, such as the `quote` environment:
+\begin{quote}
+Il semble que la perfection soit atteinte non
+quand il n'y a plus rien \`{a} ajouter,
+mais quand il n'y a plus rien \`{a} retrancher.
+
+---Antoine de Saint-Exup\'{e}ry, \emph{Terre des hommes}
+\end{quote}
+This is typeset as in Listing~\ref{code:latex_quote}.
+
+
+\begin{codelisting}
+\label{code:latex_quote}
+\codecaption{Typesetting an embedded \texttt{quote} environment. Compare with Listing~\ref{code:blockquote}}
 ```latex
-the \verb+\verb+ command
+\begin{quote}
+Il semble que la perfection soit atteinte non
+quand il n'y a plus rien \`{a} ajouter,
+mais quand il n'y a plus rien \`{a} retrancher.
+
+---Antoine de Saint-Exup\'{e}ry, \emph{Terre des hommes}
+\end{quote}
+```
+\end{codelisting}
+
+
+Listing~\ref{code:latex_quote} uses the native \LaTeX\ commands for typesetting em-dashes (\verb+---+) and foreign accents (as in \verb+\`{a}+ for the grave accent \`{a} and \verb+\'{e}+ for the acute accent \'{e}), but as we saw in Listing~\ref{code:blockquote} SFM also supports the raw Unicode characters (i.e., —, à, and é).
+
+
+Finally, here's [one weird trick](http://www.slate.com/articles/business/moneybox/2013/07/how_one_weird_trick_conquered_the_internet_what_happens_when_you_click_on.html) for including literal commands inside a line using the \verb+\verb+ command, as in "\verb+\LaTeX+":
+```latex
+as in "\verb+\LaTeX+"
 ```
 The \verb+\verb+ command is unusual in that it doesn't formally take any arguments, but rather is followed by literal text surround by any two identical characters. The usual convention is to use plus signs, as in \verb+\texttt+, but other characters like exclamation points also work, as in \verb!\textsc!:
 
@@ -428,7 +457,7 @@ For example, at the beginning of this chapter is a label appearing immediately a
 
 ```latex, options: "hl_lines": [2]
 # Softcover-flavored Markdown
-\label{cha:softcover_markdown}
+\label{cha:softcover_flavored_markdown}
 ```
 
 \noindent This allows the definition of a cross-reference using the \verb+\ref+ command, whose argument is the label name. Thus,
@@ -450,7 +479,13 @@ Chapter~\ref{cha:introduction_to_markdown}
 Section~\ref{sec:embedded_latex}
 ```
 
-\noindent produces "Section~\ref{sec:embedded_latex}". These cross-references are clickable links across all output formats (HTML, EPUB, MOBI, and PDF). __note about tilde__
+\noindent produces "Section~\ref{sec:embedded_latex}". These cross-references are clickable links across all output formats (HTML, EPUB, MOBI, and PDF).
+
+Incidentally, the tilde
+```
+~
+```
+\noindent is \LaTeX's no-break space, which connects numbers to the words that precede them to prevent their breaking across a line. Such cross-references are the only use of tildes in SFM; in all other contexts, they appear as follows: ~.
 
 In addition to working with chapters and sections, Softcover cross-references also work with code listings, aside boxes, figures, tables, and centered equations. The label names can be virtually anything, but I follow the common convention of [namespacing](https://en.wikipedia.org/wiki/Namespace) them by type, so that chapter labels are prefixed with `cha:`, sections with `sec:`, codelistings with `code:`, etc.
 
