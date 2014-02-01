@@ -134,7 +134,7 @@ kramdown adds them using the following syntax:[^example_footnote]
 ```text
 [^example_footnote]: This is an example footnote.
 ```
-\noindent conventionally appears at the bottom of the file. The order of the footnotes is determined by the order of their appearance in the main text; the order at the bottom of the file is irrelevant.
+\noindent conventionally appears at the bottom of the file. Note that the order of the footnotes is determined by the order of their appearance in the main text; the order at the bottom of the file is irrelevant.
 
 ### Miscellaneous features
 
@@ -143,7 +143,7 @@ In addition to tables and footnotes, kramdown includes other miscellaneous featu
 you can demonstrate Markdown's double-asterisk boldface syntax
 {::nomarkdown}**like this**{:/}
 ```
-(I personally find this syntax ugly and hard to remember, and prefer to typeset inline verbatim text using \LaTeX's \verb+\verb+ syntax; see Section~\ref{sec:latex_commands} for details.)
+(I personally find this syntax ugly and hard to remember, and prefer to typeset inline verbatim text using \LaTeX's \verb+\verb+ syntax; see Section~\ref{sec:embedded_latex_commands} for details.)
 
 If you just want to escape individual characters, such as \*, you can do so with a backslash:
 ```
@@ -160,7 +160,7 @@ such as \*, you can do so with a backslash
 ```
 Note that some of \LaTeX's special characters, such as $, are automatically escaped.
 
-Finally, in kramdown snake_case_words appear with underscores (perhaps familiar from GitHub-flavored Markdown, which has the same feature). This is convenient because vanilla Markdown would intepret the underscores as emphasis, yielding "snake*case*words", which probably isn't what you intended.
+Finally, in kramdown snake_case_words appear with underscores (a feature it shares with GitHub-flavored Markdown). This is convenient because vanilla Markdown would intepret the underscores as emphasis, yielding "snake*case*words", which probably isn't what you intended.
 
 ## Other advanced enhancements
 \label{sec:advanced_enhancements}
@@ -259,7 +259,7 @@ end
 
 ### Leanpub-style language blocks
 
-SFM supports indented code blocks with an explicit language designation, which is based on [Leanpub](http://leanpub.com/)'s' proprietary Markdown variant. This is mainly useful when using SFM to talk about SFM\@. In particular, plain code fences can't talk about themselves because there's no way for the parser to know if the first inner \verb+```+ is the end of a fenced block or the beginning of example code. Thus, a code block like
+SFM supports indented code blocks with an explicit language designation, which is based on [Leanpub](http://leanpub.com/)'s proprietary Markdown variant. This is mainly useful when using SFM to talk about SFM\@. In particular, plain code fences can't talk about themselves, because there's no way for the parser to know if the first inner \verb+```+ is the end of a fenced block or the beginning of example code. Thus, a code block like
 {lang="text"}
     ```
     # "Hello, world!" in Ruby
@@ -357,14 +357,14 @@ as in {$$}\phi^2 - \phi - 1 = 0{/$$}, and centered math, as in
 Short of using raw \PolyTeX\ (Chapter~\ref{cha:polytex_tutorial}), the most advanced typesetting options supported by Softcover involve embedding \LaTeX\ code directly in Markdown. As noted in the introduction to this chapter, this allows us to typeset things like "\texttt{typewriter text} \textsc{is different from} `code`", which in embedded \LaTeX\ appears as follows:
 
 ```latex
-"\texttt{typewriter text} is different from `code`"
+"\texttt{typewriter text} \textsc{is different from} `code`"
 ```
 
 \noindent This uses \verb+\texttt+ (read "text-tee-tee") to set \texttt{typewriter text} and \verb+\textsc+ to set \textsc{small caps}.
 
-Not all of \LaTeX\ is supported, of course. The embeddable subset consists of single commands such as \verb+\texttt+ and \verb+\label+ (Section~\ref{sec:embedded_latex_commands} and Section~\ref{sec:embedded_labels_and_cross_references}), tables (Section~\ref{sec:embedded_tabular_and_tables}), figures (Section~\ref{sec:embedded_figures}), code listings (Section~\ref{sec:embedded_code_listings}), aside boxes (Section~\ref{sec:embedded_asides}), and mathematics (Section~\ref{sec:embedded_math}). That's still a lot, though, and experienced Markdown users new to \LaTeX\ will be amazed at all things it can do.
+Not all of \LaTeX\ is supported, of course. The embeddable subset consists of single commands such as \verb+\texttt+ and \verb+\label+ (Section~\ref{sec:embedded_latex_commands} and Section~\ref{sec:embedded_labels_and_cross_references}), tables (Section~\ref{sec:embedded_tabular_and_tables}), figures (Section~\ref{sec:embedded_figures}), code listings (Section~\ref{sec:embedded_code_listings}), aside boxes (Section~\ref{sec:embedded_asides}), and mathematics (Section~\ref{sec:embedded_math}). That's still a lot, though, and experienced Markdown users new to \LaTeX\ will be amazed at all the things it can do.
 
-Incidentally, in addition to the commands mentioned above, Softcover also supports \LaTeX's syntax for en-dashes (using two dashes, \verb+--+), as in "1740--1780", and em-dashes---like this---using three dashes (\verb+---+):
+Incidentally, in addition to the commands mentioned above, Softcover also supports \LaTeX's syntax for en-dashes using two dashes (\verb+--+), as in "1740--1780", and em-dashes---like this---using three dashes (\verb+---+):
 
 ```latex
 as in "1740--1780", and em-dashes---like this---using
@@ -383,7 +383,9 @@ The \LaTeX\ command itself is an example of a command taking no arguments:
 ```latex
 The \LaTeX\ command itself
 ```
-\noindent Because of how \LaTeX\ processes text, any space *after* a command gets "eaten", so here we've used the special "backslash space" command `\ ` to insert a space after the \verb+\LaTeX+ command. We mentioned \verb+\noindent+, another command with zero arguments, back at the end of Section~\ref{sec:code_fencing}; when producing PDFs, it prevents indenting lines after things like code blocks:
+\noindent Because of how \LaTeX\ processes text, any space *after* a command gets "eaten", so here we've used the special "backslash space" command `\ ` to insert a space after the \verb+\LaTeX+ command.
+
+We mentioned \verb+\noindent+, another command with zero arguments, back at the end of Section~\ref{sec:code_fencing}; when producing PDFs, it prevents indenting lines after things like code blocks:
 ```text
 The \LaTeX\ command itself is an example of a command taking no arguments:
 ```latex
@@ -421,7 +423,7 @@ This is typeset as in Listing~\ref{code:latex_quote}.
 
 \begin{codelisting}
 \label{code:latex_quote}
-\codecaption{Typesetting an embedded \texttt{quote} environment. Compare with Listing~\ref{code:blockquote}}
+\codecaption{Typesetting an embedded \texttt{quote} environment. Compare with Listing~\ref{code:blockquote}.}
 ```latex
 \begin{quote}
 Il semble que la perfection soit atteinte non
@@ -482,14 +484,18 @@ Section~\ref{sec:embedded_latex}
 \noindent produces "Section~\ref{sec:embedded_latex}". These cross-references are clickable links across all output formats (HTML, EPUB, MOBI, and PDF).
 
 Incidentally, the tilde
-```
+```latex
 ~
 ```
-\noindent is \LaTeX's no-break space, which connects numbers to the words that precede them to prevent their breaking across a line. Such cross-references are the only use of tildes in SFM; in all other contexts, they appear as follows: ~.
+\noindent is \LaTeX's no-break space, which connects in
+```latex
+Section~\ref{sec:embedded_latex}
+```
+\noindent the number to the word preceding it. This common typesetting convention prevents the number breaking across a line. Such cross-references are the only use of tildes in SFM; in all other contexts, they appear as follows: ~.
 
 In addition to working with chapters and sections, Softcover cross-references also work with code listings, aside boxes, figures, tables, and centered equations. The label names can be virtually anything, but I follow the common convention of [namespacing](https://en.wikipedia.org/wiki/Namespace) them by type, so that chapter labels are prefixed with `cha:`, sections with `sec:`, codelistings with `code:`, etc.
 
-The advantage of using named labels instead of hard-coded numbers can hardly be over-stated: it means that if you add a new chapter to the beginning of your book, all the subsequent cross-references will automatically be renumbered. There is simply no way an author could keep track of more than a few cross-references by hand, but with Softcover you can use as many as you want.
+In the context of book cross-references, the advantage of using named labels instead of hard-coded numbers can hardly be over-stated: it means that if you add a new chapter to the beginning of your book, all the subsequent cross-references will automatically be renumbered. There is simply no way an author could keep track of more than a few cross-references by hand, but with Softcover the computer does the heavy lifting to that you can use as many as you want.
 
 I am a strong advocate of extensive cross-referencing, and not only because of their obvious benefits to readers. Cross-references are extraordinarily useful for *authors* as well: they let you immediately orient yourself when picking up after leaving off or going back later to edit. They are also useful when deferring material to the future, as undefined cross-references are helpful reminders to fill in the material later. I like to say that *cross-references are the connective tissue in the body of a book*.
 
@@ -539,7 +545,7 @@ We saw in Section~\ref{sec:kramdown_tables} that Softcover supports tables via a
 
 Let's examine the anatomy of the table in Listing~\ref{code:tabular}:
 
-- **Line 1** shows that `begin` in the `tabular` environment takes *two* arguments. The first argument simply identifies it as a `tabular` environment, while the second, `|l|rc|` defines the alignment of each column (`r` for "right", `l` for "left", and `c` for "center") and the presence or absence of vertical borders between them (borders everywhere except between the second and third columns).
+- **Line 1** shows that `begin` in the `tabular` environment takes *two* arguments. The first argument simply identifies it as a `tabular` environment, while the second, `|r|lc|` defines the alignment of each column (`r` for "right", `l` for "left", and `c` for "center") and the presence or absence of vertical borders between them (borders everywhere except between the second and third columns).
 
 - **Lines 2, 6, 8, and 10** use the \verb+\hline+ command a horizontal line between rows using the.
 
@@ -547,7 +553,7 @@ Let's examine the anatomy of the table in Listing~\ref{code:tabular}:
 
 - **Line 9** shows a \verb+\multicolumn+ command to create a row that spans three columns. It takes three arguments: the number of columns (3), the alignment and vertical borders (`|c|`, or centered with borders on either side) and the contents ([AYBABTU](https://en.wikipedia.org/wiki/All_your_base_are_belong_to_us)).
 
-In addition to the `tabular` environment, Softcover also supports the somewhat confusingly named `table` environment, which turns a `tabular` environment into a "float", which in a print or PDF document will be placed automatically by \TeX's float-placement algorithms. A `table` environment is typically used with a caption and a label (which should be placed *inside* the caption), which yields numbered, cross-referenced tables, as seen in Table~\ref{table:answer}. The code to produce Table~\ref{table:answer} appears in Listing~\ref{code:answer_table}. Note that because of how tables are processed, it is important that the `caption` contents appear in a single line of text; it's fine if the line wraps in your text editor, but it should contain no newlines.
+In addition to the `tabular` environment, Softcover also supports the somewhat confusingly named `table` environment, which produces a "float" that in a print or PDF document will be placed automatically by \TeX's float-placement algorithms. A `table` environment is typically used with a caption and a label (which should be placed *inside* the caption), which yields numbered, cross-referenced tables, as seen in Table~\ref{table:answer}. The code to produce Table~\ref{table:answer} appears in Listing~\ref{code:answer_table}. Note that because of how tables are processed, it is important that the `caption` contents appear in a single line of text; it's fine if the line wraps in your text editor, but it should contain no newlines.
 
 \begin{table}
 \caption{An important answer in several bases.\label{table:answer}}
