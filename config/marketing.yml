@@ -130,12 +130,15 @@ authors:
 
 faq:
   -
-    question: "Question 1 text foo"
-    answer: "Answer 1 text"
+    question: What is Softcover?
+    answer: Softcover is a publishing platform that
+            combines an ebook production toolchain with online distribution
+            and sales.
 
   -
-    question: "Question 2 text"
-    answer: "Answer 2 text"
+    question: How do I sign up for Softcover?
+    answer: Softcover is currently in private beta.
+            Go to <http://www.softcover.io/> to sign up for an invitation.
 
 testimonials:
   -
