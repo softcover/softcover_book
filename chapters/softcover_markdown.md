@@ -22,7 +22,7 @@ On the other end of the spectrum from Markdown is \LaTeX, an industrial-strength
 
 \noindent Looking at the ever-expanding definition of "Markdown"---from [GitHub-flavored Markdown](http://github.github.com/github-flavored-markdown/) to [kramdown](http://kramdown.gettalong.org/) to Softcover-flavored Markdown itself---we see the pattern of Hartl's Tenth Rule emerge. (As with Greenspun's Tenth Rule of Programming, there are no rules 1--9 preceding Hartl's Tenth Rule of Typesetting; calling it the "tenth rule" is part of the joke.)
 
-Of course, there's no law saying that we *have* to use Markdown, augmented or otherwise, and Hartl's Tenth Rule suggests a second possibility: *actually using \LaTeX*. Since \LaTeX\ is designed to make print-quality formats like PostScript and PDF, we do have to make some concessions when outputting multi-format ebooks, mainly because the popular EPUB and MOBI formats ultimately are based on HTML, and there's simply no general mapping from \LaTeX\ to HTML\@. But what we *can* do is support a *subset* of \LaTeX\ that maps nicely to HTML (and thence to EPUB and MOBI). The result is a version of \LaTeX\ that supports *polymorphic output*---i.e., *\PolyTeX*. (Unfortunately, even \PolyTeX\ can't fully escape Hartl's Tenth Rule, since producing HTML output from \LaTeX\ requires writing just such an implementation of half of \LaTeX. But by using \PolyTeX\ we at least avoid creating an *ad hoc*, informally specified *syntax* as well.)
+Of course, there's no law saying that we *have* to use Markdown, augmented or otherwise, and Hartl's Tenth Rule suggests a second possibility: *actually using \LaTeX*. Since \LaTeX\ is designed to make print-quality formats like PostScript and PDF, we do have to make some concessions when outputting multi-format ebooks, mainly because the popular EPUB and MOBI formats ultimately are based on HTML, and there's simply no general mapping from \LaTeX\ to HTML\@. But what we *can* do is support a *subset* of \LaTeX\ that maps nicely to HTML (and thence to EPUB and MOBI). The result is a version of \LaTeX\ that supports *polymorphic output*---i.e., *\PolyTeX*. (Unfortunately, even \PolyTeX\ can't fully escape Hartl's Tenth Rule, since producing HTML output from \LaTeX\ requires writing just such an implementation of half of \LaTeX\@. But by using \PolyTeX\ we at least avoid creating an *ad hoc*, informally specified *syntax* as well.)
 
 \PolyTeX, at the cost of some complexity, gives authors considerably more power, flexibility, and extensibility than any variant of Markdown, Softcover-flavored Markdown included. If you already know HTML or Markdown, \PolyTeX\ is not hard to learn, with the only really scary syntax being for math input---but if you want to typeset mathematics, you need to learn \LaTeX\ anyway:
 \[ \left(-\frac{\hbar^2}{2m}\nabla^2 + V\right)\psi = E\psi \]
@@ -41,9 +41,9 @@ Despite a fondness for Markdown, \PolyTeX's superior power makes it my preferred
 ## The kramdown extensions
 \label{sec:kramdown}
 
-The [kramdown](http://kramdown.gettalong.org/) [[sic](https://en.wikipedia.org/wiki/Sic)] project is a pure-Ruby library that supports a superset of Markdown inspired by [Maruku](http://maruku.rubyforge.org/) and [PHP Markdown Extra](http://michelf.ca/projects/php-markdown/extra/). From the perspective of the Softcover platform, the most important additions are support for simple embedded tables and for numbered footnotes.
+The [kramdown](http://kramdown.gettalong.org/) [[sic](https://en.wikipedia.org/wiki/Sic)] project is a pure-Ruby library that supports a superset of Markdown inspired by [Maruku](http://maruku.rubyforge.org/) and [PHP Markdown Extra](http://michelf.ca/projects/php-markdown/extra/). From the perspective of the Softcover platform, the most important additions are support for simple embedded tables and numbered footnotes.
 
-The Softcover system piggybacks on kramdown's internals, which include a Markdown-to-\LaTeX\ converter to support PDF output. As a result, Softcover doesn't support kramdown syntax (such as embedded `div` tags) that can't be converted naturally to \LaTeX. This means that Softcover is intentionally less flexible in this regard in order to avoid the supporting HTML output that doesn't also work in PDFs.
+The Softcover system piggybacks on kramdown's internals, which include a Markdown-to-\LaTeX\ converter to support PDF output. As a result, Softcover doesn't support kramdown syntax (such as embedded `div` tags) that can't be converted naturally to \LaTeX\@. This means that Softcover is intentionally less flexible in this regard in order to avoid the supporting HTML output that doesn't also work in PDFs.
 
 
 ### Tables
@@ -259,7 +259,7 @@ end
 
 ### Leanpub-style language blocks
 
-SFM supports indented code blocks with an explicit language designation, which is based on [Leanpub](http://leanpub.com/)'s' proprietary Markdown variant. This is mainly useful when using SFM to talk about SFM. In particular, plain code fences can't talk about themselves because there's no way for the parser to know if the first inner \verb+```+ is the end of a fenced block or the beginning of example code. Thus, a code block like
+SFM supports indented code blocks with an explicit language designation, which is based on [Leanpub](http://leanpub.com/)'s' proprietary Markdown variant. This is mainly useful when using SFM to talk about SFM\@. In particular, plain code fences can't talk about themselves because there's no way for the parser to know if the first inner \verb+```+ is the end of a fenced block or the beginning of example code. Thus, a code block like
 {lang="text"}
     ```
     # "Hello, world!" in Ruby
