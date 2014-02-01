@@ -1,10 +1,10 @@
 ---
-title: The Softcover Book
-author: Michael Hartl
 slug: softcover_book
 filename: softcover_book
+title: The Softcover Book
 subtitle: Frictionless publishing
 description: The manual for the Softcover typesetting and publishing system
+author: Michael Hartl
 copyright: 2013
 uuid: b2bfdd92-e5f1-4dc6-b7ce-4999e3870a12
 pdf_preview_page_range: 1..30
