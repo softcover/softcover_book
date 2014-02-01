@@ -297,8 +297,10 @@ Listening on 0.0.0.0:4000, CTRL+C to stop
 
 Writing books works just fine with a text editor and browser placed side-by-side (Figure~\ref{fig:editor_browser}), but my favorite trick is to connect an iPad to the Softcover server's address on the local network, effectively using the iPad as an external monitor. Then, when I save a source file, the iPad's browser magically refreshes with the updated content. This setup is especially nice for people (like me) who often work remotely and prefer for their production setup to be fully portable.[^ipad_address]
 
-For now, I suggest playing around with the server a little to get the hang of it, and then quickly move on to building the various ebook formats (Section~\ref{sec:building_ebooks}). We'll have more to say about writing a book using the Softcover server in Chapter~\ref{cha:introduction_to_markdown} and Chapter~\ref{cha:polytex_tutorial}. ***is this true?
+For now, I suggest playing around with the server a little to get the hang of it, and then move on to building the various ebook formats (Section~\ref{sec:building_ebooks}).
 
+<!-- We'll have more to say about writing a book using the Softcover server in Chapter~\ref{cha:introduction_to_markdown} and Chapter~\ref{cha:polytex_tutorial}. ***is this true?
+ -->
 ![Writing with the editor and browser side-by-side.\label{fig:editor_browser}](images/figures/editor_browser.png)
 
 ### Building ebooks

@@ -330,6 +330,7 @@ Softcover supports code inclusion directly from local files, such as this progra
 ```
 
 ### Embedded math
+\label{sec:terrible_math}
 
 Softcover supports embedded math via the terrible syntax `{\$\$\}...\{/\$\$\}`, as in {$$}\phi^2 - \phi - 1 = 0{/$$}, and centered math, as in
 
@@ -705,12 +706,12 @@ end
 ```
 \end{codelisting}
 
-__obviously lots of typing, so use macros. I plan to release mine for sublime text__
+Obviously, this involves lots of typing, so I recommend you use macros. I plan to release my macros for Sublime Text, and Mark Bates has released [Softcover Vim snippets](https://gist.github.com/markbates/2c2e6d37dd98c43e6d7e) as well.
 
 ### Aside boxes
 \label{sec:embedded_asides}
 
-In the course of writing a narrative document like a book, you may find that you want to make an *aside*, i.e., a digression that covers some ancillary topic in more depth. In order to prevent breaking up the narrative, Softcover supports an *aside box environment* suitable for cross-referencing. We've seen several examples so far in this manual, most recently in Box~\ref{aside:polytex_markdown}. The code to produce that aside appears in Listing~\ref{code:polytex_markdown_aside_code}, and the code to produce the reference appears in Listing~\ref{code:polytex_markdown_ref_code}.
+In the course of writing a long document like a book, you may find that you want to make an *aside*, i.e., a digression that covers some ancillary topic in more depth. In order to prevent breaking up the narrative, Softcover supports an *aside box environment* suitable for cross-referencing. We've seen several examples so far in this manual, most recently in Box~\ref{aside:polytex_markdown}. The code to produce that aside appears in Listing~\ref{code:polytex_markdown_aside_code}, and the code to produce the reference appears in Listing~\ref{code:polytex_markdown_ref_code}.
 
 \begin{codelisting}
 \label{code:polytex_markdown_aside_code}
@@ -752,13 +753,13 @@ As with previous environments, the aside code in Listing~\ref{code:polytex_markd
 ### Math and numbered equations
 \label{sec:embedded_math}
 
-We've seen math using the ugly `{\$\$\}...\{/\$\$\}` syntax, but also can use proper \LaTeX\ syntax, as in \( \phi^2 - \phi - 1 = 0 \), which is set using \LaTeX's native "backslash parenthesis" notation:
+We saw in Section~\ref{sec:terrible_math} that Softcover supports embedded mathematics using the ugly `{\$\$\}...\{/\$\$\}` syntax, but I strongly recommend you use the proper \LaTeX\ syntax instead. For inline math, this means using \LaTeX's native "backslash parenthesis" notation, as in \( \phi^2 - \phi - 1 = 0 \), which is set as follows:
 
 ```latex
-as in \( \phi^2 - \phi - 1 = 0 \), which is set
+as in \( \phi^2 - \phi - 1 = 0 \), which is set as follows
 ```
 
-\noindent Some authors may be aware of the pithier \TeX-style dollar-sign notation, which sets inline math using notation like `$x$`. This is not supported by Markdown input in order to avoid confusion with ordinary dollar signs, but it is supported by \PolyTeX, so power users who want to be able to write
+\noindent Some authors may be aware of the pithier \TeX-style dollar-sign notation, which sets inline math using notation like `$x$`. In order to avoid confusion with ordinary dollar signs, this is not supported by Markdown input, but it is supported by \PolyTeX, so power users who want to be able to write
 
 ```latex
 $x$
@@ -782,7 +783,7 @@ This equation is set using \LaTeX's native "backslash square bracket" notation:
 \[ \phi^2 - \phi - 1 = 0. \]
 ```
 
-\noindent As with inline math, \TeX provides an alternate dollar-sign syntax, in this case using `$$...$$` for centered math. This notation is not supported Markdown input in order to avoid confusion with ordinary dollar signs, so ower users who want to be able to write
+\noindent As with inline math, \TeX provides an alternate dollar-sign syntax, in this case using `$$...$$` for centered math. As with single dollar signs, this notation is not supported Markdown input but it supported by \PolyTeX, so power users who want to be able to write
 
 ```latex
 $$ \phi^2 - \phi - 1 = 0. $$
@@ -826,12 +827,12 @@ Eq.~\eqref{eq:golden_ratio}    % produces "Eq. (3.1)"
 ```
 \end{codelisting}
 
-## Switching from Markdown to \PolyTeX
+<!-- ## Switching from Markdown to \PolyTeX
 \label{sec:markdown_to_polytex}
 
 It's possible to switch over at any time, can be done on a chapter-by-chapter basis.
 
-Just move the generated \PolyTeX\ file from the `generated_polytex` directory into the `chapters/` directory and edit the `Book.txt` file. Once you're confident you really want to make the switch, remove the original Markdown file. (If you're using Git for version control, which I *strongly* recommend, you can use `git rm` to remove the file. It will then be available in your history should you ever get cold feet and want to go back to Markdown.)
+Just move the generated \PolyTeX\ file from the `generated_polytex` directory into the `chapters/` directory and edit the `Book.txt` file. Once you're confident you really want to make the switch, remove the original Markdown file. (If you're using Git for version control, which I *strongly* recommend, you can use `git rm` to remove the file. It will then be available in your history should you ever get cold feet and want to go back to Markdown.) -->
 
 
 <!-- footnotes  -->
