@@ -5,11 +5,9 @@ As noted in Chapter~\ref{cha:getting_started}, the default input format for Soft
 
 The rest of this chapter includes a quick tutorial on vanilla Markdown. Readers who already know vanilla Markdown can skip to Chapter~\ref{cha:softcover_flavored_markdown} for coverage of the custom Softcover extensions.
 
-## Foo bar
-
 Being productive in Markdown requires only a subset of the full language, and the following material is an opinionated survet of Mardown's most useful features. For a comprehensive treatment of Markdown syntax, see the [syntax page](http://daringfireball.net/projects/markdown/syntax) by John Gruber (Markdown's principal creator).
 
-### Headings
+## Headings
 
 At the highest level, Markdown documents are structured like HTML, with a convenient syntax for defining the equivalent of HTML headings (`h1`, `h2`, etc.). There are actually several equivalent syntaxes, but my favorite is simply to use the pound character `#`:
 
@@ -34,7 +32,7 @@ dipisicing elit
 
 \noindent Softcover currently supports headings down to `####` (`h4`, correpsonding to a "subsubsection" in \LaTeX).
 
-### Text formatting
+## Text formatting
 
 Markdown supports *italicized* text using _two_ different formats (asterisks or underscores):
 
@@ -54,7 +52,7 @@ It also supports **boldface** via double asterisks
 yielding _**boldface italic**_
 ```
 
-#### Blockquotes
+### Blockquotes
 \label{sec:blockquotes}
 
 *Blockquotes* are supported using right angle brackets, which is inspired by the format of quoted replies in plain-text email clients:
@@ -83,7 +81,7 @@ yielding _**boldface italic**_
 
 I generally find Markdown's style of blockquote syntax fine when an email program automatically puts in the `>` brackets, but it's cumbersome to put them in by hand. Good text editors can make constructing blockquotes easier, but it still involves more friction than I'd like. I think \LaTeX's syntax is nicer (Section~\ref{sec:embedded_latex_commands}), especially since it can more easily be produced by a text-editor macro or tab trigger, but the default syntax may be more familiar.
 
-#### Source code
+### Source code
 
 Markdown can also format source code and other verbatim text. Backticks indicate inline code, as in the `def` keyword:
 
@@ -109,7 +107,7 @@ as in the `def` keyword
 \noindent Note that this is *not* my preferred method for including source code, and I strongly encourage using GitHub-style code fencing (Section~\ref{sec:code_fencing}) or \LaTeX\ code environments (Section~\ref{sec:latex_code_formatting}) instead.
 
 
-### Links and images
+## Links and images
 \label{sec:links_and_images}
 
 Markdown supports hypertext links through a convenient format inspired by common usage in email, where you might write something like this as:
@@ -145,11 +143,11 @@ This allows you to embed images like so:
 
 Images in vanilla Markdown are limited to embedding as above, but Softcover extends Markdown to provide a wide variety of other behavior, including captioned images, numbered figures, and numbered figures with captions (Section~\ref{sec:embedded_figures}).
 
-### Lists
+## Lists
 
 Markdown supports both numbered and unnumbered lists, corresponding to HTML `ol` and `ul` environments, respectively.
 
-#### Numbered lists
+### Numbered lists
 
 Numbered lists are simple:
 
@@ -194,7 +192,7 @@ you don't want to have to renumber all the other elements by hand:
 3. Quux
 ```
 
-#### Unnumbered lists
+### Unnumbered lists
 
 Unnumbered lists are even easier than numbered lists:
 
@@ -242,7 +240,7 @@ nice when making nested lists:
 * Quux
 ```
 
-#### Paragraphs in lists
+### Paragraphs in lists
 
 In the case of both numbered and unnumbered lists, you can put a paragraph in a list element by indenting the desired paragraphs four spaces, like so:
 
