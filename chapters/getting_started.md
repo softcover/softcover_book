@@ -122,15 +122,35 @@ $ gem install softcover
 
 \noindent (On some systems, you may need to run `sudo gem install softcover` instead.) This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the `nokogiri` gem to install.
 
-To build the full set of output formats, Softcover requires some external dependencies. The `softcover` command will prompt you to install each dependency at the appropriate time, but many users will find it more convenient to install all the dependencies at once:[^homebrew]
+To build the full set of output formats, Softcover requires some external dependencies. The `softcover` command will prompt you to install each dependency at the appropriate time, but many users will find it more convenient to install all the dependencies at once.[^homebrew] To check which dependencies need to be installed on your system, run `softcover check`:
 
-- Install [LaTeX](http://latex-project.org/ftp.html). The \LaTeX\ download is *big*, so start downloading it now. Also, I strongly recommend installing a precompiled version of \LaTeX\ and *not* building it from source. *Note*: Several Mac users have reported having to restart their terminal program after installing Mac\TeX\ in order to enable the \LaTeX\ command-line programs.
-- Install [Node.js](http://nodejs.org/)
-- Install [PhantomJS](http://phantomjs.org/)
-- Install [Inkscape](http://inkscape.org/)
-- Install [Calibre](http://calibre-ebook.com/) and enable the [command-line tools](http://manual.calibre-ebook.com/cli/cli-index.html), or use [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (but beware the onerous [terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251), which technically precluding selling the resulting MOBI files)
-- Install [Java](http://www.java.com/en/download/help/index_installing.xml) if you don't already have it
-- Install [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip) by downloading and unzipping it in your home directory
+```console
+$ softcover check
+Checking Softcover dependencies...
+Checking for LaTeX...         Found
+Checking for GhostScript...   Found
+Checking for ImageMagick...   Found
+Checking for PhantomJS...     Found
+Checking for Inkscape...      Found
+Checking for Calibre...       Found
+Checking for KindleGen...     Found
+Checking for Java...          Found
+Checking for EpubCheck...     Found
+All dependencies satisfied.
+```
+
+\noindent In the unlikely case that you get the result above, congratulations---you have nothing to install. More likely, though, `softcover check` will indicate several missing dependencies. The output in this case includes URLs for all relevant software, but for convenience we also include them here:
+
+- [LaTeX](http://latex-project.org/ftp.html)
+
+    The \LaTeX\ download is *big*, so start downloading it now. Also, I strongly recommend installing a precompiled version of \LaTeX\ and *not* building it from source. *Note*: Several Mac users have reported having to restart their terminal program after installing Mac\TeX\ in order to enable the \LaTeX\ command-line programs.
+- [Node.js](http://nodejs.org/)
+- [PhantomJS](http://phantomjs.org/)
+- [Inkscape](http://inkscape.org/)
+- [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211)
+- [Calibre](http://calibre-ebook.com/) with the [command-line tools](http://manual.calibre-ebook.com/cli/cli-index.html)
+- [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you alredy have this one)
+- [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip) (unzip in your home directory)
 
 To see the commands supported by `softcover`, run `softcover help` at the command line, as shown in Listing~\ref{code:softcover_help}.
 
@@ -139,12 +159,15 @@ To see the commands supported by `softcover`, run `softcover help` at the comman
 \codecaption{Viewing available Softcover commands with \kode{softcover help}.}
 ```console
 $ softcover help
+Commands:
 softcover build, build:all           # Build all formats
 softcover build:epub                 # Build EPUB
 softcover build:html                 # Build HTML
 softcover build:mobi                 # Build MOBI
 softcover build:pdf                  # Build PDF
 softcover build:preview              # Build book preview in all formats
+softcover check                      # Check dependencies
+softcover clean                      # Clean unneeded files
 softcover config                     # View local config
 softcover config:add key=value       # Add to your local config vars
 softcover config:remove key          # Remove key from local config vars
@@ -159,7 +182,7 @@ softcover publish                    # Publish your book on Softcover
 softcover publish:screencasts        # Publish screencasts
 softcover server                     # Run local server
 softcover unpublish                  # Remove book from Softcover
-softcover version                    # Return the version number (-v for short)
+softcover version                    # Return the version number
 ```
 \end{codelisting}
 
@@ -413,6 +436,15 @@ real    0m14.159s
 user    0m12.086s
 sys 0m1.185s
 ```
+
+Softcover and \LaTeX\ together generate many temp and auxiliary files. Softcover provides a utility to clean up the working directory by removing such files:
+
+```console
+$ softcover clean
+```
+
+\noindent This is especially useful if your ebook build build hangs when you are sure it should be working. Both Softcover's syntax hightlighting cache and \LaTeX\ `*.aux` files occasionally get corrupted, and `softcover clean` gets rid of them both.
+
 
 #### Previews
 
