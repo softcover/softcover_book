@@ -13,6 +13,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 Two of the most important commands in the Softcove CLI are `build:all` and `deploy`. Their default behavior is sufficient for most purposes, but some authors will want to customize them for their specific needs. Softcover allows such customization via dotfiles in the book's root directory, as described below.
 
 ### Customizing builds
+\label{sec:customizing_builds}
 
 By default, `softcover build:all` generates HTML, EPUB, MOBI, and PDF, but it's easy to customize. All you need to do is edit the file `.softcover-build` in the book's root directory (Listing~\ref{code:build_config}). The generated file has some suggestions that are commented out with the `#` character; if all such commands are commented out, `softcover build:all` uses the defaults as described in Section~\ref{sec:build_all}, but uncommenting any line activates customization.
 
@@ -46,6 +47,38 @@ softcover build:preview
 
 
 ### Customizing deploys
+\label{sec:customizing_deploys}
+
+You can customize the behavior of `softcover deploy` by editing the
+file `.softcover-deploy` in the project's root directory (Listing~\ref{code:deploy_config}).
+
+\begin{codelisting}
+\label{code:deploy_config}
+\codecaption{The default deployment configuration file \texttt{.softcover-deploy}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-deploy}}
+```text
+# Edit this file to customize your deployment steps with custom command options
+# or additional commands.
+#
+# softcover build:all
+# softcover build:preview
+# softcover publish
+```
+\end{codelisting}
+
+For example, Listing~\ref{code:deploy_no_preview} removes the `softcover build:preview` command while adding `git push origin` to sync the local copy with a remote Git repository.
+
+\begin{codelisting}
+\label{code:deploy_no_preview}
+\codecaption{Removing previews and adding a \texttt{git push origin}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-deploy}}
+```text
+# Edit this file to customize your deployment steps with custom command options
+# or additional commands.
+#
+softcover build:all
+softcover publish
+git push origin
+```
+\end{codelisting}
 
 
 ## Commands and styles

@@ -443,6 +443,9 @@ user    0m12.086s
 sys 0m1.185s
 ```
 
+The behavior of `softcover build:all` is customizable via the `.softcover-build` file. See Section~\ref{sec:customizing_builds} for details.
+
+
 #### Previews
 \label{sec:build_previews}
 
@@ -524,7 +527,8 @@ $ softcover open
 
 ![The HTML book on the live website.\label{fig:softcover_live_book}](images/figures/softcover_live_book.png)
 
-#### One command to rule them all
+### One command to rule them all
+\label{sec:deploy_command}
 
 For convenience, Softcover comes with a `deploy` command to build everything and publish the result:
 
@@ -540,36 +544,12 @@ $ softcover build:preview
 $ softcover publish
 ```
 
-\noindent You can customize the behavior of `softcover deploy` by editing the
-file `.softcover-deploy` in the project's root directory (Listing~\ref{code:deploy_config}). For example,  Listing~\ref{code:deploy_no_preview} removes the `softcover build:preview` command while adding `git push origin`.
+\noindent The behavior of `softcover deploy` is customizable via the `.softcover-deploy` file in the book's root directory. See Section~\ref{sec:customizing_deploys} for details.
 
-\begin{codelisting}
-\label{code:deploy_config}
-\codecaption{The default deployment configuration file \texttt{.softcover-deploy}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-deploy}}
-```text
-# Edit this file to customize your deployment steps with custom command options
-# or additional commands.
-#
-# softcover build:all
-# softcover build:preview
-# softcover publish
-```
-\end{codelisting}
+Using `softcover deploy` makes publishing to the Softcover website completely frictionless: make a change, type `softcover deploy`, and your book (in all output formats) is updated automatically.
 
-\begin{codelisting}
-\label{code:deploy_no_preview}
-\codecaption{Removing previews and adding a \texttt{git push origin}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-deploy}}
-```text
-# Edit this file to customize your deployment steps with custom command options
-# or additional commands.
-#
-softcover build:all
-softcover publish
-git push origin
-```
-\end{codelisting}
 
-Using `softcover deploy` makes publishing to the Softcover website completely frictionless: make a change and type `softcover deploy` and your book (in all output formats) is updated automatically.
+<!-- footnotes  -->
 
 [^undefined_xref]: This is what an undefined cross-reference looks like. It will be filled in as soon as the corresponding section is properly defined and labeled.
 
