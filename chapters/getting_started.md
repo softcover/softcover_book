@@ -343,6 +343,7 @@ Install LaTeX (http://latex-project.org/ftp.html)
 \noindent I recommend installing all the dependencies at once, as described in Section~\ref{sec:installing_softcover}.
 
 #### EPUB
+\label{sec:build_epub}
 
 EPUB books are essentially HTML combined with CSS and various configuration files, all zipped together in one package. (The easiest way to see this is to change an EPUB file's extension from `.epub` to `.zip` and double-click it to unzip it.) Getting all the details just right is a real pain, though, so Softcover takes it care of it for you.
 
@@ -373,6 +374,7 @@ $ open ebooks/example_book.epub
 
 
 #### MOBI
+\label{sec:build_mobi}
 
 Once you've built an EPUB book, making a MOBI (the native format for Amazon.com's Kindle) is easy. The default method is to use [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (via the `kindlegen` executable), supplied by Amazon.com itself:
 
@@ -393,6 +395,7 @@ To view the MOBI file on your computer, I recommend installing [Kindle reader](h
 ![The example book MOBI.\label{fig:example_mobi}](images/figures/example_mobi.png)
 
 #### PDF
+\label{sec:build_pdf}
 
 Although the EPUB and MOBI ebooks formats are increasingly popular, my preferred ebook format (especially for technical books) is PDF\@. Building PDF books requires [installing LaTeX](http://latex-project.org/ftp.html) (specifically, the `xelatex` executable, which is a Unicode-friendly PDF builder). \LaTeX\ is a large download, but it's easy to install, and in fact you may already have it:
 
@@ -422,6 +425,7 @@ $ softcover build:pdf --once
 
 
 #### All formats
+\label{sec:build_all}
 
 Once you've installed all the dependencies as above, you can build all formats at once:
 
@@ -439,36 +443,8 @@ user    0m12.086s
 sys 0m1.185s
 ```
 
-By default, `softcover build:all` generates HTML, EPUB, MOBI, and PDF, but it's easy to customize. All you need to do is edit the file `.softcover-build` in the book's root directory (Listing~\ref{code:build_config}). For example, if you want to build previews (Section~\ref{sec:previews}) by default and use Calibre in place of KindleGen, you could use the `.softcover-build` file shown in Listing~\ref{code:build_preview_calibre}. (Note that Listing~\ref{code:build_preview_calibre} omits `softcover build:epub` because EPUB files are generated automatically as a side-effect of building MOBI.)
-
-\begin{codelisting}
-\label{code:build_config}
-\codecaption{The default build configuration file \texttt{.softcover-build}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-build}}
-```text
-# Edit this file to customize your build steps with custom command options
-# or additional commands.
-#
-# softcover build:pdf
-# softcover build:mobi
-# softcover build:preview
-```
-\end{codelisting}
-
-\begin{codelisting}
-\label{code:build_preview_calibre}
-\codecaption{Building previews and using Calibre in \texttt{softcover build:all}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-build}}
-```text
-# Edit this file to customize your build steps with custom command options
-# or additional commands.
-#
-softcover build:pdf
-softcover build:mobi --calibre
-softcover build:preview
-```
-\end{codelisting}
-
 #### Previews
-\label{sec:previews}
+\label{sec:build_previews}
 
 Finally, Softcover can optionally build book *previews*, which is a useful feature when selling your ebook (either on your own website or at [Softcover](http://softcover.io)). Because of the different ways the PDF and EPUB/MOBI formats work, there are two separate ways to specify the preview range. (You have to keep them roughly in sync by hand, but it's rarely important for the preview ranges to be exact, so this isn't a big problem in practice.) The configuration for PDF is a *page* range, while for EPUB/MOBI it's a *chapter* range (with "Chapter 0" being frontmatter like the table of contents, preface, etc.). Both ranges are specified in `book.yml` (Listing~\ref{code:preview_ranges}).
 
