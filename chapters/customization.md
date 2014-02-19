@@ -35,7 +35,7 @@ For example, if you want to use Calibre in place of KindleGen (Section~\ref{sec:
 \begin{codelisting}
 \label{code:build_preview_calibre}
 \codecaption{Using Calibre and building previews in \texttt{softcover build:all}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-build}}
-```text
+```text, options: "hl_lines": [5, 6]
 # Edit this file to customize your build steps with custom command options
 # or additional commands.
 #
@@ -70,7 +70,7 @@ For example, Listing~\ref{code:deploy_no_preview} removes the `softcover build:p
 \begin{codelisting}
 \label{code:deploy_no_preview}
 \codecaption{Removing previews and adding a \texttt{git push origin}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-deploy}}
-```text
+```text, options: "hl_lines": [6]
 # Edit this file to customize your deployment steps with custom command options
 # or additional commands.
 #
@@ -83,13 +83,43 @@ git push origin
 
 ## Commands and styles
 
-### Custom commands
+Softcover books are based on \LaTeX\ (for PDF) and HTML (for EPUB and MOBI), both of which allow for extensive customization via style files and CSS, respectively. There's actually one point of overlap: commands defined in `latex_styles/custom.sty` are available across all formats (Section~\ref{sec:custom_commands}).
 
-custom.sty,
+
+### Custom commands
+\label{sec:custom_commands}
+
+\LaTeX\ natively supports custom commands using `newcommand`, and Softcover adds support for `newcommand` to HTML (and thus EPUB/MOBI) as well. The default customization file has examples to get you started (Listing~\ref{code:default_custom_sty}).
+
+\begin{codelisting}
+\label{code:default_custom_sty}
+\codecaption{The default customization file. \\ \filepath{latex\_styles/custom.sty}}
+<<(example_book/latex_styles/custom.sty, lang: latex)
+\end{codelisting}
+
+
+This means, for example, that we can define the command \verb+\bfi+, which takes one argument and sets it in \bfi{boldface italic}, as shown in Listing~\ref{code:bfi}.
+
+\begin{codelisting}
+\label{code:bfi}
+\codecaption{Defining a boldface italic command. \\ \filepath{latex\_styles/custom.sty}}
+```latex
+\newcommand{\bfi}[1]{\textbf{\textit{{#1}}}}
+```
+\end{codelisting}
+
+Because the `custom.sty` file is raw \LaTeX, definitions must be in \PolyTeX\ (Chapter~\ref{cha:polytex_tutorial}) and not Markdown. This isn't as hard as you think, though, and \LaTeX\ commands are highly Googleable. Try, for example, "[latex boldface italic](http://lmgtfy.com/?q=latex+boldface+italic)") to see how you might have guessed how to make \verb+\bfi+ without my help.
+
+As indicated in the comment at the top of Listing~\ref{code:default_custom_sty}, commands that only make sense for PDF output---such as hyphenation definitions or including specific \LaTeX\ packages---should be included in `custom_pdf.sty` instead of `custom.sty` (Section~\ref{sec:pdf_style}).
+
+*Note*: Custom math commands are supported locally but are not currently supported on the Softcover site, but we're planning to add it as soon as someone complains. Send complaints to \texttt{michael@softcover.io} and we'll get right on it.
 
 ### HTML style
 
 custom.css
+
+*Note*: Custom CSS is supported locally but is not currently not supported on the Softcover site, but we're planning to add it as soon as someone complains. Send complaints to \texttt{michael@softcover.io} and we'll get right on it.
+
 
 ### EPUB/MOBI style
 
@@ -98,8 +128,9 @@ custom_epub.css
 git add it
 
 ### PDF style
+\label{sec:pdf_style}
 
-custom_pdf.sty
+custom_pdf.sty, including hyphenation
 
 Note way to get rid of need for noindent
 
