@@ -1,17 +1,13 @@
-# Marketing and launch
+# # Marketing, launching, and selling on Softcover
 \label{cha:marketing_launch}
 
 This chapter will describe the steps supported by Softcover to market and launch books and associated media. It is currently in preparation.
 
-<!-- ### Publishing screencasts and other media
+### Publishing screencasts and other media
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+```console
+$ softcover publish:screencasts
+```
 
 ### Marketing page
 \label{sec:marketing_page}
@@ -84,4 +80,4 @@ faq:
 contact_email: ''
 hide_custom_domain_footer: false
 ```
-\end{codelisting} -->
+\end{codelisting}
