@@ -5,11 +5,11 @@ _**Note:** Softcover is currently in private beta. Visit [Softcover.io](http://w
 
 This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors. Softcover consists of two main parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}). Based on the technology used to make the [*Ruby on Rails Tutorial* book](http://ruby.railstutorial.org/) and [*The Tau Manifesto*](http://tauday.com/tau-manifesto), Softcover makes publishing *frictionless* by allowing authors to build and deploy ebooks and other digital goods with a single command.
 
-The Softcover production toolchain and publishing platform are especially designed to help authors make the transition from "writing a book" to "building a product empire," using the following [three-step plan](http://www.youtube.com/watch?v=tO5sxLapAts):
+The Softcover production toolchain and publishing platform are especially designed to help authors make the transition from "writing a book" to "building a business," using the following [three-step plan](http://www.youtube.com/watch?v=tO5sxLapAts):
 
 1. Make ebooks, screencasts, etc.
 2. Release a free HTML book (*optional*) while selling ebooks and multiple product bundles
-3. Profit!!
+3. Profit!!!
 
 \noindent Of course, it's not necessary to follow the Three Step Plan\texttrademark\ exactly, and Softcover can be used for many different purposes (Box~\ref{aside:softcover_uses}). In particular, as indicated by the "optional" note in Step 2, adopting the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book)'s practice of releasing a free HTML version is not required. Softcover authors are certainly encouraged to make the HTML versions of their books free---both as a marketing tool and because it's [awesome](http://breadpig.com/products/awesomesauce)---but Softcover allows the HTML to be placed behind login- or paywalls as well.
 
@@ -30,10 +30,10 @@ The Softcover production toolchain and publishing platform are especially design
 
 \end{aside}
 
-Softcover is dedicated by the philosophy of *full author ownership*---own your content, own your production toolchain, own your traffic, own your customer list:
+Softcover is dedicated by the philosophy of *full author ownership*:
 
 * **Own your content**: Authors retain copyright on all materials.
-* **Own your production toolchain**: The Softcover typesetting system is open-source, so you aren't locked into a proprietary toolchain.
+* **Own your production toolchain**: The Softcover typesetting system is open-source, so you aren't locked into a proprietary toolchain.[^kindlegen_proprietary]
 * **Own your traffic**: Softcover supports custom domains.
 * **Own your customer list**: Authors get all relevant contact information and never have to use an intermediary to communicate with their customers.
 
@@ -130,6 +130,7 @@ Checking Softcover dependencies...
 Checking for LaTeX...         Found
 Checking for GhostScript...   Found
 Checking for ImageMagick...   Found
+Checking for Node.js...       Found
 Checking for PhantomJS...     Found
 Checking for Inkscape...      Found
 Checking for Calibre...       Found
@@ -144,19 +145,20 @@ All dependencies satisfied.
 - [LaTeX](http://latex-project.org/ftp.html)
 
     The \LaTeX\ download is *big*, so start downloading it now. Also, I strongly recommend installing a precompiled version of \LaTeX\ and *not* building it from source. *Note*: Several Mac users have reported having to restart their terminal program after installing Mac\TeX\ in order to enable the \LaTeX\ command-line programs.
+- [ImageMagick](http://www.imagemagick.org/script/binary-releases.php)
 - [Node.js](http://nodejs.org/)
 - [PhantomJS](http://phantomjs.org/)
 - [Inkscape](http://inkscape.org/)
 - [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211)
 - [Calibre](http://calibre-ebook.com/) with the [command-line tools](http://manual.calibre-ebook.com/cli/cli-index.html)
-- [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you alredy have this one)
+- [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you already have this one)
 - [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip) (unzip in your home directory)
 
 To see the commands supported by `softcover`, run `softcover help` at the command line, as shown in Listing~\ref{code:softcover_help}.
 
 \begin{codelisting}
 \label{code:softcover_help}
-\codecaption{Viewing available Softcover commands with \kode{softcover help}.}
+\codecaption{Viewing available Softcover commands with \texttt{softcover help}.}
 ```console
 $ softcover help
 Commands:
@@ -342,7 +344,7 @@ Install LaTeX (http://latex-project.org/ftp.html)
 
 #### EPUB
 
-EPUB books are essentially HTML combined with CSS and various configuration files, all zipped together in one package. (The easiest way to see this is to change an EPUB file's extension from `.epub` to `.zip` and double-click it. to unzip it.) Getting all the details just right is a real pain, though, and luckily Softcover does it for you.
+EPUB books are essentially HTML combined with CSS and various configuration files, all zipped together in one package. (The easiest way to see this is to change an EPUB file's extension from `.epub` to `.zip` and double-click it to unzip it.) Getting all the details just right is a real pain, though, so Softcover takes it care of it for you.
 
 There are no dependencies for building EPUB books unless the source contains mathematics, so if you want you can remove the math from the generated book and build the EPUB immediately. Otherwise, you'll need to install [PhantomJS](http://phantomjs.org/) and [Inkscape](http://inkscape.org/). Building the EPUB is easy once any necessary dependencies are installed:
 
@@ -372,10 +374,16 @@ $ open ebooks/example_book.epub
 
 #### MOBI
 
-Once you've built an EPUB book, making a MOBI (the native format for Amazon.com's Kindle) is easy. One method is to use [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (via the `kindlegen` executable), supplied by Amazon.com itself, but selling the resulting MOBI anywhere other than Amazon.com violates (!)\ the [KindleGen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251). To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk. Luckily, there is an open-source alternative called *Calibre*, so I recommend you [install Calibre](http://calibre-ebook.com/) and then follow the instructions to [enable Calibre command line tools](http://manual.calibre-ebook.com/cli/cli-index.html). This gets you the `ebook-convert` command, and this is what Softcover uses by default to build MOBI files:
+Once you've built an EPUB book, making a MOBI (the native format for Amazon.com's Kindle) is easy. The default method is to use [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (via the `kindlegen` executable), supplied by Amazon.com itself:
 
 ```console
 $ softcover build:mobi
+```
+
+\noindent There is also an open-source alternative called *Calibre*, so if you [install Calibre](http://calibre-ebook.com/) and then follow the instructions to [enable Calibre command line tools](http://manual.calibre-ebook.com/cli/cli-index.html) you can use the \verb+--calibre+ option:[^kindlegen_terms]
+
+```console
+$ softcover build:mobi --calibre
 ```
 
 \noindent As with EPUB, you can use command-line options to make the MOBI builder quiet (`-q`) or silent (`-s`).
@@ -383,12 +391,6 @@ $ softcover build:mobi
 To view the MOBI file on your computer, I recommend installing [Kindle reader](http://www.amazon.com/gp/feature.html?docId=1000493771). The result appears in Figure~\ref{fig:example_mobi}.
 
 ![The example book MOBI.\label{fig:example_mobi}](images/figures/example_mobi.png)
-
-If you're not planning to sell your book's MOBI file, or if you're willing to risk violating Amazon's terms of use, you can optionally build books using KindleGen by passing `softcover` the \verb+--kindelgen+ option:
-
-```console
-$ softcover build:mobi --kindlegen
-```
 
 #### PDF
 
@@ -427,7 +429,7 @@ Once you've installed all the dependencies as above, you can build all formats a
 $ softcover build:all
 ```
 
-\noindent On my system (an older MacBook Air), Softcover builds the template book's HTML, EPUB, MOBI, and PDF in under 15 seconds:
+\noindent On my system (an older MacBook Air), Softcover builds the template book (all formats) in under 15 seconds:
 
 ```console
 $ time softcover build:all --silent
@@ -437,22 +439,42 @@ user    0m12.086s
 sys 0m1.185s
 ```
 
-Softcover and \LaTeX\ together generate many temp and auxiliary files. Softcover provides a utility to clean up the working directory by removing such files:
+By default, `softcover build:all` generates HTML, EPUB, MOBI, and PDF, but it's easy to customize. All you need to do is edit the file `.softcover-build` in the book's root directory (Listing~\ref{code:build_config}). For example, if you want to build previews (Section~\ref{sec:previews}) by default and use Calibre in place of KindleGen, you could use the `.softcover-build` file shown in Listing~\ref{code:build_preview_calibre}. (Note that Listing~\ref{code:build_preview_calibre} omits `softcover build:epub` because EPUB files are generated automatically as a side-effect of building MOBI.)
 
-```console
-$ softcover clean
+\begin{codelisting}
+\label{code:build_config}
+\codecaption{The default build configuration file \texttt{.softcover-build}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-build}}
+```text
+# Edit this file to customize your build steps with custom command options
+# or additional commands.
+#
+# softcover build:pdf
+# softcover build:mobi
+# softcover build:preview
 ```
+\end{codelisting}
 
-\noindent This is especially useful if your ebook build build hangs when you are sure it should be working. Both Softcover's syntax hightlighting cache and \LaTeX\ `*.aux` files occasionally get corrupted, and `softcover clean` gets rid of them both.
-
+\begin{codelisting}
+\label{code:build_preview_calibre}
+\codecaption{Building previews and using Calibre in \texttt{softcover build:all}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-build}}
+```text
+# Edit this file to customize your build steps with custom command options
+# or additional commands.
+#
+softcover build:pdf
+softcover build:mobi --calibre
+softcover build:preview
+```
+\end{codelisting}
 
 #### Previews
+\label{sec:previews}
 
 Finally, Softcover can optionally build book *previews*, which is a useful feature when selling your ebook (either on your own website or at [Softcover](http://softcover.io)). Because of the different ways the PDF and EPUB/MOBI formats work, there are two separate ways to specify the preview range. (You have to keep them roughly in sync by hand, but it's rarely important for the preview ranges to be exact, so this isn't a big problem in practice.) The configuration for PDF is a *page* range, while for EPUB/MOBI it's a *chapter* range (with "Chapter 0" being frontmatter like the table of contents, preface, etc.). Both ranges are specified in `book.yml` (Listing~\ref{code:preview_ranges}).
 
 \begin{codelisting}
 \label{code:preview_ranges}
-\codecaption{Specifying the preview ranges in \texttt{book.yml}.}
+\codecaption{Specifying the preview ranges in \texttt{book.yml}. \\ \filepath{config/book.yml}}
 ```yaml
 ---
 .
@@ -470,6 +492,18 @@ $ softcover build:preview
 ```
 
 The full Softcover publishing platform automatically uploads all the ebook files, including previews, and makes it simple to distribute them to your readers. We'll learn how to do this in the next section (Section~\ref{sec:softcover_website}).
+
+
+#### Debugging tip
+
+Building ebooks generates many temp and auxiliary files that can sometimes get corrupted and ruin the build, so Softcover provides a utility to clean up the working directory by removing such files:
+
+```console
+$ softcover clean
+```
+
+\noindent If your ebook build build hangs when you think it should be working, try running `softcover clean` to see if that helps.
+
 
 ### Cover images
 
@@ -535,7 +569,7 @@ file `.softcover-deploy` in the project's root directory (Listing~\ref{code:depl
 
 \begin{codelisting}
 \label{code:deploy_config}
-\codecaption{The default deployment configuration file \texttt{.softcover-deploy}.}
+\codecaption{The default deployment configuration file \texttt{.softcover-deploy}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-deploy}}
 ```text
 # Edit this file to customize your deployment steps with custom command options
 # or additional commands.
@@ -548,7 +582,7 @@ file `.softcover-deploy` in the project's root directory (Listing~\ref{code:depl
 
 \begin{codelisting}
 \label{code:deploy_no_preview}
-\codecaption{Removing previews and adding a \texttt{git push origin}.}
+\codecaption{Removing previews and adding a \texttt{git push origin}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-deploy}}
 ```text
 # Edit this file to customize your deployment steps with custom command options
 # or additional commands.
@@ -574,3 +608,7 @@ Using `softcover deploy` makes publishing to the Softcover website completely fr
 [^ipad_address]: You can find the iPad's local network address by examining the results of `ifconfig`; in my experience the relevant address usually begins with 192 (when on the local wireless network) or 172 (when attached directly to a computer), so you can probably extract the right local address using the command `ifconfig | egrep '(172|192)'`. Then add a colon and the port number (4000 by default). On my system, the correct address for the iPad is typically 172.20.10.3:4000.
 
 [^homebrew]: Some Mac users will be tempted to use the otherwise excellent [Homebrew](http://brew.sh), but in the case of the Softcover dependencies I urge them to resist this temptation.
+
+[^kindlegen_proprietary]: The only part of the toolchain is the KindleGen program for building books in MOBI format, but authors can optionally use the open-source Calibre program as a replacement.
+
+[^kindlegen_terms]: The MOBI files produced by KindleGen are generally slightly higher-quality than MOBI files made by Calibre, and unlike Calibre-generated files they can be sent to Kindle via email or using the convenient [Send to Kindle](http://www.amazon.com/gp/sendtokindle) program. On the other hand, whereas authors are free to do anything they like with Calibre-generated MOBI files, selling KindleGen-generated MOBI files anywhere other than Amazon.com violates the [KindleGen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251). To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk.
