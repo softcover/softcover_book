@@ -81,3 +81,7 @@ contact_email: ''
 hide_custom_domain_footer: false
 ```
 \end{codelisting}
+
+### Custom domains
+
+Put in info about custom domains
