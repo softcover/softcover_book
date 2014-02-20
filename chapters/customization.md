@@ -191,6 +191,8 @@ The second method for customizing PDF output is to edit the file `preamble.tex` 
 
 Softcover has experimental support for foreign languages. Please request an invitation to the [Softcover Google Group](https://groups.google.com/forum/#!forum/softcover-publishing) and send us a note if you're interested in writing a Softcover book in a language other than English.
 
+### Polyglossia and \texttt{lang.yml}
+
 Only two steps are required to support foreign languages across different output formats. For concreteness, we'll use French as an example. First, to enable French support in PDF, we need to edit `preamble.tex` to include the `polyglossia` package and set the default language to `french`, as shown in Listing~\ref{code:polyglossia_french}. (The final line in Listing~\ref{code:polyglossia_french} is needed to work around an error when building the PDF; although I've been using \LaTeX\ for years, I solved it the same way you would have: by Googling the error message.)
 
 \begin{codelisting}
@@ -235,7 +237,42 @@ contents: Table de Matières
 
 With the settings as in Listing~\ref{code:french_lang_yml}, labels such as "Chapitre" for "Chapter" will be unified across output formats. In addition, cross-references will link to the full word in addition to the number, so that, e.g., the link "Boîte 1.1" would include the word "Boîte" as well as "1.1" (as in Box~\ref{aside:softcover_uses}).
 
-The `order` option in Listing~\ref{code:default_lang_yml} is included to support languages such as Hungarian, in which "Chapter 1" appears as "1 fejezet". As indicated by the comment in Listing~\ref{code:default_lang_yml}, this can be arranged by setting `order: reverse`.
+### Terrifyingly advanced comments on Hungarian
+
+The `order` option in Listing~\ref{code:default_lang_yml} is included to support languages such as Hungarian, in which the translation of "Chapter 1" appears as "1 fejezet". As indicated by the comment in Listing~\ref{code:default_lang_yml}, this can be arranged by setting `order: reverse` in `lang.yml` (Listing~\ref{code:magyar_lang_yml}). Ironically, the Polyglossia support for Hungarian gets the order wrong; a fix appears in Listing~\ref{code:magyar_preamble}.
+
+\begin{codelisting}
+\label{code:magyar_lang_yml}
+\codecaption{Reversing chapter/number order to get `1 fejezet'. \\ \filepath{config/lang.yml}}
+```latex
+---
+chapter:
+  word: fejezet
+  order: reverse     # Use 'reverse' to change 'Chapter 1' to '1 Chapter'
+.
+.
+.
+
+```
+\end{codelisting}
+
+\begin{codelisting}
+\label{code:magyar_preamble}
+\codecaption{Fixing chapter ordering for Hungarian (\texttt{magyar}). \\ \filepath{config/preamble.tex}}
+```latex
+\documentclass[14pt]{extbook}
+\usepackage{polyglossia}
+\setdefaultlanguage{magyar}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@makechapterhead}
+  {\@chapapp\space \thechapter}
+  {\thechapter\space \@chapapp}
+  {}{}
+\makeatother
+\DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
+```
+\end{codelisting}
 
 <!-- ## Detailed refinements
 \label{sec:detailed_refinements}
