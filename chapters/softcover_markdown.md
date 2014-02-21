@@ -573,7 +573,7 @@ In addition to the `tabular` environment, Softcover also supports the somewhat c
 
 \begin{codelisting}
 \label{code:answer_table}
-\codecaption{The code to produce Table~\ref{table:answer}}
+\codecaption{The code to produce Table~\ref{table:answer}.}
 ```latex, options: "hl_lines": [1, 2, 14]
 \begin{table}
 \caption{An important answer in several bases.\label{table:answer}}
