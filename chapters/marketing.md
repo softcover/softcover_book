@@ -1,4 +1,4 @@
-# # Marketing, launching, and selling on Softcover
+# Marketing, launching, and selling
 \label{cha:marketing_launch}
 
 This chapter will describe the steps supported by Softcover to market and launch books and associated media. It is currently in preparation.
