@@ -290,9 +290,10 @@ When building a PDF, you may notice that some of the error messages indicate an 
 
 ```console
 $ softcover build:pdf --find-overfull
+$ softcover build:pdf --find-overfull
 ```
 
-\noindent If this command returns no results, it means that your book is 100% hbox-free.
+\noindent (You need to run it twice initially to make sure the cross-reference are up-to-date, as this can affect the presence of overfull hboxes.) If this second command returns no results, it means that your book is 100% overfull hbox--free.
 
 Unfortunately, because of the way \LaTeX\ processes files, the line numbers output by the error message aren't useful for tracking down the source of the overfull hbox. As a compromise, the \verb+--find-overfull+ flag gives some context around the problematic line, which should allow you to find the culprit using the search function in your text editor.
 
