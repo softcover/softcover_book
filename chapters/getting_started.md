@@ -152,7 +152,7 @@ All dependencies satisfied.
 - [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211)
 - [Calibre](http://calibre-ebook.com/) with the [command-line tools](http://manual.calibre-ebook.com/cli/cli-index.html)
 - [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you already have this one)
-- [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip) (unzip in your home directory)
+- [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip)[^epub_check_version] (unzip in your home directory)
 
 To see the commands supported by `softcover`, run `softcover help` at the command line, as shown in Listing~\ref{code:softcover_help}.
 
@@ -314,7 +314,7 @@ Maximum connections set to 1024
 Listening on 0.0.0.0:4000, CTRL+C to stop
 ```
 
-\noindent (You may have to install a [JavaScript runtime](https://github.com/sstephenson/execjs) if you don't have one installed already; I recommend [Node.js](http://nodejs.org/).) Opening a browser and navigating to <http://localhost:4000> then gives us a view of the HTML version of the first chapter of the book (Figure~\ref{fig:localhost_4000}).
+\noindent (You may have to install a [JavaScript runtime](https://github.com/sstephenson/execjs) if you don't have one installed already; I recommend [Node.js](http://nodejs.org/).) Opening a browser and navigating to \linebreak <http://localhost:4000> then gives us a view of the HTML version of the first chapter of the book (Figure~\ref{fig:localhost_4000}).
 
 ![Running the Softcover server in a separate tab.\label{fig:softcover_server}](images/figures/softcover_server.png)
 
@@ -340,9 +340,10 @@ Document not built due to missing dependency
 Install LaTeX (http://latex-project.org/ftp.html)
 ```
 
-\noindent I recommend installing all the dependencies at once, as described in Section~\ref{sec:installing_softcover}.
+\noindent I recommend installing all the dependencies at once, as described in \linebreak Section~\ref{sec:installing_softcover}.
 
 #### EPUB
+\label{sec:build_epub}
 
 EPUB books are essentially HTML combined with CSS and various configuration files, all zipped together in one package. (The easiest way to see this is to change an EPUB file's extension from `.epub` to `.zip` and double-click it to unzip it.) Getting all the details just right is a real pain, though, so Softcover takes it care of it for you.
 
@@ -373,6 +374,7 @@ $ open ebooks/example_book.epub
 
 
 #### MOBI
+\label{sec:build_mobi}
 
 Once you've built an EPUB book, making a MOBI (the native format for Amazon.com's Kindle) is easy. The default method is to use [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (via the `kindlegen` executable), supplied by Amazon.com itself:
 
@@ -393,6 +395,7 @@ To view the MOBI file on your computer, I recommend installing [Kindle reader](h
 ![The example book MOBI.\label{fig:example_mobi}](images/figures/example_mobi.png)
 
 #### PDF
+\label{sec:build_pdf}
 
 Although the EPUB and MOBI ebooks formats are increasingly popular, my preferred ebook format (especially for technical books) is PDF\@. Building PDF books requires [installing LaTeX](http://latex-project.org/ftp.html) (specifically, the `xelatex` executable, which is a Unicode-friendly PDF builder). \LaTeX\ is a large download, but it's easy to install, and in fact you may already have it:
 
@@ -410,7 +413,7 @@ $ softcover build:pdf
 
 ![The example book PDF.\label{fig:example_pdf}](images/figures/example_pdf.png)
 
-The `softcover build:pdf` command dumps a lot of output to the screen, and as with EPUB and MOBI you can use command-line options to make the PDF builder quiet (`-q`) or silent (`-s`), but I strongly recommend using the default verbose option unless you're *sure* the file will build without error. The issue is that `xelatex` will hang on \LaTeX\ syntax errors, and you need to be able to type `x` to exit. (**Remember this**: type `x` to exit when the PDF builder hangs.)
+The `softcover build:pdf` command dumps a lot of output to the \linebreak screen, and as with EPUB and MOBI you can use command-line options to make the PDF builder quiet (`-q`) or silent (`-s`), but I strongly recommend using the default verbose option unless you're *sure* the file will build without error. The issue is that `xelatex` will hang on \LaTeX\ syntax errors, and you need to be able to type `x` to exit. (**Remember this**: type `x` to exit when the PDF builder hangs.)
 
 By default, the PDF builder runs twice to ensure all cross-references are updated, but if the cross-references haven't changed (or if your book doesn't have any) you can pass an option to make it run only once:
 
@@ -422,6 +425,7 @@ $ softcover build:pdf --once
 
 
 #### All formats
+\label{sec:build_all}
 
 Once you've installed all the dependencies as above, you can build all formats at once:
 
@@ -439,36 +443,11 @@ user    0m12.086s
 sys 0m1.185s
 ```
 
-By default, `softcover build:all` generates HTML, EPUB, MOBI, and PDF, but it's easy to customize. All you need to do is edit the file `.softcover-build` in the book's root directory (Listing~\ref{code:build_config}). For example, if you want to build previews (Section~\ref{sec:previews}) by default and use Calibre in place of KindleGen, you could use the `.softcover-build` file shown in Listing~\ref{code:build_preview_calibre}. (Note that Listing~\ref{code:build_preview_calibre} omits `softcover build:epub` because EPUB files are generated automatically as a side-effect of building MOBI.)
+The behavior of `softcover build:all` is customizable via the \linebreak `.softcover-build` file. See Section~\ref{sec:customizing_builds} for details.
 
-\begin{codelisting}
-\label{code:build_config}
-\codecaption{The default build configuration file \texttt{.softcover-build}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-build}}
-```text
-# Edit this file to customize your build steps with custom command options
-# or additional commands.
-#
-# softcover build:pdf
-# softcover build:mobi
-# softcover build:preview
-```
-\end{codelisting}
-
-\begin{codelisting}
-\label{code:build_preview_calibre}
-\codecaption{Building previews and using Calibre in \texttt{softcover build:all}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-build}}
-```text
-# Edit this file to customize your build steps with custom command options
-# or additional commands.
-#
-softcover build:pdf
-softcover build:mobi --calibre
-softcover build:preview
-```
-\end{codelisting}
 
 #### Previews
-\label{sec:previews}
+\label{sec:build_previews}
 
 Finally, Softcover can optionally build book *previews*, which is a useful feature when selling your ebook (either on your own website or at [Softcover](http://softcover.io)). Because of the different ways the PDF and EPUB/MOBI formats work, there are two separate ways to specify the preview range. (You have to keep them roughly in sync by hand, but it's rarely important for the preview ranges to be exact, so this isn't a big problem in practice.) The configuration for PDF is a *page* range, while for EPUB/MOBI it's a *chapter* range (with "Chapter 0" being frontmatter like the table of contents, preface, etc.). Both ranges are specified in `book.yml` (Listing~\ref{code:preview_ranges}).
 
@@ -548,7 +527,8 @@ $ softcover open
 
 ![The HTML book on the live website.\label{fig:softcover_live_book}](images/figures/softcover_live_book.png)
 
-#### One command to rule them all
+### One command to rule them all
+\label{sec:deploy_command}
 
 For convenience, Softcover comes with a `deploy` command to build everything and publish the result:
 
@@ -564,36 +544,12 @@ $ softcover build:preview
 $ softcover publish
 ```
 
-\noindent You can customize the behavior of `softcover deploy` by editing the
-file `.softcover-deploy` in the project's root directory (Listing~\ref{code:deploy_config}). For example,  Listing~\ref{code:deploy_no_preview} removes the `softcover build:preview` command while adding `git push origin`.
+\noindent The behavior of `softcover deploy` is customizable via the \linebreak `.softcover-deploy` file in the book's root directory. See Section~\ref{sec:customizing_deploys} for details.
 
-\begin{codelisting}
-\label{code:deploy_config}
-\codecaption{The default deployment configuration file \texttt{.softcover-deploy}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-deploy}}
-```text
-# Edit this file to customize your deployment steps with custom command options
-# or additional commands.
-#
-# softcover build:all
-# softcover build:preview
-# softcover publish
-```
-\end{codelisting}
+Using `softcover deploy` makes publishing to the Softcover website completely frictionless: make a change, type `softcover deploy`, and your book (in all output formats) is updated automatically.
 
-\begin{codelisting}
-\label{code:deploy_no_preview}
-\codecaption{Removing previews and adding a \texttt{git push origin}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-deploy}}
-```text
-# Edit this file to customize your deployment steps with custom command options
-# or additional commands.
-#
-softcover build:all
-softcover publish
-git push origin
-```
-\end{codelisting}
 
-Using `softcover deploy` makes publishing to the Softcover website completely frictionless: make a change and type `softcover deploy` and your book (in all output formats) is updated automatically.
+<!-- footnotes  -->
 
 [^undefined_xref]: This is what an undefined cross-reference looks like. It will be filled in as soon as the corresponding section is properly defined and labeled.
 
@@ -612,3 +568,5 @@ Using `softcover deploy` makes publishing to the Softcover website completely fr
 [^kindlegen_proprietary]: The only part of the toolchain is the KindleGen program for building books in MOBI format, but authors can optionally use the open-source Calibre program as a replacement.
 
 [^kindlegen_terms]: The MOBI files produced by KindleGen are generally slightly higher-quality than MOBI files made by Calibre, and unlike Calibre-generated files they can be sent to Kindle via email or using the convenient [Send to Kindle](http://www.amazon.com/gp/sendtokindle) program. On the other hand, whereas authors are free to do anything they like with Calibre-generated MOBI files, selling KindleGen-generated MOBI files anywhere other than Amazon.com violates the [KindleGen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251). To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk.
+
+[^epub_check_version]: Unfortunately, EpubCheck 3.0.1 is buggy, so it's important to use version 3.0.

@@ -1,33 +1,38 @@
 \chapter{\PolyTeX\ tutorial} % (fold)
 \label{cha:polytex_tutorial}
 
-\noindent \textbf{Note:} This \PolyTeX\ tutorial is currently in development.
+\noindent \textbf{Note:} \emph{This \PolyTeX\ tutorial is in development. It currently gives instructions for generating a \PolyTeX\ book and for converting from Markdown to \PolyTeX. Eventually I plan to include a full \PolyTeX\ tutorial, but for now I assume you either already know \LaTeX\ or are willing to use the listed resources to learn it.}
 
-\PolyTeX\ is a strict subset of the \LaTeX\ typesetting language. You can generate an example \PolyTeX\ book as follows:
+\section{\PolyTeX\ basics} % (fold)
+\label{sec:polytex_basics}
+
+\PolyTeX\ is a strict subset of the \LaTeX\ typesetting language. Here are some resources for getting started with \LaTeX:
+
+\begin{itemize}
+\item The generated example book (Section~\ref{sec:generating_a_polytex_book})
+% \item The \href{https://github.com/softcover/softcover_book}{source of this book} (\href{https://github.com/softcover/softcover_book/blob/master/chapters/polytex_tutorial.tex}{this chapter} is written in \PolyTeX)
+\item The \href{http://en.wikibooks.org/wiki/LaTeX}{Wikibooks LaTeX reference}
+\item \href{https://www.google.com/search?q=latex+a+document+preparation+system+site:temple.edu}{The LaTeX manual}
+\end{itemize}
+
+
+\subsection{Generating a \PolyTeX book} % (fold)
+\label{sec:generating_a_polytex_book}
+
+You can generate an example \PolyTeX\ book as follows:
 
 %= lang:console
 \begin{code}
 $ softcover new --polytex example_polytex_book
 \end{code}
 
-\noindent Then refer to the following resources:
 
-\begin{itemize}
-\item The generated example book
-\item The \href{https://github.com/softcover/softcover_book}{source of this book} (\href{https://github.com/softcover/softcover_book/blob/master/chapters/polytex_tutorial.tex}{this chapter} is written in \PolyTeX)
-\item The \href{http://en.wikibooks.org/wiki/LaTeX}{Wikibooks LaTeX reference}
-\end{itemize}
+% subsection generating_a_polytex_book (end)
 
-Because not all of \LaTeX\ is supported by Softcover, to learn \PolyTeX\ I recommend running a local server and trying out commands to see if they work:\footnote{Here we use the \kode{-p} flag to run the server on port 4001 in case another book is already running on port 4000 (the default).}
+\subsection{From Markdown to \PolyTeX} % (fold)
+\label{sec:markdown_to_polytex}
 
-%= lang:console
-\begin{code}
-$ cd example_polytex_book
-$ softcover server -p 4001
-\end{code}
-
-\noindent Visit \href{http://localhost:4001}{http://localhost:4001} to see the result. Then make changes, \href{http://www.urbandictionary.com/define.php?term=rinse%20repeat}{rinse, and repeat}.
-
+% subsection from_markdown_to_polytex (end)
 
 If you've generated a Markdown book as in Section~\ref{sec:softcover_new} and want to switch to \PolyTeX, just copy the files in the \kode{generated\_polytex/} directory to the \kode{chapters/} directory and remove the Markdown files:
 
@@ -36,6 +41,28 @@ If you've generated a Markdown book as in Section~\ref{sec:softcover_new} and wa
 $ mv generated_polytex/*.tex chapters/
 $ rm -f chapters/*.md
 \end{code}
+
+\noindent Then change \kode{Book.txt} to use \kode{*.tex} files in place of \kode{*.md}. Advanced users can remove \kode{Book.txt} and edit \kode{<book name>.tex} directly. (This requires running \kode{softcover build} once to bootstrap the system.)
+
+\subsection{\PolyTeX\ vs. \LaTeX} % (fold)
+\label{sec:polytex_vs_latex}
+
+To learn \PolyTeX, I recommend running a local server and trying out \LaTeX\ commands to see if they work:\footnote{Here we use the \kode{-p} flag to run the server on port 4001 in case another book is already running on port 4000 (the default).}
+
+%= lang:console
+\begin{code}
+$ cd example_polytex_book
+$ softcover server -p 4001
+\end{code}
+
+\noindent Visit \href{http://localhost:4001}{http://localhost:4001} to see the result. Then make changes, \href{http://www.urbandictionary.com/define.php?term=rinse%20repeat}{rinse}, \href{http://www.urbandictionary.com/define.php?term=rinse%20repeat}{and repeat}.
+
+
+% subsection polytex vs_latex (end)
+
+
+% section polytex basics (end)
+
 
 
 % chapter polytex_documents (end)
