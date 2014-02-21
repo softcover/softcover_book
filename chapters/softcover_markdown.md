@@ -3,7 +3,7 @@
 
 As noted in Chapter~\ref{cha:introduction_to_markdown}, the classic implementation of Markdown is beautifully simple but is not adequate for serious typesetting. Softcover therefore supports a *superset* of vanilla Markdown called *Softcovered-flavored Markdown* (SFM), which includes select [*kramdown*](http://kramdown.gettalong.org/) extensions (Section~\ref{sec:kramdown}), advanced enhancements such as GitHub-style fenced code blocks (Section~\ref{sec:advanced_enhancements}), and *super*-advanced additions via embedded \LaTeX\ (Section~\ref{sec:embedded_latex}). As noted in Chapter~\ref{cha:introduction_to_markdown}, the Softcover dialect of Markdown is, to our knowledge, the most powerful one available.
 
-Softcover-flavored Markdown derives much of its power by converting Markdown first to \PolyTeX, a strict subset of the \LaTeX\ typesetting language (Section~\ref{sec:softcover_system}), and then from \PolyTeX\ to HTML, EPUB, MOBI, and PDF\@. The result is an [abstraction layer](https://en.wikipedia.org/wiki/Abstraction_layer) over the underlying \LaTeX;[^latex_polytex] by allowing *embedded* \LaTeX\ as well, Softcover lets users pierce this abstraction layer to typeset things impossible for vanilla Markdown---for example, "\texttt{typewriter text} \textsc{is different from} `code`". (See Section~\ref{sec:embedded_latex} to learn how to typeset this.)
+Softcover-flavored Markdown derives much of its power by converting \linebreak Markdown first to \PolyTeX, a strict subset of the \LaTeX\ typesetting language (Section~\ref{sec:softcover_system}), and then from \PolyTeX\ to HTML, EPUB, MOBI, and PDF\@. The result is an [abstraction layer](https://en.wikipedia.org/wiki/Abstraction_layer) over the underlying \LaTeX;[^latex_polytex] by allowing *embedded* \LaTeX\ as well, Softcover lets users pierce this abstraction layer to typeset things impossible for vanilla Markdown---for example, "\texttt{typewriter text} \textsc{is different from} `code`". (See Section~\ref{sec:embedded_latex} to learn how to typeset this.)
 
 The resulting hybrid input language, though powerful, can get a bit messy, and
 adding features to Markdown as described above is a prime example of how weak systems tend to evolve toward strong ones in an [*ad hoc*](http://en.wikipedia.org/wiki/Ad_hoc) way (Box~\ref{aside:polytex_markdown}). Users who want a consistent input syntax with maximum control can dispense with the abstraction layer and write in raw \PolyTeX\ instead (Chapter~\ref{cha:polytex_tutorial}). Indeed, because the Markdown conversion runs through the \PolyTeX\ pipeline, it's possible to start with Markdown and change over to \PolyTeX\ at any time (Section~\ref{sec:markdown_to_polytex}).
@@ -158,14 +158,15 @@ such as \*, you can do so with a backslash
 >>        right guillemet
 {}        braces
 ```
-Note that some of \LaTeX's special characters, such as $, are automatically escaped.
 
-Finally, in kramdown snake_case_words appear with underscores (a feature it shares with GitHub-flavored Markdown). This is convenient because vanilla Markdown would intepret the underscores as emphasis, yielding "snake*case*words", which probably isn't what you intended.
+\noindent Note that some of \LaTeX's special characters, such as $, are automatically escaped.
+
+Finally, in kramdown snake_case_words appear with underscores (a feature it shares with GitHub-flavored Markdown). This is convenient because vanilla Markdown would intepret the underscores as emphasis, yielding "snake*case*\-words", which probably isn't what you intended.
 
 ## Other advanced enhancements
 \label{sec:advanced_enhancements}
 
-Softcover-flavored Markdown includes some additional advanced enhancements over vanilla Markdown and kramdown. Principal among these are *fenced code blocks* (Section~\ref{sec:code_fencing}), which are the preferred way to include code blocks in the Softcover system, and *code inclusion* (Section~\ref{sec:code_inclusion}), which allows you to include code snippets from the local filesystem into the current document.
+Softcover-flavored Markdown includes several additional advanced en\-hance\-ments over vanilla Markdown and kramdown. Principal among these are *fenced code blocks* (Section~\ref{sec:code_fencing}), which are the preferred way to include code blocks in the Softcover system, and *code inclusion* (Section~\ref{sec:code_inclusion}), which allows you to include code snippets from the local filesystem into the current document.
 
 ### GitHub-flavored fenced code blocks
 \label{sec:code_fencing}
@@ -361,7 +362,7 @@ Short of using raw \PolyTeX\ (Chapter~\ref{cha:polytex_tutorial}), the most adva
 "\texttt{typewriter text} \textsc{is different from} `code`"
 ```
 
-\noindent This uses \verb+\texttt+ (read "text-tee-tee") to set \texttt{typewriter text} and \verb+\textsc+ to set \textsc{small caps}.
+\noindent This uses \verb+\texttt+ (read "text-tee-tee") to set \texttt{typewriter text} and \linebreak \verb+\textsc+ to set \textsc{small caps}.
 
 Not all of \LaTeX\ is supported, of course. The embeddable subset consists of single commands such as \verb+\texttt+ and \verb+\label+ (Section~\ref{sec:embedded_latex_commands} and Section~\ref{sec:embedded_labels_and_cross_references}), tables (Section~\ref{sec:embedded_tabular_and_tables}), figures (Section~\ref{sec:embedded_figures}), code listings (Section~\ref{sec:embedded_code_listings}), aside boxes (Section~\ref{sec:embedded_asides}), and mathematics (Section~\ref{sec:embedded_math}). That's still a lot, though, and experienced Markdown users new to \LaTeX\ will be amazed at all the things it can do.
 
@@ -436,7 +437,7 @@ mais quand il n'y a plus rien \`{a} retrancher.
 \end{codelisting}
 
 
-Listing~\ref{code:latex_quote} uses the native \LaTeX\ commands for typesetting em-dashes (\verb+---+) and foreign accents (as in \verb+\`{a}+ for the grave accent \`{a} and \verb+\'{e}+ for the acute accent \'{e}), but as we saw in Listing~\ref{code:blockquote} SFM also supports the raw Unicode characters (i.e., —, à, and é).
+Listing~\ref{code:latex_quote} uses the native \LaTeX\ commands for typesetting em-dashes \linebreak (\verb+---+) and foreign accents (as in \verb+\`{a}+ for the grave accent \`{a} and \verb+\'{e}+ for the acute accent \'{e}), but as we saw in Listing~\ref{code:blockquote} SFM also supports the raw Unicode characters (i.e., —, à, and é).
 
 
 Finally, here's [one weird trick](http://www.slate.com/articles/business/moneybox/2013/07/how_one_weird_trick_conquered_the_internet_what_happens_when_you_click_on.html) for including literal commands inside a line using the \verb+\verb+ command, as in "\verb+\LaTeX+":
@@ -462,7 +463,7 @@ For example, at the beginning of this chapter is a label appearing immediately a
 \label{cha:softcover_flavored_markdown}
 ```
 
-\noindent This allows the definition of a cross-reference using the \verb+\ref+ command, whose argument is the label name. Thus,
+\noindent This allows the definition of a cross-reference using the \verb+\ref+ command, \linebreak whose argument is the label name. Thus,
 
 ```latex, options: "hl_lines": [1]
 Chapter~\ref{cha:introduction_to_markdown}
@@ -493,7 +494,7 @@ Section~\ref{sec:embedded_latex}
 ```
 \noindent the number to the word preceding it. This common typesetting convention prevents the number breaking across a line. Such cross-references are the only use of tildes in SFM; in all other contexts, they appear as follows: ~.
 
-In addition to working with chapters and sections, Softcover cross-references also work with code listings, aside boxes, figures, tables, and centered equations. The label names can be virtually anything, but I follow the common convention of [namespacing](https://en.wikipedia.org/wiki/Namespace) them by type, so that chapter labels are prefixed with `cha:`, sections with `sec:`, codelistings with `code:`, etc.
+In addition to working with chapters and sections, Softcover cross-ref\-er\-en\-ces also work with code listings, aside boxes, figures, tables, and centered equations. The label names can be virtually anything, but I follow the common convention of [namespacing](https://en.wikipedia.org/wiki/Namespace) them by type, so that chapter labels are prefixed with `cha:`, sections with `sec:`, codelistings with `code:`, etc.
 
 In the context of book cross-references, the advantage of using named labels instead of hard-coded numbers can hardly be over-stated: it means that if you add a new chapter to the beginning of your book, all the subsequent cross-references will automatically be renumbered. There is simply no way an author could keep track of more than a few cross-references by hand, but with Softcover the computer does the heavy lifting to that you can use as many as you want.
 
@@ -549,7 +550,7 @@ Let's examine the anatomy of the table in Listing~\ref{code:tabular}:
 
 - **Lines 2, 6, 8, and 10** use the \verb+\hline+ command a horizontal line between rows using the.
 
-- **Lines 3--5 and line 7** include three entries each, one for each column, separated by the ampersand character `&` and ended with a double-backslash \verb+\\+.
+- **Lines 3--5 and line 7** include three entries each, one for each column. Each cell is separated by an ampersand character `&`, and each line is ended with a double-backslash \verb+\\+.
 
 - **Line 9** shows a \verb+\multicolumn+ command to create a row that spans three columns. It takes three arguments: the number of columns (3), the alignment and vertical borders (`|c|`, or centered with borders on either side) and the contents ([AYBABTU](https://en.wikipedia.org/wiki/All_your_base_are_belong_to_us)).
 

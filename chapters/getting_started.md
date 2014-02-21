@@ -152,7 +152,7 @@ All dependencies satisfied.
 - [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211)
 - [Calibre](http://calibre-ebook.com/) with the [command-line tools](http://manual.calibre-ebook.com/cli/cli-index.html)
 - [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you already have this one)
-- [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip) (unzip in your home directory)
+- [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip)[^epub_check_version] (unzip in your home directory)
 
 To see the commands supported by `softcover`, run `softcover help` at the command line, as shown in Listing~\ref{code:softcover_help}.
 
@@ -314,7 +314,7 @@ Maximum connections set to 1024
 Listening on 0.0.0.0:4000, CTRL+C to stop
 ```
 
-\noindent (You may have to install a [JavaScript runtime](https://github.com/sstephenson/execjs) if you don't have one installed already; I recommend [Node.js](http://nodejs.org/).) Opening a browser and navigating to <http://localhost:4000> then gives us a view of the HTML version of the first chapter of the book (Figure~\ref{fig:localhost_4000}).
+\noindent (You may have to install a [JavaScript runtime](https://github.com/sstephenson/execjs) if you don't have one installed already; I recommend [Node.js](http://nodejs.org/).) Opening a browser and navigating to \linebreak <http://localhost:4000> then gives us a view of the HTML version of the first chapter of the book (Figure~\ref{fig:localhost_4000}).
 
 ![Running the Softcover server in a separate tab.\label{fig:softcover_server}](images/figures/softcover_server.png)
 
@@ -340,7 +340,7 @@ Document not built due to missing dependency
 Install LaTeX (http://latex-project.org/ftp.html)
 ```
 
-\noindent I recommend installing all the dependencies at once, as described in Section~\ref{sec:installing_softcover}.
+\noindent I recommend installing all the dependencies at once, as described in \linebreak Section~\ref{sec:installing_softcover}.
 
 #### EPUB
 \label{sec:build_epub}
@@ -413,7 +413,7 @@ $ softcover build:pdf
 
 ![The example book PDF.\label{fig:example_pdf}](images/figures/example_pdf.png)
 
-The `softcover build:pdf` command dumps a lot of output to the screen, and as with EPUB and MOBI you can use command-line options to make the PDF builder quiet (`-q`) or silent (`-s`), but I strongly recommend using the default verbose option unless you're *sure* the file will build without error. The issue is that `xelatex` will hang on \LaTeX\ syntax errors, and you need to be able to type `x` to exit. (**Remember this**: type `x` to exit when the PDF builder hangs.)
+The `softcover build:pdf` command dumps a lot of output to the \linebreak screen, and as with EPUB and MOBI you can use command-line options to make the PDF builder quiet (`-q`) or silent (`-s`), but I strongly recommend using the default verbose option unless you're *sure* the file will build without error. The issue is that `xelatex` will hang on \LaTeX\ syntax errors, and you need to be able to type `x` to exit. (**Remember this**: type `x` to exit when the PDF builder hangs.)
 
 By default, the PDF builder runs twice to ensure all cross-references are updated, but if the cross-references haven't changed (or if your book doesn't have any) you can pass an option to make it run only once:
 
@@ -443,7 +443,7 @@ user    0m12.086s
 sys 0m1.185s
 ```
 
-The behavior of `softcover build:all` is customizable via the `.softcover-build` file. See Section~\ref{sec:customizing_builds} for details.
+The behavior of `softcover build:all` is customizable via the \linebreak `.softcover-build` file. See Section~\ref{sec:customizing_builds} for details.
 
 
 #### Previews
@@ -544,7 +544,7 @@ $ softcover build:preview
 $ softcover publish
 ```
 
-\noindent The behavior of `softcover deploy` is customizable via the `.softcover-deploy` file in the book's root directory. See Section~\ref{sec:customizing_deploys} for details.
+\noindent The behavior of `softcover deploy` is customizable via the \linebreak `.softcover-deploy` file in the book's root directory. See Section~\ref{sec:customizing_deploys} for details.
 
 Using `softcover deploy` makes publishing to the Softcover website completely frictionless: make a change, type `softcover deploy`, and your book (in all output formats) is updated automatically.
 
@@ -568,3 +568,5 @@ Using `softcover deploy` makes publishing to the Softcover website completely fr
 [^kindlegen_proprietary]: The only part of the toolchain is the KindleGen program for building books in MOBI format, but authors can optionally use the open-source Calibre program as a replacement.
 
 [^kindlegen_terms]: The MOBI files produced by KindleGen are generally slightly higher-quality than MOBI files made by Calibre, and unlike Calibre-generated files they can be sent to Kindle via email or using the convenient [Send to Kindle](http://www.amazon.com/gp/sendtokindle) program. On the other hand, whereas authors are free to do anything they like with Calibre-generated MOBI files, selling KindleGen-generated MOBI files anywhere other than Amazon.com violates the [KindleGen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251). To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk.
+
+[^epub_check_version]: Unfortunately, EpubCheck 3.0.1 is buggy, so it's important to use version 3.0.

@@ -1,7 +1,7 @@
 # Customization and advanced options
 \label{cha:customization}
 
-Softcover includes a large number of advanced options such as CLI customization, user-defined styling and typesetting commands, and foreign-language support. Many of these options are in active development, so I recommend requesting an invitation to the [Softcover Google Group](https://groups.google.com/forum/#!forum/softcover-publishing) to get the inside track on their status.
+Softcover includes a large number of advanced options such as CLI customization, user-defined styling and typesetting commands, and foreign-language \linebreak support. Many of these options are in active development, so I recommend requesting an invitation to the [Softcover Google Group](https://groups.google.com/forum/#!forum/softcover-publishing) to get the inside track on their status.
 
 ## Command-line interface
 
@@ -10,11 +10,11 @@ Two of the most important commands in the Softcover CLI are `build:all` and `dep
 ### Customizing builds
 \label{sec:customizing_builds}
 
-By default, `softcover build:all` generates HTML, EPUB, MOBI, and PDF, but it's easy to customize. All you need to do is edit the file `.softcover-build` in the book's root directory (Listing~\ref{code:build_config}).
+By default, `softcover build:all` generates HTML, EPUB, MOBI, and PDF, but it's easy to customize. All you need to do is edit the file \linebreak `.softcover-build` in the book's root directory (Listing~\ref{code:build_config}).
 
 \begin{codelisting}
 \label{code:build_config}
-\codecaption{The default build configuration file \texttt{.softcover-build}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-build}}
+\codecaption{The default build configuration file. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-build}}
 ```text
 # Edit this file to customize your build steps with custom command options
 # or additional commands.
@@ -25,11 +25,11 @@ By default, `softcover build:all` generates HTML, EPUB, MOBI, and PDF, but it's 
 ```
 \end{codelisting}
 
-For example, if you want to use Calibre in place of KindleGen (Section~\ref{sec:build_mobi}) and build previews (Section~\ref{sec:build_previews}) by default, you can use the `.softcover-build` file shown in Listing~\ref{code:build_preview_calibre}. This uncomments the lines in Listing~\ref{code:build_config} and adds the \verb+--calibre+ flag to the `build:mobi` command. (Note that Listing~\ref{code:build_preview_calibre} omits `softcover build:epub` because EPUB files are generated automatically as a side-effect of building MOBI.)
+For example, if you want to use Calibre in place of KindleGen \linebreak (Section~\ref{sec:build_mobi}) and build previews (Section~\ref{sec:build_previews}) by default, you can use the `.softcover-build` file shown in Listing~\ref{code:build_preview_calibre}. This uncomments the lines in Listing~\ref{code:build_config} and adds the \verb+--calibre+ flag to the `build:mobi` command. (Note that Listing~\ref{code:build_preview_calibre} omits `softcover build:epub` because EPUB files are generated automatically as a side-effect of building MOBI.)
 
 \begin{codelisting}
 \label{code:build_preview_calibre}
-\codecaption{Using Calibre and building previews in \texttt{softcover build:all}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-build}}
+\codecaption{Using Calibre and building previews. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-build}}
 ```text, options: "hl_lines": [5, 6]
 # Edit this file to customize your build steps with custom command options
 # or additional commands.
@@ -49,7 +49,7 @@ file `.softcover-deploy` in the project's root directory (Listing~\ref{code:depl
 
 \begin{codelisting}
 \label{code:deploy_config}
-\codecaption{The default deployment configuration file \texttt{.softcover-deploy}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-deploy}}
+\codecaption{The default deployment configuration file. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-deploy}}
 ```text
 # Edit this file to customize your deployment steps with custom command options
 # or additional commands.
@@ -64,7 +64,7 @@ For example, Listing~\ref{code:deploy_no_preview} removes the `softcover build:p
 
 \begin{codelisting}
 \label{code:deploy_no_preview}
-\codecaption{Removing previews and adding a \texttt{git push origin}. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-deploy}}
+\codecaption{Removing previews and adding a Git push. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-deploy}}
 ```text, options: "hl_lines": [6]
 # Edit this file to customize your deployment steps with custom command options
 # or additional commands.
@@ -124,7 +124,11 @@ You can customize Softcover's HTML styles using the `custom.css` file in the `ht
 
 ### EPUB/MOBI style
 
-Any changes you make in `custom.css` (Section~\ref{sec:html_style}) will automatically be incorporated into the EPUB and MOBI styles as well, but sometimes you'll want additional customization that applies *just* to EPUB and MOBI books. The file `custom_epub.css` allows for this extra layer of detail (Listing~\ref{code:custom_epub_css}). Its location is specific to the EPUB standard; it's located in `epub/OEBPS/styles/custom_epub.css`.
+Any changes you make in `custom.css` (Section~\ref{sec:html_style}) will automatically be incorporated into the EPUB and MOBI styles as well, but sometimes you'll want additional customization that applies *just* to EPUB and MOBI books. The file `custom_epub.css` allows for this extra layer of detail (Listing~\ref{code:custom_epub_css}). Its somewhat strange-looking location is set by the EPUB standard:
+
+```text
+epub/OEBPS/styles/custom_epub.css
+```
 
 \begin{codelisting}
 \label{code:custom_epub_css}
@@ -141,7 +145,7 @@ $ git add --force epub/OEBPS/styles/custom_epub.css
 ### PDF style
 \label{sec:pdf_style}
 
-You can customize the PDF styles in two different ways. The first and simpler is to edit the file `latex_styles/custom_pdf.sty`, whose default content is shown in Listing~\ref{code:custom_pdf_style}. This file gets included *last*, so any rules in `custom_pdf.sty` will override the defaults. Common uses for `custom_pdf.sty` include defining hyphenation rules for words \LaTeX\ can't hyphenate natively and adding support for any Unicode characters not supported by the PDF typesetting engine (xelatex). For example, uncommenting the code in Listing~\ref{code:custom_pdf_style} adds the rule for hyphenating "JavaScript" and adds PDF support for the Unicode characters ★ and ž (Listing~\ref{code:custom_pdf_style_uncommented}).
+You can customize the PDF styles in two different ways. The first and simpler is to edit the file `latex_styles/custom_pdf.sty`, whose default content is shown in Listing~\ref{code:custom_pdf_style}. This file gets included *last*, so any rules in `custom_\-pdf.sty` will override the defaults. Common uses for `custom_pdf.sty` include defining hyphenation rules for words \LaTeX\ can't hyphenate natively and adding support for any Unicode characters not supported by the PDF typesetting engine (xelatex). For example, uncommenting the code in Listing~\ref{code:custom_pdf_style} adds the rule for hyphenating "JavaScript" and adds PDF support for the Unicode characters ★ and ž (Listing~\ref{code:custom_pdf_style_uncommented}).
 
 \begin{codelisting}
 \label{code:custom_pdf_style}
@@ -176,7 +180,7 @@ My preference is to make PDFs as close to traditional print-quality as possible,
 ```
 \end{codelisting}
 
-The second method for customizing PDF output is to edit the file `preamble.tex` in the `config` directory; the default contents appear in Listing~\ref{code:preamble_tex}. By editing this file, you can do things like change the PDF font size or include packages that don't work when included in `custom_pdf.sty`. For example, the default font size (`14pt`) is designed to look good on tablet devices such as iPad, but some authors may prefer the smaller fonts typically used for print publications (`10pt` or `12pt`). The `preamble.tex` file is especially important for foreign language support, which requires that the appropriate `polyglossia` package be included before the default `softcover.sty` file. See Section~\ref{sec:foreign_language} for details.
+The second method for customizing PDF output is to edit the file \linebreak `preamble.tex` in the `config` directory; the default contents appear in Listing~\ref{code:preamble_tex}. By editing this file, you can do things like change the PDF font size or include packages that don't work when included in `custom_pdf.sty`. For example, the default font size (`14pt`) is designed to look good on tablet devices such as iPad, but some authors may prefer the smaller fonts typically used for print publications (`10pt` or `12pt`). The `preamble.tex` file is especially important for foreign language support, which requires that the appropriate `polyglossia` package be included before the default `softcover.sty` file. See Section~\ref{sec:foreign_language} for details.
 
 
 \begin{codelisting}
@@ -274,7 +278,102 @@ chapter:
 ```
 \end{codelisting}
 
-<!-- ## Detailed refinements
+## Detailed refinements
 \label{sec:detailed_refinements}
- -->
 
+Once your book is nearing completion, Softcover helps you put on the final bits of polish. These include eliminating "overfull hboxes" (Section~\ref{sec:overfull_hboxes}), handling problems with labels and cross-references (Section~\ref{sec:labels_and_reference_problems}), and validating EPUB books (Section~\ref{sec:epub_validation}).
+
+### Overfull hboxes
+\label{sec:overfull_hboxes}
+
+When building a PDF, you may notice that some of the error messages indicate an "overfull hbox". This happens when the line is too long for the page, such as when you include some `LongRubyClassName` that Softcover doesn't know how to hyphenate. Because they can mar the appearance of PDF books, Softcover comes with a utility to help you find them:[^overfull_code]
+
+```console
+$ softcover build:pdf --find-overfull
+```
+
+\noindent If this command returns no results, it means that your book is 100% hbox-free.
+
+Unfortunately, because of the way \LaTeX\ processes files, the line numbers output by the error message aren't useful for tracking down the source of the overfull hbox. As a compromise, the \verb+--find-overfull+ flag gives some context around the problematic line, which should allow you to find the culprit using the search function in your text editor.
+
+Once you find the source of each overfull hbox, you need to add markup to help the Softcover system break the line properly. This will typically involve telling the system how to hyphenate some word that's spilling into the right margin. For ordinary words such as "JavaScript", you can add custom hyphenation rules as in Section~\ref{sec:pdf_style}, but for inline code (and any words \LaTeX\ refuses to hyphenate, such as those already containing a hyphen) you'll need to add in hyphens by hand using the special \LaTeX\ syntax \verb+\-+. For example, to get Softcover to hyphenate `LongRubyClassName`, you could write the following:
+
+```text
+`Long\-Ruby\-Class\-Name`
+```
+
+\noindent These hyphens will be ignored unless needed to break the text across a line.
+
+Sometimes the source of the problem isn't a long word, or it's a word you don't want to hyphenate, so you'll have to force a line break by hand. This is easy with the \verb+\linebreak+ command:
+
+```latex
+...for customizing PDF output is to edit the file \linebreak `preamble.tex`
+```
+
+When tracking down overfull hboxes, I recommend rebuilding with
+
+```console
+$ softcover build:pdf --find-hboxes
+```
+
+\noindent after each change and checking the PDF to make sure it's fixed before moving on. This can be tedious, but it usually only needs to be done once at the end of the writing process.
+
+*Note*: Sometimes it's virtually impossible to get all the linebreaks just right. In particularly recalcitrant cases, I've even been known to recast the sentence slightly to fix them. Often, such edits, though born of necessity, nevertheless manage to improve the prose.
+
+
+### Problems with labels and cross-references
+\label{sec:labels_and_reference_problems}
+
+When building PDFs, the \LaTeX\ output will often warn you about undefined references and multiply defined labels. These are easy to fix with a little practice.
+
+#### Undefined references
+
+An undefined reference happens when you include a reference (as in Section~\ref{sec:embedded_labels_and_cross_references}) that doesn't correspond to any label:
+
+```latex
+Section~\ref{sec:foo_bar}
+```
+
+\noindent This is easy to fix by finding the relevant section and adding the corresponding label:
+
+```latex
+## Foo bar
+\label{sec:foo_bar}
+```
+
+#### Multiply defined labels
+
+A multiply defined label simply means that two elements have the same label. Here is an example:
+
+```latex, options: "hl_lines": [2, 5]
+## Section foo
+\label{sec:foo}
+
+## Section bar
+\label{sec:foo}
+```
+
+\noindent These are easy to fix just by changing one of the labels:
+
+```latex, options: "hl_lines": [2, 5]
+## Section foo
+\label{sec:foo}
+
+## Section bar
+\label{sec:bar}
+```
+
+### EPUB validation
+\label{sec:epub_validation}
+
+As an optional step, you can validate your book according to the EPUB3 standard using Softcover's built-in validator:
+
+```console
+$ softcover epub:validate
+```
+
+\noindent This isn't particularly useful when you're in the middle of writing your book, as many things (such as undefined cross-references) will render your book invalid, but it's helpful near the end when you want a stringent check on your book's validity.
+
+<!-- footnotes -->
+
+[^overfull_code]: Because of the way Softcover implements code blocks, every code sample generates an overfull warning. Since they are not cause for concern, the \verb+--find-overfull+ flag filters them out.
