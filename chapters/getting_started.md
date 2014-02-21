@@ -11,7 +11,7 @@ The Softcover production toolchain and publishing platform are especially design
 2. Release a free HTML book (*optional*) while selling ebooks and multiple product bundles
 3. Profit!!!
 
-\noindent Of course, it's not necessary to follow the Three Step Plan\texttrademark\ exactly, and Softcover can be used for many different purposes (Box~\ref{aside:softcover_uses}). In particular, as indicated by the "optional" note in Step 2, adopting the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book)'s practice of releasing a free HTML version is not required. Softcover authors are certainly encouraged to make the HTML versions of their books free---both as a marketing tool and because it's [awesome](http://breadpig.com/products/awesomesauce)---but Softcover allows the HTML to be placed behind login- or paywalls as well.
+\noindent Of course, it's not necessary to follow the Three Step Plan\texttrademark\ exactly, and Softcover can be used for many different purposes (Box~\ref{aside:softcover_uses}). In particular, as indicated by the "optional" note in Step 2, adopting the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book)'s practice of releasing a free HTML version is not required. Softcover authors are certainly encouraged to make the HTML versions of their books free---both as a marketing tool and because it's [awesome](http://breadpig.com/products/awesomesauce)---but Softcover allows the HTML to be placed behind paywalls as well.
 
 \begin{aside}
 \label{aside:softcover_uses}
