@@ -242,6 +242,7 @@ contents: Table de Matières
 With the settings as in Listing~\ref{code:french_lang_yml}, labels such as "Chapitre" for "Chapter" will be unified across output formats. In addition, cross-references will link to the full word in addition to the number, so that, e.g., the link "Boîte 1.1" would include the word "Boîte" as well as "1.1" (as in Box~\ref{aside:softcover_uses}).
 
 ### Terrifyingly advanced comments on Hungarian
+\label{sec:hungarian}
 
 The `order` option in Listing~\ref{code:default_lang_yml} is included to support languages such as Hungarian, in which the translation of "Chapter 1" appears as "1 fejezet". As indicated by the comment in Listing~\ref{code:default_lang_yml}, this can be arranged by setting `order: reverse` in `lang.yml` (Listing~\ref{code:magyar_lang_yml}). Ironically, the Polyglossia support for Hungarian gets the order wrong; a fix appears in Listing~\ref{code:magyar_preamble}.
 
