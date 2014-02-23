@@ -210,7 +210,7 @@ Only two steps are required to support foreign languages across different output
 ```
 \end{codelisting}
 
-Second, to enable foreign language support in HTML/EPUB/MOBI, we need to edit the file `lang.yml` in the `config` directory to tell Softcover the names of the various elements (chapter, section, listing, etc.). The default (English) values are shown in Listing~\ref{code:default_lang_yml}, while the edited values for French are shown in Listing~\ref{code:french_lang_yml}. (I speak a little French, but I'm not fluent, so any corrections to Listing~\ref{code:french_lang_yml} are appreciated.)
+Second, to enable foreign language support in HTML/EPUB/MOBI, we need to edit the file `lang.yml` in the `config` directory to tell Softcover the names of the various elements (chapter, section, listing, etc.). The default (English) values are shown in Listing~\ref{code:default_lang_yml}, while the edited values for French are shown in Listing~\ref{code:french_lang_yml}.
 
 \begin{codelisting}
 \label{code:default_lang_yml}
@@ -230,16 +230,16 @@ section: Section
 table: Table
 figure: Figure
 fig: Fig
-aside: Boîte
-listing: Inscription
-equation: Equation
+aside: Notes
+listing: Listing
+equation: Équation
 eq: Eq
 frontmatter: Préliminaires
-contents: Table de Matières
+contents: Table des Matières
 ```
 \end{codelisting}
 
-With the settings as in Listing~\ref{code:french_lang_yml}, labels such as "Chapitre" for "Chapter" will be unified across output formats. In addition, cross-references will link to the full word in addition to the number, so that, e.g., the link "Boîte 1.1" would include the word "Boîte" as well as "1.1" (as in Box~\ref{aside:softcover_uses}).
+With the settings as in Listing~\ref{code:french_lang_yml}, labels such as "Chapitre" for "Chapter" will be unified across output formats. In addition, cross-references will link to the full word in addition to the number, so that, e.g., the link "Notes 1.1" would include the word "Notes" as well as "1.1" (as in Box~\ref{aside:softcover_uses}).
 
 ### Terrifyingly advanced comments on Hungarian
 \label{sec:hungarian}
