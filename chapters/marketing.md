@@ -159,6 +159,8 @@ faq:
 
 ```contact_email``` will provide users with a public ```mailto``` link.
 
+```hide_custom_domain_footer``` when set to true will disable rendering of our branded Softcover footer on your custom domain.
+
 \begin{codelisting}
 \label{code:marketing_additional}
 \codecaption{Additional marketing information. \\ \filepath{config/marketing.yml}}
