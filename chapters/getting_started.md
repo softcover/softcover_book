@@ -1,7 +1,7 @@
 # Getting started
 \label{cha:getting_started}
 
-<!-- _**Note:** Softcover is currently in private beta. Visit [Softcover.io](    https://www.softcover.io/) to request an invitation._
+_**Note:** Softcover is currently in private beta. Visit [Softcover.io](    https://www.softcover.io/) to request an invitation._
 
 This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors. Softcover consists of two main parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}). Based on the technology used to make the [*Ruby on Rails Tutorial* book](http://ruby.railstutorial.org/) and [*The Tau Manifesto*](http://tauday.com/tau-manifesto), Softcover makes publishing *frictionless* by allowing authors to build and deploy ebooks and other digital goods with a single command.
 
@@ -130,7 +130,6 @@ To build the full set of output formats, Softcover requires some external depend
 $ softcover check
 Checking Softcover dependencies...
 Checking for LaTeX...         Found
-Checking for GhostScript...   Found
 Checking for ImageMagick...   Found
 Checking for Node.js...       Found
 Checking for PhantomJS...     Found
@@ -451,26 +450,21 @@ The behavior of `softcover build:all` is customizable via the \linebreak `.softc
 #### Previews
 \label{sec:build_previews}
 
-Finally, Softcover can optionally build book *previews*, which is a useful feature when selling your ebook (either on your own website or at [Softcover](http://softcover.io)). Because of the different ways the PDF and EPUB/MOBI formats work, there are two separate ways to specify the preview range. (You have to keep them roughly in sync by hand, but it's rarely important for the preview ranges to be exact, so this isn't a big problem in practice.) The configuration for PDF is a *page* range, while for EPUB/MOBI it's a *chapter* range (with "Chapter 0" being frontmatter like the table of contents, preface, etc.). Both ranges are specified in `book.yml` (Listing~\ref{code:preview_ranges}).
+Finally, Softcover can optionally build book sample *previews*, which is a useful feature when selling your ebook (either on your own website or at [Softcover](http://softcover.io)). The previews are built according to the chapters listed in `Preview.txt` (Listing~\ref{code:preview_txt}), which is an exact analogue of `Book.txt` (Listing~\ref{code:book_txt}) but with fewer chapters by default.
 
 \begin{codelisting}
-\label{code:preview_ranges}
-\codecaption{Specifying the preview ranges in \texttt{book.yml}. \\ \filepath{config/book.yml}}
-```yaml
----
-.
-.
-.
-pdf_preview_page_range: 1..30
-epub_mobi_preview_chapter_range: 0..1
-```
+\label{code:preview_txt}
+\codecaption{Specifying the preview contents in \texttt{Preview.txt}.}
+<<(example_book/Preview.txt, lang: text, options: "hl_lines": [7])
 \end{codelisting}
 
-The previews themselves are built as follows:
+\noindent The previews themselves are built as follows:
 
 ```console
 $ softcover build:preview
 ```
+
+Because of the difficulty involved in slicing out sub-pieces of PDF, EPUB, and MOBI files, preview books have to be built from scratch with a limited number of chapters; this means that cross-references will be broken if they refer to chapters *not* included in the preview,[^kindlegen_breaks_previews] but previews are designed to be samples and aren't meant to be finished documents.
 
 The full Softcover publishing platform automatically uploads all the ebook files, including previews, and makes it simple to distribute them to your readers. We'll learn how to do this in the next section (Section~\ref{sec:softcover_website}).
 
@@ -567,8 +561,10 @@ Using `softcover deploy` makes publishing to the Softcover website completely fr
 
 [^homebrew]: Some Mac users will be tempted to use the otherwise excellent [Homebrew](http://brew.sh), but in the case of the Softcover dependencies I urge them to resist this temptation.
 
-[^kindlegen_proprietary]: The only part of the toolchain is the KindleGen program for building books in MOBI format, but authors can optionally use the open-source Calibre program as a replacement.
+[^kindlegen_proprietary]: The only proprietary part of the toolchain is the KindleGen program for building books in MOBI format, but authors can optionally use the open-source Calibre program as a replacement.
 
 [^kindlegen_terms]: The MOBI files produced by KindleGen are generally slightly higher-quality than MOBI files made by Calibre, and unlike Calibre-generated files they can be sent to Kindle via email or using the convenient [Send to Kindle](http://www.amazon.com/gp/sendtokindle) program. On the other hand, whereas authors are free to do anything they like with Calibre-generated MOBI files, selling KindleGen-generated MOBI files anywhere other than Amazon.com violates the [KindleGen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251). To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk.
 
-[^epub_check_version]: Unfortunately, EpubCheck 3.0.1 is buggy, so it's important to use version 3.0. -->
+[^epub_check_version]: Unfortunately, EpubCheck 3.0.1 is buggy, so it's important to use version 3.0.
+
+[^kindlegen_breaks_previews]: It used to be possible to extract chapter ranges while keeping the visual appearance of cross-references intact, but this functionality is broken in MOBI files as of KindleGen 2.9. The current method, using `Preview.txt`, isn't as slick as it was in earlier versions of the \texttt{softcover} gem is but is much more robust.
