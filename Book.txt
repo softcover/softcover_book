@@ -6,6 +6,6 @@ mainmatter:
 getting_started.md
 introduction_to_markdown.md
 softcover_markdown.md
-customization.md
-marketing.md
-polytex_tutorial.tex
+# customization.md
+# marketing.md
+# polytex_tutorial.tex

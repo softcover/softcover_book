@@ -1,7 +1,7 @@
 # Getting started
 \label{cha:getting_started}
 
-_**Note:** Softcover is currently in private beta. Visit [Softcover.io](    https://www.softcover.io/) to request an invitation._
+<!-- _**Note:** Softcover is currently in private beta. Visit [Softcover.io](    https://www.softcover.io/) to request an invitation._
 
 This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors. Softcover consists of two main parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}). Based on the technology used to make the [*Ruby on Rails Tutorial* book](http://ruby.railstutorial.org/) and [*The Tau Manifesto*](http://tauday.com/tau-manifesto), Softcover makes publishing *frictionless* by allowing authors to build and deploy ebooks and other digital goods with a single command.
 
@@ -47,6 +47,8 @@ In the rest of this chapter, we'll cover the steps needed to install and use the
 In this section, we'll cover the basics of the Softcover open-source ebook typesetting system for technical authors. Its [*raison d'\^{e}tre*](http://www.merriam-webster.com/dictionary/raison%20d'etre) is producing profes\-sional-grade multi-format ebooks from a common set of source files. In particular, Softcover accepts input in *Markdown*, a lightweight markup language, or *\PolyTeX*, a subset of the powerful \LaTeX\ typesetting language, and outputs ebooks as HTML, EPUB, MOBI, and PDF\@. The Softcover system also comes with a local server that automatically rebuilds a book's HTML output when the source files change, so that your favorite text editor and web browser combine to form a real-time development environment for writing ebooks. Finally, authors can use Softcover to upload ebooks and other media files to the [Softcover website](http://www.softcover.io/) with a single command (Section~\ref{sec:softcover_website}), thereby dramatically lowering the barrier to publishing, updating, and selling digital information products.
 
 Originally developed under the name *\PolyTeXnic*[^poly_pronunciation] to write the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book) and [*The Tau Manifesto*](http://tauday.com/tau-manifesto), Softcover  has been rewritten and expanded as part of developing the [Softcover publishing platform](http://www.softcover.io/). True to its origins, Softcover supports a wide range of features useful for writing technical books, including mathematical typesetting (Eq.~\eqref{eq:maxwell})[^maxwell] and syntax-highlighted source code listings (Listing~\ref{code:eval}). It is also well-suited to writing non-technical books, with support for chapters, sections, cross-references, footnotes, lists, figures, tables, etc.---the only requirement is that the *author* be technical. (If you know how to use a command line and have a favorite text editor, you are technical enough to use Softcover.)
+
+
 
 \begin{equation}
 \label{eq:maxwell}
@@ -569,4 +571,4 @@ Using `softcover deploy` makes publishing to the Softcover website completely fr
 
 [^kindlegen_terms]: The MOBI files produced by KindleGen are generally slightly higher-quality than MOBI files made by Calibre, and unlike Calibre-generated files they can be sent to Kindle via email or using the convenient [Send to Kindle](http://www.amazon.com/gp/sendtokindle) program. On the other hand, whereas authors are free to do anything they like with Calibre-generated MOBI files, selling KindleGen-generated MOBI files anywhere other than Amazon.com violates the [KindleGen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251). To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk.
 
-[^epub_check_version]: Unfortunately, EpubCheck 3.0.1 is buggy, so it's important to use version 3.0.
+[^epub_check_version]: Unfortunately, EpubCheck 3.0.1 is buggy, so it's important to use version 3.0. -->
