@@ -482,7 +482,7 @@ $ softcover clean
 
 ### Cover images
 
-Softcover comes with default cover images, which you should change before distributing any of the formats or deploying the the Softcover website (Chapter~\ref{cha:marketing_launch}). The files appear as follows:
+Softcover comes with default cover images, which you should change before distributing any of the formats or deploying the the Softcover website (Chapter~\ref{cha:marketing_selling}). The files appear as follows:
 
 ```text
 $ ls images/cover*
@@ -495,7 +495,7 @@ images/cover-web.png images/cover.pdf     images/cover.png
 ## Publishing to the Softcover website
 \label{sec:softcover_website}
 
-The \softcover\ command-line client includes commands for interacting with the [Softcover.io](http://softcover.io) website, making it easy to publish the book (in all its formats) to the live web. In this section, we'll discuss the steps needed to see a book-in-progress during the writing process; Chapter~\ref{cha:marketing_launch} discusses the details needed when preparing to make your book publicly available.
+The \softcover\ command-line client includes commands for interacting with the [Softcover.io](http://softcover.io) website, making it easy to publish the book (in all its formats) to the live web. In this section, we'll discuss the steps needed to see a book-in-progress during the writing process; Chapter~\ref{cha:marketing_selling} discusses the details needed when preparing to make your book publicly available.
 
 ### Publishing ebooks
 

@@ -1,9 +1,9 @@
-# Marketing, launching, and selling
-\label{cha:marketing_launch}
+# Marketing and selling
+\label{cha:marketing_selling}
 
-Softcover combines the production system described starting in Chapter~\ref{cha:getting_started} with an easy-to-use sales platform. This chapter describes the steps supported by Softcover.io to market and launch Softcover books and associated media.
+Softcover combines the production system described starting in Chapter~\ref{cha:getting_started} with an easy-to-use sales platform. This chapter describes the steps supported by [Softcover.io](http://www.softcover.io/) to market and launch Softcover books and associated media.
 
-## Publishing screencasts and other media
+## Screencasts and other media
 
 Softcover is designed to make it easy to write and publish books, but books are only the foundation. Experience with products like the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/), [Learn Python the Hard Way](http://learnpythonthehardway.org/), and [The App Design Handbook](http://nathanbarry.com/app-design-handbook/) shows the value in combining ebooks with other media such as screencast videos to create premium product bundles.
 
