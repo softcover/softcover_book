@@ -11,7 +11,7 @@ The current Softcover system supports automatic association of screencast ZIP fi
 
 ![Screencasts directory structure.\label{fig:screencasts_dir}](images/figures/screencasts_dir.png)
 
-To publish the screencasts to Softcover, simply use `publish:screencasts`:
+Once the ZIP file is in place, you can publish the screencasts to Softcover with a simple command:
 
 ```console
 $ softcover publish:screencasts
@@ -91,7 +91,7 @@ prices:
 \end{codelisting}
 
 
-When published, the code in Listing~\ref{code:marketing_prices} produces the marketing page shown in Figure~\ref{fig:pricing_options}. Note that the price can optionally include a `regular_price` field, which displays a "regular" price with a strike-through (together with the actual price), as seen in the 3rd option in Figure~\ref{fig:pricing_options}.
+When published, the code in Listing~\ref{code:marketing_prices} produces the marketing page \linebreak shown in Figure~\ref{fig:pricing_options}. Note that the price can optionally include a `regular_\-price` field, which displays a "regular" price with a strike-through (together with the actual price), as seen in the 3rd option in Figure~\ref{fig:pricing_options}.
 
 
 ![Pricing options.\label{fig:pricing_options}](images/figures/pricing_options.png)

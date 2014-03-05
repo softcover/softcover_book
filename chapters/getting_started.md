@@ -122,7 +122,7 @@ To get started with Softcover, first [install Ruby](http://ruby.railstutorial.or
 $ gem install softcover
 ```
 
-\noindent (On some systems, you may need to run `sudo gem install softcover` instead.) This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the `nokogiri` gem to install.
+\noindent (On some systems, you may need to `sudo` to install the gem.) This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the `nokogiri` gem to install.
 
 To build the full set of output formats, Softcover requires some external dependencies. The `softcover` command will prompt you to install each dependency at the appropriate time, but many users will find it more convenient to install all the dependencies at once.[^homebrew] To check which dependencies need to be installed on your system, run `softcover check`:
 
