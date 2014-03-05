@@ -164,6 +164,7 @@ faq:
 \end{codelisting}
 
 ### Additional information
+\label{sec:additional_information}
 
 For maximum flexibility, the Softcover marketing page includes a free-form "additional information" section (Listing~\ref{code:marketing_additional}). You can use this area to add any additional information about your book or pricing options. The contents of `marketing_content` will be rendered in full Markdown at the bottom of the page.
 
