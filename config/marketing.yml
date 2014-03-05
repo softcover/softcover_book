@@ -125,8 +125,8 @@ authors:
     bio:
       |
         Michael Hartl is the author of the
-        [Ruby on Rails Tutorial](http://railstutorial.org)
-        and is a cofounder of [Softcover](http://softcover.io).
+        [Ruby on Rails Tutorial](http://ruby.railstutorial.org)
+        and is a cofounder of [Softcover](http://www.softcover.io).
 
 faq:
   -
@@ -136,16 +136,16 @@ faq:
             and sales.
 
   -
-    question: How do I sign up for Softcover?
-    answer: Softcover is currently in private beta.
-            Go to <http://www.softcover.io/> to sign up for an invitation.
+    question: How do I use Softcover?
+    answer: Go to <http://www.softcover.io/> to sign up for an account and
+            follow the instructions on the setup page.
 
 testimonials:
   -
     name: Mark Bates
     title: Author, Conquering the Command Line
     image: /images/mark_bates.jpg
-    text: I have never used tools as good as these for writing a book before.
+    text: I have never used tools as good as these for writing a book before!
           The Softcover platform just got out of my way and let me focus on writing.
 
 
