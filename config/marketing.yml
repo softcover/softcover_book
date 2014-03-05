@@ -131,14 +131,14 @@ authors:
 faq:
   -
     question: What is Softcover?
-    answer: Softcover is a publishing platform that
-            combines an ebook production toolchain with online distribution
-            and sales.
+    answer: Softcover is a publishing platform for technical authors.
+    It combines an open-source production system with an integrated
+    sales platform.
 
   -
     question: How do I use Softcover?
     answer: Go to <http://www.softcover.io/> to sign up for an account and
-            follow the instructions on the setup page.
+            then follow the instructions on the setup page.
 
 testimonials:
   -
