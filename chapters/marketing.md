@@ -1,31 +1,34 @@
-# Marketing, launching, and selling
-\label{cha:marketing_launch}
+# Marketing and selling
+\label{cha:marketing_selling}
 
-This chapter will describe the steps supported by Softcover to market and launch books and associated media. It is currently in preparation.
+Softcover combines the production system described starting in Chapter~\ref{cha:getting_started} with an easy-to-use sales platform. This chapter describes the steps supported by [Softcover.io](http://www.softcover.io/) to market and launch Softcover books and associated media.
 
-### Publishing screencasts and other media
+## Screencasts and other media
 
-Create a zip of your screencast files in your book directory here: `screencasts/{your-book-slug}.screencasts.zip`, i.e: `screencasts/my-book.screencasts.zip`
+Softcover is designed to make it easy to write and publish books, but books are only the foundation. Products like the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/), [Learn Python the Hard Way](http://learnpythonthehardway.org/), and [The App Design Handbook](http://nathanbarry.com/app-design-handbook/) show the value of combining ebooks with other media (such as screencast videos) to create premium product bundles.
 
-To add a preview, create an m4v or mp4 formatted video file as: `screencasts/preview.m4v`
+The current Softcover system supports automatic association of screencast ZIP files using a simple convention. To include a screencast product along with a book called `example_book`, simply create a screencast ZIP file `example_book.screencasts.zip` in the `screencasts` directory. To include a preview screencast as well, create an m4v or mp4 formatted video file and put it in `screencasts/preview.m4v`. Figure~\ref{fig:screencasts_dir} shows a sample screencasts directory with three screencasts, a zipped version of the three screencasts, and a preview.
 
 ![Screencasts directory structure.\label{fig:screencasts_dir}](images/figures/screencasts_dir.png)
 
-Then to publish your screencast directory, issue this command (it will only upload new files or those that have changed since last time):
+Once the ZIP file is in place, you can publish the screencasts to Softcover with a simple command:
 
 ```console
 $ softcover publish:screencasts
 ```
 
-### Marketing page
+\noindent To save time, this will only upload new files or ones that have changed since the last time you last published them.
 
-The Softcover website comes with a marketing page. Set its contents using `marketing.yml` in the `config` directory. Can use limited Markdown: links, bolds, and emphasis only.
 
-The price can optionally include a ```regular_price``` field, which will display with a strike-through denoting a sale price as seen in the 3rd option below.
+## Marketing page
 
-#### Prices
+In addition to providing an online version of your book automatically, the Softcover sales platform includes a marketing page for online sales. The contents of the marketing page are determined by a configuration file, `marketing.yml`, in the `config` directory. The marketing file supports the use of limited Markdown (links, boldface, and emphasis/italics).
 
-You can create up to 3 bundles, each with different downloadable media formats.
+
+### Prices
+
+The marketing file allows you to create up to three product bundles, each with different downloadable media formats, as seen in Listing~\ref{code:marketing_prices}.
+
 
 \begin{codelisting}
 \label{code:marketing_prices}
@@ -55,7 +58,8 @@ prices:
         Fully updated for the 2nd edition (Ruby 1.9/Rails 3.2)
         Includes two Rails 4.0 supplementary screencasts
         100% DRM-free digital downloads
-        Includes copies of the 1st and 2nd edition screencasts and the Rails 4.0 supplement
+        Includes copies of the 1st and 2nd edition screencasts and the
+        Rails 4.0 supplement
     media:
       - html
       - screencasts
@@ -66,10 +70,13 @@ prices:
     name: "HTML, Ebook, and Screencasts"
     description:
       |
-        Get the full Rails Tutorial ebook/screencast bundle for the same price as the screencasts alone!
+        Get the full Rails Tutorial ebook/screencast bundle for the same
+        price as the screencasts alone!
         Includes the full 2nd edition screencasts
-        Includes two Rails 4.0 supplementary screencasts and the full Rails 4.0–compatible version of the book
-        Three versions of the book with more than 600 pages each, and over 15 hours of video
+        Includes two Rails 4.0 supplementary screencasts and the full
+        Rails 4.0–compatible version of the book
+        Three versions of the book with more than 600 pages each, and
+        over 15 hours of video
         Recommended for new customers who learn well from screencasts
     media:
       - html
@@ -83,13 +90,17 @@ prices:
 ```
 \end{codelisting}
 
-When published, this will look like:
+
+When published, the code in Listing~\ref{code:marketing_prices} produces the marketing page \linebreak shown in Figure~\ref{fig:pricing_options}. Note that the price can optionally include a `regular_\-price` field, which displays a "regular" price with a strike-through (together with the actual price), as seen in the 3rd option in Figure~\ref{fig:pricing_options}.
+
 
 ![Pricing options.\label{fig:pricing_options}](images/figures/pricing_options.png)
 
-#### Authors
 
-Multiple authors can be added here. Instead of an ```image``` you can use ```gravatar_email``` which will pull the associated gravatar image from that email (it won't be made public). The ```bio``` section allows for limitted markdown support.
+### Author information and testimonials
+\label{sec:author_information}
+
+Softcover supports automatic display of author information (for single or multiple authors). Each author field should include a name, an image or Gravatar email, a contact email, and a brief biography (Listing~\ref{code:marketing_authors}). If you use `gravatar_email` instead of `image`, Softcover will automatically pull and display the [Gravatar](http://www.gravatar.com/) image associated with the given email address. (The Gravatar email itself won't be made public.)
 
 \begin{codelisting}
 \label{code:marketing_authors}
@@ -107,9 +118,7 @@ authors:
 ```
 \end{codelisting}
 
-#### Testimonials
-
-Like the Authors section, you can use ```image``` or ```gravatar_email```, otherwise a standin image of our logo will be used. The ```text``` section also has limitted markdown support.
+Softcover also supports testimonials, each of which should include a name, title, image or Gravatar email, and text (Listing~\ref{code:marketing_testimonials}). As with author information, testimonials support either `image` or `gravatar_email`; if neither is defined, the Softcover logo will be used by default.
 
 \begin{codelisting}
 \label{code:marketing_testimonials}
@@ -131,12 +140,13 @@ testimonials:
 ```
 \end{codelisting}
 
+The results of Listing~\ref{code:marketing_authors} and Listing~\ref{code:marketing_testimonials} appear in Figure~\ref{fig:authors_testimonials}.
 
 ![Authors and Testimonials.\label{fig:authors_testimonials}](images/figures/authors_testimonials.png)
 
-#### Frequently Asked Questions
+### Frequently Asked Questions
 
-Questions and answers will be listed out in the same order. The answer text has limitted markdown support, while the question text is static. This section is optional.
+Each Softcover marketing page includes an optional area for frequently asked questions (FAQs), as seen in Listing~\ref{code:marketing_faq}. Each FAQ has a question and an answer; the answer has limited Markdown support, while the question is plain text. Questions and answers appear on the website in the order defined.
 
 \begin{codelisting}
 \label{code:marketing_faq}
@@ -153,13 +163,13 @@ faq:
 ```
 \end{codelisting}
 
-#### Additional information
+### Additional information
 
-```marketing_content``` will be rendered in full markdown at the bottom of the page. You can use this to add any additional information about your book or pricing options.
+For maximum flexibility, the Softcover marketing page includes a free-form "additional information" section (Listing~\ref{code:marketing_additional}). You can use this area to add any additional information about your book or pricing options. The contents of `marketing_content` will be rendered in full Markdown at the bottom of the page.
 
-```contact_email``` will provide users with a public ```mailto``` link.
+Another option, `contact_email`, gives readers a way to contact the author(s). In particular, the contents of the `contact_email` field provide users with a public `mailto` link to the given address.
 
-```hide_custom_domain_footer``` when set to true will disable rendering of our branded Softcover footer on your custom domain.
+Finally, Softcover includes an inconspicuous branded footer by default, but this can be overridden using `hide_custom_domain_footer`. Setting it to `true` disables the rendering of our branded Softcover footer on your custom domain (Section~\ref{sec:custom_domains}).
 
 \begin{codelisting}
 \label{code:marketing_additional}
@@ -171,21 +181,28 @@ hide_custom_domain_footer: false
 ```
 \end{codelisting}
 
-### Custom domains
+## Custom domains
+\label{sec:custom_domains}
 
-To use a custom domain for your book, first create a CNAME record pointing to:
+In order to give authors maximum control, Softcover supports custom domains.  To use a custom domain for your book and other products, first create a `CNAME` record pointing to the following address:
 
-```domains.softcover.io```
+```text
+domains.softcover.io
+```
 
-i.e:
-```www.mynewbook.com CNAME domains.softcover.io```
+\noindent For example, the full `CNAME` record might appear as follows:
 
-Or, if you'd rather use the apex domain, you could use an ALIAS record if your DNS provider supports it:
+```text
+www.mynewbook.com CNAME domains.softcover.io
+```
 
-```mynewbook.com ALIAS domains.softcover.io```
+\noindent (*Note*: if you used "www" in the CNAME record, you must also use "www" in the custom domain field.) If you'd rather use the apex domain (without the "www"), you can use an `ALIAS` record if your DNS provider supports it:
 
-Then, from your book's manage page, add the full domain into the custom domain field.
+```text
+mynewbook.com ALIAS domains.softcover.io
+```
+
+Once you've added the `CNAME` (or `ALIAS`) record, add the full domain into the custom domain field on your book's manage page, as shown in Figure~\ref{fig:custom_domain_input}. With this setting, `www.mynewbook.com` will resolve automatically to the Softcover marketing page, and `www.mynewbook.com/book` will resolve to the HTML book page.
 
 ![Inputting the custom domain.\label{fig:custom_domain_input}](images/figures/custom_domain_field.png)
 
-Note: if you used "www" in the CNAME record, you must also use "www" in the custom domain field.

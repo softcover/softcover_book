@@ -78,7 +78,7 @@ git push origin
 
 ## Commands and styles
 
-Softcover books are based on \LaTeX\ (for PDF) and HTML (for EPUB and MOBI), both of which allow for extensive customization via style files and CSS, respectively. There even one point of overlap: commands defined in `latex_styles/custom.sty` are available across all formats (Section~\ref{sec:custom_commands}).
+Softcover books are based on \LaTeX\ (for PDF) and HTML (for EPUB and MOBI), both of which allow for extensive customization via style files and CSS, respectively. There is even one point of overlap: commands defined in `latex_styles/custom.sty` are available across all output formats (Section~\ref{sec:custom_commands}).
 
 
 ### Custom commands
@@ -136,7 +136,7 @@ epub/OEBPS/styles/custom_epub.css
 <<(epub/OEBPS/styles/custom_epub.css)
 \end{codelisting}
 
-The entire `epub/` directory is `.gitignore`d by default, so if you're using Git and you've made custom changes you should add the `custom_epub.css` file by hand:
+The entire `epub/` directory is `.gitignore`d by default, so if you're using Git and you've made custom changes you should add the custom CSS file by hand:
 
 ```console
 $ git add --force epub/OEBPS/styles/custom_epub.css
@@ -145,7 +145,7 @@ $ git add --force epub/OEBPS/styles/custom_epub.css
 ### PDF style
 \label{sec:pdf_style}
 
-You can customize the PDF styles in two different ways. The first and simpler is to edit the file `latex_styles/custom_pdf.sty`, whose default content is shown in Listing~\ref{code:custom_pdf_style}. This file gets included *last*, so any rules in `custom_\-pdf.sty` will override the defaults. Common uses for `custom_pdf.sty` include defining hyphenation rules for words \LaTeX\ can't hyphenate natively and adding support for any Unicode characters not supported by the PDF typesetting engine (xelatex). For example, uncommenting the code in Listing~\ref{code:custom_pdf_style} adds the rule for hyphenating "JavaScript" and adds PDF support for the Unicode characters ★ and ž (Listing~\ref{code:custom_pdf_style_uncommented}).
+You can customize the PDF styles in two different ways. The first and simpler is to edit the file `latex_styles/custom_pdf.sty`, whose default content is shown in Listing~\ref{code:custom_pdf_style}. This file gets included *last*, so any rules in `custom_\-pdf.sty` will override the defaults. Common uses for the custom PDF style file include defining hyphenation rules for words \LaTeX\ can't hyphenate natively and adding support for any Unicode characters not supported by the PDF typesetting engine (xelatex). For example, uncommenting the code in Listing~\ref{code:custom_pdf_style} adds the rule for hyphenating "JavaScript" and adds PDF support for the Unicode characters ★ and ž (Listing~\ref{code:custom_pdf_style_uncommented}).
 
 \begin{codelisting}
 \label{code:custom_pdf_style}
