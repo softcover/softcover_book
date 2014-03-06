@@ -148,7 +148,7 @@ All dependencies satisfied.
 - [Node.js](http://nodejs.org/)
 - [PhantomJS](http://phantomjs.org/)
 - [Inkscape](http://inkscape.org/)
-- [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211)
+- [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (place the `kindlegen` somewhere on your path, such as in `/usr/local/bin`)
 - [Calibre](http://calibre-ebook.com/) with the [command-line tools](http://manual.calibre-ebook.com/cli/cli-index.html)
 - [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you already have this one)
 - [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip)[^epub_check_version] (unzip in your home directory)
