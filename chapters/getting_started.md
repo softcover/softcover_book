@@ -203,7 +203,7 @@ We see from Listing~\ref{code:softcover_help} that the way to generate a new Sof
 
 \begin{codelisting}
 \label{code:new_example_book}
-\codecaption{Generating an example book with \texttt{softcover new example\_book}.}
+\codecaption{Generating an example book.}
 ```console
 $ softcover new example_book
 Generating directory: example_book
@@ -445,27 +445,31 @@ sys 0m1.185s
 The behavior of `softcover build:all` is customizable via the \linebreak `.softcover-build` file. See Section~\ref{sec:customizing_builds} for details.
 
 
-#### Previews
-\label{sec:build_previews}
+#### Preview
+\label{sec:build_preview}
 
-Finally, Softcover can optionally build book sample *previews*, which is a useful feature when selling your ebook (either on your own website or at [Softcover](http://softcover.io)). The previews are built according to the chapters listed in `Preview.txt` (Listing~\ref{code:preview_txt}), which is an exact analogue of `Book.txt` (Listing~\ref{code:book_txt}) but with fewer chapters by default.
+Finally, Softcover can optionally build a *preview* of your book in each output format, which is a particularly useful feature when selling your ebook (either on your own website or at [Softcover](http://softcover.io)). Because of the different ways the PDF and EPUB/MOBI formats work, there are two separate ways to specify the preview range. (You have to keep them roughly in sync by hand, but it's rarely important for the preview ranges to be exact, so this isn't a big problem in practice.) The configuration for PDF is a *page* range, while for EPUB/MOBI it's a *chapter* range (with "Chapter 0" being frontmatter like the table of contents, preface, etc.). Both ranges are specified in `book.yml` (Listing~\ref{code:preview_ranges}).
 
 \begin{codelisting}
-\label{code:preview_txt}
-\codecaption{Specifying the preview contents in \texttt{Preview.txt}.}
-<<(example_book/Preview.txt, lang: text, options: "hl_lines": [7])
+\label{code:preview_ranges}
+\codecaption{Specifying the preview ranges in \texttt{book.yml}. \\ \filepath{config/book.yml}}
+```yaml
+---
+.
+.
+.
+pdf_preview_page_range: 1..30
+epub_mobi_preview_chapter_range: 0..1
+```
 \end{codelisting}
 
-\noindent The previews themselves are built as follows:
+The previews themselves are built as follows:
 
 ```console
 $ softcover build:preview
 ```
 
-Because of the difficulty involved in slicing out sub-pieces of PDF, EPUB, and MOBI files, preview books have to be built from scratch with a limited number of chapters; this means that cross-references will be broken if they refer to chapters *not* included in the preview,[^kindlegen_breaks_previews] but previews are designed to be samples and aren't meant to be finished documents.
-
-The full Softcover publishing platform automatically uploads all the ebook files, including previews, and makes it simple to distribute them to your readers. We'll learn how to do this in the next section (Section~\ref{sec:softcover_website}).
-
+The full Softcover publishing platform automatically uploads all the ebook files, including the preview for each format, and makes it simple to distribute them to your readers. We'll learn how to do this in the next section (Section~\ref{sec:softcover_website}).
 
 #### Debugging tip
 
