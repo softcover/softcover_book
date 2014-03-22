@@ -315,7 +315,7 @@ Sometimes the source of the problem isn't a long word, or it's a word you don't 
 When tracking down overfull hboxes, I recommend rebuilding with
 
 ```console
-$ softcover build:pdf --find-hboxes
+$ softcover build:pdf --find-overfull
 ```
 
 \noindent after each change and checking the PDF to make sure it's fixed before moving on. This can be tedious, but it usually only needs to be done once at the end of the writing process.
