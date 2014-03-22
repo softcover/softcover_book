@@ -3,6 +3,7 @@ frontmatter:
 maketitle
 tableofcontents
 mainmatter:
+intro.md
 getting_started.md
 introduction_to_markdown.md
 softcover_markdown.md
