@@ -180,14 +180,25 @@ My preference is to make PDFs as close to traditional print-quality as possible,
 ```
 \end{codelisting}
 
-The second method for customizing PDF output is to edit the file \linebreak `preamble.tex` in the `config` directory; the default contents appear in Listing~\ref{code:preamble_tex}. By editing this file, you can do things like change the PDF font size or include packages that don't work when included in `custom_pdf.sty`. For example, the default font size (`14pt`) is designed to look good on tablet devices such as iPad, but some authors may prefer the smaller fonts typically used for print publications (`10pt` or `12pt`). The `preamble.tex` file is especially important for foreign language support, which requires that the appropriate `polyglossia` package be included before the default `softcover.sty` file. See Section~\ref{sec:foreign_language} for details.
-
+The second method for customizing PDF output is to edit the file \linebreak `preamble.tex` in the `config` directory; the default contents appear in Listing~\ref{code:preamble_tex}. By editing this file, you can do things like change the PDF font size or include packages that don't work when included in `custom_pdf.sty`. For example, the default font size (`14pt`) is designed to look good on tablet devices such as iPad, but some authors may prefer the smaller fonts typically used for print publications (`10pt` or `12pt`). These smaller fonts use the default `book` class in place of the `extbook` class needed for 14pt fonts, as shown in Listing~\ref{code:preamble_tex_12_pt}.
 
 \begin{codelisting}
 \label{code:preamble_tex}
 \codecaption{The preamble file for changing fonts, etc. \\ \filepath{config/preamble.tex}}
 <<(example_book/config/preamble.tex)
 \end{codelisting}
+
+\begin{codelisting}
+\label{code:preamble_tex_12_pt}
+\codecaption{Setting the font size to 12pt. \\ \filepath{config/preamble.tex}}
+```
+\documentclass[12pt]{book}
+```
+\end{codelisting}
+
+
+The `preamble.tex` file is especially important for foreign language support, which requires that the appropriate `polyglossia` package be included before the default `softcover.sty` file. See Section~\ref{sec:foreign_language} for details.
+
 
 
 ## Foreign-language support
