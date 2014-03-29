@@ -30,7 +30,7 @@ dipisicing elit
 
 ```
 
-\noindent Softcover currently supports headings down to `####` (`h4`, correpsonding to a "subsubsection" in \LaTeX).
+\noindent Softcover currently supports headings down to `####` (`h4`, corresponding to a "subsubsection" in \LaTeX).
 
 ## Text formatting
 
