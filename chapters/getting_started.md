@@ -344,7 +344,7 @@ Install LaTeX (http://latex-project.org/ftp.html)
 #### EPUB
 \label{sec:build_epub}
 
-EPUB books are essentially HTML combined with CSS and various configuration files, all zipped together in one package. (The easiest way to see this is to change an EPUB file's extension from `.epub` to `.zip` and double-click it to unzip it.) Getting all the details just right is a real pain, though, so Softcover takes it care of it for you.
+EPUB books are essentially HTML combined with CSS and various configuration files, all zipped together in one package. (The easiest way to see this is to change an EPUB file's extension from `.epub` to `.zip` and double-click it to unzip it.) Getting all the details just right is a real pain, though, so Softcover takes care of it for you.
 
 There are no dependencies for building EPUB books unless the source contains mathematics, so if you want you can remove the math from the generated book and build the EPUB immediately. Otherwise, you'll need to install [PhantomJS](http://phantomjs.org/) and [Inkscape](http://inkscape.org/). Building the EPUB is easy once any necessary dependencies are installed:
 
