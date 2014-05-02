@@ -106,7 +106,7 @@ Because the `custom.sty` file is raw \LaTeX, definitions must be in \PolyTeX\ (C
 
 
 
-*Note*: Custom *math* commands are supported locally but are not currently not supported on the Softcover site. We're planning to add it as soon as someone wants it, though, so send a request to \texttt{michael@softcover.io} and we'll get right on it.
+*Note*: Custom *math* commands are supported locally but are not currently supported on the Softcover site. We're planning to add it as soon as someone wants it, though, so send a request to \texttt{michael@softcover.io} and we'll get right on it.
 
 ### HTML style
 \label{sec:html_style}

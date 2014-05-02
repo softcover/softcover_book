@@ -510,7 +510,7 @@ We saw in Section~\ref{sec:kramdown_tables} that Softcover supports tables via a
 | with multiple | lines|
 ```
 
-\noindent Softcover also supports more powerful \LaTeX\ tables via the `tabular` environment:
+\noindent Softcover also supports more powerful \LaTeX\ tables via the `tabular` environment:[^all_your_base]
 
 \begin{tabular}{|r|lc|}
   \hline
@@ -845,3 +845,5 @@ Just move the generated \PolyTeX\ file from the `generated_polytex` directory in
 [^eq_epub_mobi]: The real challenge is producing EPUB and MOBI output. The trick is to (1) create a self-contained HTML page with embedded math, (2) include the amazing [MathJax](http://www.mathjax.org/) JavaScript library, configured to render math as [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) images, (3) hit the page with the headless [PhantomJS](http://phantomjs.org/) browser to force MathJax to render the math (including any equation numbers) as SVGs, (4) extract self-contained SVGs from the rendered pages, and (5) use [Inkscape](http://www.inkscape.org/) to convert the SVGs to PNGs for inclusion in EPUB and MOBI books. Easy, right? In fact, no---it was excruciating and required excessive amounts of profanity to achieve. But it's done, so ha.
 
 [^nesting_caveat]: Because of the way Softcover processes text, *nested* commands won't work in Markdown, but they *will* work in raw \PolyTeX.
+
+[^all_your_base]: The phrase "All your base are belong to us [sic]" is a broken English phrase from a the video game "Zero Wing" that has become an [Internet meme](http://en.wikipedia.org/wiki/All_your_base_are_belong_to_us).
