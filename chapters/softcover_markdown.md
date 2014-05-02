@@ -846,4 +846,4 @@ Just move the generated \PolyTeX\ file from the `generated_polytex` directory in
 
 [^nesting_caveat]: Because of the way Softcover processes text, *nested* commands won't work in Markdown, but they *will* work in raw \PolyTeX.
 
-[^all_your_base]: The phrase "All your base are belong to us [sic]" is a broken English phrase from a the video game "Zero Wing" that has become an [Internet meme](http://en.wikipedia.org/wiki/All_your_base_are_belong_to_us).
+[^all_your_base]: The phrase "All your base are belong to us [sic]" is a broken English phrase from the video game "Zero Wing" that has become an [Internet meme](http://en.wikipedia.org/wiki/All_your_base_are_belong_to_us).
