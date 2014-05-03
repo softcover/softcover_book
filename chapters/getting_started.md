@@ -180,7 +180,7 @@ softcover logout                     # Log out of Softcover account
 softcover new <name>                 # Generate new book directory structure
 softcover open                       # Open book on Softcover website
 softcover publish                    # Publish your book on Softcover
-softcover publish:screencasts        # Publish screencasts
+softcover publish:media              # Publish media
 softcover server                     # Run local server
 softcover unpublish                  # Remove book from Softcover
 softcover version                    # Return the version number
