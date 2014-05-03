@@ -36,62 +36,32 @@ The marketing file allows you to create up to three product bundles, each with d
 ```yaml
 prices:
   -
-    code: ebooks # unique identifier (shouldn't be changed)
-    name: "HTML & Ebook" # appears as title of the option
-    description: # limited Markdown
-      |
-        Optimized for Kindle and iPad
-        Almost 9000 pages of content
-        Includes a free copy of 1st Edition PDF
-    media: # which downloadable media formats are included in this bundle
-      - html
-      - pdf
-      - epub
-      - mobi
-    price: 4500 # the price in cents
-  -
-    code: screencasts
-    name: "HTML & Screencasts"
+    code: ebooks
+    name: "HTML & Ebook"
     description:
       |
-        More than 15 hours of hands-on Rails instruction
-        Fully updated for the 2nd edition (Ruby 1.9/Rails 3.2)
-        Includes two Rails 4.0 supplementary screencasts
-        100% DRM-free digital downloads
-        Includes copies of the 1st and 2nd edition screencasts and the
-        Rails 4.0 supplement
+        * Optimized for computer screens, Kindle, and iPad
+        * Incredibly awesome content
     media:
-      - html
-      - screencasts
-    price: 15900
+      - ebooks
+    price: 3500
 
   -
     code: all
     name: "HTML, Ebook, and Screencasts"
     description:
       |
-        Get the full Rails Tutorial ebook/screencast bundle for the same
-        price as the screencasts alone!
-        Includes the full 2nd edition screencasts
-        Includes two Rails 4.0 supplementary screencasts and the full
-        Rails 4.0–compatible version of the book
-        Three versions of the book with more than 600 pages each, and
-        over 15 hours of video
-        Recommended for new customers who learn well from screencasts
+        * Includes 10 hours of video screencasts
+        * Ebooks inclded in PDF/EPUB/MOBI formats
     media:
-      - html
-      - pdf
-      - epub
-      - mobi
-      - screencasts
-    price: 14900
-    regular_price: 15900
+      - ebooks
+      - media/screencasts
+    price: 12500
 
 ```
 \end{codelisting}
 
-
-When published, the code in Listing~\ref{code:marketing_prices} produces the marketing page \linebreak shown in Figure~\ref{fig:pricing_options}. Note that the price can optionally include a `regular_\-price` field, which displays a "regular" price with a strike-through (together with the actual price), as seen in the 3rd option in Figure~\ref{fig:pricing_options}.
+\noindent When published, the code in Listing~\ref{code:marketing_prices} produces the marketing page \linebreak shown in Figure~\ref{fig:pricing_options}. % Note that the price can optionally include a `regular_\-price` field, which displays a "regular" price with a strike-through (together with the actual price), as seen in the 3rd option in Figure~\ref{fig:pricing_options}.
 
 
 ![Pricing options.\label{fig:pricing_options}](images/figures/pricing_options.png)
