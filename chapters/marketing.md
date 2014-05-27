@@ -152,7 +152,10 @@ hide_custom_domain_footer: false
 ```
 \end{codelisting}
 
-## Custom domains
+## Site settings & customizations
+\label{sec:site_settings}
+
+### Custom domains
 \label{sec:custom_domains}
 
 In order to give authors maximum control, Softcover supports custom domains.  To use a custom domain for your book and other products, first create a `CNAME` record pointing to the following address:
@@ -176,4 +179,5 @@ mynewbook.com ALIAS domains.softcover.io
 Once you've added the `CNAME` (or `ALIAS`) record, add the full domain into the custom domain field on your book's manage page, as shown in Figure~\ref{fig:custom_domain_input}. With this setting, `www.mynewbook.com` will resolve automatically to the Softcover marketing page, and `www.mynewbook.com/book` will resolve to the HTML book page.
 
 ![Inputting the custom domain.\label{fig:custom_domain_input}](images/figures/custom_domain_field.png)
+
 
