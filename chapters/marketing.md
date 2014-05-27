@@ -156,10 +156,12 @@ hide_custom_domain_footer: false
 ```
 \end{codelisting}
 
-## Site settings & customizations
+## Site settings and customizations
 \label{sec:site_settings}
 
-In this section we'll discuss the various ways to customize your Softcover site's settings. The examples are drawn from a real site hosted on Softcover, the [Ruby on Rails Tutorial](http://www.railstutorial.org/).
+In this section we'll discuss the various ways to customize your Softcover site's settings using the Manage page for your book. The examples are drawn from a real site hosted on Softcover, the [Ruby on Rails Tutorial](http://www.railstutorial.org/). For example, Figure~\ref{fig:manage_button} shows the button to the Manage page at www.railstutorial.org.
+
+![The link to the Manage page\label{fig:manage_button}](images/figures/manage_button.png)
 
 ### Access options
 
@@ -204,11 +206,21 @@ Once you've added the `CNAME` (or `ALIAS`) record, add the full domain into the 
 
 ### Google Analytics
 
+Softcover supports Google Analytics integration. Just put your site's tracking id in the relevant box (Figure~\ref{fig:google_analytics}) and the proper JavaScript snippet will automatically be included on your marketing and book pages.
+
 ![Enabling Google Analytics integration.\label{fig:google_analytics}](images/figures/google_analytics.png)
 
-### Miscellaneous information
+### Miscellaneous content
 
-![Including miscellaneous information on downloads page.\label{fig:custom_domain_input}](images/figures/miscellaneous_information.png)
+The final form field on the Manage page inserts miscellaneous content on your book's purchase page (Figure~\ref{fig:miscellaneous_content}). It was originally included to support a legacy affiliate program used by the Rails Tutorial called zferral (now updated as [Ambassador](http://getambassador.com/), which is the site new users should use). It uses [Handlebars](http://handlebarsjs.com/) syntax like
+
+```text
+rev={{amount}}&customerId={{email}}&uniqueId={{id}}&serviceId={{id}}
+```
+
+\noindent to include the purchase amount, customer email address, and unique purchase id on the purchase page. It is unlikely that you'll need this functionality unless you are also supporting an affiliate program or something similar.
+
+![Including miscellaneous content on downloads page.\label{fig:custom_domain_input}](images/figures/miscellaneous_content.png)
 
 ## A typical launch sequence
 \label{sec:launch_sequence}
