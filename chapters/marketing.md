@@ -220,7 +220,7 @@ rev={{amount}}&customerId={{email}}&uniqueId={{id}}&serviceId={{id}}
 
 \noindent to include the purchase amount, customer email address, and unique purchase id on the purchase page. It is unlikely that you'll need this functionality unless you are also supporting an affiliate program or something similar.
 
-![Including miscellaneous content on downloads page.\label{fig:custom_domain_input}](images/figures/miscellaneous_content.png)
+![Including miscellaneous content on downloads page.\label{fig:miscellaneous_content}](images/figures/miscellaneous_content.png)
 
 ## A typical launch sequence
 \label{sec:launch_sequence}
