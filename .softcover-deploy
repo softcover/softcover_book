@@ -5,4 +5,5 @@ login info
 commented_out_warning
 softcover build:all --quiet
 softcover publish
+git commit -am "Update upload timestamp"
 git push origin
