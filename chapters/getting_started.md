@@ -483,15 +483,16 @@ $ softcover clean
 
 
 ### Cover images
+\label{sec:cover_images}
 
 Softcover comes with default cover images, which you should change before distributing any of the formats or deploying the the Softcover website (Chapter~\ref{cha:marketing_selling}). The files appear as follows:
 
 ```text
 $ ls images/cover*
-images/cover-web.png images/cover.pdf     images/cover.png
+images/cover-web.png   images/cover.jpg    images/cover.pdf    images/cover.png
 ```
 
-\noindent The file `cover.png` is used for EPUB and MOBI, while `cover.pdf` is used for the PDF\@. Eventually we plan to automatically generate a smaller cover image for display on the web, but for now you need to make a separate image called `cover-web.png` as well.
+\noindent The file `cover.jpg` is used for EPUB and MOBI (or `cover.png` if `cover.jpg` is removed or doesn't exist), while `cover.pdf` is used for the PDF\@. Eventually we plan to automatically generate a smaller cover image for display on the web, but for now you need to make a separate image called `cover-web.png` as well.
 
 
 ## Publishing to the Softcover website

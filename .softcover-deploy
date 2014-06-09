@@ -1,7 +1,7 @@
 # Edit this file to customize your deployment steps with custom command options
 # or additional commands.
 #
-login mhartl
+login info
 commented_out_warning
 softcover build:all --quiet
 softcover publish
