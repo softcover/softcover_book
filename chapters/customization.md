@@ -10,7 +10,7 @@ Two of the most important commands in the Softcover CLI are `build:all` and `dep
 ### Customizing builds
 \label{sec:customizing_builds}
 
-By default, `softcover build:all` generates HTML, EPUB, MOBI, and PDF file, but it's easy to customize. All you need to do is edit the file \linebreak `.softcover-build` in the book's root directory (Listing~\ref{code:build_config}).
+By default, `softcover build:all` generates HTML, EPUB, MOBI, and PDF files, but it's easy to customize. All you need to do is edit the file \linebreak `.softcover-build` in the book's root directory (Listing~\ref{code:build_config}).
 
 \begin{codelisting}
 \label{code:build_config}
