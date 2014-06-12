@@ -592,6 +592,48 @@ In addition to the `tabular` environment, Softcover also supports the similarly 
 ```
 \end{codelisting}
 
+#### Wrapping long lines
+\label{sec:wrapping_long_table_lines}
+
+Sometimes text in a table cell will be too long for the line. In HTML, this text gets wrapped automatically, but to get the line to wrap in the PDF as well you have to use the \verb+\pbox+ ("paragraph box") command. The \verb+\pbox+ command takes two arguments, the width of the box (typically in centimeters) and the text itself:
+
+```latex
+\pbox{9cm}{Lorem ipsum...}
+```
+
+\noindent To find a good width, make a guess and the build the PDF to see how it looks, iterating as necessary.
+
+An example of a table with a \verb+\pbox+ command appears in Table~\ref{table:long_line}, with the corresponding code as in Listing~\ref{code:long_line}.
+
+\begin{table}
+\caption{A table with a long line.\label{table:long_line}}
+\begin{tabular}{c|l}
+  \textbf{Source} & \textbf{Text} \\ \hline
+  Seneca & \emph{Docendo discimus.} \\
+  Cicero (fragment) & \pbox{9cm}{\emph{Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}}
+\end{tabular}
+\end{table}
+
+\begin{codelisting}
+\label{code:long_line}
+\codecaption{Source for Table~\ref{table:long_line} (long line truncated).}
+```latex, options: "hl_lines": [6]
+\begin{table}
+\caption{A table with a long line.\label{table:long_line}}
+\begin{tabular}{c|l}
+  \textbf{Source} & \textbf{Text} \\ \hline
+  Seneca & \emph{Docendo discimus.} \\
+  Cicero (fragment) & \pbox{9cm}{\emph{Lorem ipsum...}}
+\end{tabular}
+\end{table}
+```
+\end{codelisting}
+
 ### Figures
 \label{sec:embedded_figures}
 
