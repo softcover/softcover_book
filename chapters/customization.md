@@ -137,12 +137,6 @@ epub/OEBPS/styles/custom_epub.css
 <<(epub/OEBPS/styles/custom_epub.css)
 \end{codelisting}
 
-The entire `epub/` directory is `.gitignore`d by default, so if you're using Git and you've made custom changes you should add the custom CSS file by hand:
-
-```console
-$ git add --force epub/OEBPS/styles/custom_epub.css
-```
-
 ### PDF style
 \label{sec:pdf_style}
 
