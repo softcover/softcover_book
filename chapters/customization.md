@@ -137,6 +137,12 @@ epub/OEBPS/styles/custom_epub.css
 <<(epub/OEBPS/styles/custom_epub.css)
 \end{codelisting}
 
+In earlier versions of Softcover, the entire `epub/` directory was `.gitignore`d by default, so Git users may have to add the custom CSS file by hand:
+
+```console
+$ git add --force epub/OEBPS/styles/custom_epub.css
+```
+
 ### PDF style
 \label{sec:pdf_style}
 
