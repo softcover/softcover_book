@@ -125,11 +125,7 @@ You can customize Softcover's HTML styles using the `custom.css` file in the `ht
 ### EPUB/MOBI style
 \label{sec:epub_mobi_style}
 
-Any changes you make in `custom.css` (Section~\ref{sec:html_style}) will automatically be incorporated into the EPUB and MOBI styles as well, but sometimes you'll want additional customization that applies *just* to EPUB and MOBI books. The file `custom_epub.css` allows for this extra layer of detail (Listing~\ref{code:custom_epub_css}). Its somewhat strange-looking location is set by the EPUB standard:
-
-```text
-epub/OEBPS/styles/custom_epub.css
-```
+Any changes you make in `custom.css` (Section~\ref{sec:html_style}) will automatically be incorporated into the EPUB and MOBI styles as well, but sometimes you'll want additional customization that applies *just* to EPUB and MOBI books. The file `custom_epub.css` allows for this extra layer of detail (Listing~\ref{code:custom_epub_css}). (Its somewhat strange-looking directory location is set by the EPUB standard.)
 
 \begin{codelisting}
 \label{code:custom_epub_css}
