@@ -1,6 +1,8 @@
 # Getting started
 \label{cha:getting_started}
 
+\today
+
 This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors. Softcover consists of two main parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}). Based on the technology used to make the [*Ruby on Rails Tutorial* book](http://ruby.railstutorial.org/) and [*The Tau Manifesto*](http://tauday.com/tau-manifesto), Softcover makes publishing *frictionless* by allowing authors to build and deploy ebooks and other digital goods with a single command.
 
 The Softcover production toolchain and publishing platform are especially designed to help authors make the transition from "writing a book" to "building a business," using the following [three-step plan](http://www.youtube.com/watch?v=tO5sxLapAts):
