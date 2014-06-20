@@ -826,7 +826,7 @@ This equation is set using \LaTeX's native "backslash square bracket" notation:
 \[ \phi^2 - \phi - 1 = 0. \]
 ```
 
-\noindent As with inline math, \TeX provides an alternate dollar-sign syntax, in this case using `$$...$$` for centered math. As with single dollar signs, this notation is not supported Markdown input but it supported by \PolyTeX, so power users who want to be able to write
+\noindent As with inline math, \TeX\ provides an alternate dollar-sign syntax, in this case using `$$...$$` for centered math. As with single dollar signs, this notation is not supported Markdown input but it supported by \PolyTeX, so power users who want to be able to write
 
 ```latex
 $$ \phi^2 - \phi - 1 = 0. $$
