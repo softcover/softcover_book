@@ -143,6 +143,22 @@ This allows you to embed images like so:
 
 Images in vanilla Markdown are limited to embedding as above, but Softcover extends Markdown to provide a wide variety of other behavior, including captioned images, numbered figures, and numbered figures with captions (Section~\ref{sec:embedded_figures}).
 
+### PDF/PNG images
+\label{sec:pdf_png_images}
+
+Because PDF and HTML treat images differently, sometimes it's useful to be able to include PDF images in PDF documents and PNG images in HTML/EPUB/MOBI. Softcover supports this automatically via a simple convention: if you include an image with a `.pdf` extension, the corresponding `.png` file will be used in the HTML version. For example, this Model-View-Controller image from the Ruby on Rails Tutorial:
+
+![Model View Controller](images/figures/mvc_schematic.pdf)
+
+\noindent is produced with the code
+
+```text
+![Model View Controller](images/figures/mvc_schematic.pdf)
+```
+
+\noindent which uses `mvc_schematic.pdf` in the PDF book and `mvc_schematic.png` in the HTML output. The only requirement is that both files exist in the correct location.
+
+
 ## Lists
 
 Markdown supports both numbered and unnumbered lists, corresponding to HTML `ol` and `ul` environments, respectively.

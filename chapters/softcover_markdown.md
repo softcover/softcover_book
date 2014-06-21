@@ -860,7 +860,7 @@ Finally, Softcover supports numbered, cross-referenced equations using the `equa
 
 Softcover supports both common \LaTeX\ methods for referencing equations: normal references using \verb+\ref+, as in Eq.~\ref{eq:golden_ratio}, and the preferred \verb+\eqref+, which automatically adds parentheses around the equation number, as in Eq.~\eqref{eq:golden_ratio}. The latter is especially useful when omitting the "Eq." part, allowing compact equation references like \eqref{eq:golden_ratio}. Listing~\ref{code:eq_refs} compares the methods.
 
-<!-- \begin{codelisting}
+\begin{codelisting}
 \label{code:eq_refs}
 \codecaption{Comparing the equation reference methods.}
 ```latex
@@ -869,7 +869,7 @@ Eq.~\eqref{eq:golden_ratio}    % produces "Eq. (3.1)"
 \eqref{eq:golden_ratio}        % produces "(3.1)"
 ```
 \end{codelisting}
- -->
+
 <!-- ## Switching from Markdown to \PolyTeX
 \label{sec:markdown_to_polytex}
 
