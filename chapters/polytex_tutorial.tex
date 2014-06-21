@@ -1,7 +1,7 @@
 \chapter{\PolyTeX\ tutorial} % (fold)
 \label{cha:polytex_tutorial}
 
-\noindent \textbf{Note:} \emph{This \PolyTeX\ tutorial is in development. It currently gives instructions for generating a \PolyTeX\ book and for converting from Markdown to \PolyTeX. Eventually I plan to include a full \PolyTeX\ tutorial, but for now I assume you either already know \LaTeX\ or are willing to use the listed resources to learn it.}
+\noindent \textbf{Note:} \emph{This \PolyTeX\ tutorial is in development. It currently gives instructions for generating a \PolyTeX\ book and for converting from Markdown to \PolyTeX\@. Eventually I plan to include a full \PolyTeX\ tutorial, but for now I assume you either already know \LaTeX\ or are willing to use the listed resources to learn it.}
 
 \section{\PolyTeX\ basics} % (fold)
 \label{sec:polytex_basics}
@@ -63,6 +63,56 @@ $ softcover server -p 4001
 
 % section polytex basics (end)
 
+\section{Custom commands} % (fold)
+\label{sec:custom_commands}
 
+Softcover includes some standard commands as part of \kode{softcover.sty}. The most common is \verb+\kode+ (so-called because \verb+\code+ was already taken), which sets text as inline code:
+
+%= lang:latex
+\begin{code}
+Softcover includes some standard commands as part of \kode{softcover.sty}.
+\end{code}
+
+\noindent This is equivalent to Markdown's backtick environment:
+
+%= lang:text
+\begin{code}
+Softcover includes some standard commands as part of `softcover.sty`.
+\end{code}
+
+\subsection{Colored text} % (fold)
+\label{sec:colored_text}
+
+Softcover defines the custom command \verb+\coloredtext+, used as follows:
+
+%= lang:latex
+\begin{code}
+\coloredtext{<color>}{<text>}
+\end{code}
+
+\noindent For example, \coloredtext{red}{this is red text}, and \coloredtext{teal}{this is teal text}. The \verb+\coloredtext+ command supports a huge number of colors, including
+\coloredtext{red}{red},
+\coloredtext{green}{green},
+\coloredtext{blue}{blue},
+\coloredtext{cyan}{cyan},
+\coloredtext{magenta}{magenta},
+\coloredtext{yellow}{yellow},
+\coloredtext{black}{black},
+\coloredtext{gray}{gray},
+\coloredtext{white}{white} [white],
+\coloredtext{darkgray}{darkgray},
+\coloredtext{lightgray}{lightgray},
+\coloredtext{brown}{brown},
+\coloredtext{lime}{lime},
+\coloredtext{olive}{olive},
+\coloredtext{orange}{orange},
+\coloredtext{pink}{pink},
+\coloredtext{purple}{purple},
+\coloredtext{teal}{teal},
+\coloredtext{violet}{violet}, and all the \href{http://www.latextemplates.com/svgnames-colors}{svgnames colors}.
+
+% subsection colored_text (end)
+
+% section custom_commands (end)
 
 % chapter polytex_documents (end)
