@@ -149,7 +149,7 @@ All dependencies satisfied.
 - [PhantomJS](http://phantomjs.org/)
 - [Inkscape](http://inkscape.org/)
 - [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (place the `kindlegen` somewhere on your path, such as in `/usr/local/bin`)
-- [Calibre](http://calibre-ebook.com/) with the [command-line tools](http://manual.calibre-ebook.com/cli/cli-index.html)
+- [Calibre](http://calibre-ebook.com/) with the command-line tools (built-in on Linux; on OS X, go to Preferences > Change calibre behavior > Advanced > Install command line tools)
 - [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you already have this one)
 - [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip)[^epub_check_version] (unzip in your home directory)
 
@@ -375,21 +375,23 @@ $ open ebooks/example_book.epub
 #### MOBI
 \label{sec:build_mobi}
 
-Once you've built an EPUB book, making a MOBI (the native format for Amazon.com's Kindle) is easy. The default method is to use [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (via the `kindlegen` executable), supplied by Amazon.com itself:
+Once you've built an EPUB book, making a MOBI (the native format for Amazon.com's Kindle) is easy. The default method is to use *Calibre*, an open-source ebook manager. To get started, [install Calibre](http://calibre-ebook.com/) and then follow the instructions from Section~\ref{sec:installing_softcover} to enable the Calibre command line tools. Once you've done that, you can build a MOBI file as follows:
 
 ```console
 $ softcover build:mobi
 ```
 
-\noindent There is also an open-source alternative called *Calibre*, so if you [install Calibre](http://calibre-ebook.com/) and then follow the instructions to [enable Calibre command line tools](http://manual.calibre-ebook.com/cli/cli-index.html) you can use the \verb+--calibre+ option:[^kindlegen_terms]
-
-```console
-$ softcover build:mobi --calibre
-```
-
 \noindent As with EPUB, you can use command-line options to make the MOBI builder quiet (`-q`) or silent (`-s`).
 
-To view the MOBI file on your computer, I recommend installing [Kindle reader](http://www.amazon.com/gp/feature.html?docId=1000493771). The result appears in Figure~\ref{fig:example_mobi}.
+A second possibility when building MOBI files is to use [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (via the `kindlegen` executable), supplied by Amazon.com itself:
+
+```console
+$ softcover build:mobi --kindlegen
+```
+
+\noindent Selling KindleGen-generated MOBI files anywhere other than Amazon.com violates the [KindleGen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251), so Softcover recommends using KindleGen only if you plan to give your book away for free or to sell it on Amazon.
+
+To view the MOBI file on your computer, I recommend installing [Kindle Reader](http://www.amazon.com/gp/feature.html?docId=1000493771). The result appears in Figure~\ref{fig:example_mobi}.
 
 ![The example book MOBI.\label{fig:example_mobi}](images/figures/example_mobi.png)
 
@@ -565,8 +567,6 @@ Using `softcover deploy` makes publishing to the Softcover website completely fr
 [^homebrew]: Some Mac users will be tempted to use the otherwise excellent [Homebrew](http://brew.sh), but in the case of the Softcover dependencies I urge them to resist this temptation.
 
 [^kindlegen_proprietary]: The only proprietary part of the toolchain is the KindleGen program for building books in MOBI format, but authors can optionally use the open-source Calibre program as a replacement.
-
-[^kindlegen_terms]: The MOBI files produced by KindleGen are generally slightly higher-quality than MOBI files made by Calibre, and unlike Calibre-generated files they can be sent to Kindle via email or using the convenient [Send to Kindle](http://www.amazon.com/gp/sendtokindle) program. On the other hand, whereas authors are free to do anything they like with Calibre-generated MOBI files, selling KindleGen-generated MOBI files anywhere other than Amazon.com violates the [KindleGen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251). To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk.
 
 [^epub_check_version]: Unfortunately, EpubCheck 3.0.1 is buggy, so it's important to use version 3.0.
 

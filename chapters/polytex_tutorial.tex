@@ -63,8 +63,8 @@ $ softcover server -p 4001
 
 % section polytex basics (end)
 
-\section{Custom commands} % (fold)
-\label{sec:custom_commands}
+\section{Included commands} % (fold)
+\label{sec:included_commands}
 
 Softcover includes some standard commands as part of \kode{softcover.sty}. The most common is \verb+\kode+ (so-called because \verb+\code+ was already taken), which sets text as inline code:
 
@@ -83,7 +83,7 @@ Softcover includes some standard commands as part of `softcover.sty`.
 \subsection{Colored text} % (fold)
 \label{sec:colored_text}
 
-Softcover defines the custom command \verb+\coloredtext+, used as follows:
+Softcover defines the command \verb+\coloredtext+, used as follows:
 
 %= lang:latex
 \begin{code}
@@ -109,7 +109,31 @@ Softcover defines the custom command \verb+\coloredtext+, used as follows:
 \coloredtext{pink}{pink},
 \coloredtext{purple}{purple},
 \coloredtext{teal}{teal},
-\coloredtext{violet}{violet}, and all the \href{http://www.latextemplates.com/svgnames-colors}{svgnames colors}.
+\coloredtext{violet}{violet}, and all the \href{http://www.latextemplates.com/svgnames-colors}{svgnames colors} (such as \coloredtext{MediumSeaGreen}{medium sea green} and \coloredtext{CornflowerBlue}{cornflower blue}).
+
+In addition to supporting a large number of named colors, for maximum flexibility Softcover defines the \verb+\coloredtexthtml+ command to allow for inclusion of \coloredtexthtml{E8AB3A}{arbitrary HTML colors} such as \coloredtexthtml{FF0000}{red text} using hexadecimal RGB values:
+
+%= lang:latex
+\begin{code}
+\coloredtexthtml{E8AB3A}{arbitrary HTML colors} such as
+\coloredtexthtml{FF0000}{red text}
+\end{code}
+
+\noindent \emph{Note}: Unlike HTML, \LaTeX\ requires six upper-case hex numbers, so
+
+%= lang:latex
+\begin{code}
+\coloredtexthtml{ff0000}{red text}
+\end{code}
+
+\noindent and
+
+%= lang:latex
+\begin{code}
+\coloredtexthtml{f00}{red text}
+\end{code}
+
+\noindent won't work.
 
 % subsection colored_text (end)
 

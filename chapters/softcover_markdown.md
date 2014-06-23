@@ -870,6 +870,18 @@ Eq.~\eqref{eq:golden_ratio}    % produces "Eq. (3.1)"
 ```
 \end{codelisting}
 
+
+### Colored text
+\label{sec:markdown_colored_text}
+
+Softcover supports \coloredtext{red}{colored} \coloredtexthtml{E8AB3A}{text} via the \verb+\coloredtext+ and \verb+\coloredtexthtml+ commands:
+
+```latex
+Softcover supports \coloredtext{red}{colored} \coloredtexthtml{E8AB3A}{text}
+```
+
+\noindent See Section~\ref{sec:colored_text} for more details.
+
 <!-- ## Switching from Markdown to \PolyTeX
 \label{sec:markdown_to_polytex}
 
@@ -877,6 +889,42 @@ It's possible to switch over at any time, can be done on a chapter-by-chapter ba
 
 Just move the generated \PolyTeX\ file from the `generated_polytex` directory into the `chapters/` directory and edit the `Book.txt` file. Once you're confident you really want to make the switch, remove the original Markdown file. (If you're using Git for version control, which I *strongly* recommend, you can use `git rm` to remove the file. It will then be available in your history should you ever get cold feet and want to go back to Markdown.) -->
 
+
+### Inputting contents of other files
+
+\LaTeX\ includes the ability to input the contents of external files using the \verb+\input+ command:
+
+```latex
+This includes the contents of example.tex:
+
+\input{example}
+```
+
+\noindent As indicated in the comment, \verb+\input{example}+ includes the contents of `example.tex` by default. This is fine when writing \PolyTeX\ documents (chapter~\ref{cha:polytex_tutorial}), but it doesn't work for including Markdown documents. To fix this, Softcover overrides the default behavior of \verb+\input+ so that, in Markdown documents, the code
+
+```latex
+\input{chapters/example}
+```
+
+\noindent causes `chapters/example.md` to be included into the current file. This makes it possible to break a long chapter into smaller pieces and then assemble them using repeated invocations of \verb+\input+:
+
+```latex
+# Example chapter
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\input{chapters/a_section}
+\input{chapters/another_section}
+\input{chapters/yet_another_section}
+
+```
+
+ \noindent Note also that \verb+\input+ is recursive, so the included documents can themselves use \verb+\input+, and so on *ad infinitum*.
 
 <!-- footnotes  -->
 

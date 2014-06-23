@@ -25,17 +25,17 @@ By default, `softcover build:all` generates HTML, EPUB, MOBI, and PDF files, but
 ```
 \end{codelisting}
 
-For example, if you want to use Calibre in place of KindleGen \linebreak (Section~\ref{sec:build_mobi}) and build previews (Section~\ref{sec:build_previews}) by default, you can use the `.softcover-build` file shown in Listing~\ref{code:build_preview_calibre}. This uncomments the lines in Listing~\ref{code:build_config} and adds the \verb+--calibre+ flag to the `build:mobi` command. (Note that Listing~\ref{code:build_preview_calibre} omits `softcover build:epub` because EPUB files are generated automatically as a side-effect of building MOBI.)
+For example, if you want to use KindleGen in place of Calibre \linebreak (Section~\ref{sec:build_mobi}) and build previews (Section~\ref{sec:build_previews}) by default, you can use the `.softcover-build` file shown in Listing~\ref{code:build_preview_kindlegen}. This uncomments the lines in Listing~\ref{code:build_config} and adds the \verb+--kindlegen+ flag to the `build:mobi` command. (Note that Listing~\ref{code:build_preview_calibre} omits `softcover build:epub` because EPUB files are generated automatically as a side-effect of building MOBI.)
 
 \begin{codelisting}
-\label{code:build_preview_calibre}
-\codecaption{Using Calibre and building previews. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-build}}
+\label{code:build_preview_kindlegen}
+\codecaption{Using KindleGen and building previews. \\ \filepath{\$ROOT\_DIRECTORY/.softcover-build}}
 ```text, options: "hl_lines": [5, 6]
 # Edit this file to customize your build steps with custom command options
 # or additional commands.
 #
 softcover build:pdf
-softcover build:mobi --calibre
+softcover build:mobi --kindlegen
 softcover build:preview
 ```
 \end{codelisting}
