@@ -870,6 +870,18 @@ Eq.~\eqref{eq:golden_ratio}    % produces "Eq. (3.1)"
 ```
 \end{codelisting}
 
+
+### Colored text
+\label{sec:markdown_colored_text}
+
+Softcover supports \coloredtext{red}{colored} \coloredtexthtml{E8AB3A}{text} via the \verb+\coloredtext+ and \verb+\coloredtexthtml+ commands:
+
+```latex
+Softcover supports \coloredtext{red}{colored} \coloredtexthtml{E8AB3A}{text}
+```
+
+\noindent See Section~\ref{sec:colored_text} for more details.
+
 <!-- ## Switching from Markdown to \PolyTeX
 \label{sec:markdown_to_polytex}
 
