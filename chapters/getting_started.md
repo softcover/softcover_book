@@ -389,7 +389,7 @@ $ softcover build:mobi --calibre
 
 \noindent As with EPUB, you can use command-line options to make the MOBI builder quiet (`-q`) or silent (`-s`).
 
-To view the MOBI file on your computer, I recommend installing [Kindle reader](http://www.amazon.com/gp/feature.html?docId=1000493771). The result appears in Figure~\ref{fig:example_mobi}.
+To view the MOBI file on your computer, I recommend installing [Kindle reader](http://www.amazon.com/gp/feature.html?docId=1000493771) or [FB Reader](http://fbreader.org/). The result appears in Figure~\ref{fig:example_mobi}.
 
 ![The example book MOBI.\label{fig:example_mobi}](images/figures/example_mobi.png)
 
