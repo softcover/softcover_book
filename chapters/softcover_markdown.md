@@ -891,6 +891,7 @@ Just move the generated \PolyTeX\ file from the `generated_polytex` directory in
 
 
 ### Inputting contents of other files
+\label{sec:input}
 
 \LaTeX\ includes the ability to input the contents of external files using the \verb+\input+ command:
 
@@ -921,7 +922,6 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 \input{chapters/a_section}
 \input{chapters/another_section}
 \input{chapters/yet_another_section}
-
 ```
 
  \noindent Note also that \verb+\input+ is recursive, so the included documents can themselves use \verb+\input+, and so on *ad infinitum*.
