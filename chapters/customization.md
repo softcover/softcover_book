@@ -133,7 +133,7 @@ Any changes you make in `custom.css` (Section~\ref{sec:html_style}) will automat
 <<(epub/OEBPS/styles/custom_epub.css)
 \end{codelisting}
 
-In earlier versions of Softcover, the entire `epub/` directory was `.gitignore`d by default, so Git users may have to add the custom CSS file by hand:
+In earlier versions of Softcover, the entire `epub/` directory was ignored by default, so Git users may have to add the custom CSS file by hand:
 
 ```console
 $ git add --force epub/OEBPS/styles/custom_epub.css
@@ -161,7 +161,7 @@ You can customize the PDF styles in two different ways. The first and simpler is
 ```
 \end{codelisting}
 
-One use of `custom_pdf.sty` is important enough to deserve special mention, namely, changing the default paragraph indentation and spacing to match the style in HTML/EPUB/MOBI. In line with standard practices for professionally typeset books, the default behavior in PDF is for all paragraphs after the first one in a section to be indented. This indentation serves as a visual marker for paragraph boundaries, making them easier to parse visually. On the other hand, this convention requires suppressing indentation by hand (using a \verb+\noindent+) after elements like code blocks, as discussed at the end of Section~\ref{sec:code_fencing}. Without a \verb+\noindent+, any text after the code block gets interpreted as a new paragraph and is indented, which is often not what you want.
+One use of `custom_pdf.sty` is important enough to deserve special mention, namely, changing the default paragraph indentation and spacing to match the style in HTML/-EPUB/-MOBI. In line with standard practices for professionally typeset books, the default behavior in PDF is for all paragraphs after the first one in a section to be indented. This indentation serves as a visual marker for paragraph boundaries, making them easier to parse visually. On the other hand, this convention requires suppressing indentation by hand (using a \verb+\noindent+) after elements like code blocks, as discussed at the end of Section~\ref{sec:code_fencing}. Without a \verb+\noindent+, any text after the code block gets interpreted as a new paragraph and is indented, which is often not what you want.
 
 My preference is to make PDFs as close to traditional print-quality as possible, but some authors would rather unify the appearance of their ebooks and not have to worry about adding \verb+\noindent+ by hand. To arrange for this behavior, you need to tell \LaTeX\ not to indent paragraphs, while also increasing the vertical space *between* paragraphs so that they still stand out. The code to accomplish this appears in Listing~\ref{code:noindent_style}.
 
@@ -218,7 +218,7 @@ Only two steps are required to support foreign languages across different output
 ```
 \end{codelisting}
 
-Second, to enable foreign language support in HTML/EPUB/MOBI, we need to edit the file `lang.yml` in the `config` directory to tell Softcover the names of the various elements (chapter, section, listing, etc.). The default (English) values are shown in Listing~\ref{code:default_lang_yml}, while the edited values for French are shown in Listing~\ref{code:french_lang_yml}.
+Second, to enable foreign language support in HTML/-EPUB/-MOBI, we need to edit the file `lang.yml` in the `config` directory to tell Softcover the names of the various elements (chapter, section, listing, etc.). The default (English) values are shown in Listing~\ref{code:default_lang_yml}, while the edited values for French are shown in Listing~\ref{code:french_lang_yml}.
 
 \begin{codelisting}
 \label{code:default_lang_yml}

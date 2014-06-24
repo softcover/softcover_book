@@ -874,7 +874,7 @@ Eq.~\eqref{eq:golden_ratio}    % produces "Eq. (3.1)"
 ### Colored text
 \label{sec:markdown_colored_text}
 
-Softcover supports \coloredtext{red}{colored} \coloredtexthtml{E8AB3A}{text} via the \verb+\coloredtext+ and \verb+\coloredtexthtml+ commands:
+Via the \verb+\coloredtext+ and \verb+\coloredtexthtml+ commands, Softcover supports including \coloredtext{red}{colored} \coloredtexthtml{E8AB3A}{text} across all output formats:
 
 ```latex
 Softcover supports \coloredtext{red}{colored} \coloredtexthtml{E8AB3A}{text}
@@ -893,7 +893,7 @@ Just move the generated \PolyTeX\ file from the `generated_polytex` directory in
 ### Inputting contents of other files
 \label{sec:input}
 
-\LaTeX\ includes the ability to input the contents of external files using the \verb+\input+ command:
+\LaTeX's \verb+\input+ command inputs the contents of a external file into the current file:
 
 ```latex
 This includes the contents of example.tex:
@@ -901,13 +901,13 @@ This includes the contents of example.tex:
 \input{example}
 ```
 
-\noindent As indicated in the comment, \verb+\input{example}+ includes the contents of `example.tex` by default. This is fine when writing \PolyTeX\ documents (chapter~\ref{cha:polytex_tutorial}), but it doesn't work for including Markdown documents. To fix this, Softcover overrides the default behavior of \verb+\input+ so that, in Markdown documents, the code
+\noindent In this example, \verb+\input{example}+ automatically includes the contents of `example.tex` into the current file; i.e., \LaTeX\ infers the `.tex` filename extension. This is fine when writing \PolyTeX\ documents (chapter~\ref{cha:polytex_tutorial}), but it doesn't work for including Markdown documents. To fix this, Softcover overrides the default behavior of \verb+\input+ so that, in Markdown documents, the code
 
 ```latex
 \input{chapters/example}
 ```
 
-\noindent causes `chapters/example.md` to be included into the current file. This makes it possible to break a long chapter into smaller pieces and then assemble them using repeated invocations of \verb+\input+:
+\noindent causes `chapters/example.md` to be included into the current file. This makes it possible to break long chapters into smaller pieces and then assemble them using repeated invocations of \verb+\input+:
 
 ```latex
 # Example chapter

@@ -494,7 +494,7 @@ $ ls images/cover*
 images/cover-web.png   images/cover.jpg    images/cover.pdf    images/cover.png
 ```
 
-\noindent The file `cover.jpg` is used for EPUB and MOBI (or `cover.png` if `cover.jpg` is removed or doesn't exist), while `cover.pdf` is used for the PDF\@. Eventually we plan to automatically generate a smaller cover image for display on the web, but for now you need to make a separate image called `cover-web.png` as well.
+\noindent If present, the file `cover.jpg` is used for EPUB and MOBI output; otherwise, `cover.png` is used. Meanwhile, `cover.pdf` is used for the PDF\@. (Eventually we plan to automatically generate a smaller cover image for display on the web, but for now you need to make a separate image called `cover-web.png` as well.)
 
 
 ## Publishing to the Softcover website

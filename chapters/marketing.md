@@ -56,7 +56,7 @@ prices:
     description:
       |
         * Includes 10 hours of video screencasts
-        * Ebooks inclded in PDF/EPUB/MOBI formats
+        * Ebooks inclded in PDF/-EPUB/-MOBI formats
     media:
       - ebooks
       - media/screencasts
@@ -175,7 +175,7 @@ As seen in Figure~\ref{fig:access_options}, Softcover supports four principal ac
 
 3. **HTML Paywall**: Set this to **ON** to put the HTML copy of your book behind a paywall, so that only paying customers will be able to read it. Default is **OFF**.
 
-4. **Free Download**: Set this to **ON** to enable free downloads of the PDF/EPUB/MOBI formats of your ebook. Default is **OFF**.
+4. **Free Download**: Set this to **ON** to enable free downloads of the PDF/-EPUB/-MOBI formats of your ebook. Default is **OFF**.
 
 The settings in Figure~\ref{fig:access_options} arrange for the Ruby on Rails Tutorial to be accessible to the public and available for purchase, while making the HTML (but not the ebooks) available for free. See Section~\ref{sec:launch_sequence} for some additional recommendations on how to use these options.
 
@@ -229,7 +229,7 @@ Using the Softcover features, a typical launch sequence might go like this:
 
 1. Begin work on the book with public access **OFF**.
 2. After finishing a few chapters, set up a custom domain, analytics, and a basic marketing page, then set Public Access **ON**. Collect email address and feedback. Reach out to bloggers in your niche to get feedback and possible links.
-3. Continue publishing the book-in-progress (typically on chapter at a time). Send announcements via email, Twitter, etc., when each chapter is out.
+3. Continue publishing the book-in-progress (typically one chapter at a \linebreak time). Send announcements via email, Twitter, etc., when each chapter is out.
 4. Start selling access to the ebook-in-progress by adding an ebook product category in `marketing.yml` and setting Able to Purchase to **ON**.
 5. Announce book's completion while adding a product tier for access to add-on goods as they're produced.
 6. Complete add-on products and announce via email, Twitter, etc. Continue reaching out to bloggers, etc., to get inbound links and SEO.

@@ -113,13 +113,13 @@ as in the `def` keyword
 Markdown supports hypertext links through a convenient format inspired by common usage in email, where you might write something like this as:
 
 ```text
-Check out the Ruby on Rails Tutorial (http://railstutorial.org/)
+Check out the Ruby on Rails Tutorial (http://www.railstutorial.org/)
 ```
 
-\noindent Markdown adds one piece of syntax to resolve the ambiguity of exactly which text corresponds to the link, thus letting you check out the [Ruby on Rails Tutorial](http://railstutorial.org/) as follows:
+\noindent Markdown adds one piece of syntax to resolve the ambiguity of exactly which text corresponds to the link, thus letting you check out the [Ruby on Rails Tutorial](http://www.railstutorial.org/) as follows:
 
 ```text
-check out the [Ruby on Rails Tutorial](http://railstutorial.org/)
+check out the [Ruby on Rails Tutorial](http://www.railstutorial.org/)
 ```
 
 Images follow a similar syntax, with the text being preceded by an exclamation point. This allows you to embed images like so:
@@ -146,7 +146,7 @@ Images in vanilla Markdown are limited to embedding as above, but Softcover exte
 ### PDF/PNG images
 \label{sec:pdf_png_images}
 
-Because PDF and HTML treat images differently, sometimes it's useful to be able to include PDF images in PDF documents and PNG images in HTML/EPUB/MOBI. Softcover supports this automatically via a simple convention: if you include an image with a `.pdf` extension, the corresponding `.png` file will be used in the HTML version. For example, this Model-View-Controller image from the Ruby on Rails Tutorial:
+Because PDF and HTML treat images differently, sometimes it's useful to be able to include PDF images in PDF documents and PNG images in HTML/-EPUB/-MOBI. Softcover supports this automatically via a simple convention: if you include an image with a `.pdf` extension, the corresponding `.png` file will be used in the HTML version. For example, this Model-View-Controller image from the Ruby on Rails Tutorial:
 
 ![Model View Controller](images/figures/mvc_schematic.pdf)
 
@@ -156,7 +156,7 @@ Because PDF and HTML treat images differently, sometimes it's useful to be able 
 ![Model View Controller](images/figures/mvc_schematic.pdf)
 ```
 
-\noindent which uses `mvc_schematic.pdf` in the PDF book and `mvc_schematic.png` in the HTML output. The only requirement is that both files exist in the correct location.
+\noindent which uses `mvc_schematic.pdf` in the PDF and `mvc_schematic.png` in the HTML output. The only requirement is that both files exist in the correct location.
 
 
 ## Lists
