@@ -25,7 +25,7 @@ By default, `softcover build:all` generates HTML, EPUB, MOBI, and PDF files, but
 ```
 \end{codelisting}
 
-For example, if you want to use KindleGen in place of Calibre \linebreak (Section~\ref{sec:build_mobi}) and build previews (Section~\ref{sec:build_previews}) by default, you can use the `.softcover-build` file shown in Listing~\ref{code:build_preview_kindlegen}. This uncomments the lines in Listing~\ref{code:build_config} and adds the \verb+--kindlegen+ flag to the `build:mobi` command. (Note that Listing~\ref{code:build_preview_calibre} omits `softcover build:epub` because EPUB files are generated automatically as a side-effect of building MOBI.)
+For example, if you want to use KindleGen in place of Calibre \linebreak (Section~\ref{sec:build_mobi}) and build previews (Section~\ref{sec:build_previews}) by default, you can use the `.softcover-build` file shown in Listing~\ref{code:build_preview_kindlegen}. This uncomments the lines in Listing~\ref{code:build_config} and adds the \verb+--kindlegen+ flag to the `build:mobi` command. (Note that Listing~\ref{code:build_preview_kindlegen} omits `softcover build:epub` because EPUB files are generated automatically as a side-effect of building MOBI.)
 
 \begin{codelisting}
 \label{code:build_preview_kindlegen}
@@ -302,7 +302,7 @@ $ softcover build:pdf --find-overfull
 $ softcover build:pdf --find-overfull
 ```
 
-\noindent (You need to run it twice initially to make sure the cross-reference are up-to-date, as this can affect the presence of overfull hboxes.) If this second command returns no results, it means that your book is 100% overfull hbox--free.
+\noindent (You need to run it twice initially to make sure the cross-reference are up-to-date, as this can affect the presence of overfull hboxes.) If the second command returns no results, it means that your book is 100% overfull hbox--free.
 
 Unfortunately, because of the way \LaTeX\ processes files, the line numbers output by the error message aren't useful for tracking down the source of the overfull hbox. As a compromise, the \verb+--find-overfull+ flag gives some context around the problematic line, which should allow you to find the culprit using the search function in your text editor.
 

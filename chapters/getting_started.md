@@ -263,7 +263,7 @@ another_chapter.md     yet_another_chapter.md
 
 \noindent Authors are encouraged to use the template files as a model but to change their names so that they are better tailored to each book's content. For the purposes of this overview, though, we'll stick with the defaults.
 
-Softcover books also come with a `book.yml` configuration file containing some book metadata (Listing~\ref{code:book_yml}). The [slug](https://en.wikipedia.org/wiki/Clean_URL#Slug) represents the last part the book's URL at Softcover.io and should rarely need editing. You should generally change the title, author, subtitle (if any), and description before publishing the book to Softcover; as an example, Listing~\ref{code:custom_book_yml} shows the `book.yml` file for *The Softcover Book*. See Section~\ref{sec:preparing_for_publication}[^undefined_xref] to learn how to put the finishing touches on before publication.
+Softcover books also come with a `book.yml` configuration file containing some book metadata (Listing~\ref{code:book_yml}). The [slug](https://en.wikipedia.org/wiki/Clean_URL#Slug) represents the last part the book's URL at Softcover.io and should rarely need editing. You should generally change the title, author, subtitle (if any), and description before publishing the book to Softcover; as an example, Listing~\ref{code:custom_book_yml} shows the `book.yml` file for *The Softcover Book*. See Section~\ref{sec:detailed_refinements} and Chapter~\ref{cha:marketing_selling} to learn how to put the finishing touches on before publication.
 
 \begin{codelisting}
 \label{code:book_yml}
@@ -447,8 +447,8 @@ sys 0m1.185s
 The behavior of `softcover build:all` is customizable via the \linebreak `.softcover-build` file. See Section~\ref{sec:customizing_builds} for details.
 
 
-#### Preview
-\label{sec:build_preview}
+#### Previews
+\label{sec:build_previews}
 
 Finally, Softcover can optionally build a *preview* of your book in each output format, which is a particularly useful feature when selling your ebook (either on your own website or at [Softcover](http://softcover.io)). Because of the different ways the PDF and EPUB/MOBI formats work, there are two separate ways to specify the preview range. (You have to keep them roughly in sync by hand, but it's rarely important for the preview ranges to be exact, so this isn't a big problem in practice.) The configuration for PDF is a *page* range, while for EPUB/MOBI it's a *chapter* range (with "Chapter 0" being frontmatter like the table of contents, preface, etc.). Both ranges are specified in `book.yml` (Listing~\ref{code:preview_ranges}).
 
@@ -551,8 +551,6 @@ Using `softcover deploy` makes publishing to the Softcover website completely fr
 
 
 <!-- footnotes  -->
-
-[^undefined_xref]: This is what an undefined cross-reference looks like. It will be filled in as soon as the corresponding section is properly defined and labeled.
 
 [^poly_pronunciation]: \PolyTeXnic\ is pronounced exactly like the English word [*polytechnic*](http://www.thefreedictionary.com/polytechnic). The core input-to-output conversion is still handled by the \texttt{polytexnic} gem.
 

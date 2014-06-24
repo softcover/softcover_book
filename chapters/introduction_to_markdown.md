@@ -104,7 +104,7 @@ as in the `def` keyword
     end
 ```
 
-\noindent Note that this is *not* my preferred method for including source code, and I strongly encourage using GitHub-style code fencing (Section~\ref{sec:code_fencing}) or \LaTeX\ code environments (Section~\ref{sec:latex_code_formatting}) instead.
+\noindent Note that this is *not* my preferred method for including source code, and I strongly encourage using GitHub-style code fencing (Section~\ref{sec:code_fencing}) instead.
 
 
 ## Links and images
