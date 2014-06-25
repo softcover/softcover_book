@@ -117,7 +117,7 @@ The Softcover system is open-source software, distributed as a Ruby gem under th
 To get started with Softcover, first [install Ruby](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_ruby) (1.9.3 or later) and [install RubyGems](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_rubygems) if you don't have them already. Once you've done so, getting Softcover is a simple `gem install`:
 
 ```console
-$ gem install softcover -v 1.0.beta1
+$ gem install softcover --pre
 ```
 
 \noindent (On some systems, you may need to `sudo` to install the gem.) This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the `nokogiri` gem to install.
