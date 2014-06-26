@@ -117,7 +117,7 @@ The Softcover system is open-source software, distributed as a Ruby gem under th
 To get started with Softcover, first [install Ruby](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_ruby) (1.9.3 or later) and [install RubyGems](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_rubygems) if you don't have them already. Once you've done so, getting Softcover is a simple `gem install`:
 
 ```console
-$ gem install softcover
+$ gem install softcover --pre
 ```
 
 \noindent (On some systems, you may need to `sudo` to install the gem.) This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the `nokogiri` gem to install.
@@ -149,7 +149,7 @@ All dependencies satisfied.
 - [PhantomJS](http://phantomjs.org/)
 - [Inkscape](http://inkscape.org/)
 - [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (place the `kindlegen` somewhere on your path, such as in `/usr/local/bin`)
-- [Calibre](http://calibre-ebook.com/) with the [command-line tools](http://manual.calibre-ebook.com/cli/cli-index.html)
+- [Calibre](http://calibre-ebook.com/) with the command-line tools (built-in on Linux; on OS X, go to Preferences > Change calibre behavior > Advanced > Install command line tools)
 - [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you already have this one)
 - [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip)[^epub_check_version] (unzip in your home directory)
 
@@ -263,7 +263,7 @@ another_chapter.md     yet_another_chapter.md
 
 \noindent Authors are encouraged to use the template files as a model but to change their names so that they are better tailored to each book's content. For the purposes of this overview, though, we'll stick with the defaults.
 
-Softcover books also come with a `book.yml` configuration file containing some book metadata (Listing~\ref{code:book_yml}). The [slug](https://en.wikipedia.org/wiki/Clean_URL#Slug) represents the last part the book's URL at Softcover.io and should rarely need editing. You should generally change the title, author, subtitle (if any), and description before publishing the book to Softcover; as an example, Listing~\ref{code:custom_book_yml} shows the `book.yml` file for *The Softcover Book*. See Section~\ref{sec:preparing_for_publication}[^undefined_xref] to learn how to put the finishing touches on before publication.
+Softcover books also come with a `book.yml` configuration file containing some book metadata (Listing~\ref{code:book_yml}). The [slug](https://en.wikipedia.org/wiki/Clean_URL#Slug) represents the last part the book's URL at Softcover.io and should rarely need editing. You should generally change the title, author, subtitle (if any), and description before publishing the book to Softcover; as an example, Listing~\ref{code:custom_book_yml} shows the `book.yml` file for *The Softcover Book*. See Section~\ref{sec:detailed_refinements} and Chapter~\ref{cha:marketing_selling} to learn how to put the finishing touches on before publication.
 
 \begin{codelisting}
 \label{code:book_yml}
@@ -375,21 +375,27 @@ $ open ebooks/example_book.epub
 #### MOBI
 \label{sec:build_mobi}
 
-Once you've built an EPUB book, making a MOBI (the native format for Amazon.com's Kindle) is easy. The default method is to use [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (via the `kindlegen` executable), supplied by Amazon.com itself:
+Once you've built an EPUB book, making a MOBI (the native format for Amazon.com's Kindle) is easy. The default method is to use *Calibre*, an open-source ebook manager. To get started, [install Calibre](http://calibre-ebook.com/) and then follow the instructions from Section~\ref{sec:installing_softcover} to enable the Calibre command line tools. Once you've done that, you can build a MOBI file as follows:
 
 ```console
 $ softcover build:mobi
 ```
 
-\noindent There is also an open-source alternative called *Calibre*, so if you [install Calibre](http://calibre-ebook.com/) and then follow the instructions to [enable Calibre command line tools](http://manual.calibre-ebook.com/cli/cli-index.html) you can use the \verb+--calibre+ option:[^kindlegen_terms]
-
-```console
-$ softcover build:mobi --calibre
-```
-
 \noindent As with EPUB, you can use command-line options to make the MOBI builder quiet (`-q`) or silent (`-s`).
 
+A second possibility when building MOBI files is to use [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (via the `kindlegen` executable), supplied by Amazon.com itself:
+
+```console
+$ softcover build:mobi --kindlegen
+```
+
+\noindent Selling KindleGen-generated MOBI files anywhere other than Amazon.com violates the [KindleGen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251), so Softcover recommends using KindleGen only if you plan to give your book away for free or to sell it on Amazon.
+
+<<<<<<< HEAD
 To view the MOBI file on your computer, I recommend installing [Kindle reader](http://www.amazon.com/gp/feature.html?docId=1000493771) or [FB Reader](http://fbreader.org/). The result appears in Figure~\ref{fig:example_mobi}.
+=======
+To view the MOBI file on your computer, I recommend installing [Kindle Reader](http://www.amazon.com/gp/feature.html?docId=1000493771). The result appears in Figure~\ref{fig:example_mobi}.
+>>>>>>> 4d2792ff10e6e3f895e7fcbe5bb6f2c56b3bfa24
 
 ![The example book MOBI.\label{fig:example_mobi}](images/figures/example_mobi.png)
 
@@ -445,8 +451,8 @@ sys 0m1.185s
 The behavior of `softcover build:all` is customizable via the \linebreak `.softcover-build` file. See Section~\ref{sec:customizing_builds} for details.
 
 
-#### Preview
-\label{sec:build_preview}
+#### Previews
+\label{sec:build_previews}
 
 Finally, Softcover can optionally build a *preview* of your book in each output format, which is a particularly useful feature when selling your ebook (either on your own website or at [Softcover](http://softcover.io)). Because of the different ways the PDF and EPUB/MOBI formats work, there are two separate ways to specify the preview range. (You have to keep them roughly in sync by hand, but it's rarely important for the preview ranges to be exact, so this isn't a big problem in practice.) The configuration for PDF is a *page* range, while for EPUB/MOBI it's a *chapter* range (with "Chapter 0" being frontmatter like the table of contents, preface, etc.). Both ranges are specified in `book.yml` (Listing~\ref{code:preview_ranges}).
 
@@ -492,7 +498,7 @@ $ ls images/cover*
 images/cover-web.png   images/cover.jpg    images/cover.pdf    images/cover.png
 ```
 
-\noindent The file `cover.jpg` is used for EPUB and MOBI (or `cover.png` if `cover.jpg` is removed or doesn't exist), while `cover.pdf` is used for the PDF\@. Eventually we plan to automatically generate a smaller cover image for display on the web, but for now you need to make a separate image called `cover-web.png` as well.
+\noindent If present, the file `cover.jpg` is used for EPUB and MOBI output; otherwise, `cover.png` is used. Meanwhile, `cover.pdf` is used for the PDF\@. (Eventually we plan to automatically generate a smaller cover image for display on the web, but for now you need to make a separate image called `cover-web.png` as well.)
 
 
 ## Publishing to the Softcover website
@@ -550,8 +556,6 @@ Using `softcover deploy` makes publishing to the Softcover website completely fr
 
 <!-- footnotes  -->
 
-[^undefined_xref]: This is what an undefined cross-reference looks like. It will be filled in as soon as the corresponding section is properly defined and labeled.
-
 [^poly_pronunciation]: \PolyTeXnic\ is pronounced exactly like the English word [*polytechnic*](http://www.thefreedictionary.com/polytechnic). The core input-to-output conversion is still handled by the \texttt{polytexnic} gem.
 
 [^maxwell]: If already know [Maxwell's equations](http://en.wikipedia.org/wiki/Maxwell's_equations), the fundamental equations of electrodynamics, Eq.~\eqref{eq:maxwell} may look a little unfamiliar. This is because it writes the equations in a system called *rationalized [MKS units](http://en.wikipedia.org/wiki/MKS_system_of_units)*, which set \( \mu_0=\epsilon_0=1 \). In my view, these are the units in which Maxwell's equations are the most beautiful. Moreover, since the speed of light is \( 1/\sqrt{\mu_0\epsilon_0} \), this choice of units gives us \( c = 1 \) for free.
@@ -565,8 +569,6 @@ Using `softcover deploy` makes publishing to the Softcover website completely fr
 [^homebrew]: Some Mac users will be tempted to use the otherwise excellent [Homebrew](http://brew.sh), but in the case of the Softcover dependencies I urge them to resist this temptation.
 
 [^kindlegen_proprietary]: The only proprietary part of the toolchain is the KindleGen program for building books in MOBI format, but authors can optionally use the open-source Calibre program as a replacement.
-
-[^kindlegen_terms]: The MOBI files produced by KindleGen are generally slightly higher-quality than MOBI files made by Calibre, and unlike Calibre-generated files they can be sent to Kindle via email or using the convenient [Send to Kindle](http://www.amazon.com/gp/sendtokindle) program. On the other hand, whereas authors are free to do anything they like with Calibre-generated MOBI files, selling KindleGen-generated MOBI files anywhere other than Amazon.com violates the [KindleGen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251). To my knowledge, Amazon has never enforced this provision, but authors should be aware of the risk.
 
 [^epub_check_version]: Unfortunately, EpubCheck 3.0.1 is buggy, so it's important to use version 3.0.
 
