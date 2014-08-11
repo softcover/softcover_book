@@ -28,6 +28,12 @@ $ softcover publish:media
 
 In addition to providing an online version of your book automatically, the Softcover sales platform includes a marketing page for online sales. The contents of the marketing page are determined by a configuration file, `marketing.yml`, in the `config` directory. The marketing file supports the use of limited Markdown (links, boldface, and emphasis/italics).
 
+To update the manual, just use the `publish` command:
+
+```console
+$ softcover publish
+```
+
 
 ### Prices
 
