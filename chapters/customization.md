@@ -161,6 +161,8 @@ You can customize the PDF styles in two different ways. The first and simpler is
 ```
 \end{codelisting}
 
+#### Changing paragraph styles
+
 One use of `custom_pdf.sty` is important enough to deserve special mention, namely, changing the default paragraph indentation and spacing to match the style in HTML/-EPUB/-MOBI. In line with standard practices for professionally typeset books, the default behavior in PDF is for all paragraphs after the first one in a section to be indented. This indentation serves as a visual marker for paragraph boundaries, making them easier to parse visually. On the other hand, this convention requires suppressing indentation by hand (using a \verb+\noindent+) after elements like code blocks, as discussed at the end of Section~\ref{sec:code_fencing}. Without a \verb+\noindent+, any text after the code block gets interpreted as a new paragraph and is indented, which is often not what you want.
 
 My preference is to make PDFs as close to traditional print-quality as possible, but some authors would rather unify the appearance of their ebooks and not have to worry about adding \verb+\noindent+ by hand. To arrange for this behavior, you need to tell \LaTeX\ not to indent paragraphs, while also increasing the vertical space *between* paragraphs so that they still stand out. The code to accomplish this appears in Listing~\ref{code:noindent_style}.
@@ -196,7 +198,62 @@ The second method for customizing PDF output is to edit the file \linebreak `pre
 
 The `preamble.tex` file is especially important for foreign language support, which requires that the appropriate `polyglossia` package be included before the default `softcover.sty` file. See Section~\ref{sec:foreign_language} for details.
 
+### Advanced figure placement
+\label{sec:advanced_figure_placement}
 
+As mentioned in Section~\ref{sec:placement}, figure placement in PDF documents is determined automatically by \LaTeX's float-placement algorithms. These often work well, but sometimes they result in placement different from that desired by the author. Using embedded \LaTeX, authors can override the default algorithms by passing options to the \kode{figure} command, as shown in Listing~\ref{code:figure_placement}.
+
+\begin{codelisting}
+\label{code:figure_placement}
+\codecaption{A template for passing a figure placement specifier.}
+```latex
+\begin{figure}[placement specifier]
+\image{images/image.png}
+\end{figure}
+```
+\end{codelisting}
+
+\noindent Some common options for the placement specifier appear in Table~\ref{table:figure_placement}.
+
+\begin{table}
+\caption{Options for the placement specifier in Listing~\ref{code:figure_placement}.\label{table:figure_placement}}
+\begin{tabular}{l|l}
+\textbf{Specifier} & \textbf{Placement} \\ \hline
+\kode{h} & Place the float \emph{approximately} here \\
+\kode{h!} & Place the float \emph{(almost) exactly} here \\
+\kode{H} & Place the float \emph{exactly} here (requires Listing~\ref{code:float_package}) \\
+\kode{t} & Place at the top of the page \\
+\kode{b} & Place at the bottom of the page \\
+\kode{p} & Put on a special page for floats only
+\end{tabular}
+\end{table}
+
+Listing~\ref{code:figure_placement_example} shows a concrete example of using the `H` option, whose result appears in Figure~\ref{fig:figure_placement_example}. As indicated in Table~\ref{table:figure_placement}, the \kode{H} option, which places the figure *exactly* "here", requires including the \kode{float} package to work. As described in Section~\ref{sec:pdf_style}, this can be accomplished by editing \kode{custom\_pdf.sty}, as shown in Listing~\ref{code:float_package}.
+
+\begin{codelisting}
+\label{code:figure_placement_example}
+\codecaption{A working example of figure placement.}
+```
+\begin{figure}[H]
+\image{images/michael_hartl.png}
+\caption{An image placed ``here''.\label{fig:figure_placement_example}}
+\end{figure}
+```
+\end{codelisting}
+
+
+\begin{figure}[H]
+\image{images/2011_michael_hartl.png}
+\caption{An image placed exactly ``here''.\label{fig:figure_placement_example}}
+\end{figure}
+
+\begin{codelisting}
+\label{code:float_package}
+\codecaption{Including the \kode{float} package to enable the \kode{H} option. \\ \filepath{config/custom\_pdf.sty}}
+```
+\include{float}
+```
+\end{codelisting}
 
 ## Foreign-language support
 \label{sec:foreign_language}

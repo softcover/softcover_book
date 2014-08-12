@@ -673,6 +673,11 @@ Using a bare label with no caption text yields a figure with just a number (Figu
 ```
 \end{codelisting}
 
+#### Placement
+\label{sec:placement}
+
+In HTML, and thus in EPUB and MOBI, images and figures are placed exactly where they appear in the book source, but in PDFs this is true only of raw images. This is because PDFs are bound by the constraints of print documents, so figure placement in general must be allowed to "float" in order to achieve a sensible layout for the surrounding text. (As with tables (Section~\ref{sec:embedded_tabular_and_tables}), figures are thus often described as "floats".) By default, figures in PDFs are placed using \LaTeX's float-placement algorithms, which sometimes leads to figures not being located where you want them to be. Unfortunately, there is no Markdown syntax for overriding \LaTeX's defaults, but authors desiring finer-grained control can use embedded \LaTeX\ to use more advanced float-placement options, as described in Section~\ref{sec:advanced_figure_placement}.
+
 
 ### Code listings
 \label{sec:embedded_code_listings}
