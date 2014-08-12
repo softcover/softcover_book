@@ -228,7 +228,7 @@ As mentioned in Section~\ref{sec:placement}, figure placement in PDF documents i
 \end{tabular}
 \end{table}
 
-Listing~\ref{code:figure_placement_example} shows a concrete example of using the `H` option, whose result appears in Figure~\ref{fig:figure_placement_example}. As indicated in Table~\ref{table:figure_placement}, the \kode{H} option, which places the figure *exactly* "here", requires including the \kode{float} package to work. As described in Section~\ref{sec:pdf_style}, this can be accomplished by editing \kode{custom\_pdf.sty}, as shown in Listing~\ref{code:float_package}.
+Listing~\ref{code:figure_placement_example} shows a concrete example of using the `H` option, whose result appears in Figure~\ref{fig:figure_placement_example}. As indicated in Table~\ref{table:figure_placement}, the \kode{H} option, which places the figure *exactly* "here", requires including the \kode{float} package to work. As described in Section~\ref{sec:pdf_style}, this can be accomplished by editing the configuration file \kode{custom\_pdf.sty}, as shown in Listing~\ref{code:float_package}.
 
 \begin{codelisting}
 \label{code:figure_placement_example}
