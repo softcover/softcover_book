@@ -2,6 +2,7 @@
 # or additional commands.
 #
 login info
+git push origin
 commented_out_warning
 softcover build:all --quiet
 softcover publish
