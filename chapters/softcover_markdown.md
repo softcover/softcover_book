@@ -212,7 +212,20 @@ end
 ```
 ```
 
-\noindent The language designation (e.g., `ruby`) can be any language supported by the [available Pygments lexers](http://pygments.org/docs/lexers/) (which is most of them, including Ruby and \LaTeX---though not, annoyingly, Markdown).
+\noindent The language designation (e.g., `ruby`) can be any language supported by the [available Pygments lexers](http://pygments.org/docs/lexers/) which is most of them, including Ruby and \LaTeX\ (though not, annoyingly, Markdown). For example, here is the highlighting for a combination of HTML and PHP:
+
+```html+php
+Name: <input type="text" name="name" value="<?php echo $name;?>">
+```
+
+\noindent This is produced by the code
+
+```
+```html+php
+Name: <input type="text" name="name" value="<?php echo $name;?>">
+```
+```
+
 
 As a final enhancement, Softcover adds a hook directly into the [Pygments formatter options](http://pygments.org/docs/formatters/) via an options hash. This allows, for example, turning on line numbering and highlighting specific lines:
 
