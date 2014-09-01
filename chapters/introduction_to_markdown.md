@@ -32,6 +32,8 @@ dipisicing elit
 
 \noindent Softcover currently supports headings down to `####` (`h4`, corresponding to a "subsubsection" in \LaTeX).
 
+It is important to note that each Softcover chapter file corresponds to exactly one chapter. This means that you can only include *one* top-level~`#` heading in any given file.
+
 ## Text formatting
 
 Markdown supports *italicized* text using _two_ different formats (asterisks or underscores):
