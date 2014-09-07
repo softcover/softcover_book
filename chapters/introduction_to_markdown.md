@@ -8,6 +8,7 @@ The rest of this chapter includes a quick tutorial on vanilla Markdown. Readers 
 Being productive in Markdown requires only a subset of the full language, and the following material is an opinionated survet of Mardown's most useful features. For a comprehensive treatment of Markdown syntax, see the [syntax page](http://daringfireball.net/projects/markdown/syntax) by John Gruber (Markdown's principal creator).
 
 ## Headings
+\label{sec:headings}
 
 At the highest level, Markdown documents are structured like HTML, with a convenient syntax for defining the equivalent of HTML headings (`h1`, `h2`, etc.). There are actually several equivalent syntaxes, but my favorite is simply to use the pound character `#`:
 
@@ -35,6 +36,7 @@ dipisicing elit
 It is important to note that each Softcover chapter file corresponds to exactly one chapter. This means that you can only include *one* top-level `#` heading in any given file.
 
 ## Text formatting
+\label{sec:text_formatting}
 
 Markdown supports *italicized* text using _two_ different formats (asterisks or underscores):
 
@@ -84,6 +86,7 @@ yielding _**boldface italic**_
 I generally find Markdown's style of blockquote syntax fine when an email program automatically puts in the `>` brackets, but it's cumbersome to put them in by hand. Good text editors can make constructing blockquotes easier, but it still involves more friction than I'd like. I think \LaTeX's syntax is nicer (Section~\ref{sec:embedded_latex_commands}), especially since it can more easily be produced by a text-editor macro or tab trigger, but the default syntax may be more familiar.
 
 ### Source code
+\label{sec:source_code}
 
 Markdown can also format source code and other verbatim text. Backticks indicate inline code, as in the `def` keyword:
 
@@ -162,10 +165,12 @@ Because PDF and HTML treat images differently, sometimes it's useful to be able 
 
 
 ## Lists
+\label{sec:lists}
 
 Markdown supports both numbered and unnumbered lists, corresponding to HTML `ol` and `ul` environments, respectively.
 
 ### Numbered lists
+\label{sec:numbered_lists}
 
 Numbered lists are simple:
 
@@ -211,6 +216,7 @@ you don't want to have to renumber all the other elements by hand:
 ```
 
 ### Unnumbered lists
+\label{sec:unnumbered_lists}
 
 Unnumbered lists are even easier than numbered lists:
 
@@ -259,6 +265,7 @@ nice when making nested lists:
 ```
 
 ### Paragraphs in lists
+\label{sec:paragraphs_in_lists}
 
 In the case of both numbered and unnumbered lists, you can put a paragraph in a list element by indenting the desired paragraphs four spaces, like so:
 
