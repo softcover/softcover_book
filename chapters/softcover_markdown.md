@@ -12,7 +12,7 @@ adding features to Markdown as described above is a prime example of how weak sy
 \label{aside:polytex_markdown}
 \heading{Markdown, \PolyTeX, and Hartl's Tenth Rule of Typesetting}
 
-\noindent I've been a fan of Markdown since it first appeared in 2004; it's my first choice for things like [README files](https://github.com/softcover/softcover/blob/master/README.md) and [short news announcements](http://news.railstutorial.org/), and in my view Markdown deserves the enormous popularity it has achieved. Indeed, in a sense it has succeeded a little *too* well, to the point where people use it even when it may not be the best tool for the job. In particular, because it is essentially a thin layer on top of HTML, the original "vanilla" Markdown is ill-suited to producing longer or more structured documents. As a result, virtually every system using "Markdown" for ebook publishing in reality uses some augmented version of the original markup language---an implicit acknowledgment that vanilla Markdown is insufficient for industrial-strength typesetting.
+\noindent I've been a fan of Markdown since it first appeared in 2004. Markdown is my first choice for things like [README files](https://github.com/softcover/softcover/blob/master/README.md) and [short news announcements](http://news.railstutorial.org/), and in my view Markdown deserves the enormous popularity it has achieved. Indeed, in a sense it has succeeded a little *too* well, to the point where people use it even when it may not be the best tool for the job. In particular, because it is essentially a thin layer on top of HTML, the original "vanilla" Markdown is ill-suited to producing longer or more structured documents. As a result, virtually every system using "Markdown" for ebook publishing in reality uses some augmented version of the original markup language---an implicit acknowledgment that vanilla Markdown is insufficient for industrial-strength typesetting.
 
 On the other end of the spectrum from Markdown is \LaTeX, an industrial-strength typesetting system if ever there was one. \LaTeX, like the Lisp programming language in its domain, can essentially "do anything"; thus, in the spirit of [Greenspun's Tenth Rule of Programming](https://en.wikipedia.org/wiki/Greenspun's_tenth_rule) on Lisp, I hereby offer the following maxim on \LaTeX:
 
@@ -212,7 +212,20 @@ end
 ```
 ```
 
-\noindent The language designation (e.g., `ruby`) can be any language supported by the [available Pygments lexers](http://pygments.org/docs/lexers/) (which is most of them, including Ruby and \LaTeX---though not, annoyingly, Markdown).
+\noindent The language designation (e.g., `ruby`) can be any language supported by the [available Pygments lexers](http://pygments.org/docs/lexers/) which is most of them, including Ruby and \LaTeX\ (though not, annoyingly, Markdown). For example, here is the highlighting for a combination of HTML and PHP:
+
+```html+php
+Name: <input type="text" name="name" value="<?php echo $name;?>">
+```
+
+\noindent This is produced by the code
+
+```
+```html+php
+Name: <input type="text" name="name" value="<?php echo $name;?>">
+```
+```
+
 
 As a final enhancement, Softcover adds a hook directly into the [Pygments formatter options](http://pygments.org/docs/formatters/) via an options hash. This allows, for example, turning on line numbering and highlighting specific lines:
 
@@ -672,6 +685,11 @@ Using a bare label with no caption text yields a figure with just a number (Figu
 ![\label{fig:road_to_hana}](images/2011_michael_hartl.png)
 ```
 \end{codelisting}
+
+#### Placement
+\label{sec:placement}
+
+In HTML, and thus in EPUB and MOBI, images and figures are placed exactly where they appear in the book source, but in PDFs this is true only of raw images. This is because PDFs are bound by the constraints of print documents, so figure placement in general must be allowed to "float" in order to achieve a sensible layout for the surrounding text. (As with tables (Section~\ref{sec:embedded_tabular_and_tables}), figures are thus often described as "floats".) By default, figures in PDFs are placed using \LaTeX's float-placement algorithms, which sometimes leads to figures not being located where you want them to be. Unfortunately, there is no Markdown syntax for overriding \LaTeX's defaults, but authors desiring finer-grained control can use embedded \LaTeX\ to use more advanced float-placement options, as described in Section~\ref{sec:advanced_figure_placement}.
 
 
 ### Code listings
