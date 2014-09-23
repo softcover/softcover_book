@@ -40,7 +40,12 @@ $ mv generated_polytex/*.tex chapters/
 $ rm -f chapters/*.md
 \end{code}
 
-\noindent Then change \kode{Book.txt} to use \kode{*.tex} files in place of \kode{*.md}. Advanced users can remove \kode{Book.txt} and edit \kode{<book name>.tex} directly. (This requires running \kode{softcover build} once to bootstrap the system.)
+\noindent Then change \kode{Book.txt} to use \kode{*.tex} files in place of \kode{*.md}. Advanced users can remove \kode{Book.txt} and edit \kode{<book name>.tex} directly. (This requires running \kode{softcover build} once to bootstrap the system.) If you do this, you should add the main \LaTeX\ file to Git:
+
+%= lang:console
+\begin{code}
+$ git add -f <book name>.tex
+\end{code}
 
 \subsection{\PolyTeX\ vs. \LaTeX} % (fold)
 \label{sec:polytex_vs_latex}
