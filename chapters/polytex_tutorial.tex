@@ -63,7 +63,6 @@ $ softcover server -p 4001
 
 % subsection polytex vs_latex (end)
 
-
 % section polytex basics (end)
 
 \section{Included commands} % (fold)
@@ -139,6 +138,38 @@ In addition to supporting a large number of named colors, for maximum flexibilit
 \noindent won't work.
 
 % subsection colored_text (end)
+
+\subsection{Code inclusion} % (fold)
+\label{sec:polyex_code_inclusion}
+
+Softcover supports code inclusion via a synatax similiar to the Softcover-flavored Markdown from Section~\ref{sec:code_inclusion}:
+
+%= lang:latex
+\begin{code}
+%= <<(path/to/filename.ext)
+\end{code}
+
+\noindent This is equivalent to writing
+
+%= lang:latex
+\begin{code}
+%= lang:ext
+\begin{code}
+<contents of filename.ext>
+\end{code}
+\end{code}
+
+\noindent If the language can't be inferred from the extension, you can include a \kode{lang} option:
+
+
+%= lang:latex
+\begin{code}
+%= <<(path/to/filename.ext, lang: ruby)
+\end{code}
+
+% subsection code_inclusion (end)
+
+
 
 % section custom_commands (end)
 
