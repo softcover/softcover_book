@@ -149,9 +149,32 @@ All dependencies satisfied.
 - [PhantomJS](http://phantomjs.org/)
 - [Inkscape](http://inkscape.org/)
 - [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (place the `kindlegen` somewhere on your path, such as in `/usr/local/bin`)
-- [Calibre](http://calibre-ebook.com/) with the command-line tools (built-in on Linux; on OS X, go to Preferences > Change calibre behavior > Advanced > Miscellaneous > Install command line tools)
+- [Calibre](http://calibre-ebook.com/) with the command-line tools (built-in on Linux; on OS X, see below)
 - [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you already have this one)
 - [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip)[^epub_check_version] (unzip and place in a diretory on your path)
+
+On OS X, the Calibre command-line tools come included with Calibre, but in order to make them available you have to put them on your PATH. Using a text editor, put the contents of Listing~\ref{code:calibre_bash_profile} at the end of your `.bash\_profle` file, and then run the `source` command in Listing~\ref{code:source_bash_profle} to update your shell.
+
+\begin{codelisting}
+\label{code:calibre_bash_profile}
+\codecaption{Putting the Calibre executables on the PATH. \\ \filepath{\textasciitilde/.bash\_profile}}
+```bash
+.
+.
+.
+export CALIBRE="/Applications/calibre.app/Contents/console.app/Contents/MacOS"
+export PATH="$CALIBRE:$PATH"
+```
+\end{codelisting}
+
+\begin{codelisting}
+\label{code:source_bash_profle}
+\codecaption{Sourcing the bash profile.}
+```console
+$ source ~/.bash_profile
+```
+\end{codelisting}
+
 
 To see the commands supported by `softcover`, run `softcover help` at the command line, as shown in Listing~\ref{code:softcover_help}.
 
