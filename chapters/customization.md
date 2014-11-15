@@ -4,6 +4,7 @@
 Softcover includes a large number of advanced options such as CLI customization, user-defined styling and typesetting commands, and foreign-language \linebreak support. Many of these options are in active development, so I recommend requesting an invitation to the [Softcover Google Group](https://groups.google.com/forum/#!forum/softcover-publishing) to get the inside track on their status.
 
 ## Command-line interface
+\label{sec:CLI}
 
 Two of the most important commands in the Softcover CLI are `build:all` and `deploy`. Their default behavior is sufficient for most purposes, but some authors will want to customize them for their specific needs. Softcover allows such customization via [dot-files](https://en.wikipedia.org/wiki/Dot-file) in the book's root directory, as described below.
 
@@ -77,6 +78,7 @@ git push origin
 
 
 ## Commands and styles
+\label{sec:commands_and_styles}
 
 Softcover books are based on \LaTeX\ (for PDF) and HTML (for EPUB and MOBI), both of which allow for extensive customization via style files and CSS, respectively. There is even one point of overlap: commands defined in `latex_styles/custom.sty` are available across all output formats (Section~\ref{sec:custom_commands}).
 
@@ -103,8 +105,6 @@ For example, looking at the sample in Listing~\ref{code:default_custom_sty}, we 
 \end{codelisting}
 
 Because the `custom.sty` file is raw \LaTeX, definitions must be in \PolyTeX\ (Chapter~\ref{cha:polytex_tutorial}) and not Markdown. This isn't as hard as you think, though, and \LaTeX\ commands are highly Googleable. Try, for example, the search "[latex boldface italic](http://lmgtfy.com/?q=latex+boldface+italic)" to see how you might have guessed the definition of \verb+\bfi+ without my help.
-
-
 
 *Note*: Custom *math* commands are supported locally but are not currently supported on the Softcover site. We're planning to add it as soon as someone wants it, though, so send a request to \texttt{michael@softcover.io} and we'll get right on it.
 
@@ -261,6 +261,7 @@ Listing~\ref{code:figure_placement_example} shows a concrete example of using th
 Softcover has experimental support for foreign languages. Please request an invitation to the [Softcover Google Group](https://groups.google.com/forum/#!forum/softcover-publishing) and send us a note if you're interested in writing a Softcover book in a language other than English.
 
 ### Polyglossia and \texttt{lang.yml}
+\label{sec:polyglossia}
 
 Only two steps are required to support foreign languages across different output formats. For concreteness, we'll use French as an example. First, to enable French support in PDF, we need to edit `preamble.tex` to include the `polyglossia` package and set the default language to `french`, as shown in Listing~\ref{code:polyglossia_french}. (The final line in Listing~\ref{code:polyglossia_french} is needed to work around an error when building the PDF; although I've been using \LaTeX\ for years, I solved it the same way you would have: by Googling the error message.)
 
