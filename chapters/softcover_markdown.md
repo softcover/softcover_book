@@ -740,7 +740,7 @@ To get a code listing with only a number, simply leave the \verb+\codecaption+ e
 \begin{codelisting}
 \label{code:no_caption_code}
 \codecaption{}
-```latex
+```latex, options: "hl_lines": [3]
 \begin{codelisting}
 \label{code:palindrome_no_caption}
 \codecaption{}
@@ -767,7 +767,7 @@ end
 ```
 \end{codelisting}
 
-Obviously, this involves lots of typing, so I recommend you use macros. I plan to release my macros for Sublime Text, and Mark Bates has released [Softcover Vim snippets](https://gist.github.com/markbates/2c2e6d37dd98c43e6d7e) as well.
+Obviously, making code listings involves lots of typing, so I recommend you use macros. If there is sufficient demand, I plan to release my macros for Sublime Text, and Mark Bates has released [Softcover Vim snippets](https://gist.github.com/markbates/2c2e6d37dd98c43e6d7e) as well.
 
 ### Aside boxes
 \label{sec:embedded_asides}
