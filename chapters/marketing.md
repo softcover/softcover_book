@@ -10,15 +10,15 @@ We start with simple instructions for optionally including media bundles (Sectio
 
 Softcover is designed to make it easy to write and publish books, but books are only the foundation. Products like the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/), [Learn Python the Hard Way](http://learnpythonthehardway.org/), and [The App Design Handbook](http://nathanbarry.com/app-design-handbook/) show the value of combining ebooks with other media (such as screencast videos) to create premium product bundles.
 
-The current Softcover system supports automatic association of screencast ZIP files using a simple convention. To include a screencast product along with a book called `example_book`, simply create a screencast ZIP file `example_book.screencasts.zip` in the `media` directory. To include a preview screencast as well, create an m4v or mp4 formatted video file and put it in `media/preview.m4v`. <!-- Figure~\ref{fig:screencasts_dir} shows a sample screencasts directory with three screencasts, a zipped version of the three screencasts, and a preview. -->
-
-<!-- ![Media directory structure.\label{fig:screencasts_dir}](images/figures/screencasts_dir.png) -->
+The current Softcover system supports automatic association of screencast ZIP files using a simple convention. To include a screencast product along with a book called `example_book`, simply create a screencast ZIP file `example_book.screencasts.zip` in the `media` directory. To include a preview screencast as well, create an m4v or mp4 formatted video file and put it in `media/preview.m4v`.
 
 Once the ZIP file is in place, you can publish the screencasts to Softcover with a simple command:
 
 ```console
 $ softcover publish:media
 ```
+
+<!-- +++add material on arbitrary media and the README convention -->
 
 \noindent To save time, this will only upload new files or ones that have changed since the last time you last published them.
 
@@ -167,7 +167,7 @@ hide_custom_domain_footer: false
 
 In this section we'll discuss the various ways to customize your Softcover site's settings using the Manage page for your book. The examples are drawn from a real site hosted on Softcover, the [Ruby on Rails Tutorial](http://www.railstutorial.org/). For example, Figure~\ref{fig:manage_button} shows the button to the Manage page at www.railstutorial.org.
 
-![The link to the Manage page\label{fig:manage_button}](images/figures/manage_button.png)
+![The link to the Manage page.\label{fig:manage_button}](images/figures/manage_button.png)
 
 ### Access options
 
