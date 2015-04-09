@@ -153,7 +153,7 @@ All dependencies satisfied.
 - [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you already have this one)
 - [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip)[^epub_check_version] (unzip and place in a diretory on your path)
 
-On OS X, the Calibre command-line tools come included with Calibre, but in order to make them available you have to put them on your PATH. Using a text editor, put the contents of Listing~\ref{code:calibre_bash_profile} at the end of your `.bash\_profle` file, and then run the `source` command in Listing~\ref{code:source_bash_profle} to update your shell.
+On OS X, the Calibre command-line tools come included with Calibre, but in order to make them available you have to put them on your PATH. Using a text editor, put the contents of Listing~\ref{code:calibre_bash_profile} at the end of your `.bash\_profile` file, and then run the `source` command in Listing~\ref{code:source_bash_profile} to update your shell.
 
 \begin{codelisting}
 \label{code:calibre_bash_profile}
@@ -168,7 +168,7 @@ export PATH="$CALIBRE:$PATH"
 \end{codelisting}
 
 \begin{codelisting}
-\label{code:source_bash_profle}
+\label{code:source_bash_profile}
 \codecaption{Sourcing the bash profile.}
 ```console
 $ source ~/.bash_profile
