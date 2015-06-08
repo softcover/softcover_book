@@ -414,11 +414,7 @@ $ softcover build:mobi --kindlegen
 
 \noindent Selling KindleGen-generated MOBI files anywhere other than Amazon.com violates the [KindleGen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251), so Softcover recommends using KindleGen only if you plan to give your book away for free or to sell it on Amazon.
 
-<<<<<<< HEAD
-To view the MOBI file on your computer, I recommend installing [Kindle reader](http://www.amazon.com/gp/feature.html?docId=1000493771) or [FB Reader](http://fbreader.org/). The result appears in Figure~\ref{fig:example_mobi}.
-=======
 To view the MOBI file on your computer, I recommend installing [Kindle Reader](http://www.amazon.com/gp/feature.html?docId=1000493771). The result appears in Figure~\ref{fig:example_mobi}.
->>>>>>> 4d2792ff10e6e3f895e7fcbe5bb6f2c56b3bfa24
 
 ![The example book MOBI.\label{fig:example_mobi}](images/figures/example_mobi.png)
 
