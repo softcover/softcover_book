@@ -137,6 +137,7 @@ kramdown adds them using the following syntax:[^example_footnote]
 \noindent conventionally appears at the bottom of the file. Note that the order of the footnotes is determined by the order of their appearance in the main text; the order at the bottom of the file is irrelevant.
 
 ### Miscellaneous features
+\label{sec:miscellaneous_features}
 
 In addition to tables and footnotes, kramdown includes other miscellaneous features, including a verbatim override to prevent Markdown processing. This means, for example, that you can typeset a literal example of Markdown's double-asterisk boldface syntax {::nomarkdown}**like this**{:/}:
 ```
