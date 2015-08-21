@@ -502,11 +502,11 @@ Incidentally, the tilde
 ```latex
 ~
 ```
-\noindent is \LaTeX's no-break space, which connects in
+\noindent is \LaTeX's no-break space, which in
 ```latex
 Section~\ref{sec:embedded_latex}
 ```
-\noindent the number to the word preceding it. This common typesetting convention prevents the number breaking across a line. Such cross-references are the only use of tildes in SFM; in all other contexts, they appear as follows: ~.
+\noindent connects the number to the word preceding it. This common typesetting convention prevents the number breaking across a line. Such cross-references are the only use of tildes in SFM; in all other contexts, they appear as follows: ~.
 
 In addition to working with chapters and sections, Softcover cross-ref\-er\-en\-ces also work with code listings, aside boxes, figures, tables, and centered equations. The label names can be virtually anything, but I follow the common convention of [namespacing](https://en.wikipedia.org/wiki/Namespace) them by type, so that chapter labels are prefixed with `cha:`, sections with `sec:`, codelistings with `code:`, etc.
 
