@@ -151,7 +151,7 @@ All dependencies satisfied.
 - [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (place the `kindlegen` somewhere on your path, such as in `/usr/local/bin`)
 - [Calibre](http://calibre-ebook.com/) with the command-line tools (built-in on Linux; on OS X, see below)
 - [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you already have this one)
-- [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip)[^epub_check_version] (unzip and place in a diretory on your path ie. `$HOME/bin`[^epub_path] )
+- [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip)[^epub_check_version] (unzip and place in a diretory on your path, i.e., `$HOME/bin`[^epub_path])
 
 On OS X, the Calibre command-line tools come included with Calibre, but in order to make them available you have to put them on your PATH. Using a text editor, put the contents of Listing~\ref{code:calibre_bash_profile} at the end of your `.bash\_profile` file, and then run the `source` command in Listing~\ref{code:source_bash_profile} to update your shell.
 
@@ -591,6 +591,6 @@ Using `softcover deploy` makes publishing to the Softcover website completely fr
 
 [^epub_check_version]: Unfortunately, EpubCheck 3.0.1 is buggy, so it's important to use version 3.0.
 
-[^epub_ path]: If `$HOME/bin` does not exist, you can create it using `mkdir $HOME/bin` then copy epubcheck-3.0 after you unzip it using `cp -r epubcheck-3.0 $HOME/bin`.  Depending on your system you might have to add `$HOME/bin`to the path by editing `.bashrc` or `.bash_profile`
+[^epub_path]: If `$HOME/bin` does not exist, you can create it using `mkdir $HOME/bin`. Then move EpubCheck there using `mv epubcheck-3.0 $HOME/bin`. Depending on your system, you might have to add `$HOME/bin` to the path by editing and sourcing `.bash_profile` (as shown in Listing~\ref{code:calibre_bash_profile} and Listing~\ref{code:source_bash_profile}).
 
 [^kindlegen_breaks_previews]: It used to be possible to extract chapter ranges while keeping the visual appearance of cross-references intact, but this functionality is broken in MOBI files as of KindleGen 2.9. The current method, using `Preview.txt`, isn't as slick as it was in earlier versions of the \texttt{softcover} gem is but is much more robust.
