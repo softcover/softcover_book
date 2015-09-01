@@ -591,6 +591,6 @@ Using `softcover deploy` makes publishing to the Softcover website completely fr
 
 [^epub_check_version]: Unfortunately, EpubCheck 3.0.1 is buggy, so it's important to use version 3.0.
 
-[^epub_ path]: If `$HOME/bin` does not exist, you can create it using `mkdir $HOME/bin` then copy epubcheck-3.0 after you unzip it using `cp -r epubcheck-3.0 $HOME/bin`
+[^epub_ path]: If `$HOME/bin` does not exist, you can create it using `mkdir $HOME/bin` then copy epubcheck-3.0 after you unzip it using `cp -r epubcheck-3.0 $HOME/bin`.  Depending on your system you might have to add `$HOME/bin`to the path by editing `.bashrc` or `.bash_profile`
 
 [^kindlegen_breaks_previews]: It used to be possible to extract chapter ranges while keeping the visual appearance of cross-references intact, but this functionality is broken in MOBI files as of KindleGen 2.9. The current method, using `Preview.txt`, isn't as slick as it was in earlier versions of the \texttt{softcover} gem is but is much more robust.
