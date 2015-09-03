@@ -278,7 +278,7 @@ Listing~\ref{code:figure_size_example} shows a concrete example of using custom 
 ```latex
 \begin{figure}[H]
 \centering
-\includegraphics[width=1mm,scale=0.25]{images/2011_michael_hartl.png}
+\includegraphics[width=20mm,scale=0.25]{images/2011_michael_hartl.png}
 \caption{An image with 20 mm width and 0.25 scale. \label{fig:figure_size_example}}
 \end{figure}
 
