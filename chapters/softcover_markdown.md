@@ -653,22 +653,22 @@ An example of a table with a \verb+\pbox+ command appears in Table~\ref{table:lo
 
 We saw in Section~\ref{sec:links_and_images} how to include raw images into Softcover books:
 
-![Some dude.](images/2011_michael_hartl.png)
+![Some dude.](images/figures/01_michael_hartl_headshot.jpg)
 
 As a reminder, this is produced using the following code:
 ```text
-![Some dude.](images/2011_michael_hartl.png)
+![Some dude.](images/figures/01_michael_hartl_headshot.jpg)
 ```
 
 Softcover also allows authors to make *numbered figures*, including captions, by including a label in the image's bracketed text. Figure~\ref{fig:michael_hartl} shows the result, which is produced by Listing~\ref{code:figure_with_caption}.
 
-![Some dude.\label{fig:michael_hartl}](images/2011_michael_hartl.png)
+![Some dude.\label{fig:michael_hartl}](images/figures/01_michael_hartl_headshot.jpg)
 
 \begin{codelisting}
 \label{code:figure_with_caption}
 \codecaption{The code to produce Figure~\ref{fig:michael_hartl}.}
 ```latex
-![Some dude.\label{fig:michael_hartl}](images/2011_michael_hartl.png)
+![Some dude.\label{fig:michael_hartl}](images/figures/01_michael_hartl_headshot.jpg)
 ```
 \end{codelisting}
 
@@ -676,14 +676,14 @@ Softcover also allows authors to make *numbered figures*, including captions, by
 Using a bare label with no caption text yields a figure with just a number (Figure~\ref{fig:road_to_hana} and Listing~\ref{code:figure_only_number}). Note that in both cases the labels are namespaced with `fig:`.
 
 
-![\label{fig:road_to_hana}](images/2011_michael_hartl.png)
+![\label{fig:road_to_hana}](images/figures/01_michael_hartl_headshot.jpg)
 
 
 \begin{codelisting}
 \label{code:figure_only_number}
 \codecaption{The code to produce Figure~\ref{fig:road_to_hana}.}
 ```latex
-![\label{fig:road_to_hana}](images/2011_michael_hartl.png)
+![\label{fig:road_to_hana}](images/figures/01_michael_hartl_headshot.jpg)
 ```
 \end{codelisting}
 

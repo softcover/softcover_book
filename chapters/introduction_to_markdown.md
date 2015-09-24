@@ -129,19 +129,19 @@ check out the [Ruby on Rails Tutorial](http://www.railstutorial.org/)
 
 Images follow a similar syntax, with the text being preceded by an exclamation point. This allows you to embed images like so:
 
-![Michael Hartl](images/2011_michael_hartl.png)
+![Michael Hartl](images/figures/01_michael_hartl_headshot.jpg)
 
 ```text
 This allows you to embed images like so:
 
-![Michael Hartl](images/2011_michael_hartl.png)
+![Michael Hartl](images/figures/01_michael_hartl_headshot.jpg)
 ```
 
 \noindent Due to the details of how Softcover processes Markdown, unfortunately the bracketed text does *not* get used as the image alt text; instead, the filename (minus extension) gets used:[^latex_images]
 
 ```html
-![Michael Hartl](images/2011_michael_hartl.png) ->
-  <img alt="2011_michael_hartl" src="images/2011_michael_hartl.png" />
+![Michael Hartl](images/figures/01_michael_hartl_headshot.jpg)
+<img alt="2011_michael_hartl" src="images/figures/01_michael_hartl_headshot.jpg" />
 ```
 
 \noindent As a result, it's a good idea to use meaningful filenames for images for the sake of those using screen readers or other nonstandard browsers.
@@ -163,6 +163,28 @@ Because PDF and HTML treat images differently, sometimes it's useful to be able 
 
 \noindent which uses `mvc_schematic.pdf` in the PDF and `mvc_schematic.png` in the HTML output. The only requirement is that both files exist in the correct location.
 
+### Screenshots and other large images
+
+Screenshots are one of the most common types of images to include in a technical book, as seen here:
+
+![Example screenshot](images/figures/example_screenshot.png)
+
+The only problem is that screenshots by default are too large to comfortably fit in a document, so Softcover comes with a couple of scripts to make including them easier (Mac OS X–only):
+
+1. Use Shift-Command-4 to take a screenshot.
+2. Run `rename_screenshot <name>` to rename the screenshot and auto-generate a smaller version.
+
+\noindent Step 2 does three things: it first finds the most recently modified PNG file on the desktop, moves it (while renaming it) to the `full_size_figures` directory, and then generates a normal-size figure using the `make_figures` script.
+
+Note that `<name>` should omit the file type, as PNG is assumed. For example, if we ran
+
+```console
+$ rename_screenshot foo_bar
+```
+
+\noindent the most recent screenshot would be moved to `full_size_figures/foo_bar.png` and a smaller image called `images/figures/foo_bar.png` would automatically be generated.
+
+The \texttt{softcover} gem bundles `make_figures` as a standalone script in case you want to put other big images in the `full_size_figures` figures directory and then generate smaller versions using `make_figures` directly. You can put such images in `full_size_figures` and then run `make_figures` to generate a corresponding resized image in `images/figures`.
 
 ## Lists
 \label{sec:lists}

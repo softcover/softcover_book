@@ -208,7 +208,7 @@ As mentioned in Section~\ref{sec:placement}, figure placement in PDF documents i
 \codecaption{A template for passing a figure placement specifier.}
 ```latex
 \begin{figure}[placement specifier]
-\image{images/image.png}
+\image{images/figures/image.png}
 \end{figure}
 ```
 \end{codelisting}
@@ -235,7 +235,7 @@ Listing~\ref{code:figure_placement_example} shows a concrete example of using th
 \codecaption{A working example of figure placement.}
 ```
 \begin{figure}[H]
-\image{images/michael_hartl.png}
+\image{images/figures/michael_hartl.png}
 \caption{An image placed ``here''.\label{fig:figure_placement_example}}
 \end{figure}
 ```
@@ -243,7 +243,7 @@ Listing~\ref{code:figure_placement_example} shows a concrete example of using th
 
 
 \begin{figure}[H]
-\image{images/2011_michael_hartl.png}
+\image{images/figures/2011_michael_hartl.png}
 \caption{An image placed exactly ``here''.\label{fig:figure_placement_example}}
 \end{figure}
 
