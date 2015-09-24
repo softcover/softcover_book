@@ -164,6 +164,7 @@ Because PDF and HTML treat images differently, sometimes it's useful to be able 
 \noindent which uses `mvc_schematic.pdf` in the PDF and `mvc_schematic.png` in the HTML output. The only requirement is that both files exist in the correct location.
 
 ### Screenshots and other large images
+\label{sec:screenshots}
 
 Screenshots are one of the most common types of images to include in a technical book, as seen here:
 
