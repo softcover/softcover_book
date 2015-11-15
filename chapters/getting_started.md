@@ -1,4 +1,4 @@
-# Getting started
+## Getting started
 \label{cha:getting_started}
 
 This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors. Softcover consists of two main parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}). Based on the technology used to make the [*Ruby on Rails Tutorial* book](http://ruby.railstutorial.org/) and [*The Tau Manifesto*](http://tauday.com/tau-manifesto), Softcover makes publishing *frictionless* by allowing authors to build and deploy ebooks and other digital goods with a single command.
@@ -114,13 +114,19 @@ Naturally, *The Softcover Book* itself is written using Softcover. Indeed, you c
 
 The Softcover system is open-source software, distributed as a Ruby gem under the permissive [MIT License](http://opensource.org/licenses/MIT). The \softcover\ gem currently works with OS X and Linux, and we're looking for people to help us adapt it to other OSes. Join the [Softcover Google Group](https://groups.google.com/forum/#!forum/softcover-publishing) to be part of that effort.
 
-To get started with Softcover, first [install Ruby](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_ruby) (1.9.3 or later) and [install RubyGems](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_rubygems) if you don't have them already. Once you've done so, getting Softcover is a simple `gem install`:
+To get started with Softcover, first [install Ruby](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_ruby) (1.9.3 or later) and [install RubyGems](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_rubygems) if you don't have them already. Once you've done so, getting Softcover is usually a simple `gem install`:[^sudo_install]
 
 ```console
 $ gem install softcover
 ```
 
-\noindent (On some systems, you may need to `sudo` to install the gem.) This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the `nokogiri` gem to install.
+\noindent There have been some reports of issues on OS X (Mavericks and later), so if you run into trouble with the previous step, try this command instead:[^sudo_install]
+
+```text
+$ gem install softcover -- --with-cppflags=-I/usr/local/opt/openssl/include
+```
+
+\noindent installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the `nokogiri` gem to install.
 
 To build the full set of output formats, Softcover requires some external dependencies. The `softcover` command will prompt you to install each dependency at the appropriate time, but many users will find it more convenient to install all the dependencies at once.[^homebrew] To check which dependencies need to be installed on your system, run `softcover check`:
 
@@ -594,3 +600,5 @@ Using `softcover deploy` makes publishing to the Softcover website completely fr
 [^epub_path]: If `$HOME/bin` does not exist, you can create it using `mkdir $HOME/bin`. Then move EpubCheck there using `mv epubcheck-3.0 $HOME/bin`. Depending on your system, you might have to add `$HOME/bin` to the path by editing and sourcing `.bash_profile` (as shown in Listing~\ref{code:calibre_bash_profile} and Listing~\ref{code:source_bash_profile}).
 
 [^kindlegen_breaks_previews]: It used to be possible to extract chapter ranges while keeping the visual appearance of cross-references intact, but this functionality is broken in MOBI files as of KindleGen 2.9. The current method, using `Preview.txt`, isn't as slick as it was in earlier versions of the \texttt{softcover} gem is but is much more robust.
+
+[^sudo_install]: On some systems, you may need to use `sudo` to install the gem.
