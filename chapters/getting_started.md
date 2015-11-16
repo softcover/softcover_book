@@ -114,7 +114,7 @@ Naturally, *The Softcover Book* itself is written using Softcover. Indeed, you c
 
 The Softcover system is open-source software, distributed as a Ruby gem under the permissive [MIT License](http://opensource.org/licenses/MIT). The \softcover\ gem currently works with OS X and Linux, and we're looking for people to help us adapt it to other OSes. Join the [Softcover Google Group](https://groups.google.com/forum/#!forum/softcover-publishing) to be part of that effort.
 
-To get started with Softcover, first [install Ruby](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_ruby) (1.9.3 or later) and [install RubyGems](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_rubygems) if you don't have them already. Once you've done so, getting Softcover is usually a simple `gem install`:[^sudo_install]
+To get started with Softcover, first [install Ruby](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book#sec-install_ruby) (1.9.3 or later) and [install RubyGems](http://railstutorial.org/book#sec-install_rubygems) if you don't have them already. Once you've done so, getting Softcover is usually a simple `gem install`:[^sudo_install]
 
 ```console
 $ gem install softcover
