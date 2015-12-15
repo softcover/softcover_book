@@ -506,7 +506,11 @@ Incidentally, the tilde
 ```latex
 Section~\ref{sec:embedded_latex}
 ```
-\noindent connects the number to the word preceding it. This common typesetting convention prevents the number breaking across a line. Such cross-references are the only use of tildes in SFM; in all other contexts, they appear as follows: ~.
+\noindent connects the number to the word preceding it. This common typesetting convention prevents the number breaking across a line. Such cross-references are the only special use of tildes in SFM, and ordinarily a tilde appears as follows: ~. To get a literal tilde, use the \LaTeX\ command \verb+\textasciitilde+:
+```
+\textasciitilde
+```
+This yields \textasciitilde, and is especially useful if you want to put a tilde in an inline code environment, as in `cd \textasciitilde`.
 
 In addition to working with chapters and sections, Softcover cross-ref\-er\-en\-ces also work with code listings, aside boxes, figures, tables, and centered equations. The label names can be virtually anything, but I follow the common convention of [namespacing](https://en.wikipedia.org/wiki/Namespace) them by type, so that chapter labels are prefixed with `cha:`, sections with `sec:`, codelistings with `code:`, etc.
 
