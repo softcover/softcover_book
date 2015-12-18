@@ -157,7 +157,7 @@ All dependencies satisfied.
 - [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (place the `kindlegen` somewhere on your path, such as in `/usr/local/bin`)
 - [Calibre](http://calibre-ebook.com/) with the command-line tools (built-in on Linux; on OS X, see below)
 - [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you already have this one)
-- [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip)[^epub_check_version] (unzip and place in a diretory on your path, i.e., `$HOME/bin`[^epub_path])
+- [EpubCheck 3.0](https://github.com/IDPF/epubcheck/releases/download/v3.0/epubcheck-3.0.zip)[^epub_check_version] (unzip and place in a directory on your path, such as `$HOME/bin`)[^epub_path]
 
 On OS X, the Calibre command-line tools come included with Calibre, but in order to make them available you have to put them on your PATH. Using a text editor, put the contents of Listing~\ref{code:calibre_bash_profile} at the end of your `.bash\_profile` file, and then run the `source` command in Listing~\ref{code:source_bash_profile} to update your shell.
 
@@ -342,7 +342,7 @@ Maximum connections set to 1024
 Listening on 0.0.0.0:4000, CTRL+C to stop
 ```
 
-\noindent (You may have to install a [JavaScript runtime](https://github.com/sstephenson/execjs) if you don't have one installed already; I recommend [Node.js](http://nodejs.org/). Also, there have been some reports of the server just hanging when using Ruby 2.2.3, so try a different Ruby version if that happens to you.) Opening a browser and navigating to \linebreak <http://localhost:4000> then gives us a view of the HTML version of the first chapter of the book (Figure~\ref{fig:localhost_4000}).
+\noindent (You may have to install a [JavaScript runtime](https://github.com/sstephenson/execjs) if you don't have one installed already; I recommend [Node.js](http://nodejs.org/). Also, there have been some reports of the server hanging on OS~X, which is likely due to a recent change in the way OS~X handles SSL. Reinstalling Ruby should fix the issue.) Opening a browser and navigating to \linebreak <http://localhost:4000> then gives us a view of the HTML version of the first chapter of the book (Figure~\ref{fig:localhost_4000})
 
 ![Running the Softcover server in a separate tab.\label{fig:softcover_server}](images/figures/softcover_server.png)
 
@@ -581,7 +581,7 @@ Using `softcover deploy` makes publishing to the Softcover website completely fr
 
 <!-- footnotes  -->
 
-[^copy_directories]: Because Softcover books include a several elements that are specific to each book (including a symlink for the images directory, an internal book id, and a [https://en.wikipedia.org/wiki/Universally_unique_identifier](UUID) required as a unique identifier by the EPUB standard), book directories should never be copied by hand to create new books. Instead, all new books should be generated using `softcover new`, and then any necessary files should be copied over individually.
+[^copy_directories]: Because Softcover books include a several elements that are specific to each book (including a symlink for the images directory, an internal book id, and a [https://en.wikipedia.org/wiki/Universally_unique_identifier](UUID) included to fulfill a requirement of the EPUB standard), book directories should never be copied by hand to create new books. Instead, all new books should be generated using `softcover new`, and then any necessary files should be copied over individually.
 
 [^poly_pronunciation]: \PolyTeXnic\ is pronounced exactly like the English word [*polytechnic*](http://www.thefreedictionary.com/polytechnic). The core input-to-output conversion is still handled by the \texttt{polytexnic} gem.
 

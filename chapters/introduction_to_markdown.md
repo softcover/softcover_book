@@ -183,7 +183,7 @@ Note that `<name>` should omit the file type, as PNG is assumed. For example, if
 $ rename_screenshot foo_bar
 ```
 
-\noindent the most recent screenshot would be moved to `full_size_figures/foo_bar.png` and a smaller image called `images/figures/foo_bar.png` would automatically be generated.
+\noindent the most recent screenshot would be moved to the directory `full_\-size_\-figures/\-foo_bar.png` and a smaller image called `images/\-figures/\-foo_\-bar.png` would automatically be generated.
 
 The \texttt{softcover} gem bundles `make_figures` as a standalone script in case you want to put other big images in the `full_size_figures` figures directory and then generate smaller versions using `make_figures` directly. You can put such images in `full_size_figures` and then run `make_figures` to generate a corresponding resized image in `images/figures`.
 
