@@ -228,7 +228,7 @@ $ sc -v
 ### Creating a Softcover book
 \label{sec:softcover_new}
 
-We see from Listing~\ref{code:softcover_help} that the way to generate a new Softcover book is with `softcover new <name>`. Let's try it out and see what happens; the results are shown in Listing~\ref{code:new_example_book}.
+We see from Listing~\ref{code:softcover_help} that the way to generate a new Softcover book is with `softcover new <name>`.[^copy_directories] Let's try it out and see what happens; the results are shown in Listing~\ref{code:new_example_book}.
 
 \begin{codelisting}
 \label{code:new_example_book}
@@ -580,6 +580,8 @@ Using `softcover deploy` makes publishing to the Softcover website completely fr
 
 
 <!-- footnotes  -->
+
+[^copy_directories]: Because Softcover books include a several elements that are specific to each book (including a symlink for the images directory, an internal book id, and a [https://en.wikipedia.org/wiki/Universally_unique_identifier](UUID) required as a unique identifier by the EPUB standard), book directories should never be copied by hand to create new books. Instead, all new books should be generated using `softcover new`, and then any necessary files should be copied over individually.
 
 [^poly_pronunciation]: \PolyTeXnic\ is pronounced exactly like the English word [*polytechnic*](http://www.thefreedictionary.com/polytechnic). The core input-to-output conversion is still handled by the \texttt{polytexnic} gem.
 
