@@ -4,5 +4,8 @@
 login info
 git push origin
 commented_out_warning
-softcover build:all --quiet
+softcover build:html
+softcover publish
+softcover build:mobi
+softcover build:pdf
 softcover publish
