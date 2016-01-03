@@ -157,7 +157,7 @@ All dependencies satisfied.
 - [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (place the `kindlegen` somewhere on your path, such as in `/usr/local/bin`)
 - [Calibre](http://calibre-ebook.com/) with the command-line tools (built-in on Linux; on OS X, see below)
 - [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you already have this one)
-- [EpubCheck 4.0](https://github.com/IDPF/epubcheck/releases/download/v4.0.1/epubcheck-4.0.1.zip) (unzip and place in a diretory on your path, i.e., `$HOME/bin`[^epub_path])
+- [EpubCheck 4.0.1](https://github.com/IDPF/epubcheck/releases/download/v4.0.1/epubcheck-4.0.1.zip) (unzip and place in a diretory on your path, i.e., `$HOME/bin`[^epub_path])
 
 On OS X, the Calibre command-line tools come included with Calibre, but in order to make them available you have to put them on your PATH. Using a text editor, put the contents of Listing~\ref{code:calibre_bash_profile} at the end of your `.bash\_profile` file, and then run the `source` command in Listing~\ref{code:source_bash_profile} to update your shell.
 
