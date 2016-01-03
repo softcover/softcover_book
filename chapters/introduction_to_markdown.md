@@ -141,7 +141,8 @@ This allows you to embed images like so:
 
 ```html
 ![Michael Hartl](images/figures/01_michael_hartl_headshot.jpg)
-<img alt="2011_michael_hartl" src="images/figures/01_michael_hartl_headshot.jpg" />
+<img alt="01_michael_hartl_headshot"
+src="images/figures/01_michael_hartl_headshot.jpg" />
 ```
 
 \noindent As a result, it's a good idea to use meaningful filenames for images for the sake of those using screen readers or other nonstandard browsers.

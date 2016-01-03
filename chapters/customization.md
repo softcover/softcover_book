@@ -243,7 +243,7 @@ Listing~\ref{code:figure_placement_example} shows a concrete example of using th
 
 
 \begin{figure}[H]
-\image{images/figures/2011_michael_hartl.png}
+\image{images/figures/01_michael_hartl_headshot.jpg}
 \caption{An image placed exactly ``here''.\label{fig:figure_placement_example}}
 \end{figure}
 
