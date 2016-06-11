@@ -142,7 +142,7 @@ $ git add --force epub/OEBPS/styles/custom_epub.css
 ### PDF style
 \label{sec:pdf_style}
 
-You can customize the PDF styles in two different ways. The first and simpler is to edit the file `latex_styles/custom_pdf.sty`, whose default content is shown in Listing~\ref{code:custom_pdf_style}. This file gets included *last*, so any rules in `custom_\-pdf.sty` will override the defaults. Common uses for the custom PDF style file include defining hyphenation rules for words \LaTeX\ can't hyphenate natively and adding support for any Unicode characters not supported by the PDF typesetting engine (xelatex). For example, uncommenting the code in Listing~\ref{code:custom_pdf_style} adds the rule for hyphenating "JavaScript" and adds PDF support for the Unicode characters ★ and ž (Listing~\ref{code:custom_pdf_style_uncommented}).
+You can customize the PDF styles in two different ways. The first and simpler way is to edit the file `latex_styles/custom_pdf.sty`, whose default content is shown in Listing~\ref{code:custom_pdf_style}. This file gets included *last*, so any rules in `custom_\-pdf.sty` will override the defaults. Common uses for the custom PDF style file include defining hyphenation rules for words \LaTeX\ can't hyphenate natively and adding support for any Unicode characters not supported by the PDF typesetting engine (xelatex). For example, uncommenting the code in Listing~\ref{code:custom_pdf_style} adds the rule for hyphenating "JavaScript" and adds PDF support for the Unicode characters ★ and ž (Listing~\ref{code:custom_pdf_style_uncommented}).
 
 \begin{codelisting}
 \label{code:custom_pdf_style}
@@ -179,7 +179,7 @@ My preference is to make PDFs as close to traditional print-quality as possible,
 ```
 \end{codelisting}
 
-The second method for customizing PDF output is to edit the file \linebreak `preamble.tex` in the `config` directory; the default contents appear in Listing~\ref{code:preamble_tex}. By editing this file, you can do things like change the PDF font size or include packages that don't work when included in `custom_pdf.sty`. For example, the default font size (`14pt`) is designed to look good on tablet devices such as iPad, but some authors may prefer the smaller fonts typically used for print publications (`10pt` or `12pt`). These smaller fonts use the default `book` class in place of the `extbook` class needed for 14pt fonts, as shown in Listing~\ref{code:preamble_tex_12_pt}.
+The second way to customizing PDF output is to edit the file \linebreak `preamble.tex` in the `config` directory; the default contents appear in Listing~\ref{code:preamble_tex}. By editing this file, you can do things like change the PDF font size or include packages that don't work when included in `custom_pdf.sty`. For example, the default font size (`14pt`) is designed to look good on tablet devices such as iPad, but some authors may prefer the smaller fonts typically used for print publications (`10pt` or `12pt`). These smaller fonts use the default `book` class in place of the `extbook` class needed for 14pt fonts, as shown in Listing~\ref{code:preamble_tex_12_pt}.
 
 \begin{codelisting}
 \label{code:preamble_tex}
