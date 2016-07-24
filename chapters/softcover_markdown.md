@@ -158,6 +158,7 @@ such as \*, you can do so with a backslash
 <<        left guillemet
 >>        right guillemet
 {}        braces
+|         Unix pipe
 ```
 
 \noindent Note that some of \LaTeX's special characters, such as $, are automatically escaped.

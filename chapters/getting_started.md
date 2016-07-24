@@ -128,7 +128,7 @@ $ gem install softcover -- --with-cppflags=-I/usr/local/opt/openssl/include
 
 \noindent installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the `nokogiri` gem to install.
 
-To build the full set of output formats, Softcover requires some external dependencies. The `softcover` command will prompt you to install each dependency at the appropriate time, but many users will find it more convenient to install all the dependencies at once.[^homebrew] To check which dependencies need to be installed on your system, run `softcover check`:
+To build the full set of output formats, Softcover requires some external dependencies. The `softcover` command will prompt you to install each dependency at the appropriate time, but many users will find it more convenient to install all the dependencies at once. To check which dependencies need to be installed on your system, run `softcover check`:
 
 ```console
 $ softcover check
@@ -593,8 +593,6 @@ Using `softcover deploy` makes publishing to the Softcover website completely fr
 [^sc_s]: For brevity, you can use `s` in place of `server`, as in `softcover s`. Since `sc` is an alias for `softcover`, you can even write `sc s` to start the local server. This is a little cryptic, so in the text I write `softcover server`, but in real life I nearly always just type `sc s`.
 
 [^ipad_address]: You can find the server's local network address by examining the results of `ifconfig`; in my experience the relevant address usually begins with 192 (when on the local wireless network) or 172 (when the iPad is attached directly to the computer), so you can probably extract the right local address using the command `ifconfig | egrep '(172|192)'`. Then add a colon and the port number (4000 by default). For example, on my system the correct address to connect the iPad to is typically 172.20.10.3:4000.
-
-[^homebrew]: Some Mac users will be tempted to use the otherwise excellent [Homebrew](http://brew.sh), but in the case of the Softcover dependencies I urge them to resist this temptation.
 
 [^kindlegen_proprietary]: The only proprietary part of the toolchain is the KindleGen program for building books in MOBI format, but authors can optionally use the open-source Calibre program as a replacement.
 
