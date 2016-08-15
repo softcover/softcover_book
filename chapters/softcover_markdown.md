@@ -163,7 +163,7 @@ such as \*, you can do so with a backslash
 
 \noindent Note that some of \LaTeX's special characters, such as $, are automatically escaped.
 
-Finally, in kramdown snake_case_words appear with underscores (a feature it shares with GitHub-flavored Markdown). This is convenient because vanilla Markdown would intepret the underscores as emphasis, yielding "snake*case*\-words", which probably isn't what you intended.
+Finally, in kramdown snake_case_words appear with underscores (a feature it shares with GitHub-flavored Markdown). This is convenient because vanilla Markdown would interpret the underscores as emphasis, yielding "snake*case*\-words", which probably isn't what you intended.
 
 ## Other advanced enhancements
 \label{sec:advanced_enhancements}
