@@ -678,17 +678,17 @@ Softcover also allows authors to make *numbered figures*, including captions, by
 \end{codelisting}
 
 
-Using a bare label with no caption text yields a figure with just a number (Figure~\ref{fig:road_to_hana} and Listing~\ref{code:figure_only_number}). Note that in both cases the labels are namespaced with `fig:`.
+Using a bare label with no caption text yields a figure with just a number (Figure~\ref{fig:mhartl_headshot} and Listing~\ref{code:figure_only_number}). Note that in both cases the labels are namespaced with `fig:`.
 
 
-![\label{fig:road_to_hana}](images/figures/01_michael_hartl_headshot.jpg)
+![\label{fig:mhartl_headshot}](images/figures/01_michael_hartl_headshot.jpg)
 
 
 \begin{codelisting}
 \label{code:figure_only_number}
-\codecaption{The code to produce Figure~\ref{fig:road_to_hana}.}
+\codecaption{The code to produce Figure~\ref{fig:mhartl_headshot}.}
 ```latex
-![\label{fig:road_to_hana}](images/figures/01_michael_hartl_headshot.jpg)
+![\label{fig:mhartl_headshot}](images/figures/01_michael_hartl_headshot.jpg)
 ```
 \end{codelisting}
 
