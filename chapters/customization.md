@@ -296,16 +296,22 @@ section: Section
 table: Table
 figure: Figure
 fig: Fig
-aside: Notes
+aside: Encadré
 listing: Listing
 equation: Équation
-eq: Eq
-frontmatter: Préliminaires
-contents: Table des Matières
+eq: Éq
+frontmatter: Introduction
+contents: Table des matières
 ```
 \end{codelisting}
 
-With the settings as in Listing~\ref{code:french_lang_yml}, labels such as "Chapitre" for "Chapter" will be unified across output formats. In addition, cross-references will link to the full word in addition to the number, so that, e.g., the link "Notes 1.1" would include the word "Notes" as well as "1.1" (as in Box~\ref{aside:softcover_uses}).
+With the settings as in Listing~\ref{code:french_lang_yml}, labels such as "Chapitre" for "Chapter" will be unified across output formats. In addition, cross-references will link to the full word in addition to the number, so that, e.g., the link "Encadré 1.1" would include the word "Encadré" as well as "1.1" (as in Box~\ref{aside:softcover_uses}).
+
+It's worth noting that in all cases authors still have to translate the corresponding words in the source, as shown here:
+
+```
+Chapitre~\ref{cha:customization} contient Encadré~\ref{aside:softcover_uses}.
+```
 
 ### Terrifyingly advanced comments on Hungarian
 \label{sec:hungarian}
