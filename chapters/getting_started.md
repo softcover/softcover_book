@@ -112,7 +112,7 @@ Naturally, *The Softcover Book* itself is written using Softcover. Indeed, you c
 ### Installing Softcover
 \label{sec:installing_softcover}
 
-The Softcover system is open-source software, distributed as a Ruby gem under the permissive [MIT License](http://opensource.org/licenses/MIT). The \softcover\ gem currently works with OS X and Linux, and we're looking for people to help us adapt it to other OSes. Join the [Softcover Google Group](https://groups.google.com/forum/#!forum/softcover-publishing) to be part of that effort.
+The Softcover system is open-source software, distributed as a Ruby gem under the permissive [MIT License](http://opensource.org/licenses/MIT). The \softcover\ gem currently works with macOS and Linux, and we're looking for people to help us adapt it to other OSes. Join the [Softcover Google Group](https://groups.google.com/forum/#!forum/softcover-publishing) to be part of that effort.
 
 To get started with Softcover, first [install Ruby](https://www.ruby-lang.org/en/documentation/installation/) (1.9.3 or later) and [install RubyGems](http://railstutorial.org/book#sec-install_rubygems) if you don't have them already. Once you've done so, getting Softcover is usually a simple `gem install`:[^sudo_install]
 
@@ -120,7 +120,7 @@ To get started with Softcover, first [install Ruby](https://www.ruby-lang.org/en
 $ gem install softcover
 ```
 
-\noindent There have been some reports of issues on OS X (Mavericks and later), so if you run into trouble with the previous step, try this command instead:[^sudo_install]
+\noindent There have been some reports of issues on macOS (Mavericks and later), so if you run into trouble with the previous step, try this command instead:[^sudo_install]
 
 ```text
 $ gem install softcover -- --with-cppflags=-I/usr/local/opt/openssl/include
@@ -155,12 +155,12 @@ All dependencies satisfied.
 - [PhantomJS](http://phantomjs.org/)
 - [Inkscape](http://inkscape.org/)
 - [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (place the `kindlegen` somewhere on your path, such as in `/usr/local/bin`)
-- [Calibre](http://calibre-ebook.com/) with the command-line tools (built-in on Linux; on OS X, see below)
+- [Calibre](http://calibre-ebook.com/) with the command-line tools (built-in on Linux; on macOS, see below)
 - [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you already have this one)
 <<<<<<< HEAD
 - [EpubCheck 4.0.1](https://github.com/IDPF/epubcheck/releases/download/v4.0.1/epubcheck-4.0.1.zip) (unzip and place in a diretory on your path, i.e., \linebreak `$HOME/bin`[^epub_path])
 
-On OS X, the Calibre command-line tools come included with Calibre, but in order to make them available you have to put them on your PATH. Using a text editor, put the contents of Listing~\ref{code:calibre_bash_profile} at the end of your `.bash\_profile` file, and then run the `source` command in Listing~\ref{code:source_bash_profile} to update your shell.
+On macOS, the Calibre command-line tools come included with Calibre, but in order to make them available you have to put them on your PATH. Using a text editor, put the contents of Listing~\ref{code:calibre_bash_profile} at the end of your `.bash\_profile` file, and then run the `source` command in Listing~\ref{code:source_bash_profile} to update your shell.
 
 \begin{codelisting}
 \label{code:calibre_bash_profile}
@@ -320,7 +320,7 @@ $ softcover build:html
 
 \noindent The result is a separate HTML file for each chapter in the `html/` directory, as well as a *frontmatter* file that contains everything that at the front of the book before the main content (such as the book title, author name, table of contents, preface, foreword, etc.).
 
-Let's take a look at the HTML for the frontmatter. On most systems, this can be accomplished by using a filesystem viewer to navigate to the `html/` directory and double-clicking on `frontmatter.html`. On Macintosh OS X, we can accomplish the same thing at the command line using the `open` command, which opens the given file using the default application for that file type (which on my system is Chrome):
+Let's take a look at the HTML for the frontmatter. On most systems, this can be accomplished by using a filesystem viewer to navigate to the `html/` directory and double-clicking on `frontmatter.html`. On Macintosh macOS, we can accomplish the same thing at the command line using the `open` command, which opens the given file using the default application for that file type (which on my system is Chrome):
 
 ```console
 $ open html/frontmatter.html
@@ -331,7 +331,9 @@ $ open html/frontmatter.html
 ![Viewing the HTML file for the example book frontmatter.\label{fig:example_frontmatter}](images/figures/example_frontmatter.png)
 
 Although inspecting raw HTML files is sometimes useful for debugging purposes, the best way to develop Softcover books is to use the local Softcover server, which
-detects when the source files have changed and automatically refreshes the browser.[^multiple_browsers] Let's open up a new terminal tab (Figure~\ref{fig:softcover_server}), navigate to the book directory, and fire up `softcover server`:[^sc_s]
+detects when the source files have changed and automatically refreshes the browser.[^multiple_browsers] (If you change a config or style file and want to rebuild the page, simply re-save one of the source files to prompt the server to refresh the browser.)
+
+To see how this works, let's open up a new terminal tab (Figure~\ref{fig:softcover_server}), navigate to the book directory, and fire up `softcover server`:[^sc_s]
 
 ```console
 $ softcover server
@@ -344,7 +346,7 @@ Maximum connections set to 1024
 Listening on 0.0.0.0:4000, CTRL+C to stop
 ```
 
-\noindent (You may have to install a [JavaScript runtime](https://github.com/sstephenson/execjs) if you don't have one installed already; I recommend [Node.js](http://nodejs.org/). Also, there have been some reports of the server hanging on OS~X, which is likely due to a recent change in the way OS~X handles SSL. Reinstalling Ruby should fix the issue.) Opening a browser and navigating to \linebreak <http://localhost:4000> then gives us a view of the HTML version of the first chapter of the book (Figure~\ref{fig:localhost_4000})
+\noindent (You may have to install a [JavaScript runtime](https://github.com/sstephenson/execjs) if you don't have one installed already; I recommend [Node.js](http://nodejs.org/). Also, there have been some reports of the server hanging on macOS, which is likely due to a recent change in the way macOS handles SSL\@. Reinstalling Ruby should fix the issue.) Opening a browser and navigating to \linebreak <http://localhost:4000> then gives us a view of the HTML version of the first chapter of the book (Figure~\ref{fig:localhost_4000})
 
 ![Running the Softcover server in a separate tab.\label{fig:softcover_server}](images/figures/softcover_server.png)
 
@@ -392,13 +394,13 @@ $ ls ebooks/
 example_book.epub
 ```
 
-\noindent If you don't already have an EPUB viewer installed on your computer, I suggest [Adobe Digital Editions](http://www.adobe.com/products/digital-editions.html). On OS X, if Adobe Digital Editions is associated with `.epub` files, you can open the example book EPUB like this:
+\noindent If you don't already have an EPUB viewer installed on your computer, I suggest [Adobe Digital Editions](http://www.adobe.com/products/digital-editions.html). On macOS, if Adobe Digital Editions is associated with `.epub` files, you can open the example book EPUB like this:
 
 ```console
 $ open ebooks/example_book.epub
 ```
 
-\noindent The result appears in Figure~\ref{fig:example_epub}. (*Note*: As of OS X Mavericks, you can also use iBooks to open EPUB files.)
+\noindent The result appears in Figure~\ref{fig:example_epub}. (*Note*: As of macOS Mavericks, you can also use iBooks to open EPUB files.)
 
 ![The example book EPUB.\label{fig:example_epub}](images/figures/example_epub.png)
 
@@ -549,7 +551,7 @@ $ softcover build:preview
 $ softcover publish
 ```
 
-\noindent You can now navigate to your book using your web browser, and in OS X and Linux you can open the book at the command line as well:
+\noindent You can now navigate to your book using your web browser, and in macOS and Linux you can open the book at the command line as well:
 
 ```console
 $ softcover open

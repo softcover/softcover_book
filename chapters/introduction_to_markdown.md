@@ -171,7 +171,7 @@ Screenshots are one of the most common types of images to include in a technical
 
 ![Example screenshot](images/figures/example_screenshot.png)
 
-\noindent Softcover comes with a script to make including them easier (Mac OS X–only):
+\noindent Softcover comes with a script to make including them easier (Mac macOS–only):
 
 1. Use Shift-Command-4 to take a screenshot.
 2. Run `rename_screenshot <name>` to rename the screenshot and place it in a standard location in your document folder (`images/figures`).
