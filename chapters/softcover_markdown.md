@@ -31,7 +31,7 @@ Of course, there's no law saying that we *have* to use Markdown, augmented or ot
 \]
 (These are the [time-independent Schr\"{o}dinger equation](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation#Time-independent_equation) and the [law of quadratic reciprocity](https://en.wikipedia.org/wiki/Quadratic_reciprocity), respectively.) As a bonus, the resulting \texttt{.tex} files have the highest level of trustworthiness of any file extension (Figure~\ref{fig:xkcd_extensions}).
 
-Despite a fondness for Markdown, \PolyTeX's superior power makes it my preferred Softcover input format. If your curiosity about \PolyTeX\ has been piqued, Chapter~\ref{cha:polytex_tutorial} will help get you started.
+Despite my fondness for Markdown, \PolyTeX's superior power makes it my preferred Softcover input format. If your curiosity about \PolyTeX\ has been piqued, Chapter~\ref{cha:polytex_tutorial} will help get you started.
 
 \end{aside}
 
