@@ -133,11 +133,14 @@ Any changes you make in `custom.css` (Section~\ref{sec:html_style}) will automat
 <<(epub/OEBPS/styles/custom_epub.css)
 \end{codelisting}
 
+\noindent The custom EPUB file used to come with default styles, but now it's initally empty, and all necessary styles are contained in `epub.css`.
+
 In earlier versions of Softcover, the entire `epub/` directory was ignored by default, so Git users may have to add the custom CSS file by hand:
 
 ```console
 $ git add --force epub/OEBPS/styles/custom_epub.css
 ```
+
 
 ### PDF style
 \label{sec:pdf_style}
