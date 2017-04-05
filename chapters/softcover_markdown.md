@@ -161,7 +161,7 @@ such as \*, you can do so with a backslash
 |         Unix pipe
 ```
 
-\noindent Note that some of \LaTeX's special characters, such as $, are automatically escaped.
+\noindent Note that some of \LaTeX's special characters, such as $, are automatically escaped when using Markdown input.
 
 Finally, in kramdown snake_case_words appear with underscores (a feature it shares with GitHub-flavored Markdown). This is convenient because vanilla Markdown would interpret the underscores as emphasis, yielding "snake*case*\-words", which probably isn't what you intended.
 
@@ -257,7 +257,7 @@ options: "linenos": true, "hl_lines": [1, 3]
 
 \noindent gets passed directly to Pygments, so any option listed on the [Pygments formatter options page](http://pygments.org/docs/formatters/) is automatically supported by Softcover.
 
-Because of how Softcover processes code blocks, any text immediately after code will be treated as a new paragraph. This isn't a problem in HTML, EPUB, or MOBI, but in PDFs new paragraphs are indented by default. If this isn't what you want---i.e., if the code block should be considered part of the middle of a paragraph---it is necessary to prepend the \LaTeX\ command \verb+\noindent+ before the first line after the block, as follows:
+Because of how Softcover processes code blocks, any text immediately after code will be treated as a new paragraph. This isn't a problem in HTML output, but in the ebook formats (EPUB, MOBI, and PDF) new paragraphs are indented by default. If this isn't what you want---i.e., if the code block should be considered part of the middle of a paragraph---it is necessary to prepend the \LaTeX\ command \verb+\noindent+ before the first line after the block, as follows:
 
 ```text
 ```ruby

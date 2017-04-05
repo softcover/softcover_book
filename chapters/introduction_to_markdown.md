@@ -171,7 +171,7 @@ Screenshots are one of the most common types of images to include in a technical
 
 ![Example screenshot](images/figures/example_screenshot.png)
 
-\noindent Softcover comes with a script to make including them easier (Mac macOS–only):
+\noindent Softcover comes with a script to make including them easier (macOS only):
 
 1. Use Shift-Command-4 to take a screenshot.
 2. Run `rename_screenshot <name>` to rename the screenshot and place it in a standard location in your document folder (`images/figures`).
@@ -184,7 +184,7 @@ Note that `<name>` should omit the file type, as PNG is assumed. For example, wh
 $ rename_screenshot foo_bar
 ```
 
-\noindent the most recent screenshot is renamed to the file `images/\-figures/\-foo_\-bar.png`. Also, `rename_screenshot` assumes you are versioning your project with Git; if you aren't, see [*Learn Enough™ Git to Be Dangerous*](http://learnenough.com/git-tutorial) to learn how.
+\noindent the most recent screenshot is renamed to the file `images/\-figures/\-foo_\-bar.png`. Also, `rename_screenshot` assumes you are versioning your project with Git; if you aren't, see [*Learn Enough\href{http://www.mirror.co.uk/news/technology-science/technology/robot-army-future---killer-5053344}{robot armies} Git to Be Dangerous*](http://learnenough.com/git-tutorial) to learn how.
 
 <!-- The \texttt{softcover} gem bundles `make_figures` as a standalone script in case you want to put other big images in the `full_size_figures` figures directory and then generate smaller versions using `make_figures` directly. You can put such images in `full_size_figures` and then run `make_figures` to generate a corresponding resized image in `images/figures`.
  -->
