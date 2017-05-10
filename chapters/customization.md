@@ -236,7 +236,7 @@ Listing~\ref{code:figure_placement_example} shows a concrete example of using th
 \begin{codelisting}
 \label{code:figure_placement_example}
 \codecaption{A working example of figure placement.}
-```
+```latex
 \begin{figure}[H]
 \image{images/figures/michael_hartl.png}
 \caption{An image placed ``here''.\label{fig:figure_placement_example}}
@@ -257,6 +257,44 @@ Listing~\ref{code:figure_placement_example} shows a concrete example of using th
 \include{float}
 ```
 \end{codelisting}
+
+Furthermore authors can also use \LaTex to create figures with custom sizes by using `includegraphics` and specifying `width` and `scale` paramaters as shown Listing~\ref{code:figure_size}. 
+
+\begin{codelisting}
+\label{code:figure_size}
+\codecaption{Custom figure size using LaTex.}
+```latex
+\begin{figure}[placement specifier]
+\centering
+\includegraphics[width=desired width,scale=desired scale]{images/image.pdf}
+\caption{Custom image size using LaTex}
+\label{fig:custom_fig_label}
+\end{figure}
+```
+\end{codelisting}
+
+Listing~\ref{code:figure_size_example} shows a concrete example of using custom image size, whose result appears in Figure~\ref{fig:figure_size_example}. 
+
+\begin{codelisting}
+\label{code:figure_size_example}
+\codecaption{A working example of custom figure size.}
+```latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=20mm,scale=0.25]{images/2011_michael_hartl.png}
+\caption{An image with 20 mm width and 0.25 scale. \label{fig:figure_size_example}}
+\end{figure}
+
+```
+\end{codelisting}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1mm,scale=0.25]{images/2011_michael_hartl.png}
+\caption{An image with 20mm width and 0.25 scale. \label{fig:figure_size_example}}
+\end{figure}
+
 
 ## Foreign-language support
 \label{sec:foreign_language}
