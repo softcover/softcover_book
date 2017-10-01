@@ -252,7 +252,7 @@ Listing~\ref{code:figure_placement_example} shows a concrete example of using th
 
 \begin{codelisting}
 \label{code:float_package}
-\codecaption{Including the \kode{float} package to enable the \kode{H} option. \\ \filepath{latex_styles/custom\_pdf.sty}}
+\codecaption{Including the \kode{float} package to enable the \kode{H} option. \\ \filepath{latex\_styles/custom\_pdf.sty}}
 ```
 \include{float}
 ```
