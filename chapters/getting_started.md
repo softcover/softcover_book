@@ -597,7 +597,7 @@ $ softcover new -a example_article
 
 <!-- footnotes  -->
 
-[^copy_directories]: Because Softcover books include a several elements that are specific to each book (including a symlink for the images directory, an internal book id, and a [https://en.wikipedia.org/wiki/Universally_unique_identifier](UUID) included to fulfill a requirement of the EPUB standard), book directories should never be copied by hand to create new books. Instead, all new books should be generated using `softcover new`, and then any necessary files should be copied over individually.
+[^copy_directories]: Because Softcover books include a several elements that are specific to each book (including a symlink for the images directory, an internal book id, and a [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) included to fulfill a requirement of the EPUB standard), book directories should never be copied by hand to create new books. Instead, all new books should be generated using `softcover new`, and then any necessary files should be copied over individually.
 
 [^poly_pronunciation]: \PolyTeXnic\ is pronounced exactly like the English word [*polytechnic*](http://www.thefreedictionary.com/polytechnic). The core input-to-output conversion is still handled by the \texttt{polytexnic} gem.
 
