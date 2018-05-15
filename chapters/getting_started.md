@@ -318,7 +318,7 @@ $ softcover build:html
 
 \noindent The result is a separate HTML file for each chapter in the `html/` directory, as well as a *frontmatter* file that contains everything that at the front of the book before the main content (such as the book title, author name, table of contents, preface, foreword, etc.).
 
-Let's take a look at the HTML for the frontmatter. On most systems, this can be accomplished by using a filesystem viewer to navigate to the `html/` directory and double-clicking on `frontmatter.html`. On Macintosh macOS, we can accomplish the same thing at the command line using the `open` command, which opens the given file using the default application for that file type (which on my system is Chrome):
+Let's take a look at the HTML for the frontmatter. On most systems, this can be accomplished by using a filesystem viewer to navigate to the `html/` directory and double-clicking on `frontmatter.html`. On macOS, we can accomplish the same thing at the command line using the `open` command, which opens the given file using the default application for that file type (which on my system is Chrome):
 
 ```console
 $ open html/frontmatter.html
