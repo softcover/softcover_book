@@ -279,7 +279,7 @@ Only two steps are required to support foreign languages across different output
 ```
 \end{codelisting}
 
-Second, to enable foreign language support in HTML/-EPUB/-MOBI, we need to edit the file `lang.yml` in the `config` directory to tell Softcover the names of the various elements (chapter, section, listing, etc.). The default (English) values are shown in Listing~\ref{code:default_lang_yml}, while the edited values for French are shown in Listing~\ref{code:french_lang_yml}.
+Second, to enable foreign language support in HTML/\-EPUB/\-MOBI, we need to edit the file `lang.yml` in the `config` directory to tell Softcover the names of the various elements (chapter, section, listing, etc.). The default (English) values are shown in Listing~\ref{code:default_lang_yml}, while the edited values for French are shown in Listing~\ref{code:french_lang_yml}.
 
 \begin{codelisting}
 \label{code:default_lang_yml}
