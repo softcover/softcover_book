@@ -238,7 +238,7 @@ Listing~\ref{code:figure_placement_example} shows a concrete example of using th
 \codecaption{A working example of figure placement.}
 ```
 \begin{figure}[H]
-\image{images/figures/michael_hartl.png}
+\image{images/figures/01_michael_hartl_headshot.jpg}
 \caption{An image placed ``here''.\label{fig:figure_placement_example}}
 \end{figure}
 ```
@@ -257,6 +257,24 @@ Listing~\ref{code:figure_placement_example} shows a concrete example of using th
 \include{float}
 ```
 \end{codelisting}
+
+Note that \kode{\textbackslash image} in the examples above is a special image command defined by the Softcover system (in `latex_styles/softcover.sty`). To insert an image with a border box, use the closely related command \kode{\textbackslash imagebox} (Listing~\ref{code:imagebox} and Figure~\ref{fig:imagebox}).
+
+\begin{codelisting}
+\label{code:imagebox}
+\codecaption{Using an imagebox.}
+```
+\begin{figure}[H]
+\imagebox{images/figures/01_michael_hartl_headshot.jpg}
+\caption{An image with a border box.\label{fig:imagebox}}
+\end{figure}
+```
+\end{codelisting}
+
+\begin{figure}[H]
+\imagebox{images/figures/01_michael_hartl_headshot.jpg}
+\caption{An image with a border box.\label{fig:imagebox}}
+\end{figure}
 
 ## Foreign-language support
 \label{sec:foreign_language}
