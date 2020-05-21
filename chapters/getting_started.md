@@ -6,10 +6,10 @@ This is [*The Softcover Book*](https://manual.softcover.io/book)---the manual fo
 The Softcover production toolchain and publishing platform are especially designed to help authors make the transition from "writing a book" to "building a business," using the following [three-step plan](http://www.youtube.com/watch?v=tO5sxLapAts):
 
 1. Make ebooks, screencasts, etc.
-2. Release a free HTML book (*optional*) while selling ebooks and multiple product bundles
+2. Sell HTML and ebooks and multiple product bundles
 3. Profit!!!
 
-\noindent Of course, it's not necessary to follow the Three Step Plan\texttrademark\ exactly, and Softcover can be used for many different purposes (Box~\ref{aside:softcover_uses}). In particular, as indicated by the "optional" note in Step 2, adopting the [*Ruby on Rails Tutorial* book](https://www.railstutorial.org/book)'s practice of releasing a free HTML version is not required. Softcover authors are certainly encouraged to make the HTML versions of their books free---both as a marketing tool and because it's [awesome](http://breadpig.com/products/awesomesauce)---but Softcover allows the HTML to be placed behind paywalls as well.
+\noindent Of course, it's not necessary to follow the Three Step Plan\texttrademark\ exactly, and Softcover can be used for many different purposes (Box~\ref{aside:softcover_uses}).
 
 \begin{aside}
 \label{aside:softcover_uses}
@@ -18,7 +18,7 @@ The Softcover production toolchain and publishing platform are especially design
 \noindent Softcover is a flexible tool, so it has many potential uses. The first use represents Softcover's principal design goal, but the others are valid possibilities as well:
 
 
-* **Make a free HTML book, bundle ebooks with other digital goods, and sell them from the [Softcover.io](https://www.softcover.io/) online storefront**
+* **Make an HTML book, bundle ebooks with other digital goods, and sell them from the [Softcover.io](https://www.softcover.io/) online storefront**
 * Charge for all products (including the HTML book) at [Softcover.io](https://www.softcover.io/)
 * Produce ebooks with the Softcover typesetting system and give them away
 * Produce ebooks with Softcover and sell them using the [Softcover.io](https://www.softcover.io/) online storefront
@@ -30,7 +30,7 @@ The Softcover production toolchain and publishing platform are especially design
 Softcover is dedicated by the philosophy of *full author ownership*:
 
 * **Own your content**: Authors retain copyright on all materials.
-* **Own your production toolchain**: The Softcover typesetting system is open-source, so you aren't locked into a proprietary toolchain.[^kindlegen_proprietary]
+* **Own your production toolchain**: The Softcover typesetting system is open-source, so you aren't locked into a proprietary toolchain.
 * **Own your traffic**: Softcover supports custom domains.
 * **Own your customer list**: Authors get all relevant contact information and never have to use an intermediary to communicate with their customers.
 
@@ -138,7 +138,6 @@ Checking for Node.js...       Found
 Checking for PhantomJS...     Found
 Checking for Inkscape...      Found
 Checking for Calibre...       Found
-Checking for KindleGen...     Found
 Checking for Java...          Found
 Checking for EpubCheck...     Found
 All dependencies satisfied.
@@ -153,7 +152,6 @@ All dependencies satisfied.
 - [Node.js](http://nodejs.org/)
 - [PhantomJS](http://phantomjs.org/)
 - [Inkscape](http://inkscape.org/)
-- [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (place the `kindlegen` somewhere on your path, such as in `/usr/local/bin`)
 - [Calibre](http://calibre-ebook.com/) with the command-line tools (built-in on Linux; on macOS, see below)
 - [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you already have this one)
 - [EpubCheck 4.0.1](https://github.com/IDPF/epubcheck/releases/download/v4.0.1/epubcheck-4.0.1.zip) (unzip and place in a diretory on your path, i.e., \linebreak `$HOME/bin`[^epub_path])
@@ -414,14 +412,6 @@ $ softcover build:mobi
 
 \noindent As with EPUB, you can use command-line options to make the MOBI builder quiet (`-q`) or silent (`-s`).
 
-A second possibility when building MOBI files is to use [KindleGen](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211) (via the `kindlegen` executable), supplied by Amazon.com itself:
-
-```console
-$ softcover build:mobi --kindlegen
-```
-
-\noindent Selling KindleGen-generated MOBI files anywhere other than Amazon.com violates the [KindleGen terms of use](http://www.amazon.com/gp/feature.html?docId=1000599251), so Softcover recommends using KindleGen only if you plan to give your book away for free or to sell it on Amazon.
-
 To view the MOBI file on your computer, I recommend installing [Kindle Reader](http://www.amazon.com/gp/feature.html?docId=1000493771). The result appears in Figure~\ref{fig:example_mobi}.
 
 ![The example book MOBI.\label{fig:example_mobi}](images/figures/example_mobi.png)
@@ -608,10 +598,6 @@ $ softcover new -a example_article
 
 [^ipad_address]: You can find the server's local network address by examining the results of `ifconfig`; in my experience the relevant address usually begins with 192 (when on the local wireless network) or 172 (when the iPad is attached directly to the computer), so you can probably extract the right local address using the command `ifconfig | egrep '(172|192)'`. Then add a colon and the port number (4000 by default). For example, on my system the correct address to connect the iPad to is typically 172.20.10.3:4000.
 
-[^kindlegen_proprietary]: The only proprietary part of the toolchain is the KindleGen program for building books in MOBI format, but authors can optionally use the open-source Calibre program as a replacement.
-
 [^epub_path]: If `$HOME/bin` does not exist, you can create it using `mkdir $HOME/bin`. Then move EpubCheck there using `mv epubcheck-4.0.1 $HOME/bin`. Depending on your system, you might have to add `$HOME/bin` to the path by editing and sourcing `.bash_profile` (as shown in Listing~\ref{code:calibre_bash_profile} and Listing~\ref{code:source_bash_profile}).
-
-[^kindlegen_breaks_previews]: It used to be possible to extract chapter ranges while keeping the visual appearance of cross-references intact, but this functionality is broken in MOBI files as of KindleGen 2.9. The current method, using `Preview.txt`, isn't as slick as it was in earlier versions of the \texttt{softcover} gem is but is much more robust.
 
 [^sudo_install]: On some systems, you may need to use `sudo` to install the gem.
