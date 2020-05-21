@@ -118,13 +118,13 @@ as in the `def` keyword
 Markdown supports hypertext links through a convenient format inspired by common usage in email, where you might write something like this as:
 
 ```text
-Check out the Ruby on Rails Tutorial (http://www.railstutorial.org/)
+Check out the Ruby on Rails Tutorial (https://www.railstutorial.org/)
 ```
 
-\noindent Markdown adds one piece of syntax to resolve the ambiguity of exactly which text corresponds to the link, thus letting you check out the [Ruby on Rails Tutorial](http://www.railstutorial.org/) as follows:
+\noindent Markdown adds one piece of syntax to resolve the ambiguity of exactly which text corresponds to the link, thus letting you check out the [Ruby on Rails Tutorial](https://www.railstutorial.org/) as follows:
 
 ```text
-check out the [Ruby on Rails Tutorial](http://www.railstutorial.org/)
+check out the [Ruby on Rails Tutorial](https://www.railstutorial.org/)
 ```
 
 Images follow a similar syntax, with the text being preceded by an exclamation point. This allows you to embed images like so:
@@ -184,7 +184,7 @@ Note that `<name>` should omit the file type, as PNG is assumed. For example, wh
 $ rename_screenshot foo_bar
 ```
 
-\noindent the most recent screenshot is renamed to the file `images/\-figures/\-foo_\-bar.png`. Also, `rename_screenshot` assumes you are versioning your project with Git; if you aren't, see [*Learn Enough\href{http://www.mirror.co.uk/news/technology-science/technology/robot-army-future---killer-5053344}{robot armies} Git to Be Dangerous*](http://learnenough.com/git-tutorial) to learn how.
+\noindent the most recent screenshot is renamed to the file `images/\-figures/\-foo_\-bar.png`. Also, `rename_screenshot` assumes you are versioning your project with Git; if you aren't, see [*Learn Enough\href{http://www.mirror.co.uk/news/technology-science/technology/robot-army-future---killer-5053344}{robot armies} Git to Be Dangerous*](https://www.learnenough.com/git-tutorial) to learn how.
 
 <!-- The \texttt{softcover} gem bundles `make_figures` as a standalone script in case you want to put other big images in the `full_size_figures` figures directory and then generate smaller versions using `make_figures` directly. You can put such images in `full_size_figures` and then run `make_figures` to generate a corresponding resized image in `images/figures`.
  -->

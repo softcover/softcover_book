@@ -1,7 +1,14 @@
 # Getting started
 \label{cha:getting_started}
 
-This is [*The Softcover Book*](http://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors. Softcover consists of two main parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](http://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}). Based on the technology used to make the [*Ruby on Rails Tutorial* book](http://ruby.railstutorial.org/) and [*The Tau Manifesto*](http://tauday.com/tau-manifesto), Softcover makes publishing *frictionless* by allowing authors to build and deploy ebooks and other digital goods with a single command.
+This is [*The Softcover Book*](https://manual.softcover.io/book)---the manual for *Softcover*, a publishing platform for technical authors. Softcover consists of two main parts: a state-of-the-art [open-source ebook typesetting system](https://github.com/softcover/softcover) (Section~\ref{sec:softcover_system}), and an [online platform](https://www.softcover.io/) for publishing, marketing, and selling ebooks and other digital goods (Section~\ref{sec:softcover_website}). Based on the technology used to make the [*Ruby on Rails Tutorial* book](https://www.railstutorial.org/) and [*The Tau Manifesto*](https://tauday.com/tau-manifesto), Softcover makes publishing *frictionless* by allowing authors to build and deploy ebooks and other digital goods with a single command.
+
+\begin{figure}
+\begin{center}
+\image{images/figures/regex_101.png}
+\end{center}
+\caption{An \href{https://regex101.com/}{online regex builder}.\label{fig:regex_101}}
+\end{figure}
 
 The Softcover production toolchain and publishing platform are especially designed to help authors make the transition from "writing a book" to "building a business," using the following [three-step plan](http://www.youtube.com/watch?v=tO5sxLapAts):
 
@@ -9,7 +16,7 @@ The Softcover production toolchain and publishing platform are especially design
 2. Release a free HTML book (*optional*) while selling ebooks and multiple product bundles
 3. Profit!!!
 
-\noindent Of course, it's not necessary to follow the Three Step Plan\texttrademark\ exactly, and Softcover can be used for many different purposes (Box~\ref{aside:softcover_uses}). In particular, as indicated by the "optional" note in Step 2, adopting the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book)'s practice of releasing a free HTML version is not required. Softcover authors are certainly encouraged to make the HTML versions of their books free---both as a marketing tool and because it's [awesome](http://breadpig.com/products/awesomesauce)---but Softcover allows the HTML to be placed behind paywalls as well.
+\noindent Of course, it's not necessary to follow the Three Step Plan\texttrademark\ exactly, and Softcover can be used for many different purposes (Box~\ref{aside:softcover_uses}). In particular, as indicated by the "optional" note in Step 2, adopting the [*Ruby on Rails Tutorial* book](https://www.railstutorial.org/book)'s practice of releasing a free HTML version is not required. Softcover authors are certainly encouraged to make the HTML versions of their books free---both as a marketing tool and because it's [awesome](http://breadpig.com/products/awesomesauce)---but Softcover allows the HTML to be placed behind paywalls as well.
 
 \begin{aside}
 \label{aside:softcover_uses}
@@ -18,10 +25,10 @@ The Softcover production toolchain and publishing platform are especially design
 \noindent Softcover is a flexible tool, so it has many potential uses. The first use represents Softcover's principal design goal, but the others are valid possibilities as well:
 
 
-* **Make a free HTML book, bundle ebooks with other digital goods, and sell them from the [Softcover.io](http://softcover.io/) online storefront**
-* Charge for all products (including the HTML book) at [Softcover.io](http://softcover.io/)
+* **Make a free HTML book, bundle ebooks with other digital goods, and sell them from the [Softcover.io](https://www.softcover.io/) online storefront**
+* Charge for all products (including the HTML book) at [Softcover.io](https://www.softcover.io/)
 * Produce ebooks with the Softcover typesetting system and give them away
-* Produce ebooks with Softcover and sell them using the [Softcover.io](http://softcover.io/) online storefront
+* Produce ebooks with Softcover and sell them using the [Softcover.io](https://www.softcover.io/) online storefront
 * Produce ebooks with Softcover and sell them from your own website
 * Use Softcover to make ebooks out of technical documentation and host them on an internal website
 
@@ -41,9 +48,9 @@ In the rest of this chapter, we'll cover the steps needed to install and use the
 ## The Softcover typesetting system
 \label{sec:softcover_system}
 
-In this section, we'll cover the basics of the Softcover open-source ebook typesetting system for technical authors. Its [*raison d'\^{e}tre*](http://www.merriam-webster.com/dictionary/raison%20d'etre) is producing profes\-sional-grade multi-format ebooks from a common set of source files. In particular, Softcover accepts input in *Markdown*, a lightweight markup language, or *\PolyTeX*, a subset of the powerful \LaTeX\ typesetting language, and outputs ebooks as HTML, EPUB, MOBI, and PDF\@. The Softcover system also comes with a local server that automatically rebuilds a book's HTML output when the source files change, so that your favorite text editor and web browser combine to form a real-time development environment for writing ebooks. Finally, authors can use Softcover to upload ebooks and other media files to the [Softcover website](http://www.softcover.io/) with a single command (Section~\ref{sec:softcover_website}), thereby dramatically lowering the barrier to publishing, updating, and selling digital information products.
+In this section, we'll cover the basics of the Softcover open-source ebook typesetting system for technical authors. Its [*raison d'\^{e}tre*](http://www.merriam-webster.com/dictionary/raison%20d'etre) is producing profes\-sional-grade multi-format ebooks from a common set of source files. In particular, Softcover accepts input in *Markdown*, a lightweight markup language, or *\PolyTeX*, a subset of the powerful \LaTeX\ typesetting language, and outputs ebooks as HTML, EPUB, MOBI, and PDF\@. The Softcover system also comes with a local server that automatically rebuilds a book's HTML output when the source files change, so that your favorite text editor and web browser combine to form a real-time development environment for writing ebooks. Finally, authors can use Softcover to upload ebooks and other media files to the [Softcover website](https://www.softcover.io/) with a single command (Section~\ref{sec:softcover_website}), thereby dramatically lowering the barrier to publishing, updating, and selling digital information products.
 
-Originally developed under the name *\PolyTeXnic*[^poly_pronunciation] to write the [*Ruby on Rails Tutorial* book](http://railstutorial.org/book) and [*The Tau Manifesto*](http://tauday.com/tau-manifesto), Softcover  has been rewritten and expanded as part of developing the [Softcover publishing platform](http://www.softcover.io/). True to its origins, Softcover supports a wide range of features useful for writing technical books, including mathematical typesetting (Eq.~\eqref{eq:maxwell})[^maxwell] and syntax-highlighted source code listings (Listing~\ref{code:eval}). It is also well-suited to writing non-technical books, with support for chapters, sections, cross-references, footnotes, lists, figures, tables, etc.---the only requirement is that the *author* be technical. (If you know how to use a command line and have a favorite text editor, you are technical enough to use Softcover.)
+Originally developed under the name *\PolyTeXnic*[^poly_pronunciation] to write the [*Ruby on Rails Tutorial* book](https://www.railstutorial.org/book) and [*The Tau Manifesto*](https://tauday.com/tau-manifesto), Softcover  has been rewritten and expanded as part of developing the [Softcover publishing platform](https://www.softcover.io/). True to its origins, Softcover supports a wide range of features useful for writing technical books, including mathematical typesetting (Eq.~\eqref{eq:maxwell})[^maxwell] and syntax-highlighted source code listings (Listing~\ref{code:eval}). It is also well-suited to writing non-technical books, with support for chapters, sections, cross-references, footnotes, lists, figures, tables, etc.---the only requirement is that the *author* be technical. (If you know how to use a command line and have a favorite text editor, you are technical enough to use Softcover.)
 
 
 
@@ -113,7 +120,7 @@ Naturally, *The Softcover Book* itself is written using Softcover. Indeed, you c
 
 The Softcover system is open-source software, distributed as a Ruby gem under the permissive [MIT License](http://opensource.org/licenses/MIT). The \softcover\ gem currently works with macOS and Linux, and we're looking for people to help us adapt it to other OSes. Join the [Softcover Google Group](https://groups.google.com/forum/#!forum/softcover-publishing) to be part of that effort.
 
-To get started with Softcover, first [install Ruby](https://www.ruby-lang.org/en/documentation/installation/) (1.9.3 or higher) and [install RubyGems](http://railstutorial.org/book#sec-install_rubygems) if you don't have them already. Once you've done so, getting Softcover is usually a simple `gem install`:[^sudo_install]
+To get started with Softcover, first [install Ruby](https://www.ruby-lang.org/en/documentation/installation/) (1.9.3 or higher) and [install RubyGems](https://www.railstutorial.org/book#sec-install_rubygems) if you don't have them already. Once you've done so, getting Softcover is usually a simple `gem install`:[^sudo_install]
 
 ```console
 $ gem install softcover
@@ -125,7 +132,7 @@ $ gem install softcover
 $ gem install softcover -- --with-cppflags=-I/usr/local/opt/openssl/include
 ```
 
-\noindent installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](http://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the `nokogiri` gem to install.
+\noindent installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](https://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the `nokogiri` gem to install.
 
 To build the full set of output formats, Softcover requires some external dependencies. The `softcover` command will prompt you to install each dependency at the appropriate time, but many users will find it more convenient to install all the dependencies at once. To check which dependencies need to be installed on your system, run `softcover check`:
 
@@ -270,7 +277,7 @@ Done. Please update config/book.yml
 ```
 \end{codelisting}
 
-\noindent *Note*: If your document is more naturally thought of as a single article rather than as a book, you should use the *article* format instead, as discussed in Section~\ref{sec:articles}. The tutorials at [Learn Enough to Be Dangerous](http://learnenough.com/) use this format.
+\noindent *Note*: If your document is more naturally thought of as a single article rather than as a book, you should use the *article* format instead, as discussed in Section~\ref{sec:articles}. The tutorials at [Learn Enough to Be Dangerous](https://www.learnenough.com/) use this format.
 
 The default book format generated by `softcover new` is *Markdown*---or, rather, a superset of Markdown that includes extensions to make it more suitable for writing longer documents. As discussed in Chapter~\ref{cha:softcover_flavored_markdown}, this includes features such as select [kramdown](https://github.com/gettalong/kramdown) extensions (numbered footnotes, tables, etc.),  GitHub-style code fencing, and embedded \LaTeX\@. Authors who want more fine-grained control over their documents (or who already know \LaTeX) can use `softcover new -p <name>` to generate a \PolyTeX\ template instead; see Chapter~\ref{cha:polytex_tutorial} for details.
 
@@ -481,7 +488,7 @@ The behavior of `softcover build:all` is customizable via the \linebreak `.softc
 #### Previews
 \label{sec:build_previews}
 
-Finally, Softcover can optionally build a *preview* of your book in each output format, which is a particularly useful feature when selling your ebook (either on your own website or at [Softcover](http://softcover.io)). Because of the different ways the PDF and EPUB/MOBI formats work, there are two separate ways to specify the preview range. (You have to keep them roughly in sync by hand, but it's rarely important for the preview ranges to be exact, so this isn't a big problem in practice.) The configuration for PDF is a *page* range, while for EPUB/MOBI it's a *chapter* range (with "Chapter 0" being frontmatter like the table of contents, preface, etc.). Both ranges are specified in `book.yml` (Listing~\ref{code:preview_ranges}).
+Finally, Softcover can optionally build a *preview* of your book in each output format, which is a particularly useful feature when selling your ebook (either on your own website or at [Softcover](https://www.softcover.io)). Because of the different ways the PDF and EPUB/MOBI formats work, there are two separate ways to specify the preview range. (You have to keep them roughly in sync by hand, but it's rarely important for the preview ranges to be exact, so this isn't a big problem in practice.) The configuration for PDF is a *page* range, while for EPUB/MOBI it's a *chapter* range (with "Chapter 0" being frontmatter like the table of contents, preface, etc.). Both ranges are specified in `book.yml` (Listing~\ref{code:preview_ranges}).
 
 \begin{codelisting}
 \label{code:preview_ranges}
@@ -531,11 +538,11 @@ images/cover-web.png   images/cover.jpg    images/cover.pdf    images/cover.png
 ## Publishing to the Softcover website
 \label{sec:softcover_website}
 
-The \softcover\ command-line client includes commands for interacting with the [Softcover.io](http://softcover.io) website, making it easy to publish the book (in all its formats) to the live web. In this section, we'll discuss the steps needed to see a book-in-progress during the writing process; Chapter~\ref{cha:marketing_selling} discusses the details needed when preparing to make your book publicly available.
+The \softcover\ command-line client includes commands for interacting with the [Softcover.io](https://www.softcover.io) website, making it easy to publish the book (in all its formats) to the live web. In this section, we'll discuss the steps needed to see a book-in-progress during the writing process; Chapter~\ref{cha:marketing_selling} discusses the details needed when preparing to make your book publicly available.
 
 ### Publishing ebooks
 
-To get started with [Softcover.io](http://softcover.io), first [create an account](http://softcover.io). Once you have an account, log in using the CLI as follows:
+To get started with [Softcover.io](https://www.softcover.io), first [create an account](https://www.softcover.io). Once you have an account, log in using the CLI as follows:
 
 ```console
 $ softcover login
@@ -583,7 +590,7 @@ Using `softcover deploy` makes publishing to the Softcover website completely fr
 ### Articles
 \label{sec:articles}
 
-Softcover also supports the LaTeX *article* format, which produces an ebook that is effectively a single chapter. As mentioned above, the tutorials at [Learn Enough\href{http://www.mirror.co.uk/news/technology-science/technology/robot-army-future---killer-5053344}{robot armies} to Be Dangerous](http://learnenough.com/) use this format.
+Softcover also supports the LaTeX *article* format, which produces an ebook that is effectively a single chapter. As mentioned above, the tutorials at [Learn Enough\href{http://www.mirror.co.uk/news/technology-science/technology/robot-army-future---killer-5053344}{robot armies} to Be Dangerous](https://www.learnenough.com/) use this format.
 
 You can generate an article using the `-a` option to `softcover new`:
 

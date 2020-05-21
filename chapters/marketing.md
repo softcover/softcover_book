@@ -1,14 +1,14 @@
 # Marketing and selling
 \label{cha:marketing_selling}
 
-Softcover combines the production system described starting in Chapter~\ref{cha:getting_started} with an easy-to-use sales platform. This chapter describes the steps supported by [Softcover.io](http://www.softcover.io/) to market and launch Softcover books and associated media.
+Softcover combines the production system described starting in Chapter~\ref{cha:getting_started} with an easy-to-use sales platform. This chapter describes the steps supported by [Softcover.io](https://www.softcover.io/) to market and launch Softcover books and associated media.
 
 We start with simple instructions for optionally including media bundles (Section~\ref{sec:screencasts_and_other_media}), and then describe the steps needed to create a marketing page for your products (Section~\ref{sec:marketing_page}). We then describe site settings and customizations (Section~\ref{sec:site_settings}), such as public access, free or pay HTML books, custom domains, and Google Analytics.
 
 ## Screencasts and other media
 \label{sec:screencasts_and_other_media}
 
-Softcover is designed to make it easy to write and publish books, but books are only the foundation. Products like the [Ruby on Rails Tutorial](http://ruby.railstutorial.org/), [Learn Python the Hard Way](http://learnpythonthehardway.org/), and [The App Design Handbook](http://nathanbarry.com/app-design-handbook/) show the value of combining ebooks with other media (such as screencast videos) to create premium product bundles.
+Softcover is designed to make it easy to write and publish books, but books are only the foundation. Products like the [Ruby on Rails Tutorial](https://www.railstutorial.org/), [Learn Python the Hard Way](http://learnpythonthehardway.org/), and [The App Design Handbook](http://nathanbarry.com/app-design-handbook/) show the value of combining ebooks with other media (such as screencast videos) to create premium product bundles.
 
 The current Softcover system supports automatic association of screencast ZIP files using a simple convention. To include a screencast product along with a book called `example_book`, simply create a screencast ZIP file `example_book.screencasts.zip` in the `media` directory. To include a preview screencast as well, create an m4v or mp4 formatted video file and put it in `media/preview.m4v`.
 
@@ -165,7 +165,7 @@ hide_custom_domain_footer: false
 ## Site settings and customizations
 \label{sec:site_settings}
 
-In this section we'll discuss the various ways to customize your Softcover site's settings using the Manage page for your book. The examples are drawn from a real site hosted on Softcover, the [Ruby on Rails Tutorial](http://www.railstutorial.org/). For example, Figure~\ref{fig:manage_button} shows the button to the Manage page at www.railstutorial.org.
+In this section we'll discuss the various ways to customize your Softcover site's settings using the Manage page for your book. The examples are drawn from a real site hosted on Softcover, the [Ruby on Rails Tutorial](https://www.railstutorial.org/). For example, Figure~\ref{fig:manage_button} shows the button to the Manage page at www.railstutorial.org.
 
 ![The link to the Manage page.\label{fig:manage_button}](images/figures/manage_button.png)
 
@@ -206,7 +206,7 @@ www.example.com CNAME domains.softcover.io
 example.com ALIAS domains.softcover.io
 ```
 
-Once you've added the `CNAME` (or `ALIAS`) record, add the full domain into the custom domain field on your book's manage page, as shown in Figure~\ref{fig:custom_domain} for the Rails Tutorial's custom domain ([www.railstutorial.org](http://www.railstutorial.org/)). Once the custom domain field has been set, `www.example.com` will resolve automatically to the Softcover marketing page, and `www.example.com/book` will resolve to the HTML book page.
+Once you've added the `CNAME` (or `ALIAS`) record, add the full domain into the custom domain field on your book's manage page, as shown in Figure~\ref{fig:custom_domain} for the Rails Tutorial's custom domain ([www.railstutorial.org](https://www.railstutorial.org/)). Once the custom domain field has been set, `www.example.com` will resolve automatically to the Softcover marketing page, and `www.example.com/book` will resolve to the HTML book page.
 
 ![Inputting the custom domain.\label{fig:custom_domain}](images/figures/custom_domain.png)
 

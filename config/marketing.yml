@@ -30,8 +30,8 @@ authors:
     bio:
       |
         Michael Hartl is the author of the
-        [Ruby on Rails Tutorial](http://www.railstutorial.org)
-        and is a cofounder of [Softcover](http://www.softcover.io).
+        [Ruby on Rails Tutorial](https://www.railstutorial.org)
+        and is a cofounder of [Softcover](https://www.softcover.io).
 
 faq:
   -
@@ -42,7 +42,7 @@ faq:
 
   -
     question: How do I use Softcover?
-    answer: Go to <http://www.softcover.io/> to sign up for an account and
+    answer: Go to <https://www.softcover.io/> to sign up for an account and
             then follow the instructions on the setup page.
 
 testimonials:

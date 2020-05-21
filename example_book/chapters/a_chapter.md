@@ -1,7 +1,7 @@
 # A chapter
 \label{cha:a_chapter}
 
-This is the first paragraph of the Softcover Markdown template. It shows how to write a document in Markdown, a lightweight markup language, augmented with the [kramdown](http://kramdown.rubyforge.org/) converter and some custom extensions, including support for embedded \PolyTeX, a subset of the powerful \LaTeX\ typesetting system.  For more information, see [*The Softcover Book*](http://manual.softcover.io/book). To learn how to easily publish (and optionally sell) documents produced with Softcover, visit [Softcover.io](http://softcover.io/). Softcover is currently in private beta; go to [Softcover.io](http://softcover.io/) to get an invitation.
+This is the first paragraph of the Softcover Markdown template. It shows how to write a document in Markdown, a lightweight markup language, augmented with the [kramdown](http://kramdown.rubyforge.org/) converter and some custom extensions, including support for embedded \PolyTeX, a subset of the powerful \LaTeX\ typesetting system.  For more information, see [*The Softcover Book*](https://manual.softcover.io/book). To learn how to easily publish (and optionally sell) documents produced with Softcover, visit [Softcover.io](https://www.softcover.io/). Softcover is currently in private beta; go to [Softcover.io](https://www.softcover.io/) to get an invitation.
 
 This is the *second* paragraph, showing how to emphasize text.[^sample-footnote] You can also make text **bold** or _emphasize a second way_.
 
@@ -94,7 +94,7 @@ Softcover supports raw tables via a simple table syntax:
 | `PATCH` | /users/1 | `update` | update user with id `1` |
 | `DELETE` | /users/1 | `destroy` | delete user with id `1` |
 
-See [*The Softcover Book*](http://manual.softcover.io/book/softcover_markdown#sec-embedded_tabular_and_tables) to learn how to make more complicated tables.
+See [*The Softcover Book*](https://manual.softcover.io/book/softcover_markdown#sec-embedded_tabular_and_tables) to learn how to make more complicated tables.
 
 ## Command-line interface
 
@@ -134,7 +134,7 @@ This is the end of the template---apart from two mostly empty chapters. In fact,
 
 <<(chapters/yet_another_chapter.md, lang: text)
 
-Visit [*The Softcover Book*](http://manual.softcover.io) to learn more about what Softcover can do.
+Visit [*The Softcover Book*](https://manual.softcover.io) to learn more about what Softcover can do.
 
 
 [^sample-footnote]: This is a footnote. It is numbered automatically.
