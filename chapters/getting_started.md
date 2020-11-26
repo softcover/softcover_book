@@ -125,7 +125,15 @@ $ gem install softcover
 $ gem install softcover -- --with-cppflags=-I/usr/local/opt/openssl/include
 ```
 
-\noindent installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](https://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the `nokogiri` gem to install.
+\noindent Or possibly this:
+
+```text
+% gem install softcover -- --with-cppflags=-I/usr/local/opt/openssl/include \
+                        --with-cflags="-Wno-error=implicit-function-declaration"
+
+```
+
+\noindent This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](https://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the `nokogiri` gem to install.
 
 To build the full set of output formats, Softcover requires some external dependencies. The `softcover` command will prompt you to install each dependency at the appropriate time, but many users will find it more convenient to install all the dependencies at once. To check which dependencies need to be installed on your system, run `softcover check`:
 
