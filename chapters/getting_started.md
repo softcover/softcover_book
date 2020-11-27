@@ -34,7 +34,7 @@ Softcover is inspired by the philosophy of *full author ownership*:
 * **Own your traffic**: Softcover supports custom domains.
 * **Own your customer list**: Authors get all relevant contact information and never have to use an intermediary to communicate with their customers.
 
-\noindent In short, Softcover is a publishing platform I would be happy to use even if I weren't one of the founders of the company. (As Softcover moves forward with its private beta, we'll determine the details of author compensation, but our plan is to pay royalties in the 90% range.)
+\noindent In short, Softcover is a publishing platform I would be happy to use even if I weren't one of the founders of the company.
 
 In the rest of this chapter, we'll cover the steps needed to install and use the Softcover typesetting system, which includes a command-line interface for building and publishing ebooks. Subsequent chapters cover Markdown, the default input format for Softcover (Chapter~\ref{cha:introduction_to_markdown} and Chapter~\ref{cha:softcover_flavored_markdown}), and \PolyTeX, a more complicated but more powerful input format based on the \LaTeX\ typesetting language (Chapter~\ref{cha:polytex_tutorial}).
 
