@@ -43,7 +43,7 @@ In the rest of this chapter, we'll cover the steps needed to install and use the
 
 In this section, we'll cover the basics of the Softcover open-source ebook typesetting system for technical authors. Its [*raison d'\^{e}tre*](http://www.merriam-webster.com/dictionary/raison%20d'etre) is producing profes\-sional-grade multi-format ebooks from a common set of source files. In particular, Softcover accepts input in *Markdown*, a lightweight markup language, or *\PolyTeX*, a subset of the powerful \LaTeX\ typesetting language, and outputs ebooks as HTML, EPUB, MOBI, and PDF\@. The Softcover system also comes with a local server that automatically rebuilds a book's HTML output when the source files change, so that your favorite text editor and web browser combine to form a real-time development environment for writing ebooks. Finally, authors can use Softcover to upload ebooks and other media files to the [Softcover website](https://www.softcover.io/) with a single command (Section~\ref{sec:softcover_website}), thereby dramatically lowering the barrier to publishing, updating, and selling digital information products.
 
-Originally developed under the name *\PolyTeXnic*[^poly_pronunciation] to write the [*Ruby on Rails Tutorial* book](https://www.railstutorial.org/book) and [*The Tau Manifesto*](https://tauday.com/tau-manifesto), Softcover  has been rewritten and expanded as part of developing the [Softcover publishing platform](https://www.softcover.io/). True to its origins, Softcover supports a wide range of features useful for writing technical books, including mathematical typesetting (Eq.~\eqref{eq:maxwell})[^maxwell] and syntax-highlighted source code listings (Listing~\ref{code:eval}). It is also well-suited to writing non-technical books, with support for chapters, sections, cross-references, footnotes, lists, figures, tables, etc.---the only requirement is that the *author* be technical. (If you know how to use a command line and have a favorite text editor, you are technical enough to use Softcover.)
+Originally developed under the name *\PolyTeXnic*[^poly_pronunciation] to write the [*Ruby on Rails Tutorial* book](https://www.railstutorial.org/book) and [*The Tau Manifesto*](https://tauday.com/tau-manifesto), Softcover  has been rewritten and expanded as part of developing the [Softcover publishing platform](https://www.softcover.io/). True to its origins, Softcover supports a wide range of features useful for writing technical books, including mathematical typesetting (Eq.~\eqref{eq:maxwell})[^maxwell] and syntax-highlighted source code listings (Listing~\ref{code:eval}). It is also well-suited to writing non-technical books, with support for chapters, sections, cross-references, footnotes, lists, figures, tables, etc.---the only requirement is that the *author* be technical. (If you know how to use the Unix [command line](https://www.learnenough.com/command-line) and have a favorite [text editor](https://www.learnenough.com/text-editor), you are technical enough to use Softcover.)
 
 
 
@@ -125,7 +125,7 @@ $ gem install softcover
 $ gem install softcover -- --with-cppflags=-I/usr/local/opt/openssl/include
 ```
 
-\noindent Or possibly this:
+\noindent or possibly this:
 
 ```text
 % gem install softcover -- --with-cppflags=-I/usr/local/opt/openssl/include \
@@ -133,7 +133,7 @@ $ gem install softcover -- --with-cppflags=-I/usr/local/opt/openssl/include
 
 ```
 
-\noindent This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](https://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the `nokogiri` gem to install.
+\noindent This installs the `softcover` command-line interface (CLI) for creating new books, building ebooks, and publishing ebooks and other digital assets to the [Softcover website](https://www.softcover.io/). On some systems, you may have to install extra libraries; for example, on Ubuntu I needed to install `ruby1.9.1-dev` to get the \texttt{nokogiri} gem to install.
 
 To build the full set of output formats, Softcover requires some external dependencies. The `softcover` command will prompt you to install each dependency at the appropriate time, but many users will find it more convenient to install all the dependencies at once. To check which dependencies need to be installed on your system, run `softcover check`:
 
@@ -195,29 +195,30 @@ To see the commands supported by `softcover`, run `softcover help` at the comman
 ```console
 $ softcover help
 Commands:
-softcover build, build:all           # Build all formats
-softcover build:epub                 # Build EPUB
-softcover build:html                 # Build HTML
-softcover build:mobi                 # Build MOBI
-softcover build:pdf                  # Build PDF
-softcover build:preview              # Build book preview in all formats
-softcover check                      # Check dependencies
-softcover clean                      # Clean unneeded files
-softcover config                     # View local config
-softcover config:add key=value       # Add to your local config vars
-softcover config:remove key          # Remove key from local config vars
-softcover deploy                     # Build & publish book
-softcover epub:validate, epub:check  # Validate EPUB with epubcheck
-softcover help [COMMAND]             # Describe available commands...
-softcover login                      # Log into Softcover account
-softcover logout                     # Log out of Softcover account
-softcover new <name>                 # Generate new book directory structure
-softcover open                       # Open book on Softcover website
-softcover publish                    # Publish your book on Softcover
-softcover publish:media              # Publish media
-softcover server                     # Run local server
-softcover unpublish                  # Remove book from Softcover
-softcover version                    # Return the version number
+  softcover build, build:all           # Build all formats
+  softcover build:epub                 # Build EPUB
+  softcover build:html                 # Build HTML
+  softcover build:mobi                 # Build MOBI
+  softcover build:pdf                  # Build PDF
+  softcover build:preview              # Build book preview in all formats
+  softcover check                      # Check dependencies
+  softcover clean                      # Clean unneeded files
+  softcover config                     # View local config
+  softcover config:add key=value       # Add to your local config vars
+  softcover config:remove key          # Remove key from local config vars
+  softcover deploy                     # Build & publish book
+  softcover epub:validate, epub:check  # Validate EPUB with epubcheck
+  softcover exercises                  # Add exercise id elements as spans
+  softcover help [COMMAND]             # Describe available commands...
+  softcover login                      # Log into Softcover account
+  softcover logout                     # Log out of Softcover account
+  softcover new <name>                 # Generate new document directory structure
+  softcover open                       # Open book on Softcover website
+  softcover publish                    # Publish your book on Softcover
+  softcover publish:media              # Publish media
+  softcover server                     # Run local server
+  softcover unpublish                  # Remove book from Softcover
+  softcover version                    # Return the version number (-v for short)
 ```
 \end{codelisting}
 
@@ -598,7 +599,7 @@ $ softcover new -a example_article
 
 [^poly_pronunciation]: \PolyTeXnic\ is pronounced exactly like the English word [*polytechnic*](http://www.thefreedictionary.com/polytechnic). The core input-to-output conversion is still handled by the \texttt{polytexnic} gem.
 
-[^maxwell]: Eq.~\eqref{eq:maxwell} is written in *rationalized [MKS units](http://en.wikipedia.org/wiki/MKS_system_of_units)* (also known as ``God's Units''), which set \( \mu_0=\epsilon_0=1 \). (In addition to being beautiful, this choice of units gives us \( c = 1/\sqrt{\mu_0\epsilon_0} = 1 \) for free.)
+[^maxwell]: Eq.~\eqref{eq:maxwell} is written in *rationalized [MKS units](http://en.wikipedia.org/wiki/MKS_system_of_units)* (also known as ``God's units''), which set \( \mu_0=\epsilon_0=1 \). (In addition to being beautiful, this choice of units gives us \( c = 1/\sqrt{\mu_0\epsilon_0} = 1 \) for free.)
 
 [^multiple_browsers]: Take care to attach only one browser at a time; otherwise, the Softcover server won't know which browser to refresh.
 
