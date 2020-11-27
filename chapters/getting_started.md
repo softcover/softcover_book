@@ -27,7 +27,7 @@ The Softcover production toolchain and publishing platform are especially design
 
 \end{aside}
 
-Softcover is dedicated by the philosophy of *full author ownership*:
+Softcover is inspired by the philosophy of *full author ownership*:
 
 * **Own your content**: Authors retain copyright on all materials.
 * **Own your production toolchain**: The Softcover typesetting system is open-source, so you aren't locked into a proprietary toolchain.
