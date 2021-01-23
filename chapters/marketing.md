@@ -188,7 +188,7 @@ The settings in Figure~\ref{fig:access_options} arrange for the Ruby on Rails Tu
 ### Custom domains
 \label{sec:custom_domains}
 
-In order to give authors maximum control, Softcover supports custom domains.  To use a custom domain for your book and other products, first create a `CNAME` record pointing to the following address:
+In order to give authors maximum control, Softcover supports custom domains.  To use a custom domain for your book and other products, first create a `CNAME` record pointing to the following address (Figure~\ref{fig:cname} shows how to do this at [Cloudflare](https://www.cloudflare.com)):
 
 ```text
 domains.softcover.io
@@ -205,6 +205,8 @@ www.example.com CNAME domains.softcover.io
 ```text
 example.com ALIAS domains.softcover.io
 ```
+
+![Creating a CNAME record at Cloudflare.\label{fig:cname}](images/figures/cname.png)
 
 Once you've added the `CNAME` (or `ALIAS`) record, add the full domain into the custom domain field on your book's manage page, as shown in Figure~\ref{fig:custom_domain} for the Rails Tutorial's custom domain ([www.railstutorial.org](https://www.railstutorial.org/)). Once the custom domain field has been set, `www.example.com` will resolve automatically to the Softcover marketing page, and `www.example.com/book` will resolve to the HTML book page.
 
