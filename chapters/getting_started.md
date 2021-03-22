@@ -164,7 +164,7 @@ All dependencies satisfied.
 - [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you already have this one)
 - [EpubCheck 4.0.1](https://github.com/IDPF/epubcheck/releases/download/v4.0.1/epubcheck-4.0.1.zip) (unzip and place in a diretory on your path, i.e., \linebreak `$HOME/bin`[^epub_path])
 
-On macOS, the Calibre command-line tools come included with Calibre, but in order to make them available you have to put them on your \texttt{PATH}. Using a text editor, put the contents of Listing~\ref{code:calibre_bash_profile} at the end of your `.bash\_profile` file, and then run the `source` command in Listing~\ref{code:source_bash_profile} to update your shell.
+On macOS, the Calibre command-line tools come included with calibre, but in order to make them available you have to put them on your \texttt{PATH}. Using a text editor, put the contents of Listing~\ref{code:calibre_bash_profile} at the end of your `.bash\_profile` file, and then run the `source` command in Listing~\ref{code:source_bash_profile} to update your shell.
 
 \begin{codelisting}
 \label{code:calibre_bash_profile}
@@ -173,7 +173,7 @@ On macOS, the Calibre command-line tools come included with Calibre, but in orde
 .
 .
 .
-export CALIBRE="/Applications/calibre.app/Contents/console.app/Contents/MacOS"
+export CALIBRE="/Applications/calibre.app/Contents/MacOS"
 export PATH="$CALIBRE:$PATH"
 ```
 \end{codelisting}
