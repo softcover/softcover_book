@@ -113,13 +113,15 @@ Naturally, *The Softcover Book* itself is written using Softcover. Indeed, you c
 
 The Softcover system is open-source software, distributed as a Ruby gem under the permissive [MIT License](http://opensource.org/licenses/MIT). The \softcover\ gem currently works with macOS and Linux, and we're looking for people to help us adapt it to other OSes. Join the [Softcover Google Group](https://groups.google.com/forum/#!forum/softcover-publishing) to be part of that effort.
 
-To get started with Softcover, first [install Ruby](https://www.ruby-lang.org/en/documentation/installation/) (1.9.3 or higher) and [install RubyGems](https://www.railstutorial.org/book#sec-install_rubygems) if you don't have them already. Once you've done so, getting Softcover is usually a simple `gem install`:[^sudo_install]
+To get started with Softcover, first [install Ruby](https://www.ruby-lang.org/en/documentation/installation/) (1.9.3 or higher) and [install RubyGems](https://www.railstutorial.org/book#sec-install_rubygems) if you don't have them already. Once you've done so, getting Softcover is usually a simple `gem install`:
 
 ```console
 $ gem install softcover
 ```
 
-\noindent There have been some reports of issues on macOS (Mavericks and later), so if you run into trouble with the previous step, try this command instead:[^sudo_install]
+\noindent If you run into any permissions issues, either use `sudo`[^sudo_install] or (preferred) use [rbenv](https://github.com/rbenv/rbenv#groom-your-apps-ruby-environment-with-rbenv) to manage your Ruby environment and gems.
+
+There have been some reports of installation issues on macOS (Mavericks and later), so if you run into trouble with the previous step, try this command instead:
 
 ```text
 $ gem install softcover -- --with-cppflags=-I/usr/local/opt/openssl/include
@@ -609,4 +611,4 @@ $ softcover new -a example_article
 
 [^epub_path]: If `$HOME/bin` does not exist, you can create it using `mkdir $HOME/bin`. Then move EpubCheck there using `mv epubcheck-4.0.1 $HOME/bin`. Depending on your system, you might have to add `$HOME/bin` to the path by editing and sourcing `.bash_profile` (as shown in Listing~\ref{code:calibre_bash_profile} and Listing~\ref{code:source_bash_profile}).
 
-[^sudo_install]: On some systems, you may need to use `sudo` to install the gem.
+[^sudo_install]: `sudo gem install <gem name>`
