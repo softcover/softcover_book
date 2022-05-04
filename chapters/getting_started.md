@@ -157,7 +157,7 @@ All dependencies satisfied.
 
 - [LaTeX](http://latex-project.org/ftp.html)
 
-    The \LaTeX\ download is *big*, so start downloading it now. Also, I strongly recommend installing a precompiled version of \LaTeX\ and *not* building it from source. *Note*: Several Mac users have reported having to restart their terminal program after installing Mac\TeX\ in order to enable the \LaTeX\ command-line programs.
+    The \LaTeX\ download is *big*, so start downloading it now. Also, I strongly recommend installing a precompiled version of \LaTeX\ and *not* building it from source. Make sure to use the version of \LaTeX\ appropriate for your system from the link above; in particular, macOS users should use the [MacTeX package](https://tug.org/mactex/mactex-download.html) rather than the version installed by Homebrew. Finally, several macOS users have reported having to restart their terminal program after installing Mac\TeX\ in order to enable the \LaTeX\ command-line programs (specifically, `xelatex`).
 - [ImageMagick](http://www.imagemagick.org/script/binary-releases.php)
 - [Node.js](http://nodejs.org/)
 - [PhantomJS](http://phantomjs.org/)
