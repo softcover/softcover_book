@@ -160,7 +160,10 @@ All dependencies satisfied.
     The \LaTeX\ download is *big*, so start downloading it now. Also, I strongly recommend installing a precompiled version of \LaTeX\ and *not* building it from source. Make sure to use the version of \LaTeX\ appropriate for your system from the link above; in particular, macOS users should use the [MacTeX package](https://tug.org/mactex/mactex-download.html) rather than the version installed by Homebrew. Finally, several macOS users have reported having to restart their terminal program after installing Mac\TeX\ in order to enable the \LaTeX\ command-line programs (specifically, `xelatex`).
 - [ImageMagick](http://www.imagemagick.org/script/binary-releases.php)
 - [Node.js](http://nodejs.org/)
-- [PhantomJS](http://phantomjs.org/)
+- [PhantomJS](http://phantomjs.org/) (needed only for math output in EPUB and MOBI)
+
+    Development on the PhantomJS project has been suspended but the binaries should still work on most systems. Also, if you don't plan to LaTeX for mathematical typesetting in EPUB and MOBI output, you don’t need PhantomJS at all.
+
 - [Inkscape](http://inkscape.org/)
 - [Calibre](http://calibre-ebook.com/) with the command-line tools (built-in on Linux; on macOS, see below)
 - [Java](http://www.java.com/en/download/help/index_installing.xml) (chances are you already have this one)
