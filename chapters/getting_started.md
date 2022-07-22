@@ -162,7 +162,7 @@ All dependencies satisfied.
 - [Node.js](http://nodejs.org/)
 - [PhantomJS](http://phantomjs.org/) (needed only for math output in EPUB and MOBI)
 
-    Development on the PhantomJS project has been suspended but the binaries should still work on most systems. Also, if you don't plan to LaTeX for mathematical typesetting in EPUB and MOBI output, you don’t need PhantomJS at all.
+    Development on the PhantomJS project has been suspended but the binaries should still work on most systems. If you have trouble installing PhantomJS on Linux, see [this Stack Overflow thread](https://stackoverflow.com/questions/73004195/phantomjs-wont-install-autoconfiguration-error/73063745) to see if it helps. Finally, if you don't plan to use \LaTeX\ for mathematical typesetting in EPUB and MOBI output, you don’t need PhantomJS at all.
 
 - [Inkscape](http://inkscape.org/)
 - [Calibre](http://calibre-ebook.com/) with the command-line tools (built-in on Linux; on macOS, see below)
