@@ -366,6 +366,8 @@ Writing books works just fine with a text editor and browser placed side-by-side
 
 For now, I suggest playing around with the server a little to get the hang of it, and then move on to building the various ebook formats (Section~\ref{sec:building_ebooks}).
 
+*Note*: `softcover server` also supports PDF output. See Section~\ref{sec:build_pdf} for details.
+
 <!-- We'll have more to say about writing a book using the Softcover server in Chapter~\ref{cha:introduction_to_markdown} and Chapter~\ref{cha:polytex_tutorial}. ***is this true?
  -->
 ![Writing with the editor and browser side-by-side.\label{fig:editor_browser}](images/figures/editor_browser.png)
@@ -383,6 +385,7 @@ Install LaTeX (http://latex-project.org/ftp.html)
 ```
 
 \noindent I recommend installing all the dependencies at once, as described in \linebreak Section~\ref{sec:installing_softcover}.
+
 
 #### EPUB
 \label{sec:build_epub}
@@ -459,6 +462,19 @@ $ softcover build:pdf --once
 
 \noindent This not only saves valuable time when building a longer book, but it is also useful when you're debugging a \LaTeX\ syntax error and you don't want to keep pressing `x` twice every time you run the command.
 
+As noted in Section~\ref{sec:html_softcover_server}, the latest version of `softcover server` also supports PDF output:
+
+```console
+$ softcover server --format pdf
+```
+
+\noindent In this case, the server will rebuild the PDF using
+
+```
+softcover build:pdf --once
+```
+
+\noindent under the hood. This is especially useful when typesetting documents (such as math-heavy manuscripts) that include formatting not fully supported by HTML output but work fine in PDF\@. In such cases, it is strongly recommended to use a PDF viewer like [Skim](https://skim-app.sourceforge.io/) that can be configured to reload modified PDFs automatically. (To configure Skim to auto-reload PDFs, go to Skim > Preferences, click Sync, and then select "Check for file changes" and check "Reload automatically". Strangely, neither Adobe Acrobat Reader nor macOS Preview can do such auto-reloading as of this writing.)
 
 #### All formats
 \label{sec:build_all}
