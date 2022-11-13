@@ -465,7 +465,7 @@ $ softcover build:pdf --once
 As noted in Section~\ref{sec:html_softcover_server}, the latest version of `softcover server` also supports PDF output:
 
 ```console
-$ softcover server --format pdf
+$ softcover server --pdf
 ```
 
 \noindent In this case, the server will rebuild the PDF using
