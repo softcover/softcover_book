@@ -18,10 +18,12 @@ Once the ZIP file is in place, you can publish the screencasts to Softcover with
 $ softcover publish:media
 ```
 
-<!-- +++add material on arbitrary media and the README convention -->
-
 \noindent To save time, this will only upload new files or ones that have changed since the last time you last published them.
 
+## Book description
+\label{sec:book_description}
+
+The main description for the book should be placed after the `description:` key in `config/book.yml`.
 
 ## Marketing page
 \label{sec:marketing_page}
