@@ -23,7 +23,61 @@ $ softcover publish:media
 ## Book description
 \label{sec:book_description}
 
-The main description for the book should be placed after the `description:` key in `config/book.yml`.
+The main description for the book should be placed after the `description:` key in `config/book.yml` (Listing~\ref{code:book_description}).
+
+\begin{codelisting}
+\label{code:book_description}
+\codecaption{The book description. \\ \filepath{config/book.yml}}
+```yaml, options: "hl_lines": [6]
+---
+slug: softcover_book
+filename: softcover_book
+title: The Softcover Book
+subtitle: Frictionless self-publishing
+description: "The manual for the Softcover typesetting and publishing system."
+author: Michael Hartl
+copyright: 2013
+uuid: b2bfdd92-e5f1-4dc6-b7ce-4999e3870a12
+pdf_preview_page_range: 1..30
+epub_mobi_preview_chapter_range: 0..1
+```
+\end{codelisting}
+
+\noindent This will be displayed on the main book page (Figure~\ref{fig:book_description}).
+
+![The book description.\label{fig:book_description}](images/figures/book_description.png)
+
+For most books, such as [*Conquering the Command Line*](https://conqueringthecommandline.com/), a longer description is appropriate (Listing~\ref{code:longer_description} and Figure~\ref{fig:longer_description}).
+
+\begin{codelisting}
+\label{code:longer_description}
+\codecaption{A longer book description. \\ \filepath{config/book.yml}}
+```yaml, options: "hl_lines": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+---
+title: Conquering the Command Line
+slug: unix_commands
+author: Mark Bates
+filename: unix_commands
+subtitle: Unix and Linux Commands for Developers
+cover: images/cover.png
+description:
+  |
+  Learn to master and conquer the most valuable and useful command line tools
+  for Unix and Linux based systems.
+
+  In this book you will find not only the most useful command line tools you
+  need to know, but also the most helpful options and flags for those tools.
+
+  Conquering the Command Line isn't just a rehash of the MAN page for these
+  tools, but rather a human-readable walk-through of these tools to make you
+  instantly more productive in your daily development life.
+copyright: 2014
+uuid: 0d0cde45-2ff4-4845-acf2-f579f3232b8a
+
+```
+\end{codelisting}
+
+![A longer book description.\label{fig:longer_description}](images/figures/longer_description.png)
 
 ## Marketing page
 \label{sec:marketing_page}
