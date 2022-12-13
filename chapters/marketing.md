@@ -5,6 +5,47 @@ Softcover combines the production system described starting in Chapter~\ref{cha:
 
 We start with simple instructions for optionally including media bundles (Section~\ref{sec:screencasts_and_other_media}), and then describe the steps needed to create a marketing page for your products (Section~\ref{sec:marketing_page}). We then describe site settings and customizations (Section~\ref{sec:site_settings}), such as public access, free or pay HTML books, custom domains, and Google Analytics.
 
+## Publishing a book
+\label{sec:publishing_a_book}
+
+To publish a book, you first need to build whichever formats you're supporting. For example, if you're using all of HTML, EPUB, MOBI, and PDF, you can use this:
+
+```
+$ softcover build
+```
+
+If you're using just HTML and EPUB (with no MOBI or PDF), then you'd use this:
+
+```
+$ softcover build:html
+$ softcover build:epub
+```
+
+You can customize the build by editing `.softcover-build` as described in Section~\ref{sec:customizing_builds}.
+
+Once the files are built, you can publish to Softcover as follows:
+
+```
+$ softcover publish
+```
+
+(You may have to use `softcover login` to log in first.)
+
+To combine everything into one convenient step, customize the deployment by editing `.softcover-deploy` as described in Section~\ref{sec:customizing_deploys} and then use the following command:
+
+```
+$ softcover deploy
+```
+
+This builds the files as determined by `.softcover-deploy`.
+
+To see your book on the Softcover website, run the following command:
+
+```
+$ softcover open
+```
+
+
 ## Screencasts and other media
 \label{sec:screencasts_and_other_media}
 
