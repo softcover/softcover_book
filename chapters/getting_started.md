@@ -130,6 +130,14 @@ $ gem install softcover -- --with-cppflags=-I/usr/local/opt/openssl/include
 \noindent or possibly this:
 
 ```text
+% gem install softcover -- \
+                        --with-cflags="-Wno-error=implicit-function-declaration"
+
+```
+
+\noindent or this:
+
+```text
 % gem install softcover -- --with-cppflags=-I/usr/local/opt/openssl/include \
                         --with-cflags="-Wno-error=implicit-function-declaration"
 
